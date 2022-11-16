@@ -1,12 +1,10 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+
+using Serilog;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace TUWWorker
 {
@@ -14,7 +12,26 @@ namespace TUWWorker
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
+                .Enrich.FromLogContext()
+                .WriteTo.File(@"f:\temp\log.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+            try
+            {
+                Log.Information("measuring-element indul");
+                CreateHostBuilder(args).Build().Run();
+            }
+            catch(Exception exception)
+            {
+                Log.Fatal("measuring-element váratlanul leált");
+                Log.Debug(exception.Message);
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -22,6 +39,7 @@ namespace TUWWorker
                     .ConfigureWebHostDefaults(webBuilder =>
                     {
                         webBuilder.UseStartup<Startup>();
+                        webBuilder.UseUrls("http://localhost:5010");
                     })
                     .ConfigureServices((hostContext, services) =>
                     {

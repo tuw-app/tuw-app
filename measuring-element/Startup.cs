@@ -35,8 +35,9 @@ namespace TUWWorker
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
+            
+            // htts-t nem használunk certificate miatt
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
