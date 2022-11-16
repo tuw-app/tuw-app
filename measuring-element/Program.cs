@@ -16,14 +16,14 @@ namespace TUWWorker
                 .MinimumLevel.Debug()
                 .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
                 .Enrich.FromLogContext()
-                .WriteTo.File(@"f:\temp\log.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.File(@"f:\temp\log-start-stop.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
             try
             {
                 Log.Information("measuring-element indul");
                 CreateHostBuilder(args).Build().Run();
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 Log.Fatal("measuring-element váratlanul leált");
                 Log.Debug(exception.Message);
@@ -36,6 +36,13 @@ namespace TUWWorker
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                    .ConfigureLogging(loggerFactory =>
+                    {
+                        loggerFactory.SetMinimumLevel(LogLevel.Debug);
+                        loggerFactory.AddFile(@"f:\temp\log-{Date}.json", isJson: true);                        
+                        loggerFactory.AddEventLog();
+
+                    })                        
                     .ConfigureWebHostDefaults(webBuilder =>
                     {
                         webBuilder.UseStartup<Startup>();
