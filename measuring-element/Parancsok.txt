@@ -14,26 +14,18 @@ Jelszó: tws12345
 
 #43-3
 
-
-$file = c:\tws\measuring-element.exe
+$directory = c:\tws\
+$file=measuring-element.exe
 $user = "43-3\tws"
 
-$acl = Get-Acl c:\tws\measuring-element.exe
-$acl = Get-Acl $file
+$acl = Get-Acl c:\tws\
 echo $acl
 
 $aclRuleArgs = "43-3\tws", "Read,Write,ReadAndExecute", "ContainerInherit,ObjectInherit", "None", "Allow"    
-$aclRuleArgs = $user, "Read,Write,ReadAndExecute", "ContainerInherit,ObjectInherit", "None", "Allow"    
-
-$aclRuleArgs = "43-3\tws", "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow"    
-$aclRuleArgs1 = $user, "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow"   
-
-
-aclRuleArgs3 = "BUILTIN\tws", "Read,Write,ReadAndExecute", "ContainerInherit,ObjectInherit", "None", "Allow"    
-
 echo $aclRuleArgs
 
-$accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule($aclRuleArgs3)
+
+$accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule($aclRuleArgs)
 echo $accessRule
 
 $
@@ -42,4 +34,5 @@ echo $acl
 
 $acl | Set-Acl "c:\tws\measuring-element.exe"
 
-New-Service -Name TWS-S -BinaryPathName "c:\tws" -Credential "43-3\tws" -Description "CPU Temperature and Usege Service" -DisplayName "TWS-S" -StartupType Automatic
+New-Service -Name TUS-S -BinaryPathName "c:\tws\measuring-element.exe" -Credential "43-3\tws" -Description "CPU Temperature and Usege Service" -DisplayName "TWS-S" -StartupType Automatic
+New-Service -Name {SERVICE NAME} -BinaryPathName "{EXE FILE PATH}" -Credential "{DOMAIN OR COMPUTER NAME\USER}" -Description "{DESCRIPTION}" -DisplayName "{DISPLAY NAME}" -StartupType Automatic
