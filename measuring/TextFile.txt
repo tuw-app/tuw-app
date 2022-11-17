@@ -1,0 +1,1 @@
+﻿dotnet publish .\measuring.csproj -o c:\tuw\ -r win-x64 /p:PublishSingleFile=true --self-contained -p:PublishReadyToRun=true /p:Configuration=Release
