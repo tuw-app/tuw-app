@@ -1,38 +1,18 @@
 ﻿Install-Package Microsoft.Extensions.Hosting.WindowsServices
 
 dotnet restore
-dotnet publish -o c:\tws\
+dotnet publish ./measuring-element/measuring-element.csproj -o c:\tuw\ -r win-x64 /p:PublishSingleFile=true --self-contained -p:PublishReadyToRun=true /p:Configuration=Release 
+
+sc.exe create "TUW-S" binpath="c:\tuw\measuring-element.exe"
+sc.exe stop "TUW-S"
+sc.exe delete "TUW-S"
+
+
 sc.exe create TWS binpath= c:\tws\measuring-element.exe
 sc query TWS 
 
 sc.exe start TWS 
 
-
-
 New-LocalUser -Name tws
 Jelszó: tws12345
 
-#43-3
-
-$directory = c:\tws\
-$file=measuring-element.exe
-$user = "43-3\tws"
-
-$acl = Get-Acl c:\tws\
-echo $acl
-
-$aclRuleArgs = "43-3\tws", "Read,Write,ReadAndExecute", "ContainerInherit,ObjectInherit", "None", "Allow"    
-echo $aclRuleArgs
-
-
-$accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule($aclRuleArgs)
-echo $accessRule
-
-$
-$acl.SetAccessRule($accessRule)
-echo $acl
-
-$acl | Set-Acl "c:\tws\measuring-element.exe"
-
-New-Service -Name TUS-S -BinaryPathName "c:\tws\measuring-element.exe" -Credential "43-3\tws" -Description "CPU Temperature and Usege Service" -DisplayName "TWS-S" -StartupType Automatic
-New-Service -Name {SERVICE NAME} -BinaryPathName "{EXE FILE PATH}" -Credential "{DOMAIN OR COMPUTER NAME\USER}" -Description "{DESCRIPTION}" -DisplayName "{DISPLAY NAME}" -StartupType Automatic
