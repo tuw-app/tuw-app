@@ -4,3 +4,5 @@ dotnet restore
 dotnet publish -o c:\tws\
 sc.exe create TWS binpath= c:\tws\measuring-element.exe
 sc query TWS 
+
+sc.exe start TWS 
