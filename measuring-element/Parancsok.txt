@@ -6,3 +6,36 @@ sc.exe create TWS binpath= c:\tws\measuring-element.exe
 sc query TWS 
 
 sc.exe start TWS 
+
+
+
+New-LocalUser -Name tws
+Jelszó: tws12345
+
+#43-3
+
+
+$file = c:\tws\measuring-element.exe
+$user = "43-3\tws"
+
+$acl = Get-Acl c:\tws\measuring-element.exe
+$acl = Get-Acl $file
+echo $acl
+
+$aclRuleArgs = "43-3\tws", "Read,Write,ReadAndExecute", "ContainerInherit,ObjectInherit", "None", "Allow"    
+$aclRuleArgs = $user, "Read,Write,ReadAndExecute", "ContainerInherit,ObjectInherit", "None", "Allow"    
+
+$aclRuleArgs1 = "43-3\tws", "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow"    
+$aclRuleArgs1 = $user, "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow"   
+
+echo $aclRuleArgs
+
+$accessRule1 = New-Object System.Security.AccessControl.FileSystemAccessRule($aclRuleArgs)
+echo $accessRule1
+
+$acl.SetAccessRule($accessRule1)
+echo $acl
+
+$acl | Set-Acl "c:\tws\measuring-element.exe"
+
+New-Service -Name TWS-S -BinaryPathName "c:\tws" -Credential "43-3\tws" -Description "CPU Temperature and Usege Service" -DisplayName "TWS-S" -StartupType Automatic
