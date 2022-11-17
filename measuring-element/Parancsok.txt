@@ -25,15 +25,19 @@ echo $acl
 $aclRuleArgs = "43-3\tws", "Read,Write,ReadAndExecute", "ContainerInherit,ObjectInherit", "None", "Allow"    
 $aclRuleArgs = $user, "Read,Write,ReadAndExecute", "ContainerInherit,ObjectInherit", "None", "Allow"    
 
-$aclRuleArgs2 = "43-3\tws", "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow"    
+$aclRuleArgs = "43-3\tws", "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow"    
 $aclRuleArgs1 = $user, "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow"   
 
-echo $aclRuleArgs2
 
-$accessRule2 = New-Object System.Security.AccessControl.FileSystemAccessRule($aclRuleArgs2)
-echo $accessRule2
+aclRuleArgs3 = "BUILTIN\tws", "Read,Write,ReadAndExecute", "ContainerInherit,ObjectInherit", "None", "Allow"    
 
-$acl.SetAccessRule($accessRule2)
+echo $aclRuleArgs
+
+$accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule($aclRuleArgs3)
+echo $accessRule
+
+$
+$acl.SetAccessRule($accessRule)
 echo $acl
 
 $acl | Set-Acl "c:\tws\measuring-element.exe"
