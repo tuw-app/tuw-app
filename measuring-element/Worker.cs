@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +11,32 @@ namespace TUWWorker
 {
     public class Worker : BackgroundService
     {
-        private readonly ILogger<Worker> _logger;
+        private readonly ILogger<Worker> logger;
 
         public Worker(ILogger<Worker> logger)
         {
-            _logger = logger;
+            this.logger = logger;
         }
 
         public override async Task StartAsync(CancellationToken cancellationToken)
         {
+            logger.LogInformation("me - worker - Start Async");
             await base.StartAsync(cancellationToken);
         }
 
         public override async Task StopAsync(CancellationToken cancellationToken)
         {
+            logger.LogInformation("me - worker - Stop Async");
             await base.StopAsync(cancellationToken);
         }
 
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            logger.LogInformation("me - worker - Execute Async");
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(1000, stoppingToken);
             }
         }

@@ -16,7 +16,7 @@ namespace TUWWorker
                 .MinimumLevel.Debug()
                 .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
                 .Enrich.FromLogContext()
-                .WriteTo.File(@"f:\temp\log.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.File(@"d:\temp\log.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
             try
             {
