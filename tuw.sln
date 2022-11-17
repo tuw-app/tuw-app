@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "measuring-element", "measuring-element\measuring-element.csproj", "{46AA5BFF-7E06-40B5-BF90-F447C300D372}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tuw-logger-library", "tuw-logger-library\tuw-logger-library.csproj", "{841701C0-9F7E-466D-B7C8-6C71C4BB80ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{46AA5BFF-7E06-40B5-BF90-F447C300D372}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46AA5BFF-7E06-40B5-BF90-F447C300D372}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46AA5BFF-7E06-40B5-BF90-F447C300D372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{841701C0-9F7E-466D-B7C8-6C71C4BB80ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{841701C0-9F7E-466D-B7C8-6C71C4BB80ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{841701C0-9F7E-466D-B7C8-6C71C4BB80ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{841701C0-9F7E-466D-B7C8-6C71C4BB80ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

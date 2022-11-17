@@ -1,22 +1,54 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 using Serilog;
+using Serilog.Formatting.Compact;
+
+
 using System;
+using System.Globalization;
+
+using LoggerLibrary.CustomDateFormatterLib;
+using Serilog.Templates;
 
 namespace TUWWorker
 {
+
+    /*
+     .WriteTo.Console(new RenderedCompactJsonFormatter())
+    .WriteTo.Console(formatProvider: formatter)
+    .WriteTo.Debug(formatProvider: formatter)
+    .WriteTo.Console(new ExpressionTemplate("[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}"), Serilog.Events.LogEventLevel.Debug)
+    .WriteTo.Console(new ExpressionTemplate("[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}"), Serilog.Events.LogEventLevel.Debug)
+    .WriteTo.Debug(outputTemplate: DateTime.Now.ToString())
+    .WriteTo.Debug(outputTemplate: DateTime.Now.ToString())
+    .WriteTo.File(new ExpressionTemplate("[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}"), @"d:\temp\log.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.Debug(new ExpressionTemplate("[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}"))
+    .WriteTo.File(@"d:\temp\log.txt", rollingInterval: RollingInterval.Day)
+    */
+
+
+    /*
+                .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Debug)
+                .Enrich.FromLogContext()
+                .WriteTo.Debug(formatProvider: formatter)
+                .WriteTo.File(@"d:\temp\log.txt", rollingInterval: RollingInterval.Day))
+    */
     public class Program
     {
         public static void Main(string[] args)
         {
+
+
+            // , new RenderedCompactJsonFormatter(), 
+            var formatter = new CustomDateFormatter("yyyy.MM.dd", new CultureInfo("hu-Hu"));
+
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
-                .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
                 .Enrich.FromLogContext()
-                .WriteTo.File(@"f:\temp\log-start-stop.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.Debug(formatProvider: formatter)
+                .WriteTo.File(@"d:\temp\log.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
             try
             {
