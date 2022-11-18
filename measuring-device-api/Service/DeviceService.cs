@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
 
-namespace MeasuringDevice.Service
+namespace MeasuringDeviceAPI.Service
 {
     public class DeviceService: IDeviceService
     {

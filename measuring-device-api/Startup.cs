@@ -10,10 +10,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using MeasuringDevice.Services;
-using MeasuringDevice.Service;
+using MeasuringDeviceAPI.Services;
+using MeasuringDeviceAPI.Service;
 
-namespace MeasuringDevice
+namespace MeasuringDeviceAPI
 {
     public class Startup
     {
