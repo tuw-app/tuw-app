@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using MeasuringDevice.Services;
+using MeasuringDevice.Service;
 
 namespace MeasuringDevice
 {
@@ -27,6 +28,8 @@ namespace MeasuringDevice
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddScoped<IDeviceService, DeviceService>();
             services.AddHostedService<Worker>();
         }
 
