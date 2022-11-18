@@ -1,0 +1,6 @@
+﻿dotnet publish .\measuring-device\measuring-device.csproj -o d:\tuw\ -r win-x64 /p:PublishSingleFile=true --self-contained -p:PublishReadyToRun=true /p:Configuration=Release
+
+Tananyag
+Background service 3.1
+ - logger és objektum példányosítás
+ https://www.youtube.com/watch?v=oWMQKjHrlJE&t=911s 

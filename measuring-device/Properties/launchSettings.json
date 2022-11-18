@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "measuring": {
+    "measuring-device": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
