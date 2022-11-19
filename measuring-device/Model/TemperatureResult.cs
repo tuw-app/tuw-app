@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MeasuringDevice.Model
 {
-    public class TemperatureResult
+    public class TemperatureResult : IResult
     {
         public byte Id { get; set; }
         public double CurrentValue { get; set; }
@@ -21,7 +21,7 @@ namespace MeasuringDevice.Model
             }
         }
 
-        public string GetShorString()
+        public string GetShortString()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(Id).Append(";").Append(RoundedValue).Append(";");
@@ -33,11 +33,11 @@ namespace MeasuringDevice.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("CPU temperature->Id: ")
               .Append(Id)
-              .Append("CPU name: ")
+              .Append(" CPU name: ")
               .Append(InstanceName)
-              .Append("temperature: ")
+              .Append(" temperature: ")
               .Append(CurrentValue)
-              .Append("celsius, reounded temperature: ")
+              .Append(" celsius, reounded temperature: ")
               .Append(RoundedValue)
               .Append(" celsius.");
             return sb.ToString();

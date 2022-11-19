@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MeasuringDevice.Service
+namespace MeasuringDevice.Service.Temeprature
 {
     public class TemperatureException : Exception
     {
         public TemperatureException(string message)
-            :base(message)
-            { }
+            : base(message)
+        { }
     }
 }

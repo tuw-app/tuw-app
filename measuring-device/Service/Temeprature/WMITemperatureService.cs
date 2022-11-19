@@ -6,14 +6,14 @@ using System.Management;
 using System.Linq;
 using MeasuringDevice.Model;
 
-namespace MeasuringDevice.Service
+namespace MeasuringDevice.Service.Temeprature
 {
 
     public class WMITemperatureService : ITemperatureService
     {
         private List<TemperatureResult> temperatureResults = new List<TemperatureResult>();
 
-        private bool canGetWMITemperature=true;
+        private bool canGetWMITemperature = true;
 
         public bool CanGetWMITemperature
         {
@@ -25,7 +25,7 @@ namespace MeasuringDevice.Service
         // Még nincs tesztelve
         public void ReadTemperature()
         {
-            
+
             try
             {
                 //ManagementObjectSearcher searcher = new ManagementObjectSearcher(@"root\WMI", "SELECT * FROM SAcpi_ThermalZoneTemperature");
@@ -33,7 +33,7 @@ namespace MeasuringDevice.Service
 
                 foreach (ManagementObject obj in searcher.Get())
                 {
-                    Double temperature = Convert.ToDouble(obj["CurrentTemperature"].ToString());
+                    double temperature = Convert.ToDouble(obj["CurrentTemperature"].ToString());
                     temperature = (temperature - 2732) / 10.0;
                     temperatureResults.Add(new TemperatureResult { CurrentValue = temperature, InstanceName = obj["InstanceName"].ToString() });
                 }
@@ -44,7 +44,7 @@ namespace MeasuringDevice.Service
             catch (Exception e)
             {
                 canGetWMITemperature = false;
-                throw new TemperatureException(e.Message);;                
+                throw new TemperatureException(e.Message); ;
             }
         }
 
@@ -63,7 +63,7 @@ namespace MeasuringDevice.Service
                         if (log)
                             return temperatureResults.ElementAt(0).ToString();
                         else
-                            return temperatureResults.ElementAt(0).GetShorString();
+                            return temperatureResults.ElementAt(0).GetShortString();
                     }
                     else
                     {
@@ -71,7 +71,7 @@ namespace MeasuringDevice.Service
                         foreach (TemperatureResult tr in temperatureResults)
                         {
                             if (log)
-                                sb.Append(tr.ToString());
+                                sb.Append(tr.GetShortString());
                             else
                                 sb.Append(tr.ToString());
                         }
