@@ -4,16 +4,28 @@ using System.Text;
 
 using System.Management;
 using MeasuringDevice.Service;
+using System.Linq;
 
 namespace MeasuringDevice.Service
 {
 
     public class WMITemperatureService : ITemperatureService
     {
-        // Még nincs tesztelve
-        public List<TemperatureResult> getTemperatureResults()
+        private List<TemperatureResult> remperatureResult = new List<TemperatureResult>();
+
+        private bool canGetWMITemperature=true;
+
+        public bool CanGetWMITemperature
         {
-            List<TemperatureResult> result = new List<TemperatureResult>();
+            get { return canGetWMITemperature; }
+            set { canGetWMITemperature = value; }
+        }
+
+
+        // Még nincs tesztelve
+        public void ReadTemperature()
+        {
+            
             try
             {
                 //ManagementObjectSearcher searcher = new ManagementObjectSearcher(@"root\WMI", "SELECT * FROM SAcpi_ThermalZoneTemperature");
@@ -23,20 +35,21 @@ namespace MeasuringDevice.Service
                 {
                     Double temperature = Convert.ToDouble(obj["CurrentTemperature"].ToString());
                     temperature = (temperature - 2732) / 10.0;
-                    result.Add(new TemperatureResult { CurrentValue = temperature, InstanceName = obj["InstanceName"].ToString() });
+                    remperatureResult.Add(new TemperatureResult { CurrentValue = temperature, InstanceName = obj["InstanceName"].ToString() });
                 }
-                return result;
+                canGetWMITemperature = true;
+                return;
 
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                return null;
+                canGetWMITemperature = false;
+                throw new TemperatureException(e.Message);;                
             }
         }
     
 
-        public string getTemperatureString()
+        public string GetTemperatureString()
         {
             return ToString();
         }
@@ -44,17 +57,31 @@ namespace MeasuringDevice.Service
         public override string ToString()
         {
             string result = string.Empty;
-            List<TemperatureResult> temperatures = new List<TemperatureResult>();
-            if (getTemperatureResults != null)
+            try
             {
-                foreach (TemperatureResult tr in temperatures)
+                if (!canGetWMITemperature)
+                    return string.Empty;
+                else
                 {
-                    result += tr.ToString();
+                    if (remperatureResult.Count == 1)
+                    {
+                        return $"{remperatureResult.ElementAt(0).InstanceName}:{remperatureResult.ElementAt(0).CurrentValue}";
+                    }
+                    else
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        foreach (TemperatureResult tr in remperatureResult)
+                        {
+                            sb.Append(tr.InstanceName).Append(":").Append(tr.CurrentValue).Append(";");
+                        }
+                        return sb.ToString();
+                    }
                 }
-                return result;
             }
-            else
-                return string.Empty;
+            catch (TemperatureException)
+            {
+            }
+            return string.Empty;
         }
     }
 }

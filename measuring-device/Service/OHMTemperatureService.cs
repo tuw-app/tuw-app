@@ -37,14 +37,21 @@ namespace MeasuringDevice.Service
 
     public class OHMTemperatureService : ITemperatureService
     {
-        public string ErrorMessage = string.Empty;
+        List<TemperatureResult> temperatureResults = new List<TemperatureResult>();
 
-        public List<TemperatureResult> getTemperatureResults()
+        private bool canGetOHMTemperature = true;
+
+        public bool CanGetWMITemperature
+        {
+            get { return canGetOHMTemperature; }
+            set { canGetOHMTemperature = value; }
+        }
+
+        public void ReadTemperature()
         {
             try
             {
-                List<TemperatureResult> temperatureResults = new List<TemperatureResult>();
-
+                temperatureResults.Clear();
                 UpdateVisitor updateVisitor = new UpdateVisitor();
                 Computer computer = new Computer();
                 computer.Open();
@@ -58,6 +65,7 @@ namespace MeasuringDevice.Service
                         {
                             if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Temperature)
                             {
+                                Console.WriteLine(computer.Hardware[i].Sensors[j].Value);
                                 temperatureResults.Add(new TemperatureResult
                                 {
                                     CurrentValue = (double)computer.Hardware[i].Sensors[j].Value,
@@ -66,18 +74,19 @@ namespace MeasuringDevice.Service
                             }
                         }
                         computer.Close();
-                    }
+                      }
                 }
-                return temperatureResults;
+                canGetOHMTemperature = true;
+                return;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                ErrorMessage = ex.Message;
-                return null;
+                canGetOHMTemperature = false;
+                throw new TemperatureException(e.Message);             
             }
         }
 
-        public string getTemperatureString()
+        public string GetTemperatureString()
         {
             return ToString();
         }
@@ -85,19 +94,31 @@ namespace MeasuringDevice.Service
         public override string ToString()
         {
             string result = string.Empty;
-            List<TemperatureResult> temperatures = new List<TemperatureResult>();
-            temperatures = getTemperatureResults();
-
-            if (temperatures != null)
+            try
             {
-                foreach (TemperatureResult tr in temperatures)
+                if (!canGetOHMTemperature)
+                    return string.Empty;
+                else
                 {
-                     result += tr.ToString();
+                    if (temperatureResults.Count == 1)
+                    {
+                        return $"{temperatureResults.ElementAt(0).InstanceName}:{temperatureResults.ElementAt(0).CurrentValue}";
+                    }
+                    else
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        foreach (TemperatureResult tr in temperatureResults)
+                        {
+                            sb.Append(tr.InstanceName).Append(":").Append(tr.CurrentValue).Append(";");
+                        }
+                        return sb.ToString();
+                    }
                 }
-                return result;
             }
-            else
-                return string.Empty;
+            catch (TemperatureException)
+            {
+            }
+            return string.Empty;
         }
     }
 }

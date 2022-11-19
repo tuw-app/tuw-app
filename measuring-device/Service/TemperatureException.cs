@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace MeasuringDevice.Service
 {
-    public interface ITemperatureService
+    public class TemperatureException : Exception
     {
-        public string GetTemperatureString();
-        public void ReadTemperature();
+        public TemperatureException(string message)
+            :base(message)
+            { }
     }
 }
