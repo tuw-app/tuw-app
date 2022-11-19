@@ -8,7 +8,7 @@ namespace MeasuringDevice.Service
 {
     public interface ITemperatureService
     {
-        public string GetTemperatureString();
+        public string GetTemperature(bool log);
         public void ReadTemperature();
     }
 }

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 
 using System.Management;
-using MeasuringDevice.Service;
 using System.Linq;
+using MeasuringDevice.Model;
 
 namespace MeasuringDevice.Service
 {
 
     public class WMITemperatureService : ITemperatureService
     {
-        private List<TemperatureResult> remperatureResult = new List<TemperatureResult>();
+        private List<TemperatureResult> temperatureResults = new List<TemperatureResult>();
 
         private bool canGetWMITemperature=true;
 
@@ -35,7 +35,7 @@ namespace MeasuringDevice.Service
                 {
                     Double temperature = Convert.ToDouble(obj["CurrentTemperature"].ToString());
                     temperature = (temperature - 2732) / 10.0;
-                    remperatureResult.Add(new TemperatureResult { CurrentValue = temperature, InstanceName = obj["InstanceName"].ToString() });
+                    temperatureResults.Add(new TemperatureResult { CurrentValue = temperature, InstanceName = obj["InstanceName"].ToString() });
                 }
                 canGetWMITemperature = true;
                 return;
@@ -47,14 +47,9 @@ namespace MeasuringDevice.Service
                 throw new TemperatureException(e.Message);;                
             }
         }
-    
 
-        public string GetTemperatureString()
-        {
-            return ToString();
-        }
 
-        public override string ToString()
+        public string GetTemperature(bool log = false)
         {
             string result = string.Empty;
             try
@@ -63,16 +58,22 @@ namespace MeasuringDevice.Service
                     return string.Empty;
                 else
                 {
-                    if (remperatureResult.Count == 1)
+                    if (temperatureResults.Count == 1)
                     {
-                        return $"{remperatureResult.ElementAt(0).InstanceName}:{remperatureResult.ElementAt(0).CurrentValue}";
+                        if (log)
+                            return temperatureResults.ElementAt(0).ToString();
+                        else
+                            return temperatureResults.ElementAt(0).GetShorString();
                     }
                     else
                     {
                         StringBuilder sb = new StringBuilder();
-                        foreach (TemperatureResult tr in remperatureResult)
+                        foreach (TemperatureResult tr in temperatureResults)
                         {
-                            sb.Append(tr.InstanceName).Append(":").Append(tr.CurrentValue).Append(";");
+                            if (log)
+                                sb.Append(tr.ToString());
+                            else
+                                sb.Append(tr.ToString());
                         }
                         return sb.ToString();
                     }
@@ -82,6 +83,12 @@ namespace MeasuringDevice.Service
             {
             }
             return string.Empty;
+        }
+
+        public override string ToString()
+        {
+            bool log = true;
+            return GetTemperature(log);
         }
     }
 }

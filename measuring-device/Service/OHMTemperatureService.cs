@@ -4,8 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-
-using MeasuringDevice.Service;
+using MeasuringDevice.Model;
 using OpenHardwareMonitor.Hardware;
 
 namespace MeasuringDevice.Service
@@ -65,7 +64,6 @@ namespace MeasuringDevice.Service
                         {
                             if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Temperature)
                             {
-                                Console.WriteLine(computer.Hardware[i].Sensors[j].Value);
                                 temperatureResults.Add(new TemperatureResult
                                 {
                                     CurrentValue = (double)computer.Hardware[i].Sensors[j].Value,
@@ -86,12 +84,7 @@ namespace MeasuringDevice.Service
             }
         }
 
-        public string GetTemperatureString()
-        {
-            return ToString();
-        }
-
-        public override string ToString()
+        public string GetTemperature(bool log = false)
         {
             string result = string.Empty;
             try
@@ -102,14 +95,20 @@ namespace MeasuringDevice.Service
                 {
                     if (temperatureResults.Count == 1)
                     {
-                        return $"{temperatureResults.ElementAt(0).InstanceName}:{temperatureResults.ElementAt(0).CurrentValue}";
+                        if (log)
+                            return temperatureResults.ElementAt(0).ToString();
+                        else
+                            return temperatureResults.ElementAt(0).GetShorString();
                     }
                     else
                     {
                         StringBuilder sb = new StringBuilder();
                         foreach (TemperatureResult tr in temperatureResults)
                         {
-                            sb.Append(tr.InstanceName).Append(":").Append(tr.CurrentValue).Append(";");
+                            if (log)
+                                sb.Append(tr.ToString());
+                            else
+                                sb.Append(tr.ToString());
                         }
                         return sb.ToString();
                     }
@@ -120,5 +119,13 @@ namespace MeasuringDevice.Service
             }
             return string.Empty;
         }
+
+        public override string ToString()
+        {
+            bool log = true;
+            return GetTemperature(log);
+        }
+
+
     }
 }

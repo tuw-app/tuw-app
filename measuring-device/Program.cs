@@ -15,7 +15,13 @@ namespace MeasuringDevice
             {
                 wmiTS.ReadTemperature();
                 if (wmiTS.CanGetWMITemperature)
-                    Console.WriteLine(wmiTS);
+                {
+                    wmiTS.ReadTemperature();
+                    Console.WriteLine(wmiTS.GetTemperature());
+                    bool log = true;
+                    Console.WriteLine(wmiTS.GetTemperature(log));
+                }
+
                 else
                     Console.WriteLine("WMI hőmérésklet meghatározás nem működik");
 
@@ -36,8 +42,9 @@ namespace MeasuringDevice
                 for (int i = 0; i < 30; i++)
                 {
                     ohmTS.ReadTemperature();
-                    Console.Write($"{i}. húmérséklet:");
-                    Console.WriteLine($"{ohmTS} celsius");
+                    Console.WriteLine(ohmTS.GetTemperature());
+                    bool log = true;
+                    Console.WriteLine(ohmTS.GetTemperature(log));
                 }
             }
             catch (TemperatureException te)
