@@ -16,7 +16,7 @@ namespace MeasuringDevice
 
                 for (int i = 0; i < 5; i++)
                 {
-                    CPUUsageService cu = new CPUUsageService();
+                    UsageService cu = new UsageService();
                     await cu.ReadCPUUsage();
                     Console.WriteLine(cu.GetCPUUsage());
                     Console.WriteLine(cu.ToString());

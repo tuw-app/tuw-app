@@ -11,7 +11,7 @@ using MeasuringDevice.Model;
 
 namespace MeasuringDevice.Service.CPUUsage
 {
-    public class CPUUsageService : ICPUUsageService
+    public class UsageService : ICPUUsageService
     {
         private double CPUusegePercent=0;
         private CPUUsageResult usageResult;
@@ -21,7 +21,7 @@ namespace MeasuringDevice.Service.CPUUsage
 
         private int interval = 1;
         
-        public CPUUsageService(int interval=1)
+        public UsageService(int interval=1)
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
