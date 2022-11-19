@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using MeasuringDevice.Model;
 using OpenHardwareMonitor.Hardware;
 
-namespace MeasuringDevice.Service
+namespace MeasuringDevice.Service.Temeprature
 {
     public class UpdateVisitor : IVisitor
     {
@@ -68,11 +68,11 @@ namespace MeasuringDevice.Service
                                 {
                                     CurrentValue = (double)computer.Hardware[i].Sensors[j].Value,
                                     InstanceName = computer.Hardware[i].Sensors[j].Name
-                                });                                
+                                });
                             }
                         }
                         computer.Close();
-                      }
+                    }
                 }
                 canGetOHMTemperature = true;
                 return;
@@ -80,7 +80,7 @@ namespace MeasuringDevice.Service
             catch (Exception e)
             {
                 canGetOHMTemperature = false;
-                throw new TemperatureException(e.Message);             
+                throw new TemperatureException(e.Message);
             }
         }
 
@@ -98,7 +98,7 @@ namespace MeasuringDevice.Service
                         if (log)
                             return temperatureResults.ElementAt(0).ToString();
                         else
-                            return temperatureResults.ElementAt(0).GetShorString();
+                            return temperatureResults.ElementAt(0).GetShortString();
                     }
                     else
                     {
@@ -106,7 +106,7 @@ namespace MeasuringDevice.Service
                         foreach (TemperatureResult tr in temperatureResults)
                         {
                             if (log)
-                                sb.Append(tr.ToString());
+                                sb.Append(tr.GetShortString());
                             else
                                 sb.Append(tr.ToString());
                         }

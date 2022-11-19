@@ -1,15 +1,40 @@
-﻿using MeasuringDevice.Service;
+﻿using MeasuringDevice.Service.CPUUsage;
+using MeasuringDevice.Service.Temeprature;
 using System;
-using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 
 namespace MeasuringDevice
 {
-    internal class Program
+    public class Program
     {
+
+        static async Task CPUUsagePrinting()
+        {
+            // https://stackoverflow.com/questions/17630506/using-async-in-a-console-application-in-c-sharp
+            try
+            {
+
+                for (int i = 0; i < 5; i++)
+                {
+                    CPUUsageService cu = new CPUUsageService();
+                    await cu.ReadCPUUsage();
+                    Console.WriteLine(cu.GetCPUUsage());
+                    Console.WriteLine(cu.ToString());
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
         static void Main(string[] args)
         {
+            Console.WriteLine("CPU használat meghatározás");
+            CPUUsagePrinting();
+
             // VMI Temperature
-            Console.WriteLine("WMI hőméréskletmeghatározás");
+            Console.WriteLine("\nWMI hőmérésklet meghatározás");
             WMITemperatureService wmiTS=new WMITemperatureService();
             try
             {
@@ -32,14 +57,14 @@ namespace MeasuringDevice
                 
             }
 
-            Console.WriteLine("OHM hőméréskletmeghatározás");
+            Console.WriteLine("\nOHM hőmérésklet meghatározás");
             OHMTemperatureService ohmTS = new OHMTemperatureService();
             try
             {
                 ohmTS.ReadTemperature();
                 if (!ohmTS.CanGetWMITemperature)
                     Console.WriteLine("OHM hőmérésklet meghatározás nem működik");
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     ohmTS.ReadTemperature();
                     Console.WriteLine(ohmTS.GetTemperature());
