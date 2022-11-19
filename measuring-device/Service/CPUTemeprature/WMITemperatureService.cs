@@ -5,8 +5,10 @@ using System.Text;
 using System.Management;
 using System.Linq;
 using MeasuringDevice.Model;
+using System.Runtime.InteropServices;
+using MeasuringDevice.Service.CPUUsage;
 
-namespace MeasuringDevice.Service.Temeprature
+namespace MeasuringDevice.Service.CPUTemeprature
 {
 
     public class WMITemperatureService : ITemperatureService
@@ -21,6 +23,8 @@ namespace MeasuringDevice.Service.Temeprature
             set { canGetWMITemperature = value; }
         }
 
+        private void IncompatibleOS() => throw new TemperatureException("CPU Usage only supported for Windows operating system.");
+
 
         // Még nincs tesztelve
         public void ReadTemperature()
@@ -29,17 +33,20 @@ namespace MeasuringDevice.Service.Temeprature
             try
             {
                 //ManagementObjectSearcher searcher = new ManagementObjectSearcher(@"root\WMI", "SELECT * FROM SAcpi_ThermalZoneTemperature");
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher(@"root\WMI", "SELECT * FROM MSAcpi_ThermalZoneTemperature");
-
-                foreach (ManagementObject obj in searcher.Get())
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
-                    double temperature = Convert.ToDouble(obj["CurrentTemperature"].ToString());
-                    temperature = (temperature - 2732) / 10.0;
-                    temperatureResults.Add(new TemperatureResult { CurrentValue = temperature, InstanceName = obj["InstanceName"].ToString() });
-                }
-                canGetWMITemperature = true;
-                return;
+                    ManagementObjectSearcher searcher = new ManagementObjectSearcher(@"root\WMI", "SELECT * FROM MSAcpi_ThermalZoneTemperature");
 
+                    foreach (ManagementObject obj in searcher.Get())
+                    {
+                        double temperature = Convert.ToDouble(obj["CurrentTemperature"].ToString());
+                        temperature = (temperature - 2732) / 10.0;
+                        temperatureResults.Add(new TemperatureResult { CurrentValue = temperature, InstanceName = obj["InstanceName"].ToString() });
+                    }
+                    canGetWMITemperature = true;
+                }
+                else
+                    IncompatibleOS();
             }
             catch (Exception e)
             {

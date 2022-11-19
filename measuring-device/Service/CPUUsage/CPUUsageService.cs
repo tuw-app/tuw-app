@@ -11,21 +11,21 @@ using MeasuringDevice.Model;
 
 namespace MeasuringDevice.Service.CPUUsage
 {
-    public class UsageService : ICPUUsageService
+    public class CPUUsageService : ICPUUsageService
     {
-        private double CPUusegePercent=0;
         private CPUUsageResult usageResult;
 
         const string textCpu = "CPU Usage: ";
-        private PerformanceCounter pc = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+        private PerformanceCounter pc;
 
         private int interval = 1;
         
-        public UsageService(int interval=1)
+        public CPUUsageService(int interval=1)
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 this.interval = interval;
+                pc = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             }
             else
                 IncompatibleOS();
@@ -37,10 +37,18 @@ namespace MeasuringDevice.Service.CPUUsage
 
         public async Task<string> ReadCPUUsage()
         {
-            pc.NextValue();
-            await Task.Delay(interval);
-            usageResult = new CPUUsageResult(pc.NextValue());
-            return usageResult.GetShortString();
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                pc.NextValue();
+                await Task.Delay(interval);
+                usageResult = new CPUUsageResult(pc.NextValue());
+                return usageResult.GetShortString();
+            }
+            else
+            {
+                return string.Empty;
+            }
+
 
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MeasuringDevice.Model
 {
-    internal class IPAddress
+    public class IPAddress
     {
     }
 }

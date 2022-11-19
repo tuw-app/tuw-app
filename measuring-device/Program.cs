@@ -1,5 +1,5 @@
 ﻿using MeasuringDevice.Service.CPUUsage;
-using MeasuringDevice.Service.Temeprature;
+using MeasuringDevice.Service.CPUTemeprature;
 using System;
 using System.Threading.Tasks;
 
@@ -16,7 +16,7 @@ namespace MeasuringDevice
 
                 for (int i = 0; i < 5; i++)
                 {
-                    UsageService cu = new UsageService();
+                    CPUUsageService cu = new CPUUsageService();
                     await cu.ReadCPUUsage();
                     Console.WriteLine(cu.GetCPUUsage());
                     Console.WriteLine(cu.ToString());

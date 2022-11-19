@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using MeasuringDevice.Model;
 using OpenHardwareMonitor.Hardware;
 
-namespace MeasuringDevice.Service.Temeprature
+namespace MeasuringDevice.Service.CPUTemeprature
 {
     public class UpdateVisitor : IVisitor
     {
