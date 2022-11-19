@@ -65,7 +65,6 @@ namespace MeasuringDevice.Service
                                 });                                
                             }
                         }
-
                         computer.Close();
                     }
                 }
