@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 using System.Diagnostics;
-using Microsoft.VisualBasic;
 using System.Runtime.InteropServices;
-using MeasuringDevice.Model;
+using MeasureDeviceProject.Model.MeasureElements;
 
-namespace MeasuringDevice.Service.CPUUsage
+namespace MeasureDeviceProject.Service.CPUUsage
 {
     public class CPUUsageService : ICPUUsageService
     {
@@ -48,8 +43,6 @@ namespace MeasuringDevice.Service.CPUUsage
             {
                 return string.Empty;
             }
-
-
         }
 
         public override string ToString()

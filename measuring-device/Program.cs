@@ -1,9 +1,10 @@
-﻿using MeasuringDevice.Service.CPUUsage;
-using MeasuringDevice.Service.CPUTemeprature;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 
-namespace MeasuringDevice
+using MeasureDeviceProject.Service.CPUUsage;
+using MeasureDeviceProject.Service.CPUTemeprature;
+
+namespace MeasureDeviceProject
 {
     public class Program
     {

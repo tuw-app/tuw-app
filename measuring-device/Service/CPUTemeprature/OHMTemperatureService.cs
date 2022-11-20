@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
-using System.Threading.Tasks;
-using MeasuringDevice.Model;
+using MeasureDeviceProject.Model.MeasureElements;
 using OpenHardwareMonitor.Hardware;
 
-namespace MeasuringDevice.Service.CPUTemeprature
+namespace MeasureDeviceProject.Service.CPUTemeprature
 {
     public class UpdateVisitor : IVisitor
     {

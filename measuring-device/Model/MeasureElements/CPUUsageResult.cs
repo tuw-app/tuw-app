@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace MeasuringDevice.Model
+
+namespace MeasureDeviceProject.Model.MeasureElements
 {
     public class CPUUsageResult : IResult
     {
@@ -12,10 +10,10 @@ namespace MeasuringDevice.Model
 
         public double RoundedCPUUsage
         {
-            get             
-            { 
-                double roundedCPUUsage=Math.Round(CPUUsage, 2);
-                return roundedCPUUsage; 
+            get
+            {
+                double roundedCPUUsage = Math.Round(CPUUsage, 2);
+                return roundedCPUUsage;
             }
         }
 
@@ -25,7 +23,7 @@ namespace MeasuringDevice.Model
             CPUUsage = cpuUsage;
         }
 
-        
+
 
         public string GetShortString()
         {

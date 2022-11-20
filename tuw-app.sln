@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeasuringDevice", "measuring-device\MeasuringDevice.csproj", "{41E2AED4-9578-4152-B167-21A28E00A91A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeasureDeviceProject", "measuring-device\MeasureDeviceProject.csproj", "{41E2AED4-9578-4152-B167-21A28E00A91A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeasuringDeviceAPI", "measuring-device-service-api\MeasuringDeviceAPI.csproj", "{5C1A1F46-16D8-42AA-9B63-7F5B16FC0B51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeasureDeviceServiceAPIProject", "measuring-device-service-api\MeasureDeviceServiceAPIProject.csproj", "{5C1A1F46-16D8-42AA-9B63-7F5B16FC0B51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,3 +4,7 @@ Tananyag
 Background service 3.1
  - logger és objektum példányosítás
  https://www.youtube.com/watch?v=oWMQKjHrlJE&t=911s 
+
+ 
+ sc.exe create TUW binpath= C:\tuw-app\MeasuringDeviceAPI.exe start= auto
+ sc.exe delete TUW

@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using System;
 
-namespace MeasuringDeviceServiceAPI
+namespace MeasureDeviceServiceAPIProject
 {
     public class Program
     {

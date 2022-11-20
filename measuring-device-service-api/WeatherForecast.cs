@@ -1,6 +1,6 @@
 using System;
 
-namespace MeasuringDeviceServiceAPI
+namespace MeasureDeviceServiceAPIProject
 {
     public class WeatherForecast
     {
