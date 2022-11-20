@@ -1,4 +1,4 @@
-﻿namespace MeasuringDeviceAPI.Service
+﻿namespace MeasuringDeviceServiceAPI.Service
 {
     public interface IDeviceService
     {

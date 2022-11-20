@@ -1,4 +1,4 @@
-using MeasuringDeviceAPI.Service;
+using MeasuringDeviceServiceAPI.Service;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -6,7 +6,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MeasuringDeviceAPI.Services
+namespace MeasuringDeviceServiceAPI.Services
 {
     public class Worker : BackgroundService
     {
