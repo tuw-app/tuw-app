@@ -4,8 +4,5 @@
     {
         public void StartDevice();
         public void StopDevice();
-        public void PauseMeasuring();
-
-
     }
 }

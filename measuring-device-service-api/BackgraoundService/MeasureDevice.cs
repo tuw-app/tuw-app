@@ -21,11 +21,6 @@ namespace MeasureDeviceProject.Model
         {
         }
 
-        public void PauseMeasuring()
-        {
-            throw new NotImplementedException();
-        }
-
         public void StartDevice()
         {
             throw new NotImplementedException();
