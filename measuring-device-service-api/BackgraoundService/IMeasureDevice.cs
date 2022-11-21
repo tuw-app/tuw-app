@@ -1,8 +1,12 @@
-﻿namespace MeasureDeviceServiceAPIProject.BackgraoundService
+﻿using MeasureDeviceProject.Model;
+
+namespace MeasureDeviceServiceAPIProject.BackgraoundService
 {
     public interface IMeasureDevice
     {
-        public void StartDevice();
-        public void StopDevice();
+        public MDIPAddress IPAddress { get; set; }
+
+        public void Start();
+        public void Stop();
     }
 }

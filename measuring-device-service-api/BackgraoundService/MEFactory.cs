@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 using MeasureDeviceProject.Model;
 using System.Linq;
 
-namespace MeasureDeviceServiceAPIProject.Services
+namespace MeasureDeviceServiceAPIProject.BackgraoundService
 {
     public class MEFactory : BackgroundService
     {
         private readonly ILogger<MEFactory> logger;
         private readonly IServiceProvider serviceProvider;
 
-        List<IDeviceService> devices = new List<IDeviceService>();
+        List<IMeasureDevice> devices = new List<IMeasureDevice>();
 
         public MEFactory(ILogger<MEFactory> logger, IServiceProvider deviceService)
         {
@@ -28,9 +28,9 @@ namespace MeasureDeviceServiceAPIProject.Services
             {
                 using (var scope = serviceProvider.CreateScope())
                 {
-                    var service = scope.ServiceProvider.GetService<IDeviceService>();
+                    var service = scope.ServiceProvider.GetService<IMeasureDevice>();
                     service.IPAddress = new MDIPAddress("1.1.1.1");
-                    logger.LogInformation("New Mesure device with IP address { address } created",service.IPAddress);
+                    logger.LogInformation("MEFactory -> New Mesure device with IP address { address } created", service.IPAddress);
                     devices.Add(service);
                 }
             }
@@ -38,18 +38,19 @@ namespace MeasureDeviceServiceAPIProject.Services
 
         public override Task StartAsync(CancellationToken cancellationToken)
         {
-            logger.LogInformation("From BackgroundService -> StartAsync");
+            logger.LogInformation("MEFactory -> StartAsync");
             return base.StartAsync(cancellationToken);
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            logger.LogInformation("From BackgroundService -> ExecuteAsync");
+            logger.LogInformation("MEFactory -> ExecuteAsync");
+            devices.ElementAt(0).Start();
             while (!stoppingToken.IsCancellationRequested)
             {
 
-                logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                devices.ElementAt(0).Start();
+                // Ide a vezérlés kezelés kell rakni!
+                logger.LogInformation("MEFactory running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(TimeSpan.FromMilliseconds(1000), stoppingToken);
 
             }
@@ -57,7 +58,7 @@ namespace MeasureDeviceServiceAPIProject.Services
 
         public override Task StopAsync(CancellationToken cancellationToken)
         {
-            logger.LogInformation("From BackgroundService -> StopAsync: {time}",DateTimeOffset.Now);
+            logger.LogInformation("MEFactory -> StopAsync: {time}", DateTimeOffset.Now);
             devices.ElementAt(0).Stop();
             return base.StopAsync(cancellationToken);
         }

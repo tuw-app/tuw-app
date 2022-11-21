@@ -1,4 +1,4 @@
-﻿dotnet publish .\measuring-device\measuring-device.csproj -o d:\tuw\ -r win-x64 /p:PublishSingleFile=true --self-contained -p:PublishReadyToRun=true /p:Configuration=Release
+﻿dotnet publish .\measuring-device-service-api\MeasureDeviceServiceAPIProject.csproj -o f:\tuw\ -r win-x64 /p:PublishSingleFile=true --self-contained -p:PublishReadyToRun=true /p:Configuration=Release
 
 Tananyag
 Background service 3.1

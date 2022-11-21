@@ -1,32 +1,48 @@
-﻿using MeasureDeviceProject.Model.DataSendingElements;
-using MeasureDeviceProject.Model.SubDevices;
-using MeasureDeviceServiceAPIProject.BackgraoundService;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MeasureDeviceProject.Model
+using MeasureDeviceServiceAPIProject.BackgraoundService;
+using MeasureDeviceServiceAPIProject.Service;
+using MeasureDeviceProject.Model;
+
+namespace MeasureDeviceProject.BackgraoundService
 {
     public class MeasureDevice : BackgroundService, IMeasureDevice
     {
-        private MDIPAddress MDIPAddress { get; set; }
-        private MDDataId dataId;
-        private DataSendingSubDevice dataSendingSubDevice;
-        private MesuringSubDevice MesuringSubDevice;
+        public MDIPAddress IPAddress { get; set; }
+
+        private readonly ILogger<MEFactory> logger;
+        private MeasurSendingDataService msds;
+
+        private double measuringInterval = 1000;
+        public double MeasureingInterval
+        {
+            get { return measuringInterval; }
+            set
+            {
+                measuringInterval = value;
+                msds.SetMeasureingInterval(value);
+            }            
+        }
 
         public MeasureDevice()
         {
+            msds = new MeasurSendingDataService(logger, MeasureingInterval);
+            
+            //logger.LogInformation("MeasureDevice { IpAddress } -> Created", IPAddress);
         }
 
-        public void StartDevice()
+        public void Start()
         {
-            throw new NotImplementedException();
+            //logger.LogInformation("MeasureDevice { IpAddress } -> Started", IPAddress);
         }
 
-        public void StopDevice()
+        public void Stop()
         {
             throw new NotImplementedException();
         }

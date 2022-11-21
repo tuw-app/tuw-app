@@ -10,9 +10,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using MeasureDeviceServiceAPIProject.Services;
 using MeasureDeviceProject.Model;
 using MeasureDeviceServiceAPIProject.BackgraoundService;
+using MeasureDeviceProject.BackgraoundService;
 
 namespace MeasureDeviceServiceAPIProject
 {
@@ -33,7 +33,7 @@ namespace MeasureDeviceServiceAPIProject
             //services.AddScoped<IDeviceService, DeviceService>();
 
             // A mérõeszközt és az adattovábbító rendszert is tartalmazó mérõeszköz
-            services.AddScoped<IMeasureDevice,MeasureDevice>();
+            services.AddScoped<IMeasureDevice, MeasureDevice>();
 
             // Az összes mérõeszközt tartalmazza
             services.AddHostedService<MEFactory>();
