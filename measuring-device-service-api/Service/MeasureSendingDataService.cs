@@ -1,13 +1,14 @@
-﻿using MeasureDeviceProject.Model;
-using MeasureDeviceProject.Model.DataSendingElements;
-using MeasureDeviceProject.Model.SubDevices;
-using MeasureDeviceServiceAPIProject.BackgraoundService;
+﻿using MeasureDeviceProject.BackgraoundService;
+using MeasureDeviceProject.Model;
 using Microsoft.Extensions.Logging;
 
 namespace MeasureDeviceServiceAPIProject.Service
 {
-    public class MeasurSendingDataService
+    public class MeasureSendingDataService
     {
+
+        ILogger<MeasureSendingDataService> logger;
+
         private double measureingInterval=0;
         private MDDataId dataId;
 
@@ -16,8 +17,9 @@ namespace MeasureDeviceServiceAPIProject.Service
             this.measureingInterval = measuringInterval;
         }
 
-        public MeasurSendingDataService(ILogger<MEFactory> logger, double MeasureingInterval) 
+        public MeasureSendingDataService(double MeasureingInterval) 
         {
+            //this.logger = logger;
             this.measureingInterval = MeasureingInterval;
         }
 

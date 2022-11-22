@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Serilog;
+using Serilog.Events;
 using System;
 
 namespace MeasureDeviceServiceAPIProject
@@ -11,20 +12,23 @@ namespace MeasureDeviceServiceAPIProject
         {
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
-                .Enrich.FromLogContext()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                //.Enrich.FromLogContext()
+                .Enrich.WithThreadId()
+                .WriteTo.Console()
                 .WriteTo.Debug()
-                .WriteTo.File(@"f:\tuw\log\log.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.File(@"d:\tuw\log\log.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
             try
             {
-                Log.Information("measuring-device start");
+                Log.Information("measuring-system started");
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception exception)
             {
-                Log.Fatal("measuring-device stopped unexpectedly");
-                Log.Debug(exception.Message);
+                Log.Fatal("measuring-system stopped unexpectedly");
+                Log.Fatal(exception.Message);
             }
             finally
             {

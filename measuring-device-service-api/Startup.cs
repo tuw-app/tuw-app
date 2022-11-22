@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using MeasureDeviceProject.Model;
 using MeasureDeviceServiceAPIProject.BackgraoundService;
 using MeasureDeviceProject.BackgraoundService;
+using MeasureDeviceServiceAPIProject.Service;
 
 namespace MeasureDeviceServiceAPIProject
 {
@@ -33,10 +34,11 @@ namespace MeasureDeviceServiceAPIProject
             //services.AddScoped<IDeviceService, DeviceService>();
 
             // A mérõeszközt és az adattovábbító rendszert is tartalmazó mérõeszköz
-            services.AddScoped<IMeasureDevice, MeasureDevice>();
+            //services.AddScoped<IMeasureDevice, MeasureDevice>();
 
             // Az összes mérõeszközt tartalmazza
-            services.AddHostedService<MEFactory>();
+            //services.AddHostedService<MEFactory>();
+            services.AddHostedService<MeasureDevice>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

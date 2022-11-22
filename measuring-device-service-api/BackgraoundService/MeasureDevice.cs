@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using MeasureDeviceServiceAPIProject.BackgraoundService;
 using MeasureDeviceServiceAPIProject.Service;
 using MeasureDeviceProject.Model;
+using Serilog;
 
 namespace MeasureDeviceProject.BackgraoundService
 {
@@ -16,8 +17,8 @@ namespace MeasureDeviceProject.BackgraoundService
     {
         public MDIPAddress IPAddress { get; set; }
 
-        private readonly ILogger<MEFactory> logger;
-        private MeasurSendingDataService msds;
+        private readonly ILogger<MeasureDevice> logger;
+        private MeasureSendingDataService msds;
 
         private double measuringInterval = 1000;
         public double MeasureingInterval
@@ -30,26 +31,61 @@ namespace MeasureDeviceProject.BackgraoundService
             }            
         }
 
-        public MeasureDevice()
+        public MeasureDevice(ILogger<MeasureDevice> logger)
         {
-            msds = new MeasurSendingDataService(logger, MeasureingInterval);
-            
-            //logger.LogInformation("MeasureDevice { IpAddress } -> Created", IPAddress);
-        }
+            //IPAddress = new MDIPAddress("1.1.1.1");
+            //string logFileName = @"d:\tuw\log\log" + IPAddress + ".log";
 
+            this.logger = logger;
+
+            this.IPAddress = new MDIPAddress("1.1.1.1");
+            //msds = new MeasureSendingDataService(MeasureingInterval);           
+            logger.LogInformation("MeasureDevice {@IpAddress} -> Created", IPAddress);
+        }
+        
         public void Start()
         {
-            //logger.LogInformation("MeasureDevice { IpAddress } -> Started", IPAddress);
+            //logger.LogInformation("MeasureDevice {@IpAddress} -> Measuring Start", IPAddress);
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            //logger.LogInformation("MeasureDevice {@IpAddress} -> Measuring Stop", IPAddress);
         }
 
-        protected override Task ExecuteAsync(CancellationToken stoppingToken)
+
+        public override Task StartAsync(CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(IPAddress);
+            logger.LogInformation("MeasureDevice {@IpAddress} -> StartAsync", IPAddress);
+            return base.StartAsync(cancellationToken);
+        }
+
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            logger.LogInformation("MeasureDevice {@IpAddress} -> ExecuteAsync", IPAddress);
+            while (!stoppingToken.IsCancellationRequested)
+            {
+
+                // Ide a vezérlés kezelés kell rakni!
+                logger.LogInformation("MeasureDevice {@IpAddress} -> ExecuteAsync", IPAddress);
+                await Task.Delay(TimeSpan.FromMilliseconds(measuringInterval), stoppingToken);
+            }
+        }
+
+        public override Task StopAsync(CancellationToken cancellationToken)
+        {
+            //logger.LogInformation("MeasureDevice {@IpAddress} -> StopAsync: {time}", DateTimeOffset.Now);            
+            return base.StopAsync(cancellationToken);
+        }
+
+        public void StartDevice()
+        {
+
+        }
+
+        public void StopDevice()
+        {
         }
     }
 }

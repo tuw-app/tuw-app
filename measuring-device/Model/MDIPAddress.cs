@@ -8,5 +8,10 @@
         {
             IPAddress = iPAddress;
         }
+
+        public override string ToString()
+        {
+            return IPAddress;
+        }
     }
 }

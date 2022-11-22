@@ -6,7 +6,7 @@ namespace MeasureDeviceServiceAPIProject.BackgraoundService
     {
         public MDIPAddress IPAddress { get; set; }
 
-        public void Start();
-        public void Stop();
+        public void StartDevice();
+        public void StopDevice();
     }
 }

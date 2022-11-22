@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using MeasureDeviceProject.Model;
 using System.Linq;
 
-namespace MeasureDeviceServiceAPIProject.BackgraoundService
+namespace MeasureDeviceServiceAPIProject.Service
 {
     public class MEFactory : BackgroundService
     {
@@ -22,8 +22,8 @@ namespace MeasureDeviceServiceAPIProject.BackgraoundService
         public MEFactory(ILogger<MEFactory> logger, IServiceProvider deviceService)
         {
             this.logger = logger;
-            this.serviceProvider = deviceService;
-
+            serviceProvider = deviceService;
+            /*
             for (int i = 0; i < 1; i++)
             {
                 using (var scope = serviceProvider.CreateScope())
@@ -34,6 +34,7 @@ namespace MeasureDeviceServiceAPIProject.BackgraoundService
                     devices.Add(service);
                 }
             }
+            */
         }
 
         public override Task StartAsync(CancellationToken cancellationToken)
@@ -45,7 +46,6 @@ namespace MeasureDeviceServiceAPIProject.BackgraoundService
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             logger.LogInformation("MEFactory -> ExecuteAsync");
-            devices.ElementAt(0).Start();
             while (!stoppingToken.IsCancellationRequested)
             {
 
@@ -53,13 +53,13 @@ namespace MeasureDeviceServiceAPIProject.BackgraoundService
                 logger.LogInformation("MEFactory running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(TimeSpan.FromMilliseconds(1000), stoppingToken);
 
-            }
+             }
         }
 
         public override Task StopAsync(CancellationToken cancellationToken)
         {
             logger.LogInformation("MEFactory -> StopAsync: {time}", DateTimeOffset.Now);
-            devices.ElementAt(0).Stop();
+           
             return base.StopAsync(cancellationToken);
         }
     }
