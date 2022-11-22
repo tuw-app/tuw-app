@@ -37,9 +37,11 @@ namespace MeasureDeviceProject.BackgraoundService
             IPAddress= MDIPAddress;
             this.measuringInterval = measuringInterval;
 
-            msds = new MeasureSendingDataService(measuringInterval);
+            msds = new MeasureSendingDataService(logger, IPAddress, measuringInterval);
         }
         
+
+
         public void Start()
         {
             //logger.LogInformation("MeasureDevice {@IpAddress} -> Measuring Start", IPAddress);

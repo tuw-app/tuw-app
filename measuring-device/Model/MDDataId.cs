@@ -6,6 +6,7 @@ namespace MeasureDeviceProject.Model
 {
     public class MDDataId
     {
+        public MDIPAddress IPAddress { get; set; }
         public ulong MeasuringId { get; set; }
         public ulong DataID { get; set; }
     }
