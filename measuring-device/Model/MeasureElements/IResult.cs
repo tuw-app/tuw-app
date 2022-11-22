@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MeasuringDevice.Model
+namespace MeasureDeviceProject.Model.MeasureElements
 {
     public interface IResult
     {

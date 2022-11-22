@@ -10,10 +10,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using MeasuringDeviceServiceAPI.Services;
-using MeasuringDeviceServiceAPI.Service;
+using MeasureDeviceProject.Model;
+using MeasureDeviceServiceAPIProject.BackgraoundService;
+using MeasureDeviceProject.BackgraoundService;
+using MeasureDeviceServiceAPIProject.Service;
 
-namespace MeasuringDeviceServiceAPI
+namespace MeasureDeviceServiceAPIProject
 {
     public class Startup
     {
@@ -29,8 +31,16 @@ namespace MeasuringDeviceServiceAPI
         {
             services.AddControllers();
 
-            services.AddScoped<IDeviceService, DeviceService>();
-            services.AddHostedService<Worker>();
+            //services.AddScoped<IDeviceService, DeviceService>();
+
+            // A mérõeszközt és az adattovábbító rendszert is tartalmazó mérõeszköz
+            //services.AddScoped<IMeasureDevice, MeasureDevice>();
+
+            // Az összes mérõeszközt tartalmazza
+            //services.AddHostedService<MEFactory>();
+            services.AddHostedService<MeasureDevice10>();
+            services.AddHostedService<MeasureDevice20>();
+            services.AddHostedService<MeasureDevice30>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

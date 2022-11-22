@@ -4,11 +4,10 @@ using System.Text;
 
 using System.Management;
 using System.Linq;
-using MeasuringDevice.Model;
 using System.Runtime.InteropServices;
-using MeasuringDevice.Service.CPUUsage;
+using MeasureDeviceProject.Model.MeasureElements;
 
-namespace MeasuringDevice.Service.CPUTemeprature
+namespace MeasureDeviceProject.Service.CPUTemeprature
 {
 
     public class WMITemperatureService : ITemperatureService

@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace MeasuringDevice.Model
+namespace MeasureDeviceProject.Model.MeasureElements
 {
     public class TemperatureResult : IResult
     {
@@ -16,7 +13,7 @@ namespace MeasuringDevice.Model
         {
             get
             {
-                double roundedValue=Math.Round(CurrentValue,2);
+                double roundedValue = Math.Round(CurrentValue, 2);
                 return roundedValue.ToString();
             }
         }
