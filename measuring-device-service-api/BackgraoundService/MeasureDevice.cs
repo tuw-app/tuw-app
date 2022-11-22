@@ -13,7 +13,7 @@ using Serilog;
 
 namespace MeasureDeviceProject.BackgraoundService
 {
-    public abstract class MeasureDevice : BackgroundService, IMeasureDevice
+    public abstract class MeasureDevice : BackgroundService, IMeasureDevice, IDisposable
     {
         private readonly ILogger<MeasureDevice> logger;
 
@@ -36,6 +36,8 @@ namespace MeasureDeviceProject.BackgraoundService
             this.logger = logger;
             IPAddress= MDIPAddress;
             this.measuringInterval = measuringInterval;
+
+            msds = new MeasureSendingDataService(measuringInterval);
         }
         
         public void Start()
@@ -81,6 +83,15 @@ namespace MeasureDeviceProject.BackgraoundService
 
         public void StopDevice()
         {
+        }
+
+        public override void Dispose()
+        {
+            if (msds != null)
+            {
+                msds.Dispose();
+            }
+            base.Dispose();
         }
     }
 }

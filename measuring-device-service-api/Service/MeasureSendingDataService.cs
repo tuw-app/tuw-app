@@ -1,10 +1,11 @@
 ﻿using MeasureDeviceProject.BackgraoundService;
 using MeasureDeviceProject.Model;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace MeasureDeviceServiceAPIProject.Service
 {
-    public class MeasureSendingDataService
+    public class MeasureSendingDataService : IDisposable
     {
 
         ILogger<MeasureSendingDataService> logger;
@@ -17,12 +18,18 @@ namespace MeasureDeviceServiceAPIProject.Service
             this.measureingInterval = measuringInterval;
         }
 
+
+
         public MeasureSendingDataService(double MeasureingInterval) 
         {
             //this.logger = logger;
             this.measureingInterval = MeasureingInterval;
         }
 
+        public void Dispose()
+        {
+            
+        }
 
     }
 }
