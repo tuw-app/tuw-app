@@ -38,7 +38,9 @@ namespace MeasureDeviceServiceAPIProject
 
             // Az összes mérõeszközt tartalmazza
             //services.AddHostedService<MEFactory>();
-            services.AddHostedService<MeasureDevice>();
+            services.AddHostedService<MeasureDevice10>();
+            services.AddHostedService<MeasureDevice20>();
+            services.AddHostedService<MeasureDevice30>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -13,11 +13,11 @@ using Serilog;
 
 namespace MeasureDeviceProject.BackgraoundService
 {
-    public class MeasureDevice : BackgroundService, IMeasureDevice
+    public abstract class MeasureDevice : BackgroundService, IMeasureDevice
     {
-        public MDIPAddress IPAddress { get; set; }
-
         private readonly ILogger<MeasureDevice> logger;
+
+        public MDIPAddress IPAddress { get; set; }
         private MeasureSendingDataService msds;
 
         private double measuringInterval = 1000;
@@ -31,16 +31,11 @@ namespace MeasureDeviceProject.BackgraoundService
             }            
         }
 
-        public MeasureDevice(ILogger<MeasureDevice> logger)
+        public MeasureDevice(ILogger<MeasureDevice> logger, MDIPAddress MDIPAddress, double measuringInterval)
         {
-            //IPAddress = new MDIPAddress("1.1.1.1");
-            //string logFileName = @"d:\tuw\log\log" + IPAddress + ".log";
-
             this.logger = logger;
-
-            this.IPAddress = new MDIPAddress("1.1.1.1");
-            //msds = new MeasureSendingDataService(MeasureingInterval);           
-            logger.LogInformation("MeasureDevice {@IpAddress} -> Created", IPAddress);
+            IPAddress= MDIPAddress;
+            this.measuringInterval = measuringInterval;
         }
         
         public void Start()
