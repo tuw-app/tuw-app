@@ -3,6 +3,7 @@ using MeasureDeviceProject.Model;
 using MeasureDeviceProject.Service.CPUUsage;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Serilog.Context;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -72,45 +73,51 @@ namespace MeasureDeviceServiceAPIProject.Service
 
 
         private void Initialize()
-        {          
-            Log.Information("MeasureDevice {@IpAddress} -> Initialize device...",dataId.IPAddress);
-            //https://stackoverflow.com/questions/53727850/how-to-run-backgroundservice-on-a-timer-in-asp-net-core-2-1
-            
-            cuMeasuring = new CPUUsageService();
-            stopDevice = false;
-            lockMesuring = false;
-            lockSendingToApi = false;
+        {
+            using (LogContext.PushProperty(dataId.IPAddress.ToString(), 1))
+            {
+                Log.Information("MeasureDevice {@IpAddress} -> Initialize device...", dataId.IPAddress);
+                //https://stackoverflow.com/questions/53727850/how-to-run-backgroundservice-on-a-timer-in-asp-net-core-2-1
 
-            timer = new Timer(MeasuringData, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(measureingInterval));
+                cuMeasuring = new CPUUsageService();
+                stopDevice = false;
+                lockMesuring = false;
+                lockSendingToApi = false;
+
+                timer = new Timer(MeasuringData, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(measureingInterval));
+            }
 
         }
 
         private async void MeasuringData(object state)
         {
-            Log.Information("MeasureDevice {IpAddress} ->  Measuring data: begin working.", dataId.IPAddress.ToString());
-            while (true)
+            using (LogContext.PushProperty(dataId.IPAddress.ToString(), 1))
             {
-
-                if (stopDevice)
+                Log.Information("MeasureDevice {IpAddress} -> Measuring data: begin working.", dataId.IPAddress.ToString());
+                while (true)
                 {
-                    Log.Information("MeasureDevice {@IpAddress} ->  Device is stoped.", dataId.IPAddress.ToString());
-                }
-                else
-                {
-                    Log.Information("MeasureDevice {@IpAddress} -> prepare to measuring.", dataId.IPAddress.ToString());
-                    await cuMeasuring.ReadCPUUsage();
-                    DateTime measuringTime = DateTime.Now;
-                    Log.Information("MeasureDevice {@IpAddress} -> Measuring time: {Time}", dataId.IPAddress.ToString(), measuringTime.ToString("yyyy.MM.dd HH:mm:ss.ff)"));
-                    Log.Information("MeasureDevice {@IpAddress} -> Measuring data: {Data}", dataId.IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
 
-                    while (lockSendingToApi)
-                        Log.Information("MeasuringDevice: Sending locked. Can not save data. Waiting for can save signal.");
-                    lockMesuring = true;
-                    data.Enqueue(measuredResult);
-                    lockMesuring = false;
-                    Log.Information("MeasuringDevice: Measured data have been saved to queue");
-                    Thread.Sleep(TimeSpan.FromMilliseconds(measuringInterval));
+                    if (stopDevice)
+                    {
+                        Log.Information("MeasureDevice {@IpAddress} ->  Device is stoped.", dataId.IPAddress.ToString());
+                    }
+                    else
+                    {
+                        Log.Information("MeasureDevice {@IpAddress} -> prepare to measuring.", dataId.IPAddress.ToString());
+                        await cuMeasuring.ReadCPUUsage();
+                        DateTime measuringTime = DateTime.Now;
+                        Log.Information("MeasureDevice {@IpAddress} -> Measuring time: {Time}", dataId.IPAddress.ToString(), measuringTime.ToString("yyyy.MM.dd HH:mm:ss.ff)"));
+                        Log.Information("MeasureDevice {@IpAddress} -> Measuring data: {Data}", dataId.IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
 
+                        /*while (lockSendingToApi)
+                            Log.Information("MeasuringDevice: Sending locked. Can not save data. Waiting for can save signal.");
+                        lockMesuring = true;
+                        //data.Enqueue(measuredResult);
+                        lockMesuring = false;
+                        Log.Information("MeasuringDevice: Measured data have been saved to queue");
+                        Thread.Sleep(TimeSpan.FromMilliseconds(measuringInterval));*/
+
+                    }
                 }
             }                     
         }

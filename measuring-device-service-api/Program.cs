@@ -10,14 +10,37 @@ namespace MeasureDeviceServiceAPIProject
     {
         public static void Main(string[] args)
         {
+            const string logTemplate = @"{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level:u4}] [{SourceContext:l}] {Message:lj}{NewLine}{Exception}";
+
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-                //.Enrich.FromLogContext()
+                .Enrich.FromLogContext()
                 .Enrich.WithThreadId()
                 .WriteTo.Console()
                 .WriteTo.Debug()
-                .WriteTo.File(@"d:\tuw\log\log.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.File(@"f:\tuw\log\log.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.Logger(l =>
+                {
+                    l.WriteTo.File(@"f:\tuw\log\log-10.10.10.10-.txt", LogEventLevel.Information, logTemplate,
+                        rollingInterval: RollingInterval.Day
+                    );
+                    l.Filter.ByIncludingOnly(e => e.Properties.ContainsKey("10.10.10.10"));
+                })
+                .WriteTo.Logger(l =>
+                {
+                    l.WriteTo.File(@"f:\tuw\log\log-20.20.20.20-.txt", LogEventLevel.Information, logTemplate,
+                        rollingInterval: RollingInterval.Day
+                    );
+                    l.Filter.ByIncludingOnly(e => e.Properties.ContainsKey("20.20.20.20"));
+                })
+                .WriteTo.Logger(l =>
+                {
+                    l.WriteTo.File(@"f:\tuw\log\log-30.30.30.30-.txt", LogEventLevel.Information, logTemplate,
+                        rollingInterval: RollingInterval.Day
+                    );
+                    l.Filter.ByIncludingOnly(e => e.Properties.ContainsKey("30.30.30.30"));
+                })
                 .CreateLogger();
 
             try
