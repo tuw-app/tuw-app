@@ -12,33 +12,50 @@ namespace MeasureDeviceProject.Model.MeasureElements
         {
             get
             {
-                double roundedCPUUsage = Math.Round(CPUUsage, 2);
-                return roundedCPUUsage;
+                if (CPUUsage != double.NaN)
+                {
+                    double roundedCPUUsage = Math.Round(CPUUsage, 2);
+                    return roundedCPUUsage;
+                }
+                else
+                    return double.NaN;
             }
         }
 
+        public CPUUsageResult()
+        {
+            CPUUsage = double.NaN;
+        }
 
         public CPUUsageResult(double cpuUsage)
         {
             CPUUsage = cpuUsage;
         }
 
-
-
         public string GetShortString()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(RoundedCPUUsage).Append(";");
-            return sb.ToString();
+            if (CPUUsage == double.NaN)
+                return string.Empty;
+            else
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(RoundedCPUUsage).Append(";");
+                return sb.ToString();
+            }
         }
 
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("CPU usage-> ")
-              .Append(RoundedCPUUsage)
-              .Append("%.");
-            return sb.ToString();
+            if (CPUUsage == double.NaN)
+                return string.Empty;
+            else
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append("CPU usage-> ")
+                  .Append(RoundedCPUUsage)
+                  .Append("%.");
+                return sb.ToString();
+            }
         }
     }
 }

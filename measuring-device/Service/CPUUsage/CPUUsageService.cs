@@ -1,12 +1,12 @@
-﻿using System.Threading.Tasks;
-
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
 using MeasureDeviceProject.Model.MeasureElements;
+using System;
+using System.Threading.Tasks;
 
 namespace MeasureDeviceProject.Service.CPUUsage
 {
-    public class CPUUsageService : ICPUUsageService
+    public class CPUUsageService : ICPUUsageService, IDisposable
     {
         private CPUUsageResult usageResult;
 
@@ -19,7 +19,7 @@ namespace MeasureDeviceProject.Service.CPUUsage
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                this.interval = interval;
+                this.interval = interval;                
                 pc = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             }
             else
@@ -27,17 +27,29 @@ namespace MeasureDeviceProject.Service.CPUUsage
             
         }
 
-        private void IncompatibleOS() => throw new CPUUsageExeption("CPU Usage only supported for Windows operating system.");
-
+        private void IncompatibleOS()
+        {
+            //=> throw new CPUUsageExeption("CPU Usage only supported for Windows operating system.");
+            usageResult = new CPUUsageResult();
+        }
 
         public async Task<string> ReadCPUUsage()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                pc.NextValue();
-                await Task.Delay(interval);
-                usageResult = new CPUUsageResult(pc.NextValue());
-                return usageResult.GetShortString();
+                try
+                {                    
+                    pc.NextValue();
+                    await Task.Delay(interval);
+                    usageResult = new CPUUsageResult(pc.NextValue());
+                    return usageResult.GetShortString();
+                }
+                catch
+                {
+                    usageResult = new CPUUsageResult();
+                    return string.Empty;
+                } 
+                
             }
             else
             {
@@ -53,10 +65,27 @@ namespace MeasureDeviceProject.Service.CPUUsage
 
         public string GetCPUUsage(bool log=false)
         {
-            if (log)
-                return usageResult.ToString();
+            if (usageResult != null)
+            {
+                if (log)
+                    return usageResult.ToString();
+                else
+                    return usageResult.GetShortString();
+            }
             else
-                return usageResult.GetShortString();
+                return string.Empty;
+        }
+
+        public string GetCPUUsageToLog()
+        {
+            bool log = true;
+            return GetCPUUsage(log);
+        }
+
+        public void Dispose()
+        {
+            if (pc != null)
+                pc.Dispose();
         }
     }
 

@@ -4,7 +4,8 @@ namespace MeasureDeviceProject.Service.CPUUsage
 {
     public interface ICPUUsageService
     {
-        public string GetCPUUsage(bool log);
+        public string GetCPUUsage(bool log=false);
+        public string GetCPUUsageToLog();
         public Task<string> ReadCPUUsage();
     }
 }

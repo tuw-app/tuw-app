@@ -17,7 +17,7 @@ namespace MeasureDeviceServiceAPIProject
                 .Enrich.WithThreadId()
                 .WriteTo.Console()
                 .WriteTo.Debug()
-                .WriteTo.File(@"f:\tuw\log\log.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.File(@"d:\tuw\log\log.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
             try
