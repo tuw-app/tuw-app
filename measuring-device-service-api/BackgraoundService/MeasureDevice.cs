@@ -10,12 +10,14 @@ using MeasureDeviceServiceAPIProject.BackgraoundService;
 using MeasureDeviceServiceAPIProject.Service;
 using MeasureDeviceProject.Model;
 using Serilog;
+using Microsoft.Extensions.Configuration;
 
 namespace MeasureDeviceProject.BackgraoundService
 {
     public abstract class MeasureDevice : BackgroundService, IMeasureDevice, IDisposable
     {
         private readonly ILogger<MeasureDevice> logger;
+        private readonly IConfiguration configuration;
 
         public MDIPAddress IPAddress { get; set; }
         private MeasureSendingDataService msds;
@@ -31,13 +33,13 @@ namespace MeasureDeviceProject.BackgraoundService
             }            
         }
 
-        public MeasureDevice(ILogger<MeasureDevice> logger, MDIPAddress MDIPAddress, double measuringInterval)
+        public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, MDIPAddress MDIPAddress, double measuringInterval)
         {
             this.logger = logger;
             IPAddress= MDIPAddress;
             this.measuringInterval = measuringInterval;
 
-            msds = new MeasureSendingDataService(logger, IPAddress, measuringInterval);
+            msds = new MeasureSendingDataService(configuration, logger, IPAddress, measuringInterval);
         }
         
 
