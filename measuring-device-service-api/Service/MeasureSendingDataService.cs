@@ -75,7 +75,12 @@ namespace MeasureDeviceServiceAPIProject.Service
         {          
             Log.Information("MeasureDevice {@IpAddress} -> Initialize device...",dataId.IPAddress);
             //https://stackoverflow.com/questions/53727850/how-to-run-backgroundservice-on-a-timer-in-asp-net-core-2-1
+            
             cuMeasuring = new CPUUsageService();
+            stopDevice = false;
+            lockMesuring = false;
+            lockSendingToApi = false;
+
             timer = new Timer(MeasuringData, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(measureingInterval));
 
         }
@@ -97,6 +102,14 @@ namespace MeasureDeviceServiceAPIProject.Service
                     DateTime measuringTime = DateTime.Now;
                     Log.Information("MeasureDevice {@IpAddress} -> Measuring time: {Time}", dataId.IPAddress.ToString(), measuringTime.ToString("yyyy.MM.dd HH:mm:ss.ff)"));
                     Log.Information("MeasureDevice {@IpAddress} -> Measuring data: {Data}", dataId.IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
+
+                    while (lockSendingToApi)
+                        Log.Information("MeasuringDevice: Sending locked. Can not save data. Waiting for can save signal.");
+                    lockMesuring = true;
+                    data.Enqueue(measuredResult);
+                    lockMesuring = false;
+                    Log.Information("MeasuringDevice: Measured data have been saved to queue");
+                    Thread.Sleep(TimeSpan.FromMilliseconds(measuringInterval));
 
                 }
             }                     
