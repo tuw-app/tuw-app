@@ -29,9 +29,6 @@ namespace MeasureDeviceServiceAPIProject.Service
         private bool lockSendingToApi = true;
         private bool stopDevice = false;
 
-        CPUUsageService cpuMeasuring = null;
-        PeriodicallyStoreSystem cpuDataStorePeriodically = null;
-
         private MDIPAddress IPAddress { get; }
 
         private string path = string.Empty;
@@ -67,7 +64,6 @@ namespace MeasureDeviceServiceAPIProject.Service
                 Log.Information("MeasureDevice {@IpAddress} -> Initialize device...", IPAddress);
                 //https://stackoverflow.com/questions/53727850/how-to-run-backgroundservice-on-a-timer-in-asp-net-core-2-1
 
-                cpuMeasuring = new CPUUsageService();
                 stopDevice = false;
                 lockMesuring = false;
                 lockSendingToApi = false;
@@ -81,6 +77,7 @@ namespace MeasureDeviceServiceAPIProject.Service
 
         public async void MeasuringCPUUsage()
         {
+            CPUUsageService cpuMeasuring = new CPUUsageService();
             using (LogContext.PushProperty(IPAddress.ToString(), 1))
             {
                 Log.Information("MeasureDevice {IpAddress} -> Measuring data: begin working.", IPAddress.ToString());
@@ -97,14 +94,13 @@ namespace MeasureDeviceServiceAPIProject.Service
                     DateTime measuringTime = DateTime.Now;
 
                     Log.Information("MeasureDevice {@IpAddress} -> Measuring time: {Time}", IPAddress.ToString(), measuringTime.ToString("yyyy.MM.dd HH:mm:ss)"));
-                    Log.Information("MeasureDevice {@IpAddress} -> Measuring data: {Data}", IPAddress.ToString(), cpuMeasuring.GetCPUUsageToLog());
-
-                    MesuredCPUUsage measuredCPUUsag = new MesuredCPUUsage(cpuMeasuring.UsageResult, measuringTime);
+                    //Log.Information("MeasureDevice {@IpAddress} -> Measuring data: {Data}", IPAddress.ToString(), cpuMeasuring.GetCPUUsageToLog());
 
                     lock (measuredCPUUsageQeueue)
                     {
+                        MesuredCPUUsage measuredCPUUsag = new MesuredCPUUsage(cpuMeasuring.UsageResult, measuringTime);
                         measuredCPUUsageQeueue.Enqueue(measuredCPUUsag);
-                        Log.Information("MeasureDevice {@IpAddress} -> Measuring result is added to queue", IPAddress.ToString());
+                        Log.Information("MeasureDevice {@IpAddress} -> Measuring result {Result} is added to queue", IPAddress.ToString(), measuredCPUUsag.CPUUsageResult);
                     }
                 }
             }
@@ -112,6 +108,7 @@ namespace MeasureDeviceServiceAPIProject.Service
 
         public void StoringDataPeriodically()
         {
+            PeriodicallyStoreSystem cpuDataStorePeriodically = null;
             using (LogContext.PushProperty(IPAddress.ToString(), 1))
             {
                 MesuredCPUUsage mesuredResult = null;
@@ -143,7 +140,7 @@ namespace MeasureDeviceServiceAPIProject.Service
                     {
                         Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> No CPU data store periodically", IPAddress.ToString());
                         cpuDataStorePeriodically = new PeriodicallyStoreSystem(logger, storeFileId, path);
-                        Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> New CPU data store periodically", IPAddress.ToString(), cpuDataStorePeriodically);
+                        Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> New CPU data store {DataStore}", IPAddress.ToString(), cpuDataStorePeriodically);
 
                     }
                 }
@@ -151,13 +148,13 @@ namespace MeasureDeviceServiceAPIProject.Service
                 if (cpuDataStorePeriodically.IsFileExsist())
                 {
                     ulong exsistingID = cpuDataStorePeriodically.GetLastLineId();
-                    cpuDataStorePeriodically.MDDataId.DataID = exsistingID;
+                    cpuDataStorePeriodically.SetDataId(IPAddress,mesuredResult.MeasureTime,exsistingID);
                 }
                 else
                 {
-                    cpuDataStorePeriodically.MDDataId.DataID = 1;
+                    cpuDataStorePeriodically.SetDataId(IPAddress, mesuredResult.MeasureTime, 1);
                 }
-                Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> First Data Id is: {Id}", IPAddress.ToString(), cpuDataStorePeriodically.MDDataId.DataID);
+                Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> First Data Id is: {Id}", IPAddress.ToString(), cpuDataStorePeriodically.GetDataIdToLog());
                 while (true)
                 {
                     if (measuredCPUUsageQeueue.Count == 0)
@@ -178,7 +175,7 @@ namespace MeasureDeviceServiceAPIProject.Service
 
 
                         // Store Data to log file                              
-                        MeasuredCPUDataStore measuredData = new MeasuredCPUDataStore(cpuDataStorePeriodically.MDDataId,mesuredResult);
+                        MeasuredCPUDataStore measuredData = new MeasuredCPUDataStore(cpuDataStorePeriodically.GetDataId(),mesuredResult);
                         Log.Information("MeasureDevice {@IpAddress} -> Data to store in file:", IPAddress.ToString(), measuredData.MeasuredCPUDataToStore);
                         try
                         {
@@ -202,9 +199,7 @@ namespace MeasureDeviceServiceAPIProject.Service
         
         public void Dispose()
         {
-            if (cpuMeasuring!=null)
-                cpuMeasuring.Dispose();
-                                
+                               
         }
     }
 }

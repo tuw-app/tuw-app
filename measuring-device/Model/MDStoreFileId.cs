@@ -103,5 +103,10 @@ namespace MeasureDeviceProject.Model
             sb.Append(".txt");
             measruringPeriodicFileName = sb.ToString();
         }
+
+        public override string ToString()
+        {
+            return GetMeasruringPeriodicFileName;
+        }
     }
 }

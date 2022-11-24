@@ -23,8 +23,6 @@ namespace MeasureDeviceServiceAPIProject.Service
         }
 
 
-        private MDDataId mdDataId;
-        public MDDataId MDDataId { get; set; } = null;
         
         private MDStoreFileId storedFileId;
         public MDStoreFileId StoredFileId
@@ -51,6 +49,32 @@ namespace MeasureDeviceServiceAPIProject.Service
             this.logger = logger;
             this.path = path;
             measuringDataStore = new MeasuringDataStore(logger, path, storedFileId.GetMeasruringPeriodicFileName);
+        }
+
+        private MDDataId mdDataId=null;
+
+        public void SetDataId(MDIPAddress IPAddress, DateTime mesuringDataTime, ulong exsistingID)
+        {
+            mdDataId = new MDDataId(IPAddress, mesuringDataTime, exsistingID);
+        }
+
+        public MDDataId GetDataId()
+        {
+            return mdDataId;
+        }
+
+        public void IncrementDataId()
+        {
+            mdDataId.IncrementDataId();
+        }
+
+        public string GetDataIdToLog()
+        {
+            if (mdDataId == null)
+            {
+                return mdDataId.ToString();
+            }
+            else return string.Empty;
         }
 
         public bool IsFileExsist()
@@ -122,8 +146,6 @@ namespace MeasureDeviceServiceAPIProject.Service
         {
             return FullPathFileName;
         }
-
-
     }
 
 

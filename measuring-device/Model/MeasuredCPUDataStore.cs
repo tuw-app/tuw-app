@@ -8,7 +8,7 @@ namespace MeasureDeviceProject.Model
     public class MeasuredCPUDataStore
     {
         private string measuredData;
-        public string MeasuredCPUDataToStore { get {return MeasuredCPUDataToStore;} }
+        public string MeasuredCPUDataToStore { get {return measuredData; } }
 
         public MeasuredCPUDataStore(MDDataId Id, MesuredCPUUsage data)
         {

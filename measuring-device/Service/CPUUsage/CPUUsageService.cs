@@ -16,7 +16,7 @@ namespace MeasureDeviceProject.Service.CPUUsage
 
         private CPUUsageResult usageResult;
 
-        public CPUUsageResult UsageResult { get; set; }
+        public CPUUsageResult UsageResult { get { return usageResult; } set { usageResult = value; } }
 
 
         public CPUUsageService(int interval=1)
