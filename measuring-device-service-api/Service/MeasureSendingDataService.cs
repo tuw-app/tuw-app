@@ -88,9 +88,9 @@ namespace MeasureDeviceServiceAPIProject.Service
 
         private void Initialize()
         {
-            using (LogContext.PushProperty(dataId.IPAddress.ToString(), 1))
+            using (LogContext.PushProperty(IPAddress.ToString(), 1))
             {
-                Log.Information("MeasureDevice {@IpAddress} -> Initialize device...", dataId.IPAddress);
+                Log.Information("MeasureDevice {@IpAddress} -> Initialize device...", IPAddress);
                 //https://stackoverflow.com/questions/53727850/how-to-run-backgroundservice-on-a-timer-in-asp-net-core-2-1
 
                 cuMeasuring = new CPUUsageService();
@@ -99,11 +99,8 @@ namespace MeasureDeviceServiceAPIProject.Service
                 lockSendingToApi = false;
 
                 path = configuration["Path"]; // ???????
-                Log.Information("MeasureDevice {@IpAddress} -> The log path is {Path}", dataId.IPAddress, path);
-
-                cpuDataStore = new MeasuringDataStore(logger, "CPU", "d:\\tuw\\log\\" + dataId.IPAddress + "\\", "store", dataId);
-                Log.Information("MeasureDevice {@IpAddress} -> The log file name is {file}", dataId.IPAddress, cpuDataStore.ToString());
-
+                Log.Information("MeasureDevice {@IpAddress} -> The log path is {Path}", IPAddress, path);
+                
                 // Miért nem működik 
                 timer = new Timer(MeasuringData, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(measureingInterval));
             }
@@ -112,24 +109,24 @@ namespace MeasureDeviceServiceAPIProject.Service
 
         private async void MeasuringData(object state)
         {
-            using (LogContext.PushProperty(dataId.IPAddress.ToString(), 1))
+            using (LogContext.PushProperty(IPAddress.ToString(), 1))
             {
-                Log.Information("MeasureDevice {IpAddress} -> Measuring data: begin working.", dataId.IPAddress.ToString());
+                Log.Information("MeasureDevice {IpAddress} -> Measuring data: begin working.", IPAddress.ToString());
                 while (true)
                 {
                     if (stopDevice)
                     {
-                        Log.Information("MeasureDevice {@IpAddress} ->  Device is stoped.", dataId.IPAddress.ToString());
+                        Log.Information("MeasureDevice {@IpAddress} ->  Device is stoped.", IPAddress.ToString());
                     }
                     else
                     {
-                        Log.Information("MeasureDevice {@IpAddress} -> prepare to measuring.", dataId.IPAddress.ToString());
+                        Log.Information("MeasureDevice {@IpAddress} -> prepare to measuring.", IPAddress.ToString());
                         // Mesuring
                         await cuMeasuring.ReadCPUUsage();                                               
-                        DateTime measuringTime = DateTime.Now;                      
+                        DateTime measuringTime = DateTime.Now;
 
-                        Log.Information("MeasureDevice {@IpAddress} -> Measuring time: {Time}", dataId.IPAddress.ToString(), measuringTime.ToString("yyyy.MM.dd HH:mm:ss.ff)"));
-                        Log.Information("MeasureDevice {@IpAddress} -> Measuring data: {Data}", dataId.IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
+                        Log.Information("MeasureDevice {@IpAddress} -> Measuring time: {Time}", IPAddress.ToString(), measuringTime.ToString("yyyy.MM.dd HH:mm:ss.ff)"));
+                        Log.Information("MeasureDevice {@IpAddress} -> Measuring data: {Data}", IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
 
                         // Mesuring data storing
                         // Measuring file name
@@ -141,7 +138,9 @@ namespace MeasureDeviceServiceAPIProject.Service
                         {
                              // Induláskor meghatározzuk az első tárolandó fájl nevét.
                              storeFileId = new MDStoreFileId(measuringTime, storePeriod);
-                             Log.Information("MeasureDevice {@IpAddress} -> New File id: {StoreFileID}", dataId.IPAddress.ToString(),storeFileId.MeasruringPeriodicFileName);
+                             cpuDataStore = new MeasuringDataStore(logger, path , storeFileId.GetMeasruringPeriodicFileName);
+
+                             Log.Information("MeasureDevice {@IpAddress} -> New File id: {StoreFileID}", IPAddress.ToString(),storeFileId.GetMeasruringPeriodicFileName);
                         }
                         if (!storeFileId.IsTheMesureTimeStampGood(measuringTime))
                         {
@@ -151,51 +150,55 @@ namespace MeasureDeviceServiceAPIProject.Service
                                 // Létrehozzuk a dictionary-t a fájl nevek és benne tárolt adatok tárolására
                                 storedDataPerFile = new DataPerFile();
                             }
-                            storedDataPerFile.Add(storeFileId.MeasruringPeriodicFileName, dataId.DataID);
-                            Log.Information("MeasureDevice {@IpAddress} -> Number of open file: {OpenFileNumer}", dataId.IPAddress.ToString(), storedDataPerFile.NumberOfOpenFile.ToString());
+                            // Eltároljuk a fájl nevét és abban tárolt adatok számát amibe beírtuk az utolsó adatot
+                            storedDataPerFile.Add(storeFileId.GetMeasruringPeriodicFileName, dataId.DataID);
+                            // A fájlt zárjuk???
+                            cpuDataStore.Close();
+                            
+                            Log.Information("MeasureDevice {@IpAddress} -> Number of open file: {OpenFileNumer}", IPAddress.ToString(), storedDataPerFile.NumberOfOpenFile.ToString());             
                             // A dataId-t visszaállítjuk
                             dataId.DataID = 1;
+                            // Meghatározzuk az új fájl nevét és fájl írót
                             storeFileId.SetActulMeasureFileTimeStamp(measuringTime);
-                            // Meghatározzuk az új fájl nevét
-                            Log.Information("MeasureDevice {@IpAddress} -> New File id: {StoreFileID}",, dataId.IPAddress.ToString(),storeFileId.MeasruringPeriodicFileName);
+                            cpuDataStore.FileName = storeFileId.GetMeasruringPeriodicFileName;
+                            
 
+                            Log.Information("MeasureDevice {@IpAddress} -> New File id: {StoreFileID}", IPAddress.ToString(),storeFileId.GetMeasruringPeriodicFileName);
                         }
-
-                        // Store Data to log file
-                        StringBuilder sb = new StringBuilder();
-                        // Prepera data id 
                         if (dataId == null)
                             dataId = new MDDataId(IPAddress, measuringTime);
-                        else
-                        {
-                            dataId.DateTime= measuringTime;
-                            dataId.DataID = dataId.DataID + 1;
-                        }
                         lock (dataId)
                         {
-                            sb.Append(dataId.GetId).Append(";").Append(cuMeasuring.GetCPUUsage());
+                            // Store Data to log file
+                            // Prepera data id 
+                            if (dataId == null)
+                                dataId = new MDDataId(IPAddress, measuringTime);
+                            else
+                            {
+                                dataId.DateTime = measuringTime;
+                                dataId.IncrementDataId();
+                            }
+                            MeasuredDataStore measureData = new MeasuredDataStore(dataId.GetId, cuMeasuring.GetCPUUsage());
                             try
                             {
-                                cpuDataStore.WriteData(sb.ToString());
-                                Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored in logfile.", dataId.IPAddress.ToString());
+                                cpuDataStore.WriteData(measureData.MeasuredData);
+                                Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored in logfile.", IPAddress.ToString());
                             }
                             catch (Exception ex)
                             {
-                                Log.Error("MeasureDevice {@IpAddress} -> Measuring write data: {Data}", dataId.IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
+                                Log.Error("MeasureDevice {@IpAddress} -> Measuring write data: {Data}", IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
                             }
 
-
-                            Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored to log file {File}", dataId.IPAddress.ToString(), cpuDataStore.ToString());
+                            Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored to log file {File}", IPAddress.ToString(), cpuDataStore.FileName);
 
                             // Store Data to Queue
                             while (lockSendingToApi)
                                 Log.Information("MeasureDevice {@IpAddress} ->  Sending locked. Can not save data. Waiting for can save signal.");
                             lock (dataQueue)
                             {
-                                dataQueue.Enqueue(sb.ToString());
+                                dataQueue.Enqueue(measureData.MeasuredData);
                             }
-                            sb.Clear();
-                            Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored in queue.", dataId.IPAddress.ToString());                            
+                            Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored in queue.", IPAddress.ToString());                            
                         }
                     }
                 }

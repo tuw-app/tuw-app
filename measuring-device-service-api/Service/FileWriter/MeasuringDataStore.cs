@@ -16,41 +16,25 @@ namespace MeasureDeviceProject.Service.FileWriter
     {
         ILogger<MeasureDevice> logger;
 
-        private string path;
-        private string fileName;
-        private MDDataId dataId;
+        private string path=string.Empty;
+        private string fileName=string.Empty;
 
-        private DateTime CurrentStoreTime { get { return DateTime.Now; } }
-        private string DateTimeExtenstion { get { return CurrentStoreTime.ToString("-yyyy-MM-dd"); } }
-        private string StoredDataType { get; set; }
-
-        private int CurrentStoreDay { get; set; }
+        private DateTime CurrentStoreTime { get; set; }
+      
 
         FileStream currentStream = null;
         StreamWriter sw = null;
 
-        private string FileName
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(path).Append(fileName).Append(DateTimeExtenstion).Append(StoredDataType).Append(".txt");
-                return sb.ToString();
-            }
-            
-        }
+        public string FileName { get; set; }
 
-        string dateTimeFileExctension = string.Empty;
+        private string FullFileName { get { return path + fileName; } }
 
-        public MeasuringDataStore(ILogger<MeasureDevice> logger, string storedDataType, string path, string fileName, MDDataId dataId)
+        
+        public MeasuringDataStore(ILogger<MeasureDevice> logger,  string path, string fileName)
         {
             this.logger = logger;
-
-            this.StoredDataType = storedDataType;
             this.path = path;
             this.fileName = fileName;
-            this.dataId = dataId;    
-
         }
 
         private void Init()
@@ -58,16 +42,13 @@ namespace MeasureDeviceProject.Service.FileWriter
             // https://zetcode.com/csharp/filestream/
             if (!File.Exists(FileName))
             {
+                // Új fájl létrehozása
                 try
                 {
-                    currentStream = new FileStream(FileName, FileMode.CreateNew, FileAccess.Write);
-                    //currentStream.Close();
-                    //currentStream = new FileStream(FileName, FileMode.Append, FileAccess.Write);
+                    currentStream = new FileStream(FullFileName, FileMode.CreateNew, FileAccess.Write);
                     sw = new StreamWriter(currentStream);
-
-                    CurrentStoreDay = DateTime.Now.Day;
-
-                    logger.LogInformation("MeasuringDataStore {FileName} -> File not exsist. File created. Current StoreDay: {StoreDay}", FileName, CurrentStoreDay.ToString());
+                   
+                    logger.LogInformation("MeasuringDataStore {FileName} -> File not exsist. File created.", FileName);
                 }
                 catch (Exception ex)
                 {
@@ -77,18 +58,18 @@ namespace MeasureDeviceProject.Service.FileWriter
             }
             else
             {
+                // A fájl már létezik, megnyitjuk
                 try
                 {
-                    currentStream = new FileStream(FileName, FileMode.Append, FileAccess.Write);
+                    currentStream = new FileStream(FullFileName, FileMode.Append, FileAccess.Write);
                     sw = new StreamWriter(currentStream, Encoding.UTF8, 65536);
 
-                    CurrentStoreDay = DateTime.Now.Day;
-                    logger.LogInformation("MeasuringDataStore {FileName} -> Open file to adding. Current StoreDay: {StoreDay}", FileName, CurrentStoreDay.ToString());
+                    logger.LogInformation("MeasuringDataStore {FileName} -> Open file to append data.", FileName);
                 }
                 catch (Exception ex)
                 {
-                    logger.LogError("MeasuringDataStore {FileName} -> Can not open file  to write. Exception:{Message}", FileName, ex.Message);
-                    throw new MeasuringDataStoreException($"Can not open file {FileName} to write.\n{ex.Message}");
+                    logger.LogError("MeasuringDataStore {FileName} -> Can not open file  to append. Exception:{Message}", FileName, ex.Message);
+                    throw new MeasuringDataStoreException($"Can not open file {FileName} to append.\n{ex.Message}");
                 }                
             }
         }

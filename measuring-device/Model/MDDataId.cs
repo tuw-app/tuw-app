@@ -21,6 +21,11 @@ namespace MeasureDeviceProject.Model
             DataID = dataID;
         }
 
+        public void IncrementDataId()
+        {
+            DataID = DataID + 1;
+        }
+
         public string GetId { get { return ToString(); } }
 
         public override string ToString()

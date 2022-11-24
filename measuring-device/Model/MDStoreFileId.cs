@@ -25,24 +25,27 @@ namespace MeasureDeviceProject.Model
 
         // Az időbélyeg ás periódus alapján meghatározott fájl név
         private string measruringPeriodicFileName;
-        public string MeasruringPeriodicFileName
+        public string GetMeasruringPeriodicFileName
         {
             get 
             {   
-                DetermineMeasruringPeriodicFileName();
                 return measruringPeriodicFileName; 
             }
         }
 
+        // Meghatározza a fájl nevet is!
         public MDStoreFileId(DateTime measureDate, StorePeriod storePeriod)
         {
             this.actulMeasureFileTimeStamp = measureDate;
             this.storePeriod = storePeriod;
+            DetermineMeasruringPeriodicFileName();
         }
 
+        // Tárolja az új TimeStam-ot és meghatározza az új fájlnevet
         public void SetActulMeasureFileTimeStamp(DateTime measureDate)
         {
             this.actulMeasureFileTimeStamp = measureDate;
+            DetermineMeasruringPeriodicFileName();
         }
 
         // Az utolsó mérés időbélyege még az aktuális forgóban van-e?
@@ -86,19 +89,19 @@ namespace MeasureDeviceProject.Model
             switch (storePeriod)
             {
                 case StorePeriod.EveryMinit:                    
-                        sb.Append(actulMeasureFileTimeStamp.Hour)
+                    sb.Append("-")
+                         .Append(actulMeasureFileTimeStamp.Hour)
                         .Append("-")
                         .Append(actulMeasureFileTimeStamp.Minute);
                     break;
                 case StorePeriod.EveryHour:
-                    sb.Append(actulMeasureFileTimeStamp.Hour);
+                    sb.Append("-").Append(actulMeasureFileTimeStamp.Hour);
                     break;
                 case StorePeriod.EveryDay:
                     break;
             }
             sb.Append(".txt");
             measruringPeriodicFileName = sb.ToString();
-            return
         }
     }
 }
