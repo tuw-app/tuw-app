@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
@@ -10,14 +11,44 @@ namespace MeasureDeviceServiceAPIProject
     {
         public static void Main(string[] args)
         {
+
+            var configuration = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+            var path = configuration.GetValue<string>("Path");
+
+            const string logTemplate = @"{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level:u4}] [{SourceContext:l}] {Message:lj}{NewLine}{Exception}";
+
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-                //.Enrich.FromLogContext()
+                .Enrich.FromLogContext()
                 .Enrich.WithThreadId()
                 .WriteTo.Console()
                 .WriteTo.Debug()
-                .WriteTo.File(@"d:\tuw\log\log.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.File(path+"log.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.Logger(l =>
+                {
+                    l.WriteTo.File(path + "log-10.10.10.10-.txt", LogEventLevel.Information, logTemplate,
+                        rollingInterval: RollingInterval.Day
+                    );
+                    l.Filter.ByIncludingOnly(e => e.Properties.ContainsKey("10.10.10.10"));
+                })
+                .WriteTo.Logger(l =>
+                {
+                    l.WriteTo.File(path + "log-20.20.20.20-.txt", LogEventLevel.Information, logTemplate,
+                        rollingInterval: RollingInterval.Day
+                    );
+                    l.Filter.ByIncludingOnly(e => e.Properties.ContainsKey("20.20.20.20"));
+                })
+                .WriteTo.Logger(l =>
+                {
+                    l.WriteTo.File(path + "log-30.30.30.30-.txt", LogEventLevel.Information, logTemplate,
+                        rollingInterval: RollingInterval.Day
+                    );
+                    l.Filter.ByIncludingOnly(e => e.Properties.ContainsKey("30.30.30.30"));
+                })
                 .CreateLogger();
 
             try

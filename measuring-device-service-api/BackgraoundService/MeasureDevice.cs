@@ -10,12 +10,15 @@ using MeasureDeviceServiceAPIProject.BackgraoundService;
 using MeasureDeviceServiceAPIProject.Service;
 using MeasureDeviceProject.Model;
 using Serilog;
+using Microsoft.Extensions.Configuration;
+using Serilog.Core;
 
 namespace MeasureDeviceProject.BackgraoundService
 {
-    public abstract class MeasureDevice : BackgroundService, IMeasureDevice
+    public abstract class MeasureDevice : BackgroundService, IMeasureDevice, IDisposable
     {
         private readonly ILogger<MeasureDevice> logger;
+        private readonly IConfiguration configuration;
 
         public MDIPAddress IPAddress { get; set; }
         private MeasureSendingDataService msds;
@@ -26,18 +29,21 @@ namespace MeasureDeviceProject.BackgraoundService
             get { return measuringInterval; }
             set
             {
-                measuringInterval = value;
-                msds.SetMeasureingInterval(value);
+                measuringInterval = value;                
             }            
         }
 
-        public MeasureDevice(ILogger<MeasureDevice> logger, MDIPAddress MDIPAddress, double measuringInterval)
+        public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, MDIPAddress MDIPAddress, double measuringInterval)
         {
             this.logger = logger;
             IPAddress= MDIPAddress;
             this.measuringInterval = measuringInterval;
+
+            msds = new MeasureSendingDataService(configuration, logger, IPAddress);
         }
         
+
+
         public void Start()
         {
             //logger.LogInformation("MeasureDevice {@IpAddress} -> Measuring Start", IPAddress);
@@ -53,18 +59,28 @@ namespace MeasureDeviceProject.BackgraoundService
         {
             Console.WriteLine(IPAddress);
             logger.LogInformation("MeasureDevice {@IpAddress} -> StartAsync", IPAddress);
+            logger.LogInformation("MeasureDevice {@IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
+
+            Thread thredPeridodically = new Thread(new ThreadStart(msds.StoringDataPeriodically));
+            //thredPeridodically.CurrentCulture
+            thredPeridodically.Priority = ThreadPriority.Lowest;
+            thredPeridodically.Start();
+                            
+
             return base.StartAsync(cancellationToken);
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             logger.LogInformation("MeasureDevice {@IpAddress} -> ExecuteAsync", IPAddress);
+
             while (!stoppingToken.IsCancellationRequested)
             {
 
-                // Ide a vezérlés kezelés kell rakni!
-                logger.LogInformation("MeasureDevice {@IpAddress} -> ExecuteAsync", IPAddress);
+                logger.LogInformation("MeasureDevice {@IpAddress}:  ExecuteAsync {time}", IPAddress, DateTimeOffset.Now.ToString("yyyy.MM.dd HH: mm:ss"));
+                msds.MeasuringCPUUsage();
                 await Task.Delay(TimeSpan.FromMilliseconds(measuringInterval), stoppingToken);
+
             }
         }
 
@@ -81,6 +97,15 @@ namespace MeasureDeviceProject.BackgraoundService
 
         public void StopDevice()
         {
+        }
+
+        public override void Dispose()
+        {
+            if (msds != null)
+            {
+                msds.Dispose();
+            }
+            base.Dispose();
         }
     }
 }
