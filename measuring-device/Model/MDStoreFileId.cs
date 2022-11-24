@@ -19,13 +19,30 @@ namespace MeasureDeviceProject.Model
     {
         // A tárolás ezen időbélyeg alapján történik jelenleg
         private DateTime actulMeasureFileTimeStamp;
+        
+        // A tárolás peróodusa
         private StorePeriod storePeriod;
 
+        // Az időbélyeg ás periódus alapján meghatározott fájl név
+        private string measruringPeriodicFileName;
+        public string MeasruringPeriodicFileName
+        {
+            get 
+            {   
+                DetermineMeasruringPeriodicFileName();
+                return measruringPeriodicFileName; 
+            }
+        }
 
         public MDStoreFileId(DateTime measureDate, StorePeriod storePeriod)
         {
             this.actulMeasureFileTimeStamp = measureDate;
             this.storePeriod = storePeriod;
+        }
+
+        public void SetActulMeasureFileTimeStamp(DateTime measureDate)
+        {
+            this.actulMeasureFileTimeStamp = measureDate;
         }
 
         // Az utolsó mérés időbélyege még az aktuális forgóban van-e?
@@ -58,14 +75,14 @@ namespace MeasureDeviceProject.Model
         /// Az tárolás időbpont bélyeg és mérés forgó alapján meghatározza a fájl nevet
         /// </summary>
         /// <returns></returns>
-        public string getMeasruringPeriodicFileName()
+        private void  DetermineMeasruringPeriodicFileName()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(actulMeasureFileTimeStamp.Year)
                         .Append("-")
                         .Append(actulMeasureFileTimeStamp.Month)
                         .Append("-")
-                        .Append(actulMeasureFileTimeStamp.Day);
+                        .Append(actulMeasureFileTimeStamp.Day);                    
             switch (storePeriod)
             {
                 case StorePeriod.EveryMinit:                    
@@ -79,7 +96,9 @@ namespace MeasureDeviceProject.Model
                 case StorePeriod.EveryDay:
                     break;
             }
-            return sb.ToString();
+            sb.Append(".txt");
+            measruringPeriodicFileName = sb.ToString();
+            return
         }
     }
 }

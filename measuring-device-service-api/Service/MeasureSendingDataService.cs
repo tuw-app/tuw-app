@@ -34,13 +34,12 @@ namespace MeasureDeviceServiceAPIProject.Service
         MeasuringDataStore cpuDataStore = null;
         MDStoreFileId storeFileId = null;
 
-
-
         private MDIPAddress IPAddress { get; }
 
         private string path = string.Empty;
 
         private Queue<string> dataQueue = new Queue<string>();
+        private DataPerFile storedDataPerFile=null;
 
         public void SetMeasureingInterval(double measuringInterval)
         {
@@ -115,7 +114,6 @@ namespace MeasureDeviceServiceAPIProject.Service
         {
             using (LogContext.PushProperty(dataId.IPAddress.ToString(), 1))
             {
-                string CPUStoreFileName = string.Empty;
                 Log.Information("MeasureDevice {IpAddress} -> Measuring data: begin working.", dataId.IPAddress.ToString());
                 while (true)
                 {
@@ -134,11 +132,33 @@ namespace MeasureDeviceServiceAPIProject.Service
                         Log.Information("MeasureDevice {@IpAddress} -> Measuring data: {Data}", dataId.IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
 
                         // Mesuring data storing
+                        // Measuring file name
                         // Tárolás periódusának meghatározása -> tároló fájl név!                        
-                        if (storeFileId == null)
-                            storeFileId = new MDStoreFileId(measuringTime, storePeriod);
-                        if (!storeFileId.IsTheMesureTimeStampGood(measuringTime) || CPUStoreFileName==string.Empty)
-                            CPUStoreFileName=storeFileId.getMeasruringPeriodicFileName();                           
+                        // Honnan tudom, hogy egy fájlba már minden adat be van írva?
+                        // Egy Dictionaryban nyilvántartom melyik fájlba hány adatot írtam.
+
+                        if (storeFileId == null) 
+                        {
+                             // Induláskor meghatározzuk az első tárolandó fájl nevét.
+                             storeFileId = new MDStoreFileId(measuringTime, storePeriod);
+                             Log.Information("MeasureDevice {@IpAddress} -> New File id: {StoreFileID}", dataId.IPAddress.ToString(),storeFileId.MeasruringPeriodicFileName);
+                        }
+                        if (!storeFileId.IsTheMesureTimeStampGood(measuringTime))
+                        {
+                            // Ha a periódus idő lejárt elároljuk az adatok számát és meghatározzuk az új fájl nevét.
+                            if (storedDataPerFile==null)
+                            {
+                                // Létrehozzuk a dictionary-t a fájl nevek és benne tárolt adatok tárolására
+                                storedDataPerFile = new DataPerFile();
+                            }
+                            storedDataPerFile.Add(storeFileId.MeasruringPeriodicFileName, dataId.DataID);
+                            // A dataId-t visszaállítuk
+                            dataId.DataID = 1;
+                            storeFileId.SetActulMeasureFileTimeStamp(measuringTime);
+                            // Meghatározzuk az új fájl nevét
+                             Log.Information();
+
+                        }
 
                         // Store Data to log file
                         StringBuilder sb = new StringBuilder();
