@@ -34,7 +34,7 @@ namespace MeasureDeviceServiceAPIProject.Service
 
         private string path = string.Empty;
 
-        private Queue<char> data = new Queue<char>();
+        private Queue<string> dataQueue = new Queue<string>();
 
         public void SetMeasureingInterval( double measuringInterval)
         {
@@ -95,9 +95,10 @@ namespace MeasureDeviceServiceAPIProject.Service
                 path = configuration["Path"]; // ???????
                 Log.Information("MeasureDevice {@IpAddress} -> The log path is {Path}", dataId.IPAddress,path);
                 
-                cpuDataStore = new MeasuringDataStore("CPU", "f:\\tuw\\log\\", "store", dataId);
+                cpuDataStore = new MeasuringDataStore(logger,"CPU", "d:\\tuw\\log\\"+ dataId.IPAddress+"\\", "store", dataId);
                 Log.Information("MeasureDevice {@IpAddress} -> The log file name is {file}", dataId.IPAddress, cpuDataStore.ToString());
 
+                // Miért nem működik 
                 timer = new Timer(MeasuringData, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(measureingInterval));
             }
 
@@ -123,35 +124,37 @@ namespace MeasureDeviceServiceAPIProject.Service
                         DateTime measuringTime = DateTime.Now;
                         Log.Information("MeasureDevice {@IpAddress} -> Measuring time: {Time}", dataId.IPAddress.ToString(), measuringTime.ToString("yyyy.MM.dd HH:mm:ss.ff)"));
                         Log.Information("MeasureDevice {@IpAddress} -> Measuring data: {Data}", dataId.IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
-                        // Write Mesuring to log file
+                        // Store Data to log file
                         StringBuilder sb = new StringBuilder();
-                        sb.Append(dataId.MeasuringId).Append(";").Append(dataId.DataID).Append(";").Append(cuMeasuring.GetCPUUsage());
-                        try
-                        {
-                            cpuDataStore.WriteData(sb.ToString());
-                            Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored.", dataId.IPAddress.ToString());
-                        }
-                        catch (Exception ex)
-                        {
-                            Log.Error("MeasureDevice {@IpAddress} -> Measuring write data: {Data}", dataId.IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
-                        }
-                        sb.Clear();
-
-                        Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored to log file {File}", dataId.IPAddress.ToString(),cpuDataStore.ToString());
-
-                        while (lockSendingToApi)
-                            Log.Information("MeasureDevice {@IpAddress} ->  Sending locked. Can not save data. Waiting for can save signal.");
                         lock (dataId)
                         {
-                            Log.Information("MeasureDevice {@IpAddress} -> Measuring data ID is:{ID}", dataId.IPAddress.ToString(), dataId);
+                            sb.Append(dataId.IPAddress).Append(dataId.MeasuringId).Append(";").Append(dataId.DataID).Append(";").Append(cuMeasuring.GetCPUUsage());
+                            try
+                            {
+                                cpuDataStore.WriteData(sb.ToString());
+                                Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored in logfile.", dataId.IPAddress.ToString());
+                            }
+                            catch (Exception ex)
+                            {
+                                Log.Error("MeasureDevice {@IpAddress} -> Measuring write data: {Data}", dataId.IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
+                            }
+                            
+
+                            Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored to log file {File}", dataId.IPAddress.ToString(), cpuDataStore.ToString());
+
+                            // Store Data to Queue
+                            while (lockSendingToApi)
+                                Log.Information("MeasureDevice {@IpAddress} ->  Sending locked. Can not save data. Waiting for can save signal.");
+                            lock(dataQueue)
+                            {
+                                dataQueue.Enqueue(sb.ToString());
+                            }
+                            sb.Clear();
+                            Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored in queue.", dataId.IPAddress.ToString());
+
+                            // Prepare next measure
                             dataId.DataID = dataId.DataID + 1;
                         }
-
-                        //lockMesuring = true;
-                        //data.Enqueue(measuredResult);
-                        //lockMesuring = false;
-                        Log.Information("MeasureDevice {@IpAddress} -> Measured data have been saved to queue");
-
                     }
                 }
             }                     
