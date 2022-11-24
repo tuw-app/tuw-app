@@ -145,18 +145,19 @@ namespace MeasureDeviceServiceAPIProject.Service
                         }
                         if (!storeFileId.IsTheMesureTimeStampGood(measuringTime))
                         {
-                            // Ha a periódus idő lejárt elároljuk az adatok számát és meghatározzuk az új fájl nevét.
+                            // Ha a periódus idő lejárt eltároljuk az adatok számát és meghatározzuk az új fájl nevét.
                             if (storedDataPerFile==null)
                             {
                                 // Létrehozzuk a dictionary-t a fájl nevek és benne tárolt adatok tárolására
                                 storedDataPerFile = new DataPerFile();
                             }
                             storedDataPerFile.Add(storeFileId.MeasruringPeriodicFileName, dataId.DataID);
-                            // A dataId-t visszaállítuk
+                            Log.Information("MeasureDevice {@IpAddress} -> Number of open file: {OpenFileNumer}", dataId.IPAddress.ToString(), storedDataPerFile.NumberOfOpenFile.ToString());
+                            // A dataId-t visszaállítjuk
                             dataId.DataID = 1;
                             storeFileId.SetActulMeasureFileTimeStamp(measuringTime);
                             // Meghatározzuk az új fájl nevét
-                             Log.Information();
+                            Log.Information("MeasureDevice {@IpAddress} -> New File id: {StoreFileID}",, dataId.IPAddress.ToString(),storeFileId.MeasruringPeriodicFileName);
 
                         }
 

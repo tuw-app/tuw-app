@@ -8,12 +8,12 @@ namespace MeasureDeviceProject.Model
     {
         private Dictionary<string, ulong> dataPerFile = null;
 
-        public DataPerFile() 
-        { 
-            dataPerFile= new Dictionary<string, ulong>();
+        public DataPerFile()
+        {
+            dataPerFile = new Dictionary<string, ulong>();
         }
 
-        public void Add(string fileName,ulong dataPerFileName)
+        public void Add(string fileName, ulong dataPerFileName)
         {
             dataPerFile.Add(fileName, dataPerFileName);
         }
@@ -23,13 +23,15 @@ namespace MeasureDeviceProject.Model
             dataPerFile.Remove(fileName);
         }
 
-        public ulong Get(string fileName) 
-        { 
+        public ulong Get(string fileName)
+        {
             if (dataPerFile == null)
                 return 0;
             else if (dataPerFile.ContainsKey(fileName))
-                return dataPerFile[fileName]; 
+                return dataPerFile[fileName];
             return 0;
         }
+
+        public int NumberOfOpenFile { get { return dataPerFile.Count; } }
     }
 }
