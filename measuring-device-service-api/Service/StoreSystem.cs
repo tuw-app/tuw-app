@@ -16,20 +16,15 @@ namespace MeasureDeviceServiceAPIProject.Service
     {
         ILogger<MeasureDevice> logger = null;
 
+        MDIPAddress IPAddress = null;
+        private MDStoreFileId storedFileId=null;
+        private MeasuringDataStore measuringDataStore=null;
+        private MDDataId mdDataId = null;
+
         private string path;
         public string Path
         {
             get { return path; }
-        }
-
-
-        
-        private MDStoreFileId storedFileId;
-        public MDStoreFileId StoredFileId
-        {
-            get { return storedFileId; }
-            set { storedFileId = value; }
-
         }
 
         private string FullPathFileName
@@ -41,31 +36,33 @@ namespace MeasureDeviceServiceAPIProject.Service
             }
         }
 
-        private MeasuringDataStore measuringDataStore;
-
-        public PeriodicallyStoreSystem(ILogger<MeasureDevice> logger, MDStoreFileId storedFileId, string path )
+        public PeriodicallyStoreSystem(ILogger<MeasureDevice> logger, MDIPAddress IPAddress, MDStoreFileId storedFileId, string path )
         {
             this.storedFileId = storedFileId;
+            this.IPAddress = IPAddress;
             this.logger = logger;
             this.path = path;
-            measuringDataStore = new MeasuringDataStore(logger, path, storedFileId.GetMeasruringPeriodicFileName);
+            System.IO.Directory.CreateDirectory(path+IPAddress);
+            measuringDataStore = new MeasuringDataStore(logger, IPAddress, path, storedFileId.GetMeasruringPeriodicFileName);
         }
 
-        private MDDataId mdDataId=null;
-
-        public void SetDataId(MDIPAddress IPAddress, DateTime mesuringDataTime, ulong exsistingID)
+        public void SetDataId( DateTime mesuringDataTime, ulong dataId)
         {
-            mdDataId = new MDDataId(IPAddress, mesuringDataTime, exsistingID);
+            if (mdDataId == null)
+            {
+                mdDataId = new MDDataId(IPAddress, mesuringDataTime, dataId);
+            }
+            else
+            {
+                mdDataId.IPAddress=IPAddress;
+                mdDataId.DateTime = mesuringDataTime;
+                mdDataId.DataID= dataId;
+            }
         }
 
         public MDDataId GetDataId()
         {
             return mdDataId;
-        }
-
-        public void IncrementDataId()
-        {
-            mdDataId.IncrementDataId();
         }
 
         public string GetDataIdToLog()
@@ -75,6 +72,11 @@ namespace MeasureDeviceServiceAPIProject.Service
                 return mdDataId.ToString();
             }
             else return string.Empty;
+        }
+
+        public void IncrementDataId()
+        {
+            mdDataId.IncrementDataId();
         }
 
         public bool IsFileExsist()
@@ -91,6 +93,7 @@ namespace MeasureDeviceServiceAPIProject.Service
 
         public void WriteData(string measuredCPUDataToStore)
         {
+            Log.Information("PeriodicallyStoreSystem  -> Write to data: {FullPathFileName}", FullPathFileName);
             measuringDataStore.WriteData(measuredCPUDataToStore);
         }
 
@@ -107,8 +110,10 @@ namespace MeasureDeviceServiceAPIProject.Service
             if (!storedFileId.IsTheMesureTimeStampGood(mesuredCPUUsage.MeasureTime))
             {
                 // Mivel az aktuális adat ideje már lejárt és nem ebben a fájlban tároljuk
+                Log.Information("PeriodicallyStoreSystem  -> The {time} stamp is expired.", mesuredCPUUsage.MeasureTime);
                 // Zárjuk az aktális fájlt.
                 measuringDataStore.Close();
+                Log.Information("PeriodicallyStoreSystem  -> {FullPathFileName} is closed.", FullPathFileName);
                 measuringDataStore.ChangeFileExtension();
                 Log.Information("PeriodicallyStoreSystem  -> {File} is closed and new extenstion is bak.", measuringDataStore.FileName);
 
@@ -116,8 +121,14 @@ namespace MeasureDeviceServiceAPIProject.Service
                 mdDataId.DataID = 1;
                 // Meghatározzuk az új fájl nevét és fájl írót
                 storedFileId.SetActulMeasureFileTimeStamp(mesuredCPUUsage.MeasureTime);
+                // A meghatározott új fájlnevet tároljuk
+                measuringDataStore.FileName = storedFileId.GetMeasruringPeriodicFileName;
 
-                 Log.Information("PeriodicallyStoreSystem -> New File id: {StoreFileID}", storedFileId.GetMeasruringPeriodicFileName);
+                Log.Information("PeriodicallyStoreSystem -> New File id: {StoreFileID}", storedFileId.GetMeasruringPeriodicFileName);
+            }
+            else
+            {
+                Log.Information("PeriodicallyStoreSystem  -> The {time} stamp is good.", mesuredCPUUsage.MeasureTime);
             }
         }
 

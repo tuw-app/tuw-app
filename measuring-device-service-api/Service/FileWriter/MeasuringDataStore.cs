@@ -6,6 +6,7 @@ using System.Security.Permissions;
 using System.Text;
 using MeasureDeviceProject.BackgraoundService;
 using MeasureDeviceProject.Model;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.Extensions.Logging;
 
 namespace MeasureDeviceProject.Service.FileWriter
@@ -16,8 +17,9 @@ namespace MeasureDeviceProject.Service.FileWriter
     {
         ILogger<MeasureDevice> logger;
 
+        private MDIPAddress IPAddress=null;
         private string path=string.Empty;
-        private string fileName=string.Empty;
+
 
         private DateTime CurrentStoreTime { get; set; }
       
@@ -25,14 +27,26 @@ namespace MeasureDeviceProject.Service.FileWriter
         FileStream currentStream = null;
         StreamWriter sw = null;
 
-        public string FileName { get; set; }
+        private bool fileIsClosed = false;
 
-        private string FullFileName { get { return path + fileName; } }
+        private string fileName = string.Empty;
+        public string FileName {
+            get { return fileName; }
+            set { fileName = value; }
+        }
 
-        
-        public MeasuringDataStore(ILogger<MeasureDevice> logger,  string path, string fileName)
+        private string FullFileName { 
+            get 
+            {   StringBuilder sb = new StringBuilder();
+                sb.Append(path).Append(IPAddress.ToString()).Append("\\").Append(fileName);
+                return sb.ToString(); 
+            } 
+        }
+
+        public MeasuringDataStore(ILogger<MeasureDevice> logger, MDIPAddress IPAddress, string path, string fileName)
         {
             this.logger = logger;
+            this.IPAddress= IPAddress;
             this.path = path;
             this.fileName = fileName;
         }
@@ -47,7 +61,7 @@ namespace MeasureDeviceProject.Service.FileWriter
                 {
                     currentStream = new FileStream(FullFileName, FileMode.CreateNew, FileAccess.Write);
                     sw = new StreamWriter(currentStream);
-                   
+                    fileIsClosed = false;
                     logger.LogInformation("MeasuringDataStore {FileName} -> File not exsist. File created.", FileName);
                 }
                 catch (Exception ex)
@@ -63,6 +77,7 @@ namespace MeasureDeviceProject.Service.FileWriter
                 {
                     currentStream = new FileStream(FullFileName, FileMode.Append, FileAccess.Write);
                     sw = new StreamWriter(currentStream, Encoding.UTF8, 65536);
+                    fileIsClosed = false;
 
                     logger.LogInformation("MeasuringDataStore {FileName} -> Open file to append data.", FileName);
                 }
@@ -83,15 +98,16 @@ namespace MeasureDeviceProject.Service.FileWriter
         */
         public void WriteData(string data)
         {
-            if (currentStream == null || sw == null)
+            if (currentStream == null || sw == null || sw.BaseStream == null || fileIsClosed == true )
             {
                 Init();
             }
-            else
-            {
+            else           
+            {                
                 try
                 {
                     sw.WriteLine(data);
+                    sw.Flush();                    
                     logger.LogInformation("MeasuringDataStore {FileName} -> Data is stored: {Data}", FileName,data);
                 }
                 catch (Exception ex)
@@ -108,6 +124,7 @@ namespace MeasureDeviceProject.Service.FileWriter
                 sw.Close();
             if (currentStream != null)
                 currentStream.Close();
+            fileIsClosed= true;
             logger.LogInformation("MeasuringDataStore {FileName} -> File is closed", FileName);
         }
 

@@ -33,7 +33,7 @@ namespace MeasureDeviceProject.Model
             StringBuilder stringBuilder= new StringBuilder();
             stringBuilder.Append(IPAddress.ToString())
                 .Append(";")
-                .Append(DateTime.ToString("yyyy-MM-dd;hh-mm-ss-ffff"))
+                .Append(DateTime.ToString("yyyy-MM-dd;hh-mm-ss"))
                 .Append(";")
                 .Append(DataID);
             return stringBuilder.ToString();

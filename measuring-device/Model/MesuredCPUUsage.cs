@@ -33,5 +33,10 @@ namespace MeasureDeviceProject.Model
             return cpuUsageResult.ToString();
         }
 
+        public string ToStore()
+        {
+            return cpuUsageResult.GetShortString();
+        }
+
     }
 }
