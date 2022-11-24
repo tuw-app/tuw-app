@@ -4,7 +4,5 @@
     {
         public void Start();
         public void Stop();
-        public void SetMeasuringInterval(int interval);
-        public double GetMeasuringInterval();
     }
 }

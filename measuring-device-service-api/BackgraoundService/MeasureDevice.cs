@@ -11,6 +11,7 @@ using MeasureDeviceServiceAPIProject.Service;
 using MeasureDeviceProject.Model;
 using Serilog;
 using Microsoft.Extensions.Configuration;
+using Serilog.Core;
 
 namespace MeasureDeviceProject.BackgraoundService
 {
@@ -28,8 +29,7 @@ namespace MeasureDeviceProject.BackgraoundService
             get { return measuringInterval; }
             set
             {
-                measuringInterval = value;
-                msds.SetMeasureingInterval(value);
+                measuringInterval = value;                
             }            
         }
 
@@ -39,7 +39,7 @@ namespace MeasureDeviceProject.BackgraoundService
             IPAddress= MDIPAddress;
             this.measuringInterval = measuringInterval;
 
-            msds = new MeasureSendingDataService(configuration, logger, IPAddress, measuringInterval);
+            msds = new MeasureSendingDataService(configuration, logger, IPAddress);
         }
         
 
@@ -59,6 +59,7 @@ namespace MeasureDeviceProject.BackgraoundService
         {
             Console.WriteLine(IPAddress);
             logger.LogInformation("MeasureDevice {@IpAddress} -> StartAsync", IPAddress);
+            logger.LogInformation("MeasureDevice {@IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
             return base.StartAsync(cancellationToken);
         }
 
@@ -68,8 +69,8 @@ namespace MeasureDeviceProject.BackgraoundService
             while (!stoppingToken.IsCancellationRequested)
             {
 
-                // Ide a vezérlés kezelés kell rakni!
-                logger.LogInformation("MeasureDevice {@IpAddress} -> ExecuteAsync", IPAddress);
+                logger.LogInformation("MeasureDevice {@IpAddress}:  ExecuteAsync {time}", IPAddress, DateTimeOffset.Now.ToString("yyyy.MM.dd HH: mm:ss"));
+                msds.MeasuringCPUUsage();
                 await Task.Delay(TimeSpan.FromMilliseconds(measuringInterval), stoppingToken);
             }
         }

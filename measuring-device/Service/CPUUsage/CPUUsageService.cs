@@ -8,13 +8,17 @@ namespace MeasureDeviceProject.Service.CPUUsage
 {
     public class CPUUsageService : ICPUUsageService, IDisposable
     {
-        private CPUUsageResult usageResult;
-
         const string textCpu = "CPU Usage: ";
         private PerformanceCounter pc;
 
         private int interval = 1;
-        
+
+
+        private CPUUsageResult usageResult;
+
+        public CPUUsageResult UsageResult { get; set; }
+
+
         public CPUUsageService(int interval=1)
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
