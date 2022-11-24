@@ -1,5 +1,6 @@
 ﻿using MeasureDeviceProject.BackgraoundService;
 using MeasureDeviceProject.Model;
+using MeasureDeviceProject.Model.MeasureElements;
 using MeasureDeviceProject.Service.CPUUsage;
 using MeasureDeviceProject.Service.FileWriter;
 using Microsoft.Extensions.Configuration;
@@ -24,31 +25,25 @@ namespace MeasureDeviceServiceAPIProject.Service
         ILogger<MeasureDevice> logger;
         IConfiguration configuration;
 
-        private MDDataId dataId=null;
-
         private bool lockMesuring = false;
         private bool lockSendingToApi = true;
         private bool stopDevice = false;
 
         CPUUsageService cpuMeasuring = null;
-        MeasuringDataStore cpuDataStore = null;
-        MDStoreFileId storeFileId = null;
+        PeriodicallyStoreSystem cpuDataStorePeriodically = null;
 
         private MDIPAddress IPAddress { get; }
 
         private string path = string.Empty;
 
-        private Queue<MesuredCPUUsage> measuredCPUUsageQeueue = new Queue<MesuredCPUUsage>();
-        private DataPerFile storedDataPerFile=null;
-
-
-
-        public MeasureSendingDataService(IConfiguration configuration, ILogger<MeasureDevice> logger,  MDIPAddress IPAddress, StorePeriod storePeriod = StorePeriod.EveryMinit)
+        private static Queue<MesuredCPUUsage> measuredCPUUsageQeueue = new Queue<MesuredCPUUsage>();
+     
+        public MeasureSendingDataService(IConfiguration configuration, ILogger<MeasureDevice> logger, MDIPAddress IPAddress, StorePeriod storePeriod = StorePeriod.EveryMinit)
         {
             this.logger = logger;
             this.configuration = configuration;
-            
-            this.IPAddress=IPAddress;                        
+
+            this.IPAddress = IPAddress;
             this.storePeriod = storePeriod;
 
             Initialize();
@@ -115,88 +110,96 @@ namespace MeasureDeviceServiceAPIProject.Service
             }
         }
 
-        /*    
-         *                            // Mesuring data storing
-                           // Measuring file name
-                           // Tárolás periódusának meghatározása -> tároló fájl név!                        
-                           // Honnan tudom, hogy egy fájlba már minden adat be van írva?
-                           // Egy Dictionaryban nyilvántartom melyik fájlba hány adatot írtam.
-         *    
-         *    if (storeFileId == null)
-                           {
-                               // Induláskor meghatározzuk az első tárolandó fájl nevét.
-                               storeFileId = new MDStoreFileId(measuringTime, storePeriod);
-           cpuDataStore = new MeasuringDataStore(logger, path, storeFileId.GetMeasruringPeriodicFileName);
+        public void StoringDataPeriodically()
+        {
+            using (LogContext.PushProperty(IPAddress.ToString(), 1))
+            {
+                MesuredCPUUsage mesuredResult = null;
+                MDStoreFileId storeFileId = null;
 
-           Log.Information("MeasureDevice {@IpAddress} -> New File id: {StoreFileID}", IPAddress.ToString(), storeFileId.GetMeasruringPeriodicFileName);
-                           }
+                // init
+                while (measuredCPUUsageQeueue.Count == 0)
+                {
+                    Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> No mesured data in queue. {Count}", IPAddress.ToString(), measuredCPUUsageQeueue.Count);
+                }
+                lock (measuredCPUUsageQeueue)
+                {
+                    // kivasszük az első adatot
+                    mesuredResult = measuredCPUUsageQeueue.Peek();
+                    Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> Peek first data: {data}", IPAddress.ToString(), mesuredResult);
+                }
+                
+                // A következő adattal elkezdjük a periódikus adat tárolást
+                Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> First mesured data: {data}", IPAddress.ToString(), mesuredResult);
 
-                       lock (storeFileId)
-                       { 
-                           if (!storeFileId.IsTheMesureTimeStampGood(measuringTime))
-                           {
-                               // Ha a periódus idő lejárt eltároljuk az adatok számát és meghatározzuk az új fájl nevét.
-                               if (storedDataPerFile==null)
-                               {
-                                   // Létrehozzuk a dictionary-t a fájl nevek és benne tárolt adatok tárolására
-                                   storedDataPerFile = new DataPerFile();
-                               }
-                               // Eltároljuk a fájl nevét és abban tárolt adatok számát amibe beírtuk az utolsó adatot
-                               storedDataPerFile.Add(storeFileId.GetMeasruringPeriodicFileName, dataId.DataID);
-                               // A fájlt zárjuk???
-                               cpuDataStore.Close();
+                if (storeFileId == null)
+                {
+                    // Meghatározzuk az első adat id-jét és létrehozzuk a periódikus adat taároló rendszert
+                    Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> No sotre file id", IPAddress.ToString());
+                    storeFileId = new MDStoreFileId(mesuredResult.MeasureTime, storePeriod);
+                    Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> New sotre file id {Id}", IPAddress.ToString(), storeFileId);
 
-                               Log.Information("MeasureDevice {@IpAddress} -> Number of open file: {OpenFileNumer}", IPAddress.ToString(), storedDataPerFile.NumberOfOpenFile.ToString());             
-                               // A dataId-t visszaállítjuk
-                               dataId.DataID = 1;
-                               // Meghatározzuk az új fájl nevét és fájl írót
-                               storeFileId.SetActulMeasureFileTimeStamp(measuringTime);
-                               cpuDataStore.FileName = storeFileId.GetMeasruringPeriodicFileName;
+                    if (cpuDataStorePeriodically == null)
+                    {
+                        Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> No CPU data store periodically", IPAddress.ToString());
+                        cpuDataStorePeriodically = new PeriodicallyStoreSystem(logger, storeFileId, path);
+                        Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> New CPU data store periodically", IPAddress.ToString(), cpuDataStorePeriodically);
+
+                    }
+                }
+
+                if (cpuDataStorePeriodically.IsFileExsist())
+                {
+                    ulong exsistingID = cpuDataStorePeriodically.GetLastLineId();
+                    cpuDataStorePeriodically.MDDataId.DataID = exsistingID;
+                }
+                else
+                {
+                    cpuDataStorePeriodically.MDDataId.DataID = 1;
+                }
+                Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> First Data Id is: {Id}", IPAddress.ToString(), cpuDataStorePeriodically.MDDataId.DataID);
+                while (true)
+                {
+                    if (measuredCPUUsageQeueue.Count == 0)
+                    {
+                        Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Sending system -> No mesured data in queue", IPAddress.ToString());
+                    }
+                    // kivesszük a következő tárolandó elemet
+                    mesuredResult = measuredCPUUsageQeueue.Dequeue();
+
+                    lock (mesuredResult)
+                    {
+                        // Meghatározzuk az új tárolandó elem file ID-jét
+                        cpuDataStorePeriodically.StoredFileId = new MDStoreFileId(mesuredResult.MeasureTime, storePeriod);
+                        Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> New sotre file id {Id}", IPAddress.ToString(), storeFileId);
+
+                        // Az új tárolandó adat mérés időpontja alapján meghatározzuk, hogy melyik fájlba kerül az adat
+                        cpuDataStorePeriodically.DetermineTheStoreFile(mesuredResult);
 
 
-                               Log.Information("MeasureDevice {@IpAddress} -> New File id: {StoreFileID}", IPAddress.ToString(),storeFileId.GetMeasruringPeriodicFileName);
-                           }
-                           if (dataId == null)
-                           {   // Prepera mew data id 
-                               dataId = new MDDataId(IPAddress, measuringTime);
-                               Log.Information("MeasureDevice {@IpAddress} -> New data id: {DataID}", IPAddress.ToString(), dataId.ToString());
-                           }
+                        // Store Data to log file                              
+                        MeasuredCPUDataStore measuredData = new MeasuredCPUDataStore(cpuDataStorePeriodically.MDDataId,mesuredResult);
+                        Log.Information("MeasureDevice {@IpAddress} -> Data to store in file:", IPAddress.ToString(), measuredData.MeasuredCPUDataToStore);
+                        try
+                        {
+                            cpuDataStorePeriodically.WriteData(measuredData.MeasuredCPUDataToStore);
+                            Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored in txt file.", IPAddress.ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error("MeasureDevice {@IpAddress} -> Measuring data store faild. {Message}", IPAddress.ToString(), ex.Message);
+                        }
 
+                        Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored to log file {File}", IPAddress.ToString(), cpuDataStorePeriodically.StoredFileId.GetMeasruringPeriodicFileName);
 
-                       //    { 
-                               dataId.DateTime = measuringTime;
-                               Log.Information("MeasureDevice {@IpAddress} -> Data is is lockd: {DataID}", IPAddress.ToString(), dataId.ToString());
-                               // Store Data to log file                              
-                               MeasuredDataStore measuredData = new MeasuredDataStore(dataId.GetId, cuMeasuring.GetCPUUsage());
-                               Log.Information("MeasureDevice {@IpAddress} -> Data to store in file:", IPAddress.ToString(), measuredData.MeasuredData);
-                               try
-                               {
-                                   cpuDataStore.WriteData(measuredData.MeasuredData);
-                                   Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored in logfile.", IPAddress.ToString());
-                               }
-                               catch (Exception ex)
-                               {
-                                   Log.Error("MeasureDevice {@IpAddress} -> Measuring write data: {Data}", IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
-                               }
-
-                               Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored to log file {File}", IPAddress.ToString(), cpuDataStore.FileName);
-
-                               // Store Data to Queue
-                               while (lockSendingToApi)
-                                   Log.Information("MeasureDevice {@IpAddress} ->  Sending locked. Can not save data. Waiting for can save signal.");
-                               lock (dataQueue)
-                               {
-                                   dataQueue.Enqueue(measuredData.MeasuredData);
-                               }
-                               Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored in queue.", IPAddress.ToString());
-                               // Prepare to new DataId
-                               dataId.IncrementDataId();
-                           }
-                       }
-                   }
-               }
-           }
-        */
+                        // Prepare to new DataId
+                        cpuDataStorePeriodically.MDDataId.IncrementDataId();
+                    }
+                }
+            }
+        }
+    
+        
         public void Dispose()
         {
             if (cpuMeasuring!=null)

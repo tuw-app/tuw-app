@@ -1,15 +1,16 @@
-﻿using System;
+﻿using MeasureDeviceProject.Model.MeasureElements;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MeasureDeviceProject.Model
 {
-    public class MeasuredDataStore
+    public class MeasuredCPUDataStore
     {
         private string measuredData;
-        public string MeasuredData { get {return MeasuredData;} }
+        public string MeasuredCPUDataToStore { get {return MeasuredCPUDataToStore;} }
 
-        public MeasuredDataStore(string Id, string data)
+        public MeasuredCPUDataStore(MDDataId Id, MesuredCPUUsage data)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(Id).Append(";").Append(data);

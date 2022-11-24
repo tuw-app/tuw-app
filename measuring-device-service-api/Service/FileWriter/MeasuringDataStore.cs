@@ -131,5 +131,18 @@ namespace MeasureDeviceProject.Service.FileWriter
         {
             return FileName;
         }
+
+        public void ChangeFileExtension()
+        {
+            string newFileName = FullFileName.Replace(".txt", ".bak");
+            try
+            {
+                File.Move(FullFileName, newFileName);
+            }
+            catch
+            {
+            }
+
+        }
     }
 }

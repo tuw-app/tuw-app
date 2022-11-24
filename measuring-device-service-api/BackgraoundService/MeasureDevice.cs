@@ -60,6 +60,7 @@ namespace MeasureDeviceProject.BackgraoundService
             Console.WriteLine(IPAddress);
             logger.LogInformation("MeasureDevice {@IpAddress} -> StartAsync", IPAddress);
             logger.LogInformation("MeasureDevice {@IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
+
             return base.StartAsync(cancellationToken);
         }
 
@@ -72,6 +73,7 @@ namespace MeasureDeviceProject.BackgraoundService
                 logger.LogInformation("MeasureDevice {@IpAddress}:  ExecuteAsync {time}", IPAddress, DateTimeOffset.Now.ToString("yyyy.MM.dd HH: mm:ss"));
                 msds.MeasuringCPUUsage();
                 await Task.Delay(TimeSpan.FromMilliseconds(measuringInterval), stoppingToken);
+                msds.StoringDataPeriodically();
             }
         }
 

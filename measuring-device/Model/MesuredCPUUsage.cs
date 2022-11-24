@@ -26,5 +26,12 @@ namespace MeasureDeviceProject.Model
             this.cpuUsageResult = cpuUsageResult;
             this.measureTime = measureTime;
         }
+
+        // Az időpont az ID-ben van
+        public override string ToString()
+        {
+            return cpuUsageResult.ToString();
+        }
+
     }
 }
