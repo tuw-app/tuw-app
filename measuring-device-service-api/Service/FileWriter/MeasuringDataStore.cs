@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Security.Permissions;
 using System.Text;
 using MeasureDeviceProject.BackgraoundService;
 using MeasureDeviceProject.Model;
@@ -9,6 +10,8 @@ using Microsoft.Extensions.Logging;
 
 namespace MeasureDeviceProject.Service.FileWriter
 {
+
+
     public class MeasuringDataStore : IDisposable
     {
         ILogger<MeasureDevice> logger;
@@ -37,7 +40,7 @@ namespace MeasureDeviceProject.Service.FileWriter
             
         }
 
-        string dateTimeFileExcension = string.Empty;
+        string dateTimeFileExctension = string.Empty;
 
         public MeasuringDataStore(ILogger<MeasureDevice> logger, string storedDataType, string path, string fileName, MDDataId dataId)
         {
@@ -63,6 +66,7 @@ namespace MeasureDeviceProject.Service.FileWriter
                     sw = new StreamWriter(currentStream);
 
                     CurrentStoreDay = DateTime.Now.Day;
+
                     logger.LogInformation("MeasuringDataStore {FileName} -> File not exsist. File created. Current StoreDay: {StoreDay}", FileName, CurrentStoreDay.ToString());
                 }
                 catch (Exception ex)
@@ -88,21 +92,16 @@ namespace MeasureDeviceProject.Service.FileWriter
                 }                
             }
         }
-
+        /*
         public void ChangeLoggintToNextDay()
         {
             logger.LogInformation("MeasuringDataStore {FileName} -> Change logging to next day", FileName);
             Close();
             Init();
         }
-
+        */
         public void WriteData(string data)
         {
-            // Mi van ha már másik nap van?
-            if (DateTime.Now.Day!= CurrentStoreDay)
-            {
-                ChangeLoggintToNextDay();
-            }
             if (currentStream == null || sw == null)
             {
                 Init();
@@ -144,6 +143,8 @@ namespace MeasureDeviceProject.Service.FileWriter
                 currentStream.Dispose();
             }
         }
+
+        public string GetId { get { return ToString();  } }
 
         public override string ToString()
         {

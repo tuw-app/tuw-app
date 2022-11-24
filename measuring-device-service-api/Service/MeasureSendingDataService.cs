@@ -17,44 +17,51 @@ namespace MeasureDeviceServiceAPIProject.Service
 {
     public class MeasureSendingDataService : IMeasureSendingDataService, IDisposable
     {
+        StorePeriod storePeriod = StorePeriod.EveryMinit;
 
         ILogger<MeasureDevice> logger;
         IConfiguration configuration;
 
-        private double measureingInterval=0;
-        private MDDataId dataId;
+        private double measureingInterval = 0;
+        private MDDataId dataId=null;
 
         private bool lockMesuring = false;
         private bool lockSendingToApi = true;
         private bool stopDevice = false;
 
-        private Timer timer=null;
-        CPUUsageService cuMeasuring=null;
+        private Timer timer = null;
+        CPUUsageService cuMeasuring = null;
         MeasuringDataStore cpuDataStore = null;
+        MDStoreFileId storeFileId = null;
+
+
+
+        private MDIPAddress IPAddress { get; }
 
         private string path = string.Empty;
 
         private Queue<string> dataQueue = new Queue<string>();
 
-        public void SetMeasureingInterval( double measuringInterval)
+        public void SetMeasureingInterval(double measuringInterval)
         {
             this.measureingInterval = measuringInterval;
         }
 
-        public MeasureSendingDataService(IConfiguration configuration, ILogger<MeasureDevice> logger, MDIPAddress IPAddress,double MeasureingInterval) 
+        public MeasureSendingDataService(IConfiguration configuration, ILogger<MeasureDevice> logger,  MDIPAddress IPAddress, double MeasureingInterval, StorePeriod storePeriod = StorePeriod.EveryMinit)
         {
             this.logger = logger;
             this.configuration = configuration;
             this.measureingInterval = MeasureingInterval;
-            dataId = new MDDataId(IPAddress);
-            dataId.IPAddress = IPAddress;
+            
+            this.IPAddress=IPAddress;                        
+            this.storePeriod = storePeriod;
 
             Initialize();
         }
 
         public void Start()
         {
-            if (timer!=null)
+            if (timer != null)
             {
                 timer.Change(TimeSpan.Zero, TimeSpan.FromMilliseconds(measureingInterval));
             }
@@ -64,8 +71,8 @@ namespace MeasureDeviceServiceAPIProject.Service
         public void Stop()
         {
             if (timer != null)
-                timer.Change(Timeout.Infinite,0);
-            stopDevice= true;
+                timer.Change(Timeout.Infinite, 0);
+            stopDevice = true;
         }
 
         public void SetMeasuringInterval(int interval)
@@ -93,9 +100,9 @@ namespace MeasureDeviceServiceAPIProject.Service
                 lockSendingToApi = false;
 
                 path = configuration["Path"]; // ???????
-                Log.Information("MeasureDevice {@IpAddress} -> The log path is {Path}", dataId.IPAddress,path);
-                
-                cpuDataStore = new MeasuringDataStore(logger,"CPU", "d:\\tuw\\log\\"+ dataId.IPAddress+"\\", "store", dataId);
+                Log.Information("MeasureDevice {@IpAddress} -> The log path is {Path}", dataId.IPAddress, path);
+
+                cpuDataStore = new MeasuringDataStore(logger, "CPU", "d:\\tuw\\log\\" + dataId.IPAddress + "\\", "store", dataId);
                 Log.Information("MeasureDevice {@IpAddress} -> The log file name is {file}", dataId.IPAddress, cpuDataStore.ToString());
 
                 // Miért nem működik 
@@ -108,10 +115,10 @@ namespace MeasureDeviceServiceAPIProject.Service
         {
             using (LogContext.PushProperty(dataId.IPAddress.ToString(), 1))
             {
-                Log.Information("MeasureDevice {IpAddress} -> Measuring data: begin working.", dataId.IPAddress.ToString());                
+                string CPUStoreFileName = string.Empty;
+                Log.Information("MeasureDevice {IpAddress} -> Measuring data: begin working.", dataId.IPAddress.ToString());
                 while (true)
                 {
-
                     if (stopDevice)
                     {
                         Log.Information("MeasureDevice {@IpAddress} ->  Device is stoped.", dataId.IPAddress.ToString());
@@ -120,15 +127,32 @@ namespace MeasureDeviceServiceAPIProject.Service
                     {
                         Log.Information("MeasureDevice {@IpAddress} -> prepare to measuring.", dataId.IPAddress.ToString());
                         // Mesuring
-                        await cuMeasuring.ReadCPUUsage();
-                        DateTime measuringTime = DateTime.Now;
+                        await cuMeasuring.ReadCPUUsage();                                               
+                        DateTime measuringTime = DateTime.Now;                      
+
                         Log.Information("MeasureDevice {@IpAddress} -> Measuring time: {Time}", dataId.IPAddress.ToString(), measuringTime.ToString("yyyy.MM.dd HH:mm:ss.ff)"));
                         Log.Information("MeasureDevice {@IpAddress} -> Measuring data: {Data}", dataId.IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
+
+                        // Mesuring data storing
+                        // Tárolás periódusának meghatározása -> tároló fájl név!                        
+                        if (storeFileId == null)
+                            storeFileId = new MDStoreFileId(measuringTime, storePeriod);
+                        if (!storeFileId.IsTheMesureTimeStampGood(measuringTime) || CPUStoreFileName==string.Empty)
+                            CPUStoreFileName=storeFileId.getMeasruringPeriodicFileName();                           
+
                         // Store Data to log file
                         StringBuilder sb = new StringBuilder();
+                        // Prepera data id 
+                        if (dataId == null)
+                            dataId = new MDDataId(IPAddress, measuringTime);
+                        else
+                        {
+                            dataId.DateTime= measuringTime;
+                            dataId.DataID = dataId.DataID + 1;
+                        }
                         lock (dataId)
                         {
-                            sb.Append(dataId.IPAddress).Append(dataId.MeasuringId).Append(";").Append(dataId.DataID).Append(";").Append(cuMeasuring.GetCPUUsage());
+                            sb.Append(dataId.GetId).Append(";").Append(cuMeasuring.GetCPUUsage());
                             try
                             {
                                 cpuDataStore.WriteData(sb.ToString());
@@ -138,26 +162,23 @@ namespace MeasureDeviceServiceAPIProject.Service
                             {
                                 Log.Error("MeasureDevice {@IpAddress} -> Measuring write data: {Data}", dataId.IPAddress.ToString(), cuMeasuring.GetCPUUsageToLog());
                             }
-                            
+
 
                             Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored to log file {File}", dataId.IPAddress.ToString(), cpuDataStore.ToString());
 
                             // Store Data to Queue
                             while (lockSendingToApi)
                                 Log.Information("MeasureDevice {@IpAddress} ->  Sending locked. Can not save data. Waiting for can save signal.");
-                            lock(dataQueue)
+                            lock (dataQueue)
                             {
                                 dataQueue.Enqueue(sb.ToString());
                             }
                             sb.Clear();
-                            Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored in queue.", dataId.IPAddress.ToString());
-
-                            // Prepare next measure
-                            dataId.DataID = dataId.DataID + 1;
+                            Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored in queue.", dataId.IPAddress.ToString());                            
                         }
                     }
                 }
-            }                     
+            }
         }
 
         public void Dispose()
