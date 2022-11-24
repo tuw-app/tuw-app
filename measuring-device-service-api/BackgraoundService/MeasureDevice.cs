@@ -61,19 +61,26 @@ namespace MeasureDeviceProject.BackgraoundService
             logger.LogInformation("MeasureDevice {@IpAddress} -> StartAsync", IPAddress);
             logger.LogInformation("MeasureDevice {@IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
 
+            Thread thredPeridodically = new Thread(new ThreadStart(msds.StoringDataPeriodically));
+            //thredPeridodically.CurrentCulture
+            thredPeridodically.Priority = ThreadPriority.Lowest;
+            thredPeridodically.Start();
+                            
+
             return base.StartAsync(cancellationToken);
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             logger.LogInformation("MeasureDevice {@IpAddress} -> ExecuteAsync", IPAddress);
+
             while (!stoppingToken.IsCancellationRequested)
             {
 
                 logger.LogInformation("MeasureDevice {@IpAddress}:  ExecuteAsync {time}", IPAddress, DateTimeOffset.Now.ToString("yyyy.MM.dd HH: mm:ss"));
                 msds.MeasuringCPUUsage();
                 await Task.Delay(TimeSpan.FromMilliseconds(measuringInterval), stoppingToken);
-                msds.StoringDataPeriodically();
+
             }
         }
 

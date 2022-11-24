@@ -120,7 +120,7 @@ namespace MeasureDeviceServiceAPIProject.Service
                 // init
                 while (measuredCPUUsageQeueue.Count == 0)
                 {
-                    Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> No mesured data in queue. {Count}", IPAddress.ToString(), measuredCPUUsageQeueue.Count);
+                    //Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> No mesured data in queue. {Count}", IPAddress.ToString(), measuredCPUUsageQeueue.Count);
                 }
                 lock (measuredCPUUsageQeueue)
                 {
