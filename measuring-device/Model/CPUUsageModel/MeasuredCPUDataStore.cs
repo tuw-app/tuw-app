@@ -8,7 +8,7 @@ namespace MeasureDeviceProject.Model.CPUUsageModel
     {
 
         private MDDataId dataId;
-        private MesuredCPUUsage measuredCPUUsage;
+        private MeasuredCPUUsage measuredCPUUsage;
 
         private string measuredDataToTextFile;
         public string MeasuredCPUDataToStore { get { return MeasuredDataToTextFile(); } }
@@ -24,7 +24,7 @@ namespace MeasureDeviceProject.Model.CPUUsageModel
 
 
 
-        public MeasuredCPUDataStore(MDDataId Id, MesuredCPUUsage measuredCPUUsage)
+        public MeasuredCPUDataStore(MDDataId Id, MeasuredCPUUsage measuredCPUUsage)
         {
             dataId = Id;
             this.measuredCPUUsage = measuredCPUUsage;

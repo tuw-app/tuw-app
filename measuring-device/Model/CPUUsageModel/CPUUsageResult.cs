@@ -38,9 +38,9 @@ namespace MeasureDeviceProject.Model.CPUUsageModel
                 return string.Empty;
             else
             {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(RoundedCPUUsage).Append(";");
-                return sb.ToString();
+                //StringBuilder sb = new StringBuilder();
+                //sb.Append(RoundedCPUUsage)
+                return CPUUsage.ToString();
             }
         }
 

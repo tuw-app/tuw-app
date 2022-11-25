@@ -1,5 +1,6 @@
 ﻿using MeasureDeviceProject.BackgraoundService;
 using MeasureDeviceProject.Model;
+using MeasureDeviceProject.Model.CPUUsageModel;
 using MeasureDeviceProject.Service.FileWriter;
 using Microsoft.Extensions.Logging;
 using Serilog;
@@ -57,6 +58,20 @@ namespace MeasureDeviceServiceAPIProject.Service
                 mdDataId.IPAddress=IPAddress;
                 mdDataId.DateTime = mesuringDataTime;
                 mdDataId.DataID= dataId;
+            }
+        }
+
+        public void SetDataId(DateTime mesuringDataTime)
+        {
+            if (mdDataId == null)
+            {
+                mdDataId = new MDDataId(IPAddress, mesuringDataTime, 0);
+            }
+            else
+            {
+                mdDataId.IPAddress = IPAddress;
+                mdDataId.DateTime = mesuringDataTime;
+                // dataID már növelve, most az új adat kap időbélyeg alapján új id-t
             }
         }
 

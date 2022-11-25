@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MeasureDeviceProject.Model.CPUUsageModel
 {
-    public class MesuredCPUUsage
+    public class MeasuredCPUUsage
     {
         private CPUUsageResult cpuUsageResult;
 
@@ -20,7 +20,7 @@ namespace MeasureDeviceProject.Model.CPUUsageModel
             get { return measureTime; }
         }
 
-        public MesuredCPUUsage(CPUUsageResult cpuUsageResult, DateTime measureTime)
+        public MeasuredCPUUsage(CPUUsageResult cpuUsageResult, DateTime measureTime)
         {
             this.cpuUsageResult = cpuUsageResult;
             this.measureTime = measureTime;
