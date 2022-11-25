@@ -168,10 +168,6 @@ namespace MeasureDeviceServiceAPIProject.Service
                     }
                     lock (mesuredResult)
                     {
-                        // Meghatározzuk az új tárolandó elem file ID-jét
-                        //cpuDataStorePeriodically.StoredFileId = new MDStoreFileId(mesuredResult.MeasureTime, storePeriod);
-                        //Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> New sotre file id {Id}", IPAddress.ToString(), storeFileId);
-
                         // Az új tárolandó adat mérés időpontja alapján meghatározzuk, hogy melyik fájlba kerül az adat
                         cpuDataStorePeriodically.DetermineTheStoreFile(mesuredResult);
 
