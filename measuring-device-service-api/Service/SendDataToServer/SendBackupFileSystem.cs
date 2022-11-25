@@ -55,6 +55,7 @@ namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
                             {
                                 logger.LogInformation("SendBackupFileSystem -> All line from {File} is sended.", backupFile);
                                 bug = null;
+                                File.Move(backupFile, backupFile.Replace("bak", "tmp"));
                             }
                             else
                             {
