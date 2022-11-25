@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repo\**" />
+    <Content Remove="Repo\**" />
+    <EmbeddedResource Remove="Repo\**" />
+    <None Remove="Repo\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.31" />
@@ -14,10 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\measuring-device\MeasureDeviceProject.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Repo\BaseClass\" />
   </ItemGroup>
 
 

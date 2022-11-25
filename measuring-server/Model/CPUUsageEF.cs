@@ -9,6 +9,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace MeasuringServer.Model
 {
+    // https://stackoverflow.com/questions/3633262/convert-datetime-for-mysql-using-c-sharp
     [Table("cpuusage")]
     public class CPUUsageEF : IEquatable<CPUUsageEF>
     {
