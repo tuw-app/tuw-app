@@ -49,7 +49,7 @@ namespace MeasureDeviceProject.BackgraoundService
             Log.Information("MeasureDevice {@IpAddress} -> Path is {path}", IPAddress.ToString(), path);
             
             msds = new MeasureStoreSystem(logger, IPAddress,path,StorePeriod.EveryMinit);
-            sbfs=new SendBackupFileSystem(logger, path+IPAddress.ToString(),)
+            sbfs = new SendBackupFileSystem(logger, path + IPAddress.ToString());
 
         }
         

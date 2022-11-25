@@ -70,15 +70,22 @@ namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
 
         public List<string> GetBackupFiles(string path)
         {
-            string[] files = Directory.GetFiles(path, "*.bak");
-            List<string> fileNames = new List<string>();
-            if (files.Length == 0)
+            try
             {
-                return fileNames;
+                string[] files = Directory.GetFiles(path, "*.bak");
+                List<string> fileNames = new List<string>();
+                if (files.Length == 0)
+                {
+                    return fileNames;
+                }
+                else
+                {
+                    return files.ToList();
+                }
             }
-            else
+            catch
             {
-                return files.ToList();
+                return new List<string>();
             }
         }
 
