@@ -105,7 +105,7 @@ namespace MeasureDeviceServiceAPIProject.Service
                 return false;
         }
 
-        public void DetermineTheStoreFile(MesuredCPUUsage mesuredCPUUsage)
+        public void DetermineTheStoreFile(MeasuredCPUUsage mesuredCPUUsage)
         {
             if (!storedFileId.IsTheMesureTimeStampGood(mesuredCPUUsage.MeasureTime))
             {
