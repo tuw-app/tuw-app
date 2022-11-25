@@ -11,15 +11,15 @@ using System.Linq;
 using System.Net;
 using System.Text;
 
-namespace MeasureDeviceServiceAPIProject.Service
+namespace MeasureDeviceServiceAPIProject.Service.PeriodicallyStore
 {
     public class PeriodicallyStoreSystem
     {
         ILogger<MeasureDevice> logger = null;
 
         MDIPAddress IPAddress = null;
-        private MDStoreFileId storedFileId=null;
-        private MeasuringDataStore measuringDataStore=null;
+        private MDStoreFileId storedFileId = null;
+        private MeasuringDataStore measuringDataStore = null;
         private MDDataId mdDataId = null;
 
         private string path;
@@ -37,17 +37,17 @@ namespace MeasureDeviceServiceAPIProject.Service
             }
         }
 
-        public PeriodicallyStoreSystem(ILogger<MeasureDevice> logger, MDIPAddress IPAddress, MDStoreFileId storedFileId, string path )
+        public PeriodicallyStoreSystem(ILogger<MeasureDevice> logger, MDIPAddress IPAddress, MDStoreFileId storedFileId, string path)
         {
             this.storedFileId = storedFileId;
             this.IPAddress = IPAddress;
             this.logger = logger;
             this.path = path;
-            System.IO.Directory.CreateDirectory(path+IPAddress);
+            Directory.CreateDirectory(path + IPAddress);
             measuringDataStore = new MeasuringDataStore(logger, IPAddress, path, storedFileId.GetMeasruringPeriodicFileName);
         }
 
-        public void SetDataId( DateTime mesuringDataTime, ulong dataId)
+        public void SetDataId(DateTime mesuringDataTime, ulong dataId)
         {
             if (mdDataId == null)
             {
@@ -55,9 +55,9 @@ namespace MeasureDeviceServiceAPIProject.Service
             }
             else
             {
-                mdDataId.IPAddress=IPAddress;
+                mdDataId.IPAddress = IPAddress;
                 mdDataId.DateTime = mesuringDataTime;
-                mdDataId.DataID= dataId;
+                mdDataId.DataID = dataId;
             }
         }
 
@@ -157,9 +157,9 @@ namespace MeasureDeviceServiceAPIProject.Service
                 {
                     try
                     {
-                        long result = Int64.Parse(datas[3]);
+                        long result = long.Parse(datas[3]);
                     }
-                    catch 
+                    catch
                     {
                         return 1;
                     }
@@ -190,7 +190,7 @@ namespace MeasureDeviceServiceAPIProject.Service
         public static string ReadLastLine(string path)
         {
             // open read only, we don't want any chance of writing data
-            using (System.IO.Stream fs = System.IO.File.OpenRead(path))
+            using (Stream fs = File.OpenRead(path))
             {
                 // check for empty file
                 if (fs.Length == 0)
@@ -220,7 +220,7 @@ namespace MeasureDeviceServiceAPIProject.Service
                     if (byteFromFile < 0)
                     {
                         // the only way this should happen is if someone truncates the file out from underneath us while we are reading backwards
-                        throw new System.IO.IOException("Error reading from file at " + path);
+                        throw new IOException("Error reading from file at " + path);
                     }
                     else if (byteFromFile == '\n')
                     {
@@ -231,8 +231,8 @@ namespace MeasureDeviceServiceAPIProject.Service
                 }
 
                 // fs.Position will be right after the '\n' char or position 0 if no '\n' char
-                byte[] bytes = new System.IO.BinaryReader(fs).ReadBytes((int)(fs.Length - fs.Position));
-                return System.Text.Encoding.UTF8.GetString(bytes);
+                byte[] bytes = new BinaryReader(fs).ReadBytes((int)(fs.Length - fs.Position));
+                return Encoding.UTF8.GetString(bytes);
             }
         }
     }

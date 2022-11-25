@@ -1,8 +1,9 @@
 ﻿using MeasureDeviceProject.BackgraoundService;
 using MeasureDeviceProject.Model;
-using MeasureDeviceProject.Model.CPUUsageModel;
+using MeasureDeviceProject.Model.MeasureElements;
 using MeasureDeviceProject.Service.CPUUsage;
 using MeasureDeviceProject.Service.FileWriter;
+using MeasureDeviceServiceAPIProject.Service.PeriodicallyStore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Serilog;
@@ -18,7 +19,7 @@ using System.Threading;
 
 namespace MeasureDeviceServiceAPIProject.Service
 {
-    public class MeasureSendingDataService : IMeasureSendingDataService, IDisposable
+    public class MeasureStoreSystem : IMeasureStoreSystem, IDisposable
     {
         StorePeriod storePeriod = StorePeriod.EveryMinit;
 
@@ -32,9 +33,9 @@ namespace MeasureDeviceServiceAPIProject.Service
 
         private string path = string.Empty;
 
-        private Queue<MeasuredCPUUsage> measuredCPUUsageQeueue = new Queue<MeasuredCPUUsage>();
+        private Queue<MesuredCPUUsage> measuredCPUUsageQeueue = new Queue<MesuredCPUUsage>();
      
-        public MeasureSendingDataService(ILogger<MeasureDevice> logger, MDIPAddress IPAddress, string path, StorePeriod storePeriod = StorePeriod.EveryMinit )
+        public MeasureStoreSystem(ILogger<MeasureDevice> logger, MDIPAddress IPAddress, string path, StorePeriod storePeriod = StorePeriod.EveryMinit )
         {
             this.logger = logger;
 
@@ -96,7 +97,7 @@ namespace MeasureDeviceServiceAPIProject.Service
 
                     lock (measuredCPUUsageQeueue)
                     {
-                        MeasuredCPUUsage measuredCPUUsag = new MeasuredCPUUsage(cpuMeasuring.UsageResult, measuringTime);
+                        MesuredCPUUsage measuredCPUUsag = new MesuredCPUUsage(cpuMeasuring.UsageResult, measuringTime);
                         measuredCPUUsageQeueue.Enqueue(measuredCPUUsag);
                         Log.Information("MeasureDevice {@IpAddress} -> Measuring result {Result} is added to queue", IPAddress.ToString(), measuredCPUUsag.CPUUsageResult);
                     }
@@ -109,7 +110,7 @@ namespace MeasureDeviceServiceAPIProject.Service
             PeriodicallyStoreSystem cpuDataStorePeriodically = null;
             using (LogContext.PushProperty(IPAddress.ToString(), 1))
             {
-                MeasuredCPUUsage mesuredResult = null;
+                MesuredCPUUsage mesuredResult = null;
                 MDStoreFileId storeFileId = null;
 
                 // init
@@ -152,7 +153,7 @@ namespace MeasureDeviceServiceAPIProject.Service
                 }
                 else
                 {
-                    cpuDataStorePeriodically.SetDataId(mesuredResult.MeasureTime, 0);
+                    cpuDataStorePeriodically.SetDataId(mesuredResult.MeasureTime, 1);
                 }
                 Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> First Data Id is: {Id}", IPAddress.ToString(), cpuDataStorePeriodically.GetDataIdToLog());
                 while (true)
@@ -170,12 +171,10 @@ namespace MeasureDeviceServiceAPIProject.Service
                     {
                         // Az új tárolandó adat mérés időpontja alapján meghatározzuk, hogy melyik fájlba kerül az adat
                         cpuDataStorePeriodically.DetermineTheStoreFile(mesuredResult);
-                        // Az időbélyeg alapján új ID-t kap az adat
-                        cpuDataStorePeriodically.SetDataId(mesuredResult.MeasureTime);
 
                         // Store Data to log file                              
                         MeasuredCPUDataStore measuredData = new MeasuredCPUDataStore(cpuDataStorePeriodically.GetDataId(),mesuredResult);
-                        Log.Information("MeasureDevice {@IpAddress} -> Data to store:", IPAddress.ToString(), measuredData.MeasuredCPUDataToStore);
+                        //Log.Information("MeasureDevice {@IpAddress} -> Data to store:", IPAddress.ToString(), measuredData.MeasuredCPUDataToStore);
                         try
                         {
                             cpuDataStorePeriodically.WriteData(measuredData.MeasuredCPUDataToStore);

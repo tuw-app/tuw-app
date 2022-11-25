@@ -28,5 +28,8 @@
   <ItemGroup>
     <ProjectReference Include="..\measuring-device\MeasureDeviceProject.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\FileSystem\" />
+  </ItemGroup>
 
 </Project>

@@ -23,7 +23,7 @@ namespace MeasureDeviceProject.BackgraoundService
         private string path=string.Empty;
 
         public MDIPAddress IPAddress { get; set; }
-        private MeasureSendingDataService msds;
+        private MeasureStoreSystem msds;
 
         private double measuringInterval = 1000;
         public double MeasureingInterval
@@ -44,7 +44,7 @@ namespace MeasureDeviceProject.BackgraoundService
 
             path = configuration.GetValue<string>("LogMeasurePath");
             Log.Information("MeasureDevice {@IpAddress} -> Path is {path}", IPAddress.ToString(), path);
-            msds = new MeasureSendingDataService(logger, IPAddress,path,StorePeriod.EveryMinit);
+            msds = new MeasureStoreSystem(logger, IPAddress,path,StorePeriod.EveryMinit);
 
         }
         

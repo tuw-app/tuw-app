@@ -10,7 +10,7 @@ namespace MeasureDeviceServiceAPIProject.APIService
 {
     public class CPUAPIService
     {
-        public async Task<HttpStatusCode> InsertNewCPUDataAsync(string CPUdata)
+        public async Task<HttpStatusCode> SendNewCPUDataAsync(string CPUdata)
         {
             Uri u = new Uri("http://localhost:5001/api/cpuusage");
 
