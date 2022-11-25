@@ -80,7 +80,7 @@ namespace MeasuringServer.Model
                     {
                         ipAddress = data[0];
                         measureTime = data[1].ToDateTime();
-                        dataID = long.Parse(data[2]);
+                        dataID = ulong.Parse(data[2]);
                         CPUUsage = double.Parse(data[3].Replace(",", "."));
                     }
                     catch { NullData(); }

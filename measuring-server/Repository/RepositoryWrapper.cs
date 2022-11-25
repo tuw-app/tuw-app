@@ -20,7 +20,7 @@ namespace MeasuringServer.Repository
             {
                 if (CPUDatas==null)
                 {
-                    cpuDatas = new CPUUsageRepository(context));
+                    cpuDatas = new CPUUsageRepository(context);
                 }
                 return CPUDatas;
             }

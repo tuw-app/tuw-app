@@ -13,6 +13,7 @@ using Serilog;
 using Microsoft.Extensions.Configuration;
 using Serilog.Core;
 using System.IO;
+using MeasureDeviceServiceAPIProject.Service.SendDataToServer;
 
 namespace MeasureDeviceProject.BackgraoundService
 {
@@ -23,7 +24,9 @@ namespace MeasureDeviceProject.BackgraoundService
         private string path=string.Empty;
 
         public MDIPAddress IPAddress { get; set; }
-        private MeasureStoreSystem msds;
+
+        private MeasureStoreSystem msds=null;
+        private SendBackupFileSystem sbfs = null;
 
         private double measuringInterval = 1000;
         public double MeasureingInterval
@@ -44,7 +47,9 @@ namespace MeasureDeviceProject.BackgraoundService
 
             path = configuration.GetValue<string>("LogMeasurePath");
             Log.Information("MeasureDevice {@IpAddress} -> Path is {path}", IPAddress.ToString(), path);
+            
             msds = new MeasureStoreSystem(logger, IPAddress,path,StorePeriod.EveryMinit);
+            sbfs=new SendBackupFileSystem(logger, path+IPAddress.ToString(),)
 
         }
         
@@ -68,9 +73,14 @@ namespace MeasureDeviceProject.BackgraoundService
             logger.LogInformation("MeasureDevice {@IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
 
             Thread thredPeridodically = new Thread(new ThreadStart(msds.StoringDataPeriodically));
+            Thread thredSendBackupFileSystem = new Thread(new ThreadStart(sbfs.Send));
+
             //thredPeridodically.CurrentCulture
             thredPeridodically.Priority = ThreadPriority.Lowest;
+            thredSendBackupFileSystem.Priority= ThreadPriority.Lowest;
             thredPeridodically.Start();
+            thredSendBackupFileSystem.Start();
+
                             
 
             return base.StartAsync(cancellationToken);
@@ -110,6 +120,10 @@ namespace MeasureDeviceProject.BackgraoundService
             if (msds != null)
             {
                 msds.Dispose();
+            }
+            if (sbfs!= null)
+            {
+                sbfs.Dispose();
             }
             base.Dispose();
         }

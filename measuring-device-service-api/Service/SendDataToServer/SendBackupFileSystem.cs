@@ -1,4 +1,7 @@
-﻿using MeasureDeviceServiceAPIProject.APIService;
+﻿using MeasureDeviceProject.BackgraoundService;
+using MeasureDeviceServiceAPIProject.APIService;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
@@ -8,29 +11,34 @@ using System.Threading.Tasks;
 namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
 {
 
-    public class SendBackupFileSystem
+    public class SendBackupFileSystem : IDisposable
     {
+        ILogger<MeasureDevice> logger = null;
+
         private string path;
         public string Path { get => path; set => path = value; }
 
-        public SendBackupFileSystem(string path)
+        public SendBackupFileSystem(ILogger<MeasureDevice> logger, string path)
         {
+            this.logger = logger;
             this.path = path;
         }
 
-        public void init()
+        public void Init()
         { 
         }
 
-        public async void send()
+        public void Send()
         {
             CPUAPIService api=new CPUAPIService();
-            while(true)
+            logger.LogInformation("SendBackupFileSystem -> Send Started");
+            while (true)
             {
                 List<string> backupFiles = GetBackupFiles(path);
                 if (backupFiles.Count!=0)
                 {
-                    foreach(string backupFile in backupFiles) 
+                    logger.LogInformation("SendBackupFileSystem -> There are {Count} backup file.", backupFiles.Count);
+                    foreach (string backupFile in backupFiles) 
                     {
                         List<string> bug = null;
                         while (bug != null)
@@ -44,10 +52,16 @@ namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
                             }
                             );
                             if (bug.Count == 0)
+                            {
+                                logger.LogInformation("SendBackupFileSystem -> All line from {File} is sended.", backupFile);
                                 bug = null;
+                            }
+                            else
+                            {
+                                logger.LogInformation("SendBackupFileSystem -> From {File} {Count} data is not sended.", backupFile, bug.Count);
+                            }
                         }                        
                     }
-;
                 }
             }
         }
@@ -65,6 +79,11 @@ namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
             {
                 return files.ToList();
             }
+        }
+
+        public void Dispose()
+        {
+
         }
     }
 }

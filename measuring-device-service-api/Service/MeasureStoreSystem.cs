@@ -1,21 +1,15 @@
-﻿using MeasureDeviceProject.BackgraoundService;
-using MeasureDeviceProject.Model;
-using MeasureDeviceProject.Model.MeasureElements;
-using MeasureDeviceProject.Service.CPUUsage;
-using MeasureDeviceProject.Service.FileWriter;
-using MeasureDeviceServiceAPIProject.Service.PeriodicallyStore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Context;
-using Serilog.Core;
+
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading;
+
+using MeasureDeviceProject.BackgraoundService;
+using MeasureDeviceProject.Model;
+using MeasureDeviceProject.Service.CPUUsage;
+using MeasureDeviceServiceAPIProject.Service.PeriodicallyStore;
+using MeasureDeviceProject.Model.CPUUsageModel;
 
 namespace MeasureDeviceServiceAPIProject.Service
 {
@@ -33,7 +27,7 @@ namespace MeasureDeviceServiceAPIProject.Service
 
         private string path = string.Empty;
 
-        private Queue<MesuredCPUUsage> measuredCPUUsageQeueue = new Queue<MesuredCPUUsage>();
+        private Queue<MeasuredCPUUsage> measuredCPUUsageQeueue = new Queue<MeasuredCPUUsage>();
      
         public MeasureStoreSystem(ILogger<MeasureDevice> logger, MDIPAddress IPAddress, string path, StorePeriod storePeriod = StorePeriod.EveryMinit )
         {
@@ -67,9 +61,6 @@ namespace MeasureDeviceServiceAPIProject.Service
                 stopDevice = false;
                 lockMesuring = false;
                 lockSendingToApi = false;
-
-               
-                //path = "f:\\tuw\\log\\";
             }
 
         }
@@ -97,7 +88,7 @@ namespace MeasureDeviceServiceAPIProject.Service
 
                     lock (measuredCPUUsageQeueue)
                     {
-                        MesuredCPUUsage measuredCPUUsag = new MesuredCPUUsage(cpuMeasuring.UsageResult, measuringTime);
+                        MeasuredCPUUsage measuredCPUUsag = new MeasuredCPUUsage(cpuMeasuring.UsageResult, measuringTime);
                         measuredCPUUsageQeueue.Enqueue(measuredCPUUsag);
                         Log.Information("MeasureDevice {@IpAddress} -> Measuring result {Result} is added to queue", IPAddress.ToString(), measuredCPUUsag.CPUUsageResult);
                     }
@@ -110,7 +101,7 @@ namespace MeasureDeviceServiceAPIProject.Service
             PeriodicallyStoreSystem cpuDataStorePeriodically = null;
             using (LogContext.PushProperty(IPAddress.ToString(), 1))
             {
-                MesuredCPUUsage mesuredResult = null;
+                MeasuredCPUUsage mesuredResult = null;
                 MDStoreFileId storeFileId = null;
 
                 // init
