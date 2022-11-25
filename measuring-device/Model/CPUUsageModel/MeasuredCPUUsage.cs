@@ -1,25 +1,24 @@
-﻿using MeasureDeviceProject.Model.MeasureElements;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MeasureDeviceProject.Model
+namespace MeasureDeviceProject.Model.CPUUsageModel
 {
-    public  class MesuredCPUUsage
+    public class MesuredCPUUsage
     {
-		private CPUUsageResult cpuUsageResult;
+        private CPUUsageResult cpuUsageResult;
 
-		public CPUUsageResult CPUUsageResult
+        public CPUUsageResult CPUUsageResult
         {
-			get { return cpuUsageResult; }
-		}
+            get { return cpuUsageResult; }
+        }
 
-		private DateTime measureTime;
+        private DateTime measureTime;
 
         public DateTime MeasureTime
-		{
-			get { return measureTime; }
-		}
+        {
+            get { return measureTime; }
+        }
 
         public MesuredCPUUsage(CPUUsageResult cpuUsageResult, DateTime measureTime)
         {

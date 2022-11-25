@@ -1,6 +1,6 @@
 ﻿using MeasureDeviceProject.BackgraoundService;
 using MeasureDeviceProject.Model;
-using MeasureDeviceProject.Model.MeasureElements;
+using MeasureDeviceProject.Model.CPUUsageModel;
 using MeasureDeviceProject.Service.CPUUsage;
 using MeasureDeviceProject.Service.FileWriter;
 using Microsoft.Extensions.Configuration;

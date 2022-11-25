@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text;
+using MeasureDeviceProject.Model.MeasureElements;
 
-
-namespace MeasureDeviceProject.Model.MeasureElements
+namespace MeasureDeviceProject.Model.CPUUsageModel
 {
     public class CPUUsageResult : IResult
     {

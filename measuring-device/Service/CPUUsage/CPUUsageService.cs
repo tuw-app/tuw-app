@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
-using MeasureDeviceProject.Model.MeasureElements;
 using System;
 using System.Threading.Tasks;
+using MeasureDeviceProject.Model.CPUUsageModel;
 
 namespace MeasureDeviceProject.Service.CPUUsage
 {
