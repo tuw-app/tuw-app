@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace MeasuringServer.Repository
 {
+    // https://medium.com/c-sharp-progarmming/quick-start-asp-net-core-3-1-ef-core-cqrs-react-js-series-part-4-repository-pattern-748faaa715f1
+    // https://code-maze.com/net-core-web-development-part4/
     public class CPUUsageRepository : RepostitoryBase<CPUUsageEF>, ICPUUsageEFRepository
     {
         public CPUUsageRepository(MDContext repositoryContext)
