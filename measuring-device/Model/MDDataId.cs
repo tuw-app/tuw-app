@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace MeasureDeviceProject.Model
@@ -8,7 +9,7 @@ namespace MeasureDeviceProject.Model
     /// <summary>
     /// Egy mérés eredményének összetett id-je
     /// </summary>
-    public class MDDataId
+    public class MDDataId : IEquatable<MDDataId>
     {
         public MDIPAddress IPAddress { get; set; }
         public DateTime DateTime { get; set; }       
@@ -28,15 +29,32 @@ namespace MeasureDeviceProject.Model
 
         public string GetId { get { return ToString(); } }
 
+        public MDDataId Get
+        {
+            get
+            {
+                return this;
+            }
+        }
+
         public override string ToString()
         {
             StringBuilder stringBuilder= new StringBuilder();
             stringBuilder.Append(IPAddress.ToString())
                 .Append(";")
-                .Append(DateTime.ToString("yyyy-MM-dd;hh-mm-ss"))
+                .Append(DateTime.ToString("yyyy-MM-dd hh:mm:ss,fff"))
                 .Append(";")
                 .Append(DataID);
             return stringBuilder.ToString();
+        }
+
+        public bool Equals([AllowNull] MDDataId other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (this.IPAddress != other.IPAddress) return false;
+            if (this.DateTime != other.DateTime) return false;
+            if (this.DataID != other.DataID) return false;
+            return true;
         }
     }
 }

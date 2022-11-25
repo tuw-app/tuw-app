@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text;
+using MeasureDeviceProject.Model.MeasureElements;
 
-
-namespace MeasureDeviceProject.Model.MeasureElements
+namespace MeasureDeviceProject.Model.CPUUsageModel
 {
     public class CPUUsageResult : IResult
     {
@@ -38,9 +38,9 @@ namespace MeasureDeviceProject.Model.MeasureElements
                 return string.Empty;
             else
             {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(RoundedCPUUsage).Append(";");
-                return sb.ToString();
+                //StringBuilder sb = new StringBuilder();
+                //sb.Append(RoundedCPUUsage)
+                return CPUUsage.ToString();
             }
         }
 

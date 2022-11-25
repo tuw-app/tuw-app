@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeasureDeviceProject", "mea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeasureDeviceServiceAPIProject", "measuring-device-service-api\MeasureDeviceServiceAPIProject.csproj", "{5C1A1F46-16D8-42AA-9B63-7F5B16FC0B51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeasuringServer", "measuring-server\MeasuringServer.csproj", "{F8DB438C-CA61-404E-A62D-887CF2AEF580}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5C1A1F46-16D8-42AA-9B63-7F5B16FC0B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C1A1F46-16D8-42AA-9B63-7F5B16FC0B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C1A1F46-16D8-42AA-9B63-7F5B16FC0B51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8DB438C-CA61-404E-A62D-887CF2AEF580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8DB438C-CA61-404E-A62D-887CF2AEF580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8DB438C-CA61-404E-A62D-887CF2AEF580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8DB438C-CA61-404E-A62D-887CF2AEF580}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
