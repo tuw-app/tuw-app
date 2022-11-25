@@ -1,11 +1,13 @@
 ﻿using MeasureDeviceProject.BackgraoundService;
 using MeasureDeviceServiceAPIProject.APIService;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
@@ -28,29 +30,41 @@ namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
         { 
         }
 
-        public void Send()
+        public async void Send()
         {
-            CPUAPIService api=new CPUAPIService();
+            CPUAPIService api=new CPUAPIService(logger);
             logger.LogInformation("SendBackupFileSystem -> Send Started");
             while (true)
             {
                 List<string> backupFiles = GetBackupFiles(path);
                 if (backupFiles.Count!=0)
                 {
-                    logger.LogInformation("SendBackupFileSystem -> There are {Count} backup file.", backupFiles.Count);
+                    //logger.LogInformation("SendBackupFileSystem -> There are {Count} backup file.", backupFiles.Count);
                     foreach (string backupFile in backupFiles) 
                     {
-                        List<string> bug = null;
+                        logger.LogInformation("SendBackupFileSystem -> Precessed file:{file}.", backupFile);
+                        List<string> bug = new List<string>();
                         while (bug != null)
                         {
                             bug = new List<string>();
-                            List<string> lines = File.ReadAllLines(path + "\\" + backupFile).ToList();
-                            var task = lines.Select(async line =>
+                            List<string> lines = File.ReadAllLines(backupFile).ToList();
+                            logger.LogInformation("SendBackupFileSystem -> Number of line in file {Count}.", lines.Count);
+                            /*var task = lines.Select(async line =>
                             {
-                                await api.SendNewCPUDataAsync(line);
-                                bug.Add(line);
+                                HttpStatusCode code=await api.SendNewCPUDataAsync(line);
+                                logger.LogInformation("SendBackupFileSystem -> Status code after sending {Code}.", code);
+                                if (code!=HttpStatusCode.OK)
+                                    bug.Add(line);
                             }
-                            );
+                            );*/
+                            foreach(string line in lines)
+                            {
+                                HttpStatusCode code = await api.SendNewCPUDataAsync(line);
+                                logger.LogInformation("SendBackupFileSystem -> Status code after sending {Code}.", code);
+                                if (code != HttpStatusCode.OK)
+                                    bug.Add(line);
+
+                            }
                             if (bug.Count == 0)
                             {
                                 logger.LogInformation("SendBackupFileSystem -> All line from {File} is sended.", backupFile);
