@@ -13,7 +13,7 @@ namespace MeasureDeviceProject.Model
         public MeasuredCPUDataStore(MDDataId Id, MesuredCPUUsage data)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(Id).Append(";").Append(data);
+            sb.Append(Id).Append(";").Append(data.ToStore());
             measuredData=sb.ToString();
         }
     }

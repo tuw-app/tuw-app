@@ -12,6 +12,7 @@ using MeasureDeviceProject.Model;
 using Serilog;
 using Microsoft.Extensions.Configuration;
 using Serilog.Core;
+using System.IO;
 
 namespace MeasureDeviceProject.BackgraoundService
 {
@@ -19,6 +20,7 @@ namespace MeasureDeviceProject.BackgraoundService
     {
         private readonly ILogger<MeasureDevice> logger;
         private readonly IConfiguration configuration;
+        private string path=string.Empty;
 
         public MDIPAddress IPAddress { get; set; }
         private MeasureSendingDataService msds;
@@ -39,7 +41,11 @@ namespace MeasureDeviceProject.BackgraoundService
             IPAddress= MDIPAddress;
             this.measuringInterval = measuringInterval;
 
-            msds = new MeasureSendingDataService(configuration, logger, IPAddress);
+
+            path = configuration.GetValue<string>("LogMeasurePath");
+            Log.Information("MeasureDevice {@IpAddress} -> Path is {path}", IPAddress.ToString(), path);
+            msds = new MeasureSendingDataService(logger, IPAddress,path,StorePeriod.EveryMinit);
+
         }
         
 

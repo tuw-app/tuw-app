@@ -23,7 +23,6 @@ namespace MeasureDeviceServiceAPIProject.Service
         StorePeriod storePeriod = StorePeriod.EveryMinit;
 
         ILogger<MeasureDevice> logger;
-        IConfiguration configuration;
 
         private bool lockMesuring = false;
         private bool lockSendingToApi = true;
@@ -35,13 +34,13 @@ namespace MeasureDeviceServiceAPIProject.Service
 
         private Queue<MesuredCPUUsage> measuredCPUUsageQeueue = new Queue<MesuredCPUUsage>();
      
-        public MeasureSendingDataService(IConfiguration configuration, ILogger<MeasureDevice> logger, MDIPAddress IPAddress, StorePeriod storePeriod = StorePeriod.EveryMinit)
+        public MeasureSendingDataService(ILogger<MeasureDevice> logger, MDIPAddress IPAddress, string path, StorePeriod storePeriod = StorePeriod.EveryMinit )
         {
             this.logger = logger;
-            this.configuration = configuration;
 
             this.IPAddress = IPAddress;
             this.storePeriod = storePeriod;
+            this.path = path;
 
             Initialize();
         }
@@ -68,9 +67,8 @@ namespace MeasureDeviceServiceAPIProject.Service
                 lockMesuring = false;
                 lockSendingToApi = false;
 
-                //path = configuration["Path"]; // ???????
-                path = "f:\\tuw\\log\\";
-                Log.Information("MeasureDevice {@IpAddress} -> The log path is {Path}", IPAddress.ToString(), path);
+               
+                //path = "f:\\tuw\\log\\";
             }
 
         }
@@ -115,6 +113,8 @@ namespace MeasureDeviceServiceAPIProject.Service
                 MDStoreFileId storeFileId = null;
 
                 // init
+                Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init", IPAddress.ToString());
+                Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init->Path is {path}", IPAddress.ToString(), path);
                 while (measuredCPUUsageQeueue.Count == 0)
                 {
                     //Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> No mesured data in queue. {Count}", IPAddress.ToString(), measuredCPUUsageQeueue.Count);

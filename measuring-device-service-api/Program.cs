@@ -16,7 +16,7 @@ namespace MeasureDeviceServiceAPIProject
             .AddJsonFile("appsettings.json")
             .Build();
 
-            var path = configuration.GetValue<string>("Path");
+            var path = configuration.GetValue<string>("LogMeasurePath");
 
             const string logTemplate = @"{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level:u4}] [{SourceContext:l}] {Message:lj}{NewLine}{Exception}";
 
