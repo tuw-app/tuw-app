@@ -1,12 +1,11 @@
-﻿using AutoMapper;
-using MeasureDeviceProject.Model;
-using MeasureDeviceProject.Model.CPUUsageModel;
-using MeasuringServer.Model;
-using MeasuringServer.Repository;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
+
+using MeasureDeviceServiceAPIProject.Model;
+using MeasuringServer.Model;
+using MeasuringServer.Repository;
 
 namespace MeasuringServer.Controllers
 {
@@ -26,7 +25,7 @@ namespace MeasuringServer.Controllers
         }
 
         [HttpPost("api/cpuusage", Name = "Insert new cpu usage")]
-        public async Task<IActionResult> InsertNewCpuUsage([FromBody] MDSended data)
+        public async Task<IActionResult> InsertNewCpuUsage([FromBody] MDSendedDataFromDeviceToServer data)
         {
 
             if (string.IsNullOrEmpty(data.ToString()))
@@ -54,9 +53,7 @@ namespace MeasuringServer.Controllers
 
             try
             {
-                logger.LogInformation("CPUUsageController -> InsertNewCpuUsage-> Insert {Data}", dataEF);
                 wrapper.CPUDatas.CreateCPUUsage(dataEF);
-                logger.LogInformation("CPUUsageController -> InsertNewCpuUsage-> Before save");
                 await wrapper.SaveAsync();
             } 
             catch (Exception e)

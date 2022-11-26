@@ -6,6 +6,7 @@ using System;
 using MeasuringServer.Static;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using MeasureDeviceServiceAPIProject.Model;
 
 namespace MeasuringServer.Model
 {
@@ -72,7 +73,7 @@ namespace MeasuringServer.Model
             return true;
         }
 
-        public CPUUsageEF(MDSended dataFromMDSystem)
+        public CPUUsageEF(MDSendedDataFromDeviceToServer dataFromMDSystem)
         {
             if (string.IsNullOrEmpty(dataFromMDSystem.ToString()))
             {

@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MeasureDeviceProject.Model
+namespace MeasureDeviceServiceAPIProject.Model
 {
-    public class MDSended
+    public class MDSendedDataFromDeviceToServer
     {
         private string data;
         public string Data { get => data; set => data = value; }
 
-        public MDSended()
+        public MDSendedDataFromDeviceToServer()
         {
         }
 
-        public MDSended(string data)
+        public MDSendedDataFromDeviceToServer(string data)
         {
             this.data = data;
         }

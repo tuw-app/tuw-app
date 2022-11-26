@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using MeasureDeviceProject.BackgraoundService;
 using Microsoft.Extensions.Logging;
+using MeasureDeviceServiceAPIProject.Model;
 
 namespace MeasureDeviceServiceAPIProject.APIService
 {
@@ -20,13 +21,13 @@ namespace MeasureDeviceServiceAPIProject.APIService
             this.logger= logger;
         }
 
-        public async Task<HttpStatusCode> SendNewCPUDataAsync(string CPUdata)
+        public async Task<HttpStatusCode> SendNewCPUDataAsync(string dataFromBackupFile)
         {
             //Uri u = new Uri("http://localhost:5001/api/cpuusage");
             UriBuilder u = new UriBuilder();
             u.Scheme= "http";
             u.Host = "localhost";
-            u.Path = "/api/cpuusage";
+            u.Path = "CPUUsage/api/cpuusage";
             u.Port = 5001;
 
             logger.LogInformation("CPUAPIService -> Uri is {Uri}", u.ToString());
@@ -36,23 +37,26 @@ namespace MeasureDeviceServiceAPIProject.APIService
                 try
                 {
                     httpClient.BaseAddress = u.Uri;
-                    String jsonString = JsonConvert.SerializeObject(CPUdata);
+
+                    MDSendedDataFromDeviceToServer sendedData = new MDSendedDataFromDeviceToServer(dataFromBackupFile);
+
+                    String jsonString = JsonConvert.SerializeObject(sendedData);
                     StringContent httpContent = new StringContent(jsonString, Encoding.UTF8, "application/json");
 
-                    logger.LogInformation("CPUAPIService -> StringContent-> {Content}", httpContent.ToString());
+                    logger.LogInformation("CPUAPIService -> StringContent-> {Content}", httpContent.Headers);
 
-                    var response = await httpClient.PostAsync("/Subject/api/subject", httpContent);
+                    var response = await httpClient.PostAsync(u.Uri, httpContent);
 
                     if (response != null)
                     {
-                        logger.LogInformation("CPUAPIService -> StringContent-> {Response}", response.ToString());
-                        if (response.StatusCode == HttpStatusCode.Created)
+                        logger.LogInformation("CPUAPIService -> StringContent-> Status code: {Code}", response.StatusCode);
+                        if (response.StatusCode == HttpStatusCode.OK)
                             return HttpStatusCode.OK;
                         else
                         {
 
                             string error = response.Headers + " : " + response.Content + " : " + response.StatusCode;
-                            logger.LogInformation("CPUAPIService -> StringContent-> {Response}", error.ToString());
+                            logger.LogInformation("CPUAPIService -> StringContent-> Error {error}", error.ToString());
                             return HttpStatusCode.InternalServerError;
                         }
                     }
