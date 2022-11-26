@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
+
+using MeasureDeviceProject.Model;
 
 namespace MeasureDeviceProject.Model.CPUUsageModel
 {
@@ -10,7 +10,6 @@ namespace MeasureDeviceProject.Model.CPUUsageModel
         private MDDataId dataId;
         private MeasuredCPUUsage measuredCPUUsage;
 
-        private string measuredDataToTextFile;
         public string MeasuredCPUDataToStore { get { return MeasuredDataToTextFile(); } }
 
         public MDIPAddress IPAddress { get { return dataId.IPAddress; } }

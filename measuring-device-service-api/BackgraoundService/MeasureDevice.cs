@@ -13,6 +13,7 @@ using Serilog;
 using Microsoft.Extensions.Configuration;
 using Serilog.Core;
 using System.IO;
+using MeasureDeviceServiceAPIProject.Service.SendDataToServer;
 
 namespace MeasureDeviceProject.BackgraoundService
 {
@@ -23,7 +24,9 @@ namespace MeasureDeviceProject.BackgraoundService
         private string path=string.Empty;
 
         public MDIPAddress IPAddress { get; set; }
-        private MeasureSendingDataService msds;
+
+        private MeasureStoreSystem msds=null;
+        private SendBackupFileSystem sbfs = null;
 
         private double measuringInterval = 1000;
         public double MeasureingInterval
@@ -37,30 +40,19 @@ namespace MeasureDeviceProject.BackgraoundService
 
         public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, MDIPAddress MDIPAddress, double measuringInterval)
         {
+            this.configuration = configuration;
             this.logger = logger;
             IPAddress= MDIPAddress;
             this.measuringInterval = measuringInterval;
 
-
             path = configuration.GetValue<string>("LogMeasurePath");
             Log.Information("MeasureDevice {@IpAddress} -> Path is {path}", IPAddress.ToString(), path);
-            msds = new MeasureSendingDataService(logger, IPAddress,path,StorePeriod.EveryMinit);
+            
+            msds = new MeasureStoreSystem(logger, IPAddress,path,StorePeriod.EveryMinit);
+            sbfs = new SendBackupFileSystem(logger, path + IPAddress.ToString());
 
         }
         
-
-
-        public void Start()
-        {
-            //logger.LogInformation("MeasureDevice {@IpAddress} -> Measuring Start", IPAddress);
-        }
-
-        public void Stop()
-        {
-            //logger.LogInformation("MeasureDevice {@IpAddress} -> Measuring Stop", IPAddress);
-        }
-
-
         public override Task StartAsync(CancellationToken cancellationToken)
         {
             Console.WriteLine(IPAddress);
@@ -68,10 +60,12 @@ namespace MeasureDeviceProject.BackgraoundService
             logger.LogInformation("MeasureDevice {@IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
 
             Thread thredPeridodically = new Thread(new ThreadStart(msds.StoringDataPeriodically));
-            //thredPeridodically.CurrentCulture
-            thredPeridodically.Priority = ThreadPriority.Lowest;
+            Thread thredSendBackupFileSystem = new Thread(new ThreadStart(sbfs.Send));
+
+            //thredPeridodically.Priority = ThreadPriority.Lowest;
+            //thredSendBackupFileSystem.Priority= ThreadPriority.Lowest;
             thredPeridodically.Start();
-                            
+            thredSendBackupFileSystem.Start();                            
 
             return base.StartAsync(cancellationToken);
         }
@@ -83,7 +77,8 @@ namespace MeasureDeviceProject.BackgraoundService
             while (!stoppingToken.IsCancellationRequested)
             {
 
-                logger.LogInformation("MeasureDevice {@IpAddress}:  ExecuteAsync {time}", IPAddress, DateTimeOffset.Now.ToString("yyyy.MM.dd HH: mm:ss"));
+                //logger.LogInformation("MeasureDevice {@IpAddress}:  ExecuteAsync {time}", IPAddress, DateTimeOffset.Now.ToString("yyyy.MM.dd HH: mm:ss"));
+                // CPU hőmérséklet mérés
                 msds.MeasuringCPUUsage();
                 await Task.Delay(TimeSpan.FromMilliseconds(measuringInterval), stoppingToken);
 
@@ -105,13 +100,28 @@ namespace MeasureDeviceProject.BackgraoundService
         {
         }
 
+        public void Start()
+        {
+            //logger.LogInformation("MeasureDevice {@IpAddress} -> Measuring Start", IPAddress);
+        }
+
+        public void Stop()
+        {
+            //logger.LogInformation("MeasureDevice {@IpAddress} -> Measuring Stop", IPAddress);
+        }
+
         public override void Dispose()
         {
             if (msds != null)
             {
                 msds.Dispose();
             }
+            if (sbfs!= null)
+            {
+                sbfs.Dispose();
+            }
             base.Dispose();
         }
     }
 }
+

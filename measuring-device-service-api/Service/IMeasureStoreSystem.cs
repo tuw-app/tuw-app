@@ -1,6 +1,6 @@
 ﻿namespace MeasureDeviceServiceAPIProject.Service
 {
-    public interface IMeasureSendingDataService
+    public interface IMeasureStoreSystem
     {
         public void Start();
         public void Stop();

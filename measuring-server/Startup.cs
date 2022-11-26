@@ -31,13 +31,11 @@ namespace MeasuringServer
         {
             //services.AddAutoMapper(typeof(Startup));
             
-            string dbConnectionString = Configuration.GetConnectionString("MySql");
-            //services.AddDbContext<MDContext>(opt => opt.UseMySql(dbConnectionString, ServerVersion.AutoDetect(dbConnectionString)));
-            services.AddDbContext<MDContext>(opt => opt.UseMySql(dbConnectionString));
-
-
             services.ConfigureCors();
-            
+            services.ConfigureMysql(Configuration);
+            services.ConfigureWrapperRepository();
+
+
             services.AddControllers();
         }
 

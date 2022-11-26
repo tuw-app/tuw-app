@@ -29,14 +29,6 @@ namespace MeasureDeviceProject.Model
 
         public string GetId { get { return ToString(); } }
 
-        public MDDataId Get
-        {
-            get
-            {
-                return this;
-            }
-        }
-
         public override string ToString()
         {
             StringBuilder stringBuilder= new StringBuilder();

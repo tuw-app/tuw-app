@@ -1,5 +1,6 @@
 ﻿using MeasureDeviceProject.Model;
 using MeasuringServer.Model;
+using Newtonsoft.Json.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,16 @@ namespace MeasuringServer.Repository
 
         public void CreateCPUUsage(CPUUsageEF cpuUsage)
         {
-            Create(cpuUsage);
+            try { 
+
+
+                Console.WriteLine("CreateCPUUsage");
+                Create(cpuUsage);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public void UpdateCPUUsage(CPUUsageEF cpuUsage)
@@ -31,18 +41,35 @@ namespace MeasuringServer.Repository
             Update(cpuUsage);
         }
 
-        public IEnumerable<CPUUsageEF> GetAllCPUUsageAsync()
+        public IEnumerable<CPUUsageEF> GetAllCPUUsage()
         {
             return FindAll()
                         .OrderBy(u => u.IPAddress).ThenBy(u => u.MeasureTime).ThenBy(u => u.DataID)
                         .ToList();
         }
 
-        public CPUUsageEF GetCPUUsageByIdAsync(MDDataId other)
+        public CPUUsageEF GetCPUUsageById(MDDataId id)
         {
-            MDDataId otherID = other.Get;
-            return FindByCondition(cpuUsage => cpuUsage.GetId().Equals(other.Get))
-                        .FirstOrDefault();
+            Console.WriteLine($"Serched id:{id}");
+            var all = FindAll();
+            foreach(CPUUsageEF usage in all)
+            {
+                MDDataId otherID = usage.GetId();
+                if (otherID.Equals(id))
+                    return usage;
+            }
+            return new CPUUsageEF();
+
+            //return FindByCondition(cpuUsage => cpuUsage.GetId().Equals(id))
+            //            .FirstOrDefault();
+        }
+
+        public bool IsExsist(MDDataId CPUUsageID)
+        {
+            CPUUsageEF data=GetCPUUsageById(CPUUsageID);
+            if (data.IdIsOk())
+                return false;
+            else return true;
         }
 
 

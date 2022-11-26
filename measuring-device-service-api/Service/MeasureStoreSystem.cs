@@ -1,31 +1,26 @@
-﻿using MeasureDeviceProject.BackgraoundService;
-using MeasureDeviceProject.Model;
-using MeasureDeviceProject.Model.CPUUsageModel;
-using MeasureDeviceProject.Service.CPUUsage;
-using MeasureDeviceProject.Service.FileWriter;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Context;
-using Serilog.Core;
+
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading;
+
+using MeasureDeviceProject.BackgraoundService;
+using MeasureDeviceProject.Model;
+using MeasureDeviceProject.Service.CPUUsage;
+using MeasureDeviceServiceAPIProject.Service.PeriodicallyStore;
+using MeasureDeviceProject.Model.CPUUsageModel;
 
 namespace MeasureDeviceServiceAPIProject.Service
 {
-    public class MeasureSendingDataService : IMeasureSendingDataService, IDisposable
+    public class MeasureStoreSystem : IMeasureStoreSystem, IDisposable
     {
         StorePeriod storePeriod = StorePeriod.EveryMinit;
 
         ILogger<MeasureDevice> logger;
 
-        private bool lockMesuring = false;
-        private bool lockSendingToApi = true;
+        //private bool lockMesuring = false;
+        //private bool lockSendingToApi = true;
         private bool stopDevice = false;
 
         private MDIPAddress IPAddress { get; }
@@ -34,7 +29,7 @@ namespace MeasureDeviceServiceAPIProject.Service
 
         private Queue<MeasuredCPUUsage> measuredCPUUsageQeueue = new Queue<MeasuredCPUUsage>();
      
-        public MeasureSendingDataService(ILogger<MeasureDevice> logger, MDIPAddress IPAddress, string path, StorePeriod storePeriod = StorePeriod.EveryMinit )
+        public MeasureStoreSystem(ILogger<MeasureDevice> logger, MDIPAddress IPAddress, string path, StorePeriod storePeriod = StorePeriod.EveryMinit )
         {
             this.logger = logger;
 
@@ -64,11 +59,8 @@ namespace MeasureDeviceServiceAPIProject.Service
                 //https://stackoverflow.com/questions/53727850/how-to-run-backgroundservice-on-a-timer-in-asp-net-core-2-1
 
                 stopDevice = false;
-                lockMesuring = false;
-                lockSendingToApi = false;
-
-               
-                //path = "f:\\tuw\\log\\";
+                //lockMesuring = false;
+                //lockSendingToApi = false;
             }
 
         }
@@ -152,7 +144,7 @@ namespace MeasureDeviceServiceAPIProject.Service
                 }
                 else
                 {
-                    cpuDataStorePeriodically.SetDataId(mesuredResult.MeasureTime, 0);
+                    cpuDataStorePeriodically.SetDataId(mesuredResult.MeasureTime, 1);
                 }
                 Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> First Data Id is: {Id}", IPAddress.ToString(), cpuDataStorePeriodically.GetDataIdToLog());
                 while (true)
@@ -170,12 +162,12 @@ namespace MeasureDeviceServiceAPIProject.Service
                     {
                         // Az új tárolandó adat mérés időpontja alapján meghatározzuk, hogy melyik fájlba kerül az adat
                         cpuDataStorePeriodically.DetermineTheStoreFile(mesuredResult);
-                        // Az időbélyeg alapján új ID-t kap az adat
+                        // Meghatározzuk a mérési időpont alapján az utolsó mérés ID-jének idő részét
                         cpuDataStorePeriodically.SetDataId(mesuredResult.MeasureTime);
 
                         // Store Data to log file                              
                         MeasuredCPUDataStore measuredData = new MeasuredCPUDataStore(cpuDataStorePeriodically.GetDataId(),mesuredResult);
-                        Log.Information("MeasureDevice {@IpAddress} -> Data to store:", IPAddress.ToString(), measuredData.MeasuredCPUDataToStore);
+                        //Log.Information("MeasureDevice {@IpAddress} -> Data to store:", IPAddress.ToString(), measuredData.MeasuredCPUDataToStore);
                         try
                         {
                             cpuDataStorePeriodically.WriteData(measuredData.MeasuredCPUDataToStore);

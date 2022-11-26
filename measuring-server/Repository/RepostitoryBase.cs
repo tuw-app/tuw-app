@@ -25,7 +25,14 @@ namespace MeasuringServer.Repository
         }
         public void Create(T entity)
         {
-            this.RepositoryContext.Set<T>().Add(entity);
+            try
+            {
+                Console.WriteLine($"RepostitoryBase->Create {entity}");
+                this.RepositoryContext.Set<T>().Add(entity);
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
         public void Update(T entity)
         {
