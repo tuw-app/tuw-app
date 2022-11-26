@@ -28,6 +28,9 @@ namespace MeasuringServer.Model.Paging
             set { numberOfItem = value; }
         }
 
+        public int Cout { get { return list.Count; } }
+        
+
         public int NumberOfPage
         {
             get
@@ -49,7 +52,7 @@ namespace MeasuringServer.Model.Paging
             pageSize = 0;
             numberOfItem = 0;
             list = new List<T>();
-        }
+        }        
 
         public void SetPageData(int page, int pageSize, int numberOfItem)
         {

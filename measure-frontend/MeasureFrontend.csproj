@@ -6,5 +6,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="3.2.1" />
+    <PackageReference Include="System.Net.Http.Json" Version="3.2.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\measuring-device\MeasureDeviceProject.csproj" />
+    <ProjectReference Include="..\measuring-server\MeasuringServer.csproj" />
   </ItemGroup>
 </Project>

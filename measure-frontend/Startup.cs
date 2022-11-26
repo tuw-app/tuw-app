@@ -1,4 +1,5 @@
 using MeasureFrontend.Data;
+using MeasureFrontend.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -27,7 +28,17 @@ namespace MeasureFrontend
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
+            services.AddHttpClient<IAPICPUUsageService, APICPUUsageService>(client =>
+            {
+                client.BaseAddress = new Uri("http://localhost.5001/");
+            });
+
+
+
             services.AddSingleton<WeatherForecastService>();
+         //   services.AddSingleton<IAPICPUUsageService, APICPUUsageService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
