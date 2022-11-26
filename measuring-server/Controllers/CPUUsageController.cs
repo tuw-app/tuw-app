@@ -60,7 +60,7 @@ namespace MeasuringServer.Controllers
             } 
             catch (Exception e)
             {
-                logger.LogInformation("CPUUsageController -> InsertNewCpuUsage-> Failed to insert. {Message}", e.Message);
+                logger.LogInformation("CPUUsageController -> InsertNewCpuUsage-> Failed to insert or IsExsist. {Message}", e.Message);
                 return BadRequest($"Failed to insert {e.Message}");
             }
             logger.LogInformation("CPUUsageController -> InsertNewCpuUsage-> {data} in database!", dataEF);

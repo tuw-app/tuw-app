@@ -58,6 +58,11 @@ namespace MeasuringServer.Model
                 return false;
         }
 
+        public bool IdIsOk()
+        {
+            return DataIsOk();
+        }
+
         public MDDataId GetId()
         {
             MDDataId id = new MDDataId(new MDIPAddress(IPAddress), measureTime, dataID);

@@ -8,7 +8,7 @@ namespace MeasuringServer.Repository
 {
     public interface ICPUUsageEFRepository
     {
-        IEnumerable<CPUUsageEF> GetAllCPUUsageAsync();
+        IEnumerable<CPUUsageEF> GetAllCPUUsage();
         CPUUsageEF GetCPUUsageById(MDDataId id);
         void CreateCPUUsage(CPUUsageEF cpuUsage);
         void UpdateCPUUsage(CPUUsageEF cpuUsage);
