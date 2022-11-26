@@ -26,41 +26,45 @@ namespace MeasuringServer.Controllers
         }
 
         [HttpPost("api/cpuusage", Name = "Insert new cpu usage")]
-        public IActionResult InsertNewCpuUsage([FromBody] MDSended sendidDataText)
+        public async Task<IActionResult> InsertNewCpuUsage([FromBody] MDSended data)
         {
 
-            if (string.IsNullOrEmpty(sendidDataText.ToString()))
+            if (string.IsNullOrEmpty(data.ToString()))
             {
                 logger.LogInformation("CPUUsageController -> InsertNewCpuUsage->Null data");
                 return BadRequest("Null data.");
             }
-            CPUUsageEF data = null;
+            logger.LogInformation("CPUUsageController -> InsertNewCpuUsage->Data {data}",data);
+            CPUUsageEF dataEF = null;
             try
             {
-                data = new CPUUsageEF(sendidDataText);
+                dataEF = new CPUUsageEF(data);
+                logger.LogInformation("CPUUsageController -> InsertNewCpuUsage->Text->Usage {data}", dataEF);
             }
             catch (Exception exception)
             {
                 logger.LogInformation("CPUUsageController -> InsertNewCpuUsage->Data is in wrong format. {Message}",exception.Message);
                 return BadRequest("Data is in wrong format."); 
             }
-            if (data == null || data.DataIsOk())
+            if (dataEF == null || !dataEF.DataIsOk())
             {
-                logger.LogInformation("CPUUsageController -> InsertNewCpuUsage->Data is in wrong format. {Data}", data);
+                logger.LogInformation("CPUUsageController -> InsertNewCpuUsage->Data is in wrong format. {Data}", dataEF);
                 return BadRequest("Data is in wrong format.");
             }
 
             try
             {
-                logger.LogInformation("CPUUsageController -> InsertNewCpuUsage-> Insert {Data}", data);
-                wrapper.CPUDatas.CreateCPUUsage(data);
+                logger.LogInformation("CPUUsageController -> InsertNewCpuUsage-> Insert {Data}", dataEF);
+                wrapper.CPUDatas.CreateCPUUsage(dataEF);
+                logger.LogInformation("CPUUsageController -> InsertNewCpuUsage-> Before save");
+                await wrapper.SaveAsync();
             } 
             catch (Exception e)
             {
                 logger.LogInformation("CPUUsageController -> InsertNewCpuUsage-> Failed to insert. {Message}", e.Message);
                 return BadRequest($"Failed to insert {e.Message}");
             }
-            logger.LogInformation("CPUUsageController -> InsertNewCpuUsage-> {data} in database!", data);
+            logger.LogInformation("CPUUsageController -> InsertNewCpuUsage-> {data} in database!", dataEF);
             return Ok();
         }
     }

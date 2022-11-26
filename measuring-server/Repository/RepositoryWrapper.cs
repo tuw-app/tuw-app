@@ -1,14 +1,18 @@
-﻿using MeasuringServer.Model;
+﻿using MeasuringServer.Controllers;
+using MeasuringServer.Model;
+using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
 namespace MeasuringServer.Repository 
 {
     public class RepositoryWrapper : IRepositoryWrapper
     {
+        ILogger<RepositoryWrapper> logger = null;
         private MDContext context=null;
 
-        public RepositoryWrapper(MDContext context)
+        public RepositoryWrapper(ILogger<RepositoryWrapper> logger, MDContext context)
         {
+            this.logger = logger;
             this.context = context;
         }
 
@@ -18,16 +22,17 @@ namespace MeasuringServer.Repository
         {
             get
             {
-                if (CPUDatas==null)
+                if (cpuDatas == null)
                 {
                     cpuDatas = new CPUUsageRepository(context);
                 }
-                return CPUDatas;
+                return cpuDatas;
             }
         }
 
         public async Task SaveAsync()
         {
+            System.Console.WriteLine("RepositoryWrapper->SaveAsync");
             await context.SaveChangesAsync();
         }
     }

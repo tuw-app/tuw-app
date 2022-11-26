@@ -30,8 +30,8 @@ namespace MeasuringServer.ServiceExtension
         {
 
             string dbConnectionString = configuration.GetConnectionString("MySql");
-            //services.AddDbContext<MDContext>(opt => opt.UseMySql(dbConnectionString, ServerVersion.AutoDetect(dbConnectionString)));
-            services.AddDbContext<MDContext>(opt => opt.UseMySql(dbConnectionString));
+            services.AddDbContext<MDContext>(opt => opt.UseMySql(dbConnectionString, ServerVersion.AutoDetect(dbConnectionString)));
+            //services.AddDbContext<MDContext>(opt => opt.UseMySql(dbConnectionString));
         }
     }
 }

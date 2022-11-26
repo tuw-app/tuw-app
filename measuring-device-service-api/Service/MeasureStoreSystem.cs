@@ -19,8 +19,8 @@ namespace MeasureDeviceServiceAPIProject.Service
 
         ILogger<MeasureDevice> logger;
 
-        private bool lockMesuring = false;
-        private bool lockSendingToApi = true;
+        //private bool lockMesuring = false;
+        //private bool lockSendingToApi = true;
         private bool stopDevice = false;
 
         private MDIPAddress IPAddress { get; }
@@ -59,8 +59,8 @@ namespace MeasureDeviceServiceAPIProject.Service
                 //https://stackoverflow.com/questions/53727850/how-to-run-backgroundservice-on-a-timer-in-asp-net-core-2-1
 
                 stopDevice = false;
-                lockMesuring = false;
-                lockSendingToApi = false;
+                //lockMesuring = false;
+                //lockSendingToApi = false;
             }
 
         }

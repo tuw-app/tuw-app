@@ -18,7 +18,16 @@ namespace MeasuringServer.Repository
 
         public void CreateCPUUsage(CPUUsageEF cpuUsage)
         {
-            Create(cpuUsage);
+            try { 
+
+
+                Console.WriteLine("CreateCPUUsage");
+                Create(cpuUsage);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public void UpdateCPUUsage(CPUUsageEF cpuUsage)

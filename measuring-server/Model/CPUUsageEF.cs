@@ -13,20 +13,27 @@ namespace MeasuringServer.Model
     [Table("cpuusage")]
     public class CPUUsageEF : IEquatable<CPUUsageEF>
     {
-        [Required(ErrorMessage = "Ip address is required")]
         private string ipAddress;
+        private DateTime measureTime;
+        private ulong dataID;
+        private double cpuUsage;
+
+        [Column("ipaddress")]
+        [Required(ErrorMessage = "Ip address is required")]
         public string IPAddress { get { return ipAddress; } set { ipAddress = value; } }
 
-        [Required(ErrorMessage = "Measure time is required")]
-        private DateTime measureTime;
+        [Column("measuretime")]
+        [Required(ErrorMessage = "Measure time is required")]        
         public DateTime MeasureTime { get { return measureTime; } set { measureTime = value; } }
-
-        private ulong dataID;
+        
+        [Column("dataid")]
+        [Required(ErrorMessage = "Data id is required")]        
         public ulong DataID { get => dataID; set => dataID = value; }
 
-        [Required(ErrorMessage = "CPU usage is required")]
-        private double cpuUsage;
-        public double CPUUsage { get => CPUUsage; set => CPUUsage = value; }
+
+        [Column("cpuusage")]
+        [Required(ErrorMessage = "CPU usage is required")]        
+        public double CPUUsage { get => cpuUsage; set => cpuUsage = value; }
 
 
         private void NullData()
@@ -72,18 +79,23 @@ namespace MeasuringServer.Model
                 NullData();
             }
             else
-            {
+            {                
                 string[] data = dataFromMDSystem.ToString().Split(";");
-                if (data.Length== 3)
+                if (data.Length== 4)
                 {
                     try
                     {
                         ipAddress = data[0];
                         measureTime = data[1].ToDateTime();
                         dataID = ulong.Parse(data[2]);
-                        CPUUsage = double.Parse(data[3].Replace(",", "."));
+                        CPUUsage = double.Parse(data[3]);
                     }
-                    catch { NullData(); }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        NullData(); 
+
+                    }
                     if (string.IsNullOrEmpty(IPAddress))
                         NullData();
 
@@ -93,6 +105,12 @@ namespace MeasuringServer.Model
                     NullData();
                 }
             }
+        }
+
+        public override string ToString()
+        {
+            
+            return $"{IPAddress} - {MeasureTime.ToString("yyyy.MM.dd HH:mm:ss,ffff")} : {dataID} : {CPUUsage}"; 
         }
     }
 }

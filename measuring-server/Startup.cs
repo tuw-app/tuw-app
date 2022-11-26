@@ -32,8 +32,9 @@ namespace MeasuringServer
             //services.AddAutoMapper(typeof(Startup));
             
             services.ConfigureCors();
-
             services.ConfigureMysql(Configuration);
+            services.ConfigureWrapperRepository();
+
 
             services.AddControllers();
         }

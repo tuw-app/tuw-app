@@ -9,6 +9,10 @@ namespace MeasureDeviceProject.Model
         private string data;
         public string Data { get => data; set => data = value; }
 
+        public MDSended()
+        {
+        }
+
         public MDSended(string data)
         {
             this.data = data;
