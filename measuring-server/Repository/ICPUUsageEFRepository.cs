@@ -1,5 +1,6 @@
 ﻿using MeasureDeviceProject.Model;
 using MeasuringServer.Model;
+using MeasuringServer.Model.Paging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -13,6 +14,6 @@ namespace MeasuringServer.Repository
         void CreateCPUUsage(CPUUsageEF cpuUsage);
         void UpdateCPUUsage(CPUUsageEF cpuUsage);
         void DeleteCPUUsage(CPUUsageEF cpuUsage);
-        List<CPUUsageEF> GetAllCPUUsageOfSpecificDevicePaged(string iPAddress, int page, int pagesize);
+        PagedList<CPUUsageEF> GetAllCPUUsageOfSpecificDevicePaged(string iPAddress, int page, int pagesize);
     }
 }
