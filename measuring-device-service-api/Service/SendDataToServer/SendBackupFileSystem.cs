@@ -86,14 +86,17 @@ namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
         {
             try
             {
-                string[] files = Directory.GetFiles(path, "*.bak");
-                List<string> fileNames = new List<string>();
-                if (files.Length == 0)
+                string[] files = null;
+                files = Directory.GetFiles(path, "*.bak");
+
+                if (files == null || files.Length == 0)
                 {
-                    return fileNames;
+                    // nincsenek .bak fájlok
+                    return files.ToList();
                 }
                 else
                 {
+                    List<string> fileNames = new List<string>();
                     return files.ToList();
                 }
             }

@@ -53,6 +53,8 @@ namespace MeasuringServer.Controllers
 
             try
             {
+                if (wrapper.CPUDatas.IsExsist(dataEF.GetId()))
+                    return Ok();
                 wrapper.CPUDatas.CreateCPUUsage(dataEF);
                 await wrapper.SaveAsync();
             } 

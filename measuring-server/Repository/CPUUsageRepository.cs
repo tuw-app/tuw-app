@@ -1,5 +1,6 @@
 ﻿using MeasureDeviceProject.Model;
 using MeasuringServer.Model;
+using Newtonsoft.Json.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,11 +48,19 @@ namespace MeasuringServer.Repository
                         .ToList();
         }
 
-        public CPUUsageEF GetCPUUsageByIdAsync(MDDataId other)
+        public CPUUsageEF GetCPUUsageById(MDDataId other)
         {
             MDDataId otherID = other.Get;
             return FindByCondition(cpuUsage => cpuUsage.GetId().Equals(other.Get))
                         .FirstOrDefault();
+        }
+
+        public bool IsExsist(MDDataId CPUUsageID)
+        {
+            CPUUsageEF data=GetCPUUsageById(CPUUsageID);
+            if (data.IPAddress == string.Empty)
+                return false;
+            else return true;
         }
 
 
