@@ -47,7 +47,7 @@ namespace MeasureDeviceServiceAPIProject.Service.PeriodicallyStore
             measuringDataStore = new MeasuringDataStore(logger, IPAddress, path, storedFileId.GetMeasruringPeriodicFileName);
         }
 
-        public void SetDataId(DateTime mesuringDataTime, ulong dataId)
+        public void SetDataId(DateTime mesuringDataTime, ulong dataId=0)
         {
             if (mdDataId == null)
             {

@@ -39,11 +39,12 @@ namespace MeasureDeviceServiceAPIProject.APIService
                     httpClient.BaseAddress = u.Uri;
 
                     MDSendedDataFromDeviceToServer sendedData = new MDSendedDataFromDeviceToServer(dataFromBackupFile);
+                    logger.LogInformation("CPUAPIService -> Sended data -> {data}", sendedData);
 
                     String jsonString = JsonConvert.SerializeObject(sendedData);
                     StringContent httpContent = new StringContent(jsonString, Encoding.UTF8, "application/json");
 
-                    logger.LogInformation("CPUAPIService -> StringContent-> {Content}", httpContent.Headers);
+                    //logger.LogInformation("CPUAPIService -> StringContent-> {Content}", httpContent.Headers);
 
                     var response = await httpClient.PostAsync(u.Uri, httpContent);
 

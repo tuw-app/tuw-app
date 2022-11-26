@@ -96,6 +96,7 @@ namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
                 }
                 else
                 {
+                    logger.LogInformation("SendBackupFileSystem -> GetBackupFiles->Found {count} backup file.", files.Length);
                     List<string> fileNames = new List<string>();
                     return files.ToList();
                 }

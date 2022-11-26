@@ -45,7 +45,6 @@ namespace MeasureDeviceProject.BackgraoundService
             IPAddress= MDIPAddress;
             this.measuringInterval = measuringInterval;
 
-
             path = configuration.GetValue<string>("LogMeasurePath");
             Log.Information("MeasureDevice {@IpAddress} -> Path is {path}", IPAddress.ToString(), path);
             
@@ -54,17 +53,6 @@ namespace MeasureDeviceProject.BackgraoundService
 
         }
         
-        public void Start()
-        {
-            //logger.LogInformation("MeasureDevice {@IpAddress} -> Measuring Start", IPAddress);
-        }
-
-        public void Stop()
-        {
-            //logger.LogInformation("MeasureDevice {@IpAddress} -> Measuring Stop", IPAddress);
-        }
-
-
         public override Task StartAsync(CancellationToken cancellationToken)
         {
             Console.WriteLine(IPAddress);
@@ -74,12 +62,10 @@ namespace MeasureDeviceProject.BackgraoundService
             Thread thredPeridodically = new Thread(new ThreadStart(msds.StoringDataPeriodically));
             Thread thredSendBackupFileSystem = new Thread(new ThreadStart(sbfs.Send));
 
-            thredPeridodically.Priority = ThreadPriority.Lowest;
-            thredSendBackupFileSystem.Priority= ThreadPriority.Lowest;
+            //thredPeridodically.Priority = ThreadPriority.Lowest;
+            //thredSendBackupFileSystem.Priority= ThreadPriority.Lowest;
             thredPeridodically.Start();
-            thredSendBackupFileSystem.Start();
-
-                            
+            thredSendBackupFileSystem.Start();                            
 
             return base.StartAsync(cancellationToken);
         }
@@ -91,7 +77,8 @@ namespace MeasureDeviceProject.BackgraoundService
             while (!stoppingToken.IsCancellationRequested)
             {
 
-                logger.LogInformation("MeasureDevice {@IpAddress}:  ExecuteAsync {time}", IPAddress, DateTimeOffset.Now.ToString("yyyy.MM.dd HH: mm:ss"));
+                //logger.LogInformation("MeasureDevice {@IpAddress}:  ExecuteAsync {time}", IPAddress, DateTimeOffset.Now.ToString("yyyy.MM.dd HH: mm:ss"));
+                // CPU hőmérséklet mérés
                 msds.MeasuringCPUUsage();
                 await Task.Delay(TimeSpan.FromMilliseconds(measuringInterval), stoppingToken);
 
@@ -113,6 +100,16 @@ namespace MeasureDeviceProject.BackgraoundService
         {
         }
 
+        public void Start()
+        {
+            //logger.LogInformation("MeasureDevice {@IpAddress} -> Measuring Start", IPAddress);
+        }
+
+        public void Stop()
+        {
+            //logger.LogInformation("MeasureDevice {@IpAddress} -> Measuring Stop", IPAddress);
+        }
+
         public override void Dispose()
         {
             if (msds != null)
@@ -127,3 +124,4 @@ namespace MeasureDeviceProject.BackgraoundService
         }
     }
 }
+

@@ -162,6 +162,8 @@ namespace MeasureDeviceServiceAPIProject.Service
                     {
                         // Az új tárolandó adat mérés időpontja alapján meghatározzuk, hogy melyik fájlba kerül az adat
                         cpuDataStorePeriodically.DetermineTheStoreFile(mesuredResult);
+                        // Meghatározzuk a mérési időpont alapján az utolsó mérés ID-jének idő részét
+                        cpuDataStorePeriodically.SetDataId(mesuredResult.MeasureTime);
 
                         // Store Data to log file                              
                         MeasuredCPUDataStore measuredData = new MeasuredCPUDataStore(cpuDataStorePeriodically.GetDataId(),mesuredResult);
