@@ -36,7 +36,9 @@ namespace MeasureFrontend
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseWebAssemblyDebugging();
             }
+        
             else
             {
                 app.UseExceptionHandler("/Error");

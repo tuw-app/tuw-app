@@ -1,5 +1,6 @@
 ﻿using MeasureDeviceProject.Model;
 using MeasuringServer.Model;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json.Bson;
 using System;
 using System.Collections.Generic;
@@ -41,7 +42,7 @@ namespace MeasuringServer.Repository
             Update(cpuUsage);
         }
 
-        public IEnumerable<CPUUsageEF> GetAllCPUUsage()
+        public List<CPUUsageEF> GetAllCPUUsage()
         {
             return FindAll()
                         .OrderBy(u => u.IPAddress).ThenBy(u => u.MeasureTime).ThenBy(u => u.DataID)
@@ -72,6 +73,15 @@ namespace MeasuringServer.Repository
             else return true;
         }
 
-
+        public List<CPUUsageEF> GetAllCPUUsageOfSpecificDevicePaged(string iPAddress, int page, int pagesize)
+        {
+            return FindAll()
+                .Skip((page-1)*pagesize)
+                .Take(pagesize)
+                .OrderBy(cpuusage => cpuusage.IPAddress)
+                .ThenBy(cpuusage =>cpuusage.MeasureTime)
+                .ThenBy(cpuusage =>cpuusage.DataID)
+                .ToList();
+        }
     }
 }
