@@ -1,12 +1,74 @@
-﻿@page "/10"
+﻿@page "/md/cpu/{ipaddress}"
 
-<div class="container">
-    <h3>10.10.10.10</h3>
+@using MeasureDeviceProject.Model;
+@using MeasureFrontend.Services;
+@using MeasuringServer.Model;
+@using MeasuringServer.Model.Paging;
+
+@inject IAPIMeasureDeviceService APIMeasureDeviceService;
+@inject IAPICPUUsageService APICPUUsageService;
+   
+    <h3><strong>@IPAddress</strong> mérőelem</h3>
+    @if (CPUUsages == null)
+    {
+         <p>Az adatok betöltés alatt...</p>
+    }
+    else
+    {
+        @if (@CPUUsages.Count == 0)
+        {
+        <p>Az elemhez nem tartozik mérés.</p>
+        }
+        else
+        {
     
-    
-</div>
+            <div class="container">
+                <div class="table-wrapper">
+
+                    <div class="table-title">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h2><b>Mérőeszközök</b> kezelése</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>IP cím</th>
+                                <th>Mérés ideje</th>
+                                <th>Mérés szám</th>
+                                <th>CPU használat (%)</th>
+                            </tr>
+                        </thead>
+                        @foreach (EFCPUUsage usage in CPUUsages.List)
+                        {
+                            <tr>
+                                <td>@usage.IPAddress</td>
+                                <td>@usage.MeasureTime.ToString("yyyy-MM-dd hh:mm:ss,fff");</td>
+                                <td>@usage.DataID</td>
+                                <td>@Math.Round(@usage.CPUUsage,3))</td>
+                            </tr>
+                        }
+                    </table>
+                </div>                
+            </div>
+        }
+    }
+
+
+
 
 @code {
+    public PagedList<EFCPUUsage> CPUUsages { get; set; }
 
+    [Parameter]
+    public string? IPAddress { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        CPUUsages = await CPUUsageService.GetAllCPUUsages(new MDIPAddress(IPAddress), 1, 30);
+    }
 
 }

@@ -4,6 +4,7 @@
 @using MeasuringServer.Model;
 
 @inject IAPIMeasureDeviceService APIMeasureDeviceService;
+@inject NavigationManager UriHelper
 
 <h3>Mérőelem stásuszok</h3>
     @if (devices==null) {
@@ -18,6 +19,42 @@
         else
         {
             <p>Az adatábzisban @devices.Count mérő elemet találtam.</p>    
+         
+            <div class="container">
+                <div class="table-wrapper">
+                    
+                    <div class="table-title">
+                        <div class="row">
+                            <div class="col-sm-6">
+                            <h2><b>Mérőeszközök</b> kezelése</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table table-striped table-hover">
+					    <thead>
+						    <tr>
+							    <th>IP cím</th>
+							    <th>Működés</th>
+							    <th>Mérés</th>
+							    <th>CPU mérési adatok</th>
+                                <th>Hémérséklet mérési adatok</th>
+						    </tr>
+					    </thead>
+
+                        @foreach(EFMeasureDevice device in devices)
+                        {
+                            <tr>
+                                <td>@device.Name</td>
+                                <td>Működés</td>
+                                <td>Mérés</td>
+                                <td> <a href="@($"md/cpu/{device.Name}")"><span class="oi oi-data-transfer-download"></span></a></td>
+                                <td>...</td>
+                            </tr>
+                        }
+                </table>
+            </div>
+            </div>
         }
     }
     
