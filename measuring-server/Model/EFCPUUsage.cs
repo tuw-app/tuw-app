@@ -12,7 +12,7 @@ namespace MeasuringServer.Model
 {
     // https://stackoverflow.com/questions/3633262/convert-datetime-for-mysql-using-c-sharp
     [Table("cpuusage")]
-    public class CPUUsageEF : IEquatable<CPUUsageEF>
+    public class EFCPUUsage : IEquatable<EFCPUUsage>
     {
         private string ipAddress;
         private DateTime measureTime;
@@ -45,7 +45,7 @@ namespace MeasuringServer.Model
             dataID = ulong.MinValue;
         }
 
-        public CPUUsageEF() 
+        public EFCPUUsage() 
         {
             NullData();
         }
@@ -69,7 +69,7 @@ namespace MeasuringServer.Model
             return id;
         }
 
-        public bool Equals([AllowNull] CPUUsageEF other)
+        public bool Equals([AllowNull] EFCPUUsage other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (this.IPAddress!= other.IPAddress) return false;
@@ -78,7 +78,7 @@ namespace MeasuringServer.Model
             return true;
         }
 
-        public CPUUsageEF(MDSendedDataFromDeviceToServer dataFromMDSystem)
+        public EFCPUUsage(MDSendedDataFromDeviceToServer dataFromMDSystem)
         {
             if (string.IsNullOrEmpty(dataFromMDSystem.ToString()))
             {

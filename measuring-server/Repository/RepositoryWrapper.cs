@@ -30,9 +30,23 @@ namespace MeasuringServer.Repository
             }
         }
 
-        public async Task SaveAsync()
+        private MeasureDeviceRepository measureDeviceRepository; 
+
+        public MeasureDeviceRepository MeasureDevices
         {
-            System.Console.WriteLine("RepositoryWrapper->SaveAsync");
+            get
+            {
+                if (measureDeviceRepository==null)
+                {
+                    measureDeviceRepository= new MeasureDeviceRepository(context);
+                }
+                return measureDeviceRepository;
+            }
+        }
+
+
+        public async Task SaveAsync()
+        {            
             await context.SaveChangesAsync();
         }
     }

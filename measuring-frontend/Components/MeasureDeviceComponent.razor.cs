@@ -13,7 +13,7 @@ namespace MeasureFrontend.Components
         [Inject]
         public IAPICPUUsageService CPUUsageService { get; set; }
 
-        public PagedList<CPUUsageEF> CPUUsages { get; set; }
+        public PagedList<EFCPUUsage> CPUUsages { get; set; }
 
         protected async override Task OnInitializedAsync()
         {

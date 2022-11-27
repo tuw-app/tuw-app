@@ -32,8 +32,8 @@ namespace MeasuringServer.Controllers
         {
             logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->Get cpu usage of specific device paged, IPAddress: {Address}, page: {page}", IPAddress, page);
 
-            List<CPUUsageEF> CPUUsages = null;
-            PagedList<CPUUsageEF> CPUUsagesPaged = null;
+            List<EFCPUUsage> CPUUsages = null;
+            PagedList<EFCPUUsage> CPUUsagesPaged = null;
             try
             {                
                 if (pageSize == 0 || page==0)
@@ -89,10 +89,10 @@ namespace MeasuringServer.Controllers
                 return BadRequest("Null data.");
             }
             logger.LogInformation("CPUUsageController -> InsertNewCpuUsage->Data {data}",data);
-            CPUUsageEF dataEF = null;
+            EFCPUUsage dataEF = null;
             try
             {
-                dataEF = new CPUUsageEF(data);
+                dataEF = new EFCPUUsage(data);
                 logger.LogInformation("CPUUsageController -> InsertNewCpuUsage->Text->Usage {data}", dataEF);
             }
             catch (Exception exception)

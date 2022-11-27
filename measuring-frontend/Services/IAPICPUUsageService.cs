@@ -9,6 +9,6 @@ namespace MeasureFrontend.Services
 {
     public interface IAPICPUUsageService
     {
-        Task<PagedList<CPUUsageEF>> GetAllCPUUsages(MDIPAddress IPAddress, int page, int pageSize);
+        Task<PagedList<EFCPUUsage>> GetAllCPUUsages(MDIPAddress IPAddress, int page, int pageSize);
     }
 }
