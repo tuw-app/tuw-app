@@ -5,7 +5,9 @@ namespace MeasuringServer.Model
     public class MDContext : DbContext
     {
         // https://procodeguide.com/programming/entity-framework-core-in-asp-net-core/
-        public DbSet<CPUUsageEF> CPUUsage { get; set; }
+       
+        public DbSet<EFCPUUsage> CPUUsage { get; set; }
+        public DbSet<EFMeasureDevice> measureDevices { get; set; }  
 
         public MDContext(DbContextOptions<MDContext> options)
                 : base(options)
@@ -13,7 +15,7 @@ namespace MeasuringServer.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CPUUsageEF>().HasKey(x => new { x.IPAddress, x.MeasureTime, x.DataID });
+            modelBuilder.Entity<EFCPUUsage>().HasKey(x => new { x.IPAddress, x.MeasureTime, x.DataID });
 
             base.OnModelCreating(modelBuilder);
         }

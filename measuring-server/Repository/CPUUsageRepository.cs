@@ -1,5 +1,8 @@
 ﻿using MeasureDeviceProject.Model;
 using MeasuringServer.Model;
+using MeasuringServer.Model.Paging;
+using MeasuringServer.Repository.Base;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json.Bson;
 using System;
 using System.Collections.Generic;
@@ -10,19 +13,17 @@ namespace MeasuringServer.Repository
 {
     // https://medium.com/c-sharp-progarmming/quick-start-asp-net-core-3-1-entity-framework-core-cqrs-react-js-series-c8a427385aed
     // https://code-maze.com/net-core-web-development-part4/
-    public class CPUUsageRepository : RepostitoryBase<CPUUsageEF>, ICPUUsageEFRepository
+    public class CPUUsageRepository : RepositoryBase<EFCPUUsage>, ICPUUsageEFRepository
     {
         public CPUUsageRepository(MDContext repositoryContext)
             : base(repositoryContext)
         {
         }
 
-        public void CreateCPUUsage(CPUUsageEF cpuUsage)
+        public void CreateCPUUsage(EFCPUUsage cpuUsage)
         {
             try { 
-
-
-                Console.WriteLine("CreateCPUUsage");
+                
                 Create(cpuUsage);
             }
             catch(Exception e)
@@ -31,34 +32,34 @@ namespace MeasuringServer.Repository
             }
         }
 
-        public void UpdateCPUUsage(CPUUsageEF cpuUsage)
+        public void UpdateCPUUsage(EFCPUUsage cpuUsage)
         {
             Update(cpuUsage);
         }
 
-        public void DeleteCPUUsage(CPUUsageEF cpuUsage)
+        public void DeleteCPUUsage(EFCPUUsage cpuUsage)
         {
             Update(cpuUsage);
         }
 
-        public IEnumerable<CPUUsageEF> GetAllCPUUsage()
+        public List<EFCPUUsage> GetAllCPUUsage()
         {
             return FindAll()
                         .OrderBy(u => u.IPAddress).ThenBy(u => u.MeasureTime).ThenBy(u => u.DataID)
                         .ToList();
         }
 
-        public CPUUsageEF GetCPUUsageById(MDDataId id)
+        public EFCPUUsage GetCPUUsageById(MDDataId id)
         {
             Console.WriteLine($"Serched id:{id}");
             var all = FindAll();
-            foreach(CPUUsageEF usage in all)
+            foreach(EFCPUUsage usage in all)
             {
                 MDDataId otherID = usage.GetId();
                 if (otherID.Equals(id))
                     return usage;
             }
-            return new CPUUsageEF();
+            return new EFCPUUsage();
 
             //return FindByCondition(cpuUsage => cpuUsage.GetId().Equals(id))
             //            .FirstOrDefault();
@@ -66,12 +67,26 @@ namespace MeasuringServer.Repository
 
         public bool IsExsist(MDDataId CPUUsageID)
         {
-            CPUUsageEF data=GetCPUUsageById(CPUUsageID);
+            EFCPUUsage data=GetCPUUsageById(CPUUsageID);
             if (data.IdIsOk())
                 return false;
             else return true;
         }
 
-
+        public PagedList<EFCPUUsage> GetAllCPUUsageOfSpecificDevicePaged(string IPAddress, int page, int pagesize)
+        {
+            PagedList<EFCPUUsage> result = new PagedList<EFCPUUsage>();
+            result.List= FindAll()
+                .Where(cpuUsage => cpuUsage.IPAddress== IPAddress)
+                .Skip((page - 1) * pagesize)
+                .Take(pagesize)
+                .OrderBy(cpuusage => cpuusage.IPAddress)
+                .ThenBy(cpuusage => cpuusage.MeasureTime)
+                .ThenBy(cpuusage => cpuusage.DataID)
+                .ToList();
+            result.SetPageData(page, pagesize,FindAll().Where(cpuUsage => cpuUsage.IPAddress == IPAddress).ToList().Count);
+            return result;
+            
+        }
     }
 }
