@@ -6,11 +6,22 @@
 @inject IAPIMeasureDeviceService APIMeasureDeviceService;
 
 <h3>Mérőelem stásuszok</h3>
-    if (@devices.Count==0){
-        <p>Nincs elem az adatbázisban</p>
+    @if (devices==null) {
+         <p>Az adatok betöltés alatt...</p>
     }
-    else 
-        <p>Az adatábzisban @devices.Count mérő elemet találtam.</p>
+    else
+    {
+        @if (@devices.Count==0)
+        {
+        <p>Nincs elem az adatbázisban</p>
+        }
+        else
+        {
+            <p>Az adatábzisban @devices.Count mérő elemet találtam.</p>    
+        }
+    }
+    
+    
 
 @code {
     private List<EFMeasureDevice> devices;
