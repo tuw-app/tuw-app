@@ -31,13 +31,19 @@ namespace MeasureFrontend
 
             services.AddHttpClient<IAPICPUUsageService, APICPUUsageService>(client =>
             {
-                client.BaseAddress = new Uri("http://localhost.5001/");
+                client.BaseAddress = new Uri("http://localhost:5001/");
+            });
+
+            services.AddHttpClient<IAPIMeasureDeviceService, APIMeasureDeviceService>(client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5001/");
             });
 
 
 
             services.AddSingleton<WeatherForecastService>();
-         //   services.AddSingleton<IAPICPUUsageService, APICPUUsageService>();
+            //services.AddSingleton<APICPUUsageService>();
+            //services.AddSingleton< APIMeasureDeviceService()>;
 
         }
 

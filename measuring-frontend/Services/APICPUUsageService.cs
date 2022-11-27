@@ -36,7 +36,7 @@ namespace MeasureFrontend.Services
 
             PagedList<EFCPUUsage> result = JsonConvert.DeserializeObject<PagedList<EFCPUUsage>>(content.Result);
 
-            logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: {Count}", result.Cout);
+            logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: {Count}", result.Count);
             
             return result;
 

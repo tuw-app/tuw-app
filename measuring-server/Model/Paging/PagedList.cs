@@ -28,7 +28,7 @@ namespace MeasuringServer.Model.Paging
             set { numberOfItem = value; }
         }
 
-        public int Cout { get { return list.Count; } }
+        public int Count { get { return list.Count; } }
         
 
         public int NumberOfPage
