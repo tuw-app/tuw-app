@@ -7,5 +7,6 @@ namespace MeasuringServer.Repository
         public CPUUsageRepository CPUDatas { get;}
         public MeasureDeviceRepository MeasureDevices { get;}
         public Task SaveAsync();
+
     }
 }

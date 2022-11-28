@@ -31,7 +31,7 @@ namespace MeasureDeviceServiceAPIProject.APIService
             u.Path = "MeasureDeviceController/api/md/"+measureDevice.Name;
             u.Port = 5001;
 
-            logger.LogInformation("CPUAPIService -> Uri is {Uri}", u.ToString());
+            logger.LogInformation("MeasureDeviceAPIService -> Uri is {Uri}", u.ToString());
 
             using (var httpClient = new HttpClient())
             {
@@ -39,10 +39,9 @@ namespace MeasureDeviceServiceAPIProject.APIService
                 {
                     httpClient.BaseAddress = u.Uri;
 
-                    MDSendedDataFromDeviceToServer sendedData = new MDSendedDataFromDeviceToServer(dataFromBackupFile);
-                    logger.LogInformation("CPUAPIService -> Sended data -> {data}", sendedData);
+                    logger.LogInformation("MeasureDeviceAPIService -> Sended data -> {@data}", measureDevice);
 
-                    String jsonString = JsonConvert.SerializeObject(sendedData);
+                    String jsonString = JsonConvert.SerializeObject(measureDevice);
                     StringContent httpContent = new StringContent(jsonString, Encoding.UTF8, "application/json");
 
                     //logger.LogInformation("CPUAPIService -> StringContent-> {Content}", httpContent.Headers);
@@ -51,26 +50,26 @@ namespace MeasureDeviceServiceAPIProject.APIService
 
                     if (response != null)
                     {
-                        logger.LogInformation("CPUAPIService -> StringContent-> Status code: {Code}", response.StatusCode);
+                        logger.LogInformation("MeasureDeviceAPIService -> StringContent-> Status code: {Code}", response.StatusCode);
                         if (response.StatusCode == HttpStatusCode.OK)
                             return HttpStatusCode.OK;
                         else
                         {
 
                             string error = response.Headers + " : " + response.Content + " : " + response.StatusCode;
-                            logger.LogInformation("CPUAPIService -> StringContent-> Error {error}", error.ToString());
+                            logger.LogInformation("MeasureDeviceAPIService -> StringContent-> Error {error}", error.ToString());
                             return HttpStatusCode.InternalServerError;
                         }
                     }
                     else
                     {
-                        logger.LogInformation("CPUAPIService -> StringContent-> Response is null");
+                        logger.LogInformation("MeasureDeviceAPIService -> StringContent-> Response is null");
                         return HttpStatusCode.InternalServerError;
                     }
                 }
                 catch (Exception ex)
                 {
-                    logger.LogInformation("CPUAPIService -> StringContent-> Exception {Message}",ex.Message);
+                    logger.LogInformation("CPUAPIService -> MeasureDeviceAPIService-> Exception {Message}", ex.Message);
                     return HttpStatusCode.InternalServerError;
                 }
             }

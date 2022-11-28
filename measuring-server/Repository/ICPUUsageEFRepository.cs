@@ -1,9 +1,8 @@
-﻿using MeasureDeviceProject.Model;
-using MeasuringServer.Model;
+﻿using DataModel.EFDataModel;
+using DataModel.MDDataModel;
 using MeasuringServer.Model.Paging;
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+
 
 namespace MeasuringServer.Repository
 {

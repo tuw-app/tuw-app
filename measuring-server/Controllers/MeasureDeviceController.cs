@@ -3,13 +3,13 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-using MeasureDeviceServiceAPIProject.Model;
 using MeasuringServer.Model;
 using MeasuringServer.Repository;
 using System.Collections.Generic;
 using MeasuringServer.Model.Paging;
 using System.Linq;
 using System.Data;
+using DataModel.EFDataModel;
 
 namespace MeasuringServer.Controllers
 {
@@ -104,10 +104,14 @@ namespace MeasuringServer.Controllers
                 {
                     if (wrapper.MeasureDevices.IsExsist(data.Name))
                     {
-                        wrapper.MeasureDevices.Update(data);
+                        // ha van akkor meghatározzuk az id-jét és frissítjük az intervallumot
+                        EFMeasureDevice device = wrapper.MeasureDevices.GetByIPAddress(data.Name);
+                        data.Id = device.Id;
+                        wrapper.MeasureDevices.Update(device.Id,data.Interval);
                         logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> {data} is updated in database!", data);
                     }
                     {
+                        // ha még nem létezik, akkor létrehozzul
                         wrapper.MeasureDevices.Insert(data);
                         logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> {data} is inserted in database!", data);
                     }

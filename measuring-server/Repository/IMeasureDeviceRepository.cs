@@ -1,4 +1,4 @@
-﻿using MeasuringServer.Model;
+﻿using DataModel.EFDataModel;
 using MeasuringServer.Repository.Base;
 
 namespace MeasuringServer.Repository
@@ -9,5 +9,6 @@ namespace MeasuringServer.Repository
         public bool IsExsist(EFMeasureDevice device);
         public bool IsExsist(string IPAddress);
         public EFMeasureDevice GetByIPAddress(string ipAddress);
+        public void Update(int id, int measuringInterval);
     }
 }

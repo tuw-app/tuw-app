@@ -1,5 +1,7 @@
-﻿using MeasuringServer.Model;
+﻿using DataModel.EFDataModel;
+using MeasuringServer.Model;
 using MeasuringServer.Repository.Base;
+using System;
 using System.Linq;
 
 namespace MeasuringServer.Repository
@@ -43,13 +45,31 @@ namespace MeasuringServer.Repository
 
         public void Insert(EFMeasureDevice md)
         {
+            int id = FindAll().ToList().Select(md => md.Id).Max() + 1;
+            md.Id = id;
             Create(md);
+        }
+
+
+        public void Update(int id, int measuringInterval)
+        {
+            EFMeasureDevice selecteddevice = Get(id);
+            if (selecteddevice != null && selecteddevice.Name.Length != 0)
+            {
+                selecteddevice.Interval = measuringInterval;
+                Update(id, selecteddevice);
+            }                
+        }
+
+        public void Update(EFMeasureDevice entity)
+        {
+            Update(entity.Id, entity);
         }
 
         public bool IsExsist(EFMeasureDevice device)
         {
             EFMeasureDevice selecteddevice = Get(device.Id);
-            if (selecteddevice != null)
+            if (selecteddevice != null && selecteddevice.Name.Length != 0)
             {
                 return (selecteddevice.Name == string.Empty);
             }
@@ -60,12 +80,14 @@ namespace MeasuringServer.Repository
         public bool IsExsist(string IPAddress)
         {
             EFMeasureDevice selecteddevice = Get(IPAddress);
-            if (selecteddevice != null)
+            if (selecteddevice != null && selecteddevice.Name.Length != 0)
             {
                 return (selecteddevice.Name == string.Empty);
             }
             else
                 return false;
         }
+
+
     }
 }

@@ -37,7 +37,7 @@ namespace MeasuringServer.Repository.Base
                 Console.WriteLine(ex.Message);
             }
         }
-        public void Update(T entity)
+        public void Update(int id, T entity)
         {
             MDContext.Set<T>().Update(entity);
         }

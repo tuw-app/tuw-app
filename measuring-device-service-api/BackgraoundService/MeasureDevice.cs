@@ -15,6 +15,8 @@ using Serilog.Core;
 using System.IO;
 using MeasureDeviceServiceAPIProject.Service.SendDataToServer;
 using DataModel.MDDataModel;
+using MeasureDeviceServiceAPIProject.APIService;
+using DataModel.EFDataModel;
 
 namespace MeasureDeviceProject.BackgraoundService
 {
@@ -105,7 +107,7 @@ namespace MeasureDeviceProject.BackgraoundService
             }
         }
 
-        public override Task StartAsync(CancellationToken cancellationToken)
+        public async override Task StartAsync(CancellationToken cancellationToken)
         {
             if (!MDState.IsWorking)
             {
@@ -123,17 +125,22 @@ namespace MeasureDeviceProject.BackgraoundService
                     logger.LogInformation("Token cancel is not requested");
                 }
 
+                // A device adatait elküljük a szerverbe, ott vagy új bejegyzésként, vagy frissítésként beíródik.
+                MeasureDeviceAPIService mdAPI = new MeasureDeviceAPIService(logger);
+                EFMeasureDevice device = new EFMeasureDevice(IPAddress.ToString(), measuringInterval);
+                await mdAPI.SendMDDataToAsync(device);
 
-                
+                // Az eszközön a periódukos adat loggolást és az adatküldést engeélyezzük
                 msds.Start();
                 sbfs.Start();
 
+                // Az ezsközt müködés állapotba hozzuk
                 MDState.StartWorking();
                 MDState.StartMeasuring();
 
-                return base.StartAsync(cancellationToken);
+                await base.StartAsync(cancellationToken);               
             }
-            return Task.CompletedTask;
+            return;
         }
 
 
