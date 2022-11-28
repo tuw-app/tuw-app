@@ -8,29 +8,37 @@ using System.Threading;
 namespace MeasureDeviceServiceAPIProject.Controllers
 {    
     [ApiController]
-    public class ControllingContollers : Controller
+    public class ControllingContoller : Controller
     {
-        ILogger<ControllingContollers> logger = null;
+        ILogger<ControllingContoller> logger = null;
         IMeasureDevice10 device =null;
         
-        public ControllingContollers(ILogger<ControllingContollers> logger, IMeasureDevice10 device)
+        public ControllingContoller(ILogger<ControllingContoller> logger, IMeasureDevice10 device)
         {
             this.logger= logger;
             this.device= device;
         }
 
-        [HttpGet("api/{controlling}/{IPAddress}", Name="Stop measure device working")]
+        [HttpGet("api/{controlling}/{IPAddress}", Name="Controll of measure device work")]
         public IActionResult ControllingMeasuring(string controlling, string IPAddress)
         {
 
             if (device == null)
             {
                 logger.LogInformation("ControllingContollers -> ControllingMeasuring -> No device.");
+                return BadRequest();
             }
             else 
             {
+                if (IPAddress != null || IPAddress.Length != 0)
+                {
+                    logger.LogInformation("ControllingContollers -> ControllingMeasuring -> No IP address.");
+                    return BadRequest();
+                }
+
                 if (IPAddress.ToString().CompareTo("10.10.10.10") == 0)
                 {
+                    logger.LogInformation("ControllingContollers -> ControllingMeasuring -> IP address: 10.10.10.10");
                     if (device is MeasureDevice10)
                     {
                         MeasureDevice10 device10 = (MeasureDevice10)device;
@@ -43,13 +51,15 @@ namespace MeasureDeviceServiceAPIProject.Controllers
                                 CancellationToken token = new CancellationToken(true);
                                 if (token.IsCancellationRequested)
                                 {
-                                    logger.LogInformation("Controllr->Token stop cancel is requested");
+                                    logger.LogInformation("ControllingContollers->Token stop cancel is requested");
                                 }
                                 else
                                 {
-                                    logger.LogInformation("Controllr->Token stop cancel is not requested");
+                                    logger.LogInformation("ControllingContollers->Token stop cancel is not requested");
                                 }
                                 device10.StopAsync(token);
+                                logger.LogInformation("ControllingContollers->Stop Async");
+                                return Ok();
 
                             }
                             else if (controlling == "start")
@@ -58,27 +68,34 @@ namespace MeasureDeviceServiceAPIProject.Controllers
 
                                 if (token.IsCancellationRequested)
                                 {
-                                    logger.LogInformation("Controllr->Token starrt cancel is requested");
+                                    logger.LogInformation("ControllingContollers->Token starrt cancel is requested");
                                 }
                                 else
                                 {
-                                    logger.LogInformation("Controllr->Token stop cancel is not requested");
-                                }
+                                    logger.LogInformation("ControllingContollers->Token stop cancel is not requested");
+                                }                                
                                 device10.StartAsync(token);
+                                logger.LogInformation("ControllingContollers->Start Async");
+                                return Ok();
                             }
                             else if (controlling == "measuring")
                             {
                                 device10.StartMeasuring();
+                                logger.LogInformation("ControllingContollers->Start Measuring");
+                                return Ok();
                             }
                             else if (controlling == "nomeasuring")
                             {
                                 device10.StopMeasuring();
+                                logger.LogInformation("ControllingContollers->Stop Measuring");
+                                return Ok();
                             }
                         }
-                    }
+                    }                    
                 }
             }
-            return Ok();
+            logger.LogInformation("ControllingContollers->No device");
+            return BadRequest();
         }
 
     }

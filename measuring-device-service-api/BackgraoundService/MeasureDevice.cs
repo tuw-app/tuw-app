@@ -26,6 +26,7 @@ namespace MeasureDeviceProject.BackgraoundService
         private string path=string.Empty;
 
         public MDIPAddress IPAddress { get; set; } = null;
+       
         public MDState MDState { get; set; } = null;
 
         private MeasureStoreSystem msds=null;
@@ -44,7 +45,7 @@ namespace MeasureDeviceProject.BackgraoundService
             {
                 measuringInterval = value;                
             }            
-        }
+        }       
 
         public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, MDIPAddress MDIPAddress, int  measuringInterval)
         {
