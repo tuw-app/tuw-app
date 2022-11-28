@@ -10,20 +10,27 @@ namespace MeasuringServer.Model
         [Key]
         public int Id { get; set; }
 
-        [Column("name")]
-        [Required(ErrorMessage ="Name is required")]
+        [Column("name")] // IP address
+        [Required(ErrorMessage ="IP address is required")]
         public string Name { get; set; }
+
+        [Column("intarval")]
+        [Required(ErrorMessage = "Measure intarvall is requiered")]
+        public int Interval { get; set; }
+
 
         public EFMeasureDevice()
         {
             Id = -1;
             Name = string.Empty;
+            Interval = -1; 
         }
 
-        public EFMeasureDevice(int id, string name)
+        public EFMeasureDevice(int id, string name, int interval)
         {
             Id = id;
             Name = name;
+            Interval = interval;
         }
     }
 }

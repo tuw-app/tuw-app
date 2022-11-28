@@ -47,7 +47,7 @@ namespace MeasuringServer.Controllers
                     }
                     else
                     {
-                        if (IPAddress == string.Empty)
+                        if (IPAddress.Length==0)
                         {
                             // Get all
                             logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->Gets all {count} cpu usages", CPUUsages.Count);

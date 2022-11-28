@@ -29,7 +29,7 @@ namespace MeasureDeviceServiceAPIProject.Controllers
             }
             else
             {
-                if (IPAddress != null || IPAddress.Length != 0)
+                if (IPAddress == null || IPAddress.Length == 0)
                 {
                     logger.LogInformation("MDStateContollers -> ControllingMeasuring -> No IP Address.");
                     return BadRequest();

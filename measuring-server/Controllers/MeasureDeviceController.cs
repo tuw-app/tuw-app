@@ -51,6 +51,36 @@ namespace MeasuringServer.Controllers
 
         }
 
+        [HttpGet("api/md/{IPAddress}", Name = "Get measure devices by IPAddress")]
+        public IActionResult GetMeasureDeviceByAddress(string IPAddress)
+        {
+            logger.LogInformation("MeasureDeviceController -> GetMeasureDeviceByAddress");
+
+            if (IPAddress == null || IPAddress.Length == 0)
+            {
+                logger.LogInformation("{MeasureDeviceController -> GetMeasureDeviceByAddress -> No IP Address.");
+                return BadRequest();
+            }
+
+            EFMeasureDevice measureDevice = null;
+            try
+            {
+                measureDevice = wrapper.MeasureDevices.GetByIPAddress(IPAddress);
+                if (measureDevice == null)
+                {
+                    logger.LogInformation("MeasureDeviceController -> GetMeasureDeviceByAddress->No measured devices");
+                    return NotFound();
+                }
+            }
+            catch (Exception exception)
+            {
+                logger.LogError("MeasureDeviceController -> GetAllCPUUsageOfSpecificDevicePaged->Error: {Message}", exception.Message);
+            }
+            logger.LogInformation("MeasureDeviceController -> GetMeasureDeviceByAddress->Gets  {@Device} measure devices", measureDevice);
+            return Ok(measureDevice);
+
+        }
+
 
         [HttpPost("api/md", Name = "Insert new measure devices")]
         public async Task<IActionResult> InsertNewMeasureDevice([FromBody] EFMeasureDevice data)

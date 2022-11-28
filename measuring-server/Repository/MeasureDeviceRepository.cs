@@ -26,6 +26,11 @@ namespace MeasuringServer.Repository
             return FindByCondition(md=>md.Id== id).FirstOrDefault();
         }
 
+        public EFMeasureDevice GetByIPAddress(string IPAdress)
+        {
+            return FindByCondition(md => md.Name.CompareTo(IPAdress)==0).FirstOrDefault();
+        }
+
         public IQueryable<EFMeasureDevice> GetAll()
         {
             return FindAll();
