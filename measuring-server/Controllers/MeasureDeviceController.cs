@@ -89,10 +89,10 @@ namespace MeasuringServer.Controllers
 
             if (string.IsNullOrEmpty(data.ToString()))
             {
-                logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice->Null data");
+                logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> Null data");
                 return BadRequest("Null data.");
             }
-            logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice->Data {@data}", data);
+            logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> Data {@data}", data);
 
             if (wrapper.MeasureDevices.IsExsist(data))
             {

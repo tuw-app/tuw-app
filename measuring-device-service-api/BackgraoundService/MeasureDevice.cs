@@ -148,7 +148,6 @@ namespace MeasureDeviceProject.BackgraoundService
                 // Az ezsközt müködés állapotba hozzuk
                 MDState.StartWorking();
                 MDState.StartMeasuring();
-
                 await base.StartAsync(cancellationToken);               
             }
             return;
@@ -169,11 +168,12 @@ namespace MeasureDeviceProject.BackgraoundService
 
             while (!myToken.IsCancellationRequested)
             {
+                
                 logger.LogInformation("MeasureDevice {IpAddress}:  ExecuteAsync {time}", IPAddress, DateTimeOffset.Now.ToString("yyyy.MM.dd HH: mm:ss"));
+
                 // CPU hőmérséklet mérés
-                //msds.MeasuringCPUUsage();
-                //msds.Start(); // lehetséges a mérés, de azt a Background service csinálja
-                //sbfs.Start();
+                msds.MeasuringCPUUsage();
+
                 await Task.Delay(TimeSpan.FromMilliseconds(measuringInterval), myToken);
             }
         }

@@ -43,9 +43,11 @@ namespace MeasureDeviceServiceAPIProject
 
             // https://stackoverflow.com/questions/51254053/how-to-inject-a-reference-to-a-specific-ihostedservice-implementation
             services.AddSingleton< IMeasureDevice10, MeasureDevice10>();
-            //services.AddSingleton<IMeasureDevice20, MeasureDevice20>();
-            //services.AddSingleton<IMeasureDevice30, MeasureDevice30>();
+            services.AddSingleton<IMeasureDevice20, MeasureDevice20>();
+            services.AddSingleton<IMeasureDevice30, MeasureDevice30>();
             services.AddSingleton<IHostedService, MeasureDevice10>(provider =>(MeasureDevice10) provider.GetService<IMeasureDevice10>());
+            services.AddSingleton<IHostedService, MeasureDevice20>(provider =>(MeasureDevice20) provider.GetService<IMeasureDevice20>());
+            services.AddSingleton<IHostedService, MeasureDevice30>(provider => (MeasureDevice30)provider.GetService<IMeasureDevice20>());
             //services.AddHostedService<MeasureDevice20>();
             //services.AddHostedService<MeasureDevice30>(provider => provider.GetService<MeasureDevice30>());
         }
