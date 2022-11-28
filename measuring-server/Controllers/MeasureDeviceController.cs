@@ -82,36 +82,43 @@ namespace MeasuringServer.Controllers
         }
 
 
-        [HttpPost("api/md", Name = "Insert new measure devices")]
-        public async Task<IActionResult> InsertNewMeasureDevice([FromBody] EFMeasureDevice data)
+        [HttpPost("api/md", Name = "Insert or update measure devices")]
+        public async Task<IActionResult> InsertOrUpdateMeasureDevice([FromBody] EFMeasureDevice data)
         {
 
             if (string.IsNullOrEmpty(data.ToString()))
             {
-                logger.LogInformation("MeasureDeviceController -> InsertNewMeasureDevice->Null data");
+                logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice->Null data");
                 return BadRequest("Null data.");
             }
-            logger.LogInformation("MeasureDeviceController -> InsertNewMeasureDevice->Data {data}", data);
+            logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice->Data {data}", data);
 
             if (wrapper.MeasureDevices.IsExsist(data))
             {
-                logger.LogError("MeasureDeviceController -> InsertNewMeasureDevice-> Data is found in database. Send ok result.");
+                logger.LogError("MeasureDeviceController -> InsertOrUpdateeasureDevice-> Data is found in database. Send ok result.");
                 return Ok();
             }
             else
             {
                 try
                 {
-                    wrapper.MeasureDevices.Insert(data);
+                    if (wrapper.MeasureDevices.IsExsist(data.Name))
+                    {
+                        wrapper.MeasureDevices.Update(data);
+                        logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> {data} is updated in database!", data);
+                    }
+                    {
+                        wrapper.MeasureDevices.Insert(data);
+                        logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> {data} is inserted in database!", data);
+                    }
                     await wrapper.SaveAsync();
                 }
                 catch (Exception e)
 
                 {
-                    logger.LogError("MeasureDeviceController -> InsertNewMeasureDevice-> Failed to insert or IsExsist. {Message}", e.Message);
+                    logger.LogError("MeasureDeviceController -> InsertOrUpdateeasureDevice-> Failed to insert or IsExsist. {Message}", e.Message);
                     return BadRequest($"Failed to insert {e.Message}");
-                }
-                logger.LogInformation("MeasureDeviceController -> InsertNewMeasureDevice-> {data} in database!", data);
+                }                
                 return Ok();
             }
         }

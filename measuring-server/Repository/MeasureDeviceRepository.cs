@@ -25,6 +25,11 @@ namespace MeasuringServer.Repository
         {
             return FindByCondition(md=>md.Id== id).FirstOrDefault();
         }
+        
+        public EFMeasureDevice Get(string IPAddress)
+        {
+            return FindByCondition(md => md.Name.CompareTo(IPAddress)==0).FirstOrDefault();
+        }
 
         public EFMeasureDevice GetByIPAddress(string IPAdress)
         {
@@ -44,6 +49,17 @@ namespace MeasuringServer.Repository
         public bool IsExsist(EFMeasureDevice device)
         {
             EFMeasureDevice selecteddevice = Get(device.Id);
+            if (selecteddevice != null)
+            {
+                return (selecteddevice.Name == string.Empty);
+            }
+            else
+                return false;
+        }
+
+        public bool IsExsist(string IPAddress)
+        {
+            EFMeasureDevice selecteddevice = Get(IPAddress);
             if (selecteddevice != null)
             {
                 return (selecteddevice.Name == string.Empty);
