@@ -28,7 +28,7 @@ namespace MeasureDeviceServiceAPIProject.Service.PeriodicallyStore
             get { return path; }
         }
 
-        private string FullPathFileName
+        public string FullPathFileName
         {
             get
             {
@@ -110,6 +110,11 @@ namespace MeasureDeviceServiceAPIProject.Service.PeriodicallyStore
         {
             Log.Information("PeriodicallyStoreSystem  -> Write to data: {FullPathFileName}", FullPathFileName);
             measuringDataStore.WriteData(measuredCPUDataToStore);
+        }
+
+        public void CloseFile()
+        {
+            measuringDataStore.Close();
         }
 
         private bool IsTheMesureTimeStampExpired(DateTime actualDateTime)

@@ -6,7 +6,7 @@ using System;
 
 namespace MeasureDeviceServiceAPIProject.BackgraoundService
 {
-    public class MeasureDevice20 : MeasureDevice
+    public class MeasureDevice20 : MeasureDevice, IMeasureDevice20
     {
         private readonly ILogger<MeasureDevice> logger;
         private readonly IConfiguration configuration;
@@ -16,6 +16,26 @@ namespace MeasureDeviceServiceAPIProject.BackgraoundService
         {
             this.logger = logger;
             this.configuration = configuration;
+        }
+
+        public void Start()
+        {
+
+        }
+
+        public void StartMeasuring()
+        {
+
+        }
+
+        public void Stop()
+        {
+
+        }
+
+        public void StopMeasuring()
+        {
+
         }
     }
 }
