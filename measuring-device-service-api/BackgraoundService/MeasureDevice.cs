@@ -61,6 +61,9 @@ namespace MeasureDeviceProject.BackgraoundService
 
             msds.Stop();
             sbfs.Stop();
+
+            MDStatus.StopMeasuring();
+            MDStatus.Stopping();
             
             thredPeridodically = new Thread(new ThreadStart(msds.StoringDataPeriodically));
             thredSendBackupFileSystem = new Thread(new ThreadStart(sbfs.Send));
@@ -76,22 +79,29 @@ namespace MeasureDeviceProject.BackgraoundService
         }
         
         public override Task StartAsync(CancellationToken cancellationToken)
-        { 
-            logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync", IPAddress);
-            logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
-                        
-            myToken = cancellationToken;
-
-            if (myToken.IsCancellationRequested)
+        {
+            if (!MDStatus.IsWorking)
             {
-                logger.LogInformation("Token cancel is requested");
-            }
-            else
-            {
-                logger.LogInformation("Token cancel is not requested");
-            }
+                logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync", IPAddress);
+                logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
 
-            return base.StartAsync(cancellationToken);
+                myToken = cancellationToken;
+
+                if (myToken.IsCancellationRequested)
+                {
+                    logger.LogInformation("Token cancel is requested");
+                }
+                else
+                {
+                    logger.LogInformation("Token cancel is not requested");
+                }
+
+                MDStatus.StartWorking();
+                MDStatus.StartMeasuring();
+
+                return base.StartAsync(cancellationToken);
+            }
+            return Task.CompletedTask;
         }
 
 
@@ -120,14 +130,19 @@ namespace MeasureDeviceProject.BackgraoundService
 
         public override Task StopAsync(CancellationToken cancellationToken)
         {
-            logger.LogInformation("MeasureDevice {@IpAddress} -> StopAsync: {time}", DateTimeOffset.Now);
-            // thredPeridodically.Abort();
-            msds.Stop();
-            //thredSendBackupFileSystem.Abort();
-            sbfs.Stop();
+            if (MDStatus.IsWorking)
+            {
+                logger.LogInformation("MeasureDevice {@IpAddress} -> StopAsync: {time}", DateTimeOffset.Now);
+                // thredPeridodically.Abort();
+                msds.Stop();
+                //thredSendBackupFileSystem.Abort();
+                sbfs.Stop();
 
-            myToken = cancellationToken;
-            return base.StopAsync(myToken);
+                myToken = cancellationToken;
+                return base.StopAsync(myToken);
+            }
+            else
+                return Task.CompletedTask;
         }
 
         public override void Dispose()
