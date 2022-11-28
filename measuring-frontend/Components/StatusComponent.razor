@@ -39,6 +39,8 @@
 							<th>IP cím</th>
 							<th>Működés</th>
 							<th>Mérés</th>
+                            <th>Leállítás/elindítás</th>
+                            <th>Mérés leállítás/indítás</th>
 							<th>CPU mérési adatok</th>
                             <th>Hémérséklet mérési adatok</th>
 						</tr>
@@ -63,6 +65,25 @@
                                         <p> nem működik</p>
                                     }
                                 </td>
+                                <td>
+                                    @if (state.IsMeasuring)
+                                    {
+                                        <p> mér</p>
+                                    }
+                                    else
+                                    {
+                                        <p> nem mér</p>
+                                    }
+                                </td>
+                                <td>
+                                    <button>Működés leállítás</button>
+                                </td>
+                                <td>
+                                    <button>Mérés leállítás</button>
+                                </td>
+                                <td> <a href="@($"md/cpu/{device.Name}")"><span class="oi oi-data-transfer-download"></span></a></td>
+                                <td> Hőmérésklet</td>
+
                             }
                         }
                     </tr>
