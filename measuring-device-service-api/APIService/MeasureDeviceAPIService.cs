@@ -28,7 +28,7 @@ namespace MeasureDeviceServiceAPIProject.APIService
             UriBuilder u = new UriBuilder();
             u.Scheme= "http";
             u.Host = "localhost";
-            u.Path = "MeasureDeviceController/api/md/"+measureDevice.Name;
+            u.Path = "MeasureDevice/api/md/";
             u.Port = 5001;
 
             logger.LogInformation("MeasureDeviceAPIService -> Uri is {Uri}", u.ToString());

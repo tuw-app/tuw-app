@@ -13,7 +13,7 @@ namespace MeasureDeviceServiceAPIProject.BackgraoundService
         private readonly IConfiguration configuration;
 
         public MeasureDevice10(IConfiguration configuration, ILogger<MeasureDevice> logger) :
-            base(configuration, logger, new MDIPAddress("10.10.10.10"),1000)
+            base(configuration, logger, new MDIPAddress("10.10.10.10"),1,1000)
         {
             this.logger = logger;
             this.configuration = configuration;

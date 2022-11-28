@@ -48,12 +48,23 @@ namespace MeasureDeviceProject.BackgraoundService
                 Log.Information("MeasureDevice {@IpAddress} -> New intaerval set: {interval}", IPAddress.ToString(), MeasuringInterval);
                 measuringInterval = value;                
             }            
-        }       
+        }
 
-        public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, MDIPAddress MDIPAddress, int  measuringInterval)
+        private int id;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+
+        public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, MDIPAddress MDIPAddress, int id, int  measuringInterval)
         {
             this.configuration = configuration;
             this.logger = logger;
+            this.id = id;
+
             IPAddress= MDIPAddress;
             this.measuringInterval = measuringInterval;
 
@@ -127,7 +138,7 @@ namespace MeasureDeviceProject.BackgraoundService
 
                 // A device adatait elküljük a szerverbe, ott vagy új bejegyzésként, vagy frissítésként beíródik.
                 MeasureDeviceAPIService mdAPI = new MeasureDeviceAPIService(logger);
-                EFMeasureDevice device = new EFMeasureDevice(IPAddress.ToString(), measuringInterval);
+                EFMeasureDevice device = new EFMeasureDevice(id,IPAddress.ToString(), measuringInterval);
                 await mdAPI.SendMDDataToAsync(device);
 
                 // Az eszközön a periódukos adat loggolást és az adatküldést engeélyezzük
@@ -158,11 +169,11 @@ namespace MeasureDeviceProject.BackgraoundService
 
             while (!myToken.IsCancellationRequested)
             {
-                logger.LogInformation("MeasureDevice {IpAddress}:  ExecuteAsync {time}", IPAddress, DateTimeOffset.Now.ToString("yyyy.MM.dd HH: mm:ss"));
+                //logger.LogInformation("MeasureDevice {IpAddress}:  ExecuteAsync {time}", IPAddress, DateTimeOffset.Now.ToString("yyyy.MM.dd HH: mm:ss"));
                 // CPU hőmérséklet mérés
-                msds.MeasuringCPUUsage();
-                msds.Start(); // lehetséges a mérés, de azt a Background service csinálja
-                sbfs.Start();
+                //msds.MeasuringCPUUsage();
+                //msds.Start(); // lehetséges a mérés, de azt a Background service csinálja
+                //sbfs.Start();
                 await Task.Delay(TimeSpan.FromMilliseconds(measuringInterval), myToken);
             }
         }

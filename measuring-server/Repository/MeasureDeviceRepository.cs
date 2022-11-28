@@ -45,8 +45,9 @@ namespace MeasuringServer.Repository
 
         public void Insert(EFMeasureDevice md)
         {
-            int id = FindAll().ToList().Select(md => md.Id).Max() + 1;
-            md.Id = id;
+            //int id = FindAll().ToList().Select(md => md.Id).Max() + 1;
+            //Console.WriteLine(id);
+            //md.Id = id;
             Create(md);
         }
 
@@ -77,12 +78,19 @@ namespace MeasuringServer.Repository
                 return false;
         }
 
+        public int CountOfDevices()
+        {
+            return FindAll().Count();
+        }
+
         public bool IsExsist(string IPAddress)
         {
-            EFMeasureDevice selecteddevice = Get(IPAddress);
+            if (CountOfDevices() == 0)
+                return false;
+            EFMeasureDevice selecteddevice = Get(IPAddress);            
             if (selecteddevice != null && selecteddevice.Name.Length != 0)
             {
-                return (selecteddevice.Name == string.Empty);
+                return (selecteddevice.Name.Length>0);
             }
             else
                 return false;

@@ -46,7 +46,8 @@ namespace MeasuringServer.Controllers
             {
                 logger.LogError("MeasureDeviceController -> GetAllCPUUsageOfSpecificDevicePaged->Error: {Message}", exception.Message);
             }
-            logger.LogInformation("MeasureDeviceController -> GetAllMeasureDevices->Gets  {number} measure devices", measureDevices.Count);
+            if (measureDevices != null)
+                logger.LogInformation("MeasureDeviceController -> GetAllMeasureDevices->Gets  {number} measure devices", measureDevices.Count);
             return Ok(measureDevices);
 
         }
@@ -91,7 +92,7 @@ namespace MeasuringServer.Controllers
                 logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice->Null data");
                 return BadRequest("Null data.");
             }
-            logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice->Data {data}", data);
+            logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice->Data {@data}", data);
 
             if (wrapper.MeasureDevices.IsExsist(data))
             {
@@ -104,23 +105,26 @@ namespace MeasuringServer.Controllers
                 {
                     if (wrapper.MeasureDevices.IsExsist(data.Name))
                     {
+                        // akkkor most nem csinálunk semmit még
+                        //logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> md exsist -> update");
                         // ha van akkor meghatározzuk az id-jét és frissítjük az intervallumot
-                        EFMeasureDevice device = wrapper.MeasureDevices.GetByIPAddress(data.Name);
-                        data.Id = device.Id;
-                        wrapper.MeasureDevices.Update(device.Id,data.Interval);
-                        logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> {data} is updated in database!", data);
+                        //EFMeasureDevice device = wrapper.MeasureDevices.GetByIPAddress(data.Name);
+                        //data.Id = device.Id;
+                        //wrapper.MeasureDevices.Update(device.Id,data.Interval);
+                        //logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> {@data} is updated in database!", data);
                     }
                     {
                         // ha még nem létezik, akkor létrehozzul
+                        logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> md not exsist -> insert");
                         wrapper.MeasureDevices.Insert(data);
-                        logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> {data} is inserted in database!", data);
+                        logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> {@data} is inserted in database!", data);
                     }
                     await wrapper.SaveAsync();
                 }
                 catch (Exception e)
 
                 {
-                    logger.LogError("MeasureDeviceController -> InsertOrUpdateeasureDevice-> Failed to insert or IsExsist. {Message}", e.Message);
+                    logger.LogError("MeasureDeviceController -> InsertOrUpdateeasureDevice-> Failed to insert or update. {Message}", e.Message);
                     return BadRequest($"Failed to insert {e.Message}");
                 }                
                 return Ok();

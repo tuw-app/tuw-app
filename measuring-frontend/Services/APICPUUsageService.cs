@@ -1,17 +1,12 @@
-﻿using MeasureDeviceProject.Model;
-using MeasureDeviceServiceAPIProject.Model;
-using MeasuringServer.Model;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+
 using System.Net.Http;
-using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using MeasuringServer.Model.Paging;
 
-using System.Net.Http.Json;
 using Microsoft.Extensions.Logging;
+using DataModel.EFDataModel;
+using DataModel.MDDataModel;
 
 namespace MeasureFrontend.Services
 {

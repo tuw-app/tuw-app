@@ -1,12 +1,8 @@
-﻿using MeasureDeviceProject.Model;
+﻿
 using MeasureFrontend.Services;
-using MeasuringServer.Model.Paging;
-using MeasuringServer.Model;
+
 using Microsoft.AspNetCore.Components;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using Microsoft.Extensions.Logging;
-using System;
+
 
 namespace MeasureFrontend.Components
 {

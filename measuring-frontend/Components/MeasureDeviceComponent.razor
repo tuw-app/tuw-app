@@ -1,9 +1,10 @@
 ﻿@page "/md/cpu/{ipaddress}"
 
-@using MeasureDeviceProject.Model;
+@using DataModel.EFDataModel;
+@using DataModel.MDDataModel;
 @using MeasureFrontend.Services;
-@using MeasuringServer.Model;
 @using MeasuringServer.Model.Paging;
+
 
 @inject IAPIMeasureDeviceService APIMeasureDeviceService;
 @inject IAPICPUUsageService APICPUUsageService;

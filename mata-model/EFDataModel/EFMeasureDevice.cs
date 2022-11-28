@@ -14,7 +14,7 @@ namespace DataModel.EFDataModel
         [Required(ErrorMessage = "IP address is required")]
         public string Name { get; set; }
 
-        [Column("mdintarval")]
+        [Column("mdinterval")]
         [Required(ErrorMessage = "Measure intarvall is requiered")]
         public int Interval { get; set; }
 

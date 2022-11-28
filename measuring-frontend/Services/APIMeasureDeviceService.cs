@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net;
 using System;
+using DataModel.EFDataModel;
 
 namespace MeasureFrontend.Services
 {
