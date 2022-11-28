@@ -33,50 +33,21 @@
                             </div>
                         </div>
                     </div>
-
                     <table class="table table-striped table-hover">
-					    <thead>
-						    <tr>
-							    <th>IP cím</th>
-							    <th>Működés</th>
-							    <th>Mérés</th>
-							    <th>CPU mérési adatok</th>
-                                <th>Hémérséklet mérési adatok</th>
-						    </tr>
-					    </thead>
-                        <tr>
-                            @foreach(EFMeasureDevice device in devices)
-                            {
-                                    <td>@device.Name</td>
+					<thead>
+						<tr>
+							<th>IP cím</th>
+							<th>Működés</th>
+							<th>Mérés</th>
+							<th>CPU mérési adatok</th>
+                            <th>Hémérséklet mérési adatok</th>
+						</tr>
+					</thead>
+                    <tr>
 
-                                    @GetState(device.Name);
-
-                                    @if (state==null || state.MeasuringInterval<0)
-                                    {
-                                        <td>Nincs állapot...</td>
-                                    }
-                                    else
-                                    {
-                                        <td>
-                                            @if (state.IsWorking) 
-                                            { 
-                                                <p>működik<p> 
-                                            } 
-                                            else 
-                                            {
-                                                <p>működik<p>
-                                            } 
-                                        </td>
-
-
-
-
-                                    <td>Mérés</td>
-                                    <td> <a href="@($"md/cpu/{device.Name}")"><span class="oi oi-data-transfer-download"></span></a></td>
-                                    <td>...</td>
-                            }                             
-                         </tr>                                                    
+                    </tr>
                     </table>
+                   
                 </div>
             </div>
         }
