@@ -78,7 +78,31 @@ namespace MeasureDeviceProject.BackgraoundService
             MDState.StartWorking();
             MDState.StartMeasuring();
         }
-        
+
+        public void StopMeasuring()
+        {
+            if (MDState.IsWorking && MDState.IsMeasuring)
+            {
+                if (msds != null)
+                {
+                    msds.Stop();
+                    MDState.StopMeasuring();
+                }
+            }
+        }
+
+        public void StartMeasuring()
+        {
+            if (MDState.IsWorking && !MDState.IsMeasuring)
+            {
+                if (msds != null)
+                {
+                    msds.Start();
+                    MDState.StartMeasuring();
+                }
+            }
+        }
+
         public override Task StartAsync(CancellationToken cancellationToken)
         {
             if (!MDState.IsWorking)
@@ -162,8 +186,6 @@ namespace MeasureDeviceProject.BackgraoundService
             }
             base.Dispose();
         }
-
-
     }
 }
 

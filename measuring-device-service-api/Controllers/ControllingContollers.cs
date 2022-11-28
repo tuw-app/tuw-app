@@ -64,12 +64,18 @@ namespace MeasureDeviceServiceAPIProject.Controllers
                                 {
                                     logger.LogInformation("Controllr->Token stop cancel is not requested");
                                 }
-
                                 device10.StartAsync(token);
+                            }
+                            else if (controlling == "measuring")
+                            {
+                                device10.StartMeasuring();
+                            }
+                            else if (controlling == "nomeasuring")
+                            {
+                                device10.StopMeasuring();
                             }
                         }
                     }
-
                 }
             }
             return Ok();

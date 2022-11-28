@@ -21,7 +21,7 @@ namespace MeasureDeviceServiceAPIProject.Service
 
         //private bool lockMesuring = false;
         //private bool lockSendingToApi = true;
-        private bool stopDevice = false;
+        private bool stopMeasuring = false;
 
         private MDIPAddress IPAddress { get; }
 
@@ -42,13 +42,13 @@ namespace MeasureDeviceServiceAPIProject.Service
 
         public void Start()
         {
-            stopDevice = false;
+            stopMeasuring = false;
         }
 
         public void Stop()
         {
 
-            stopDevice = true;
+            stopMeasuring = true;
         }
 
         private void Initialize()
@@ -58,37 +58,40 @@ namespace MeasureDeviceServiceAPIProject.Service
                 Log.Information("MeasureDevice {@IpAddress} -> Initialize device...", IPAddress.ToString());
                 //https://stackoverflow.com/questions/53727850/how-to-run-backgroundservice-on-a-timer-in-asp-net-core-2-1
 
-                stopDevice = false;
+                stopMeasuring = false;
             }
 
         }
 
         public async void MeasuringCPUUsage()
         {
-            CPUUsageService cpuMeasuring = new CPUUsageService();
-            using (LogContext.PushProperty(IPAddress.ToString(), 1))
+            if (!stopMeasuring)
             {
-                Log.Information("MeasureDevice {IpAddress} -> Measuring data: begin working.", IPAddress.ToString());
-                if (stopDevice)
+                CPUUsageService cpuMeasuring = new CPUUsageService();
+                using (LogContext.PushProperty(IPAddress.ToString(), 1))
                 {
-                    Log.Information("MeasureDevice {@IpAddress} ->  Device is stoped.", IPAddress.ToString());
-                    return;
-                }
-                else
-                {
-                    Log.Information("MeasureDevice {@IpAddress} -> prepare to measuring.", IPAddress.ToString());
-                    // Mesuring
-                    await cpuMeasuring.ReadCPUUsage();
-                    DateTime measuringTime = DateTime.Now;
-
-                    Log.Information("MeasureDevice {@IpAddress} -> Measuring time: {Time}", IPAddress.ToString(), measuringTime.ToString("yyyy.MM.dd HH:mm:ss)"));
-                    //Log.Information("MeasureDevice {@IpAddress} -> Measuring data: {Data}", IPAddress.ToString(), cpuMeasuring.GetCPUUsageToLog());
-
-                    lock (measuredCPUUsageQeueue)
+                    Log.Information("MeasureDevice {IpAddress} -> Measuring data: begin working.", IPAddress.ToString());
+                    if (stopMeasuring)
                     {
-                        MeasuredCPUUsage measuredCPUUsag = new MeasuredCPUUsage(cpuMeasuring.UsageResult, measuringTime);
-                        measuredCPUUsageQeueue.Enqueue(measuredCPUUsag);
-                        Log.Information("MeasureDevice {@IpAddress} -> Measuring result {Result} is added to queue", IPAddress.ToString(), measuredCPUUsag.CPUUsageResult);
+                        Log.Information("MeasureDevice {@IpAddress} ->  Device is stoped.", IPAddress.ToString());
+                        return;
+                    }
+                    else
+                    {
+                        Log.Information("MeasureDevice {@IpAddress} -> prepare to measuring.", IPAddress.ToString());
+                        // Mesuring
+                        await cpuMeasuring.ReadCPUUsage();
+                        DateTime measuringTime = DateTime.Now;
+
+                        Log.Information("MeasureDevice {@IpAddress} -> Measuring time: {Time}", IPAddress.ToString(), measuringTime.ToString("yyyy.MM.dd HH:mm:ss)"));
+                        //Log.Information("MeasureDevice {@IpAddress} -> Measuring data: {Data}", IPAddress.ToString(), cpuMeasuring.GetCPUUsageToLog());
+
+                        lock (measuredCPUUsageQeueue)
+                        {
+                            MeasuredCPUUsage measuredCPUUsag = new MeasuredCPUUsage(cpuMeasuring.UsageResult, measuringTime);
+                            measuredCPUUsageQeueue.Enqueue(measuredCPUUsag);
+                            Log.Information("MeasureDevice {@IpAddress} -> Measuring result {Result} is added to queue", IPAddress.ToString(), measuredCPUUsag.CPUUsageResult);
+                        }
                     }
                 }
             }
@@ -148,7 +151,7 @@ namespace MeasureDeviceServiceAPIProject.Service
                 Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> First Data Id is: {Id}", IPAddress.ToString(), cpuDataStorePeriodically.GetDataIdToLog());
                 while (true)
                 {
-                    if (stopDevice)
+                    if (stopMeasuring)
                     {
                         cpuDataStorePeriodically.CloseFile();
                         Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Stop device, file is closed->{FILE}", cpuDataStorePeriodically.FullPathFileName);
