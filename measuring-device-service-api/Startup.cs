@@ -38,9 +38,16 @@ namespace MeasureDeviceServiceAPIProject
 
             // Az összes mérõeszközt tartalmazza
             //services.AddHostedService<MEFactory>();
-            services.AddHostedService<MeasureDevice10>();
-            services.AddHostedService<MeasureDevice20>();
-            services.AddHostedService<MeasureDevice30>();
+            // https://stackoverflow.com/questions/58397807/how-to-resolve-hostedservice-in-controller
+            // https://medium.com/medialesson/run-and-manage-periodic-background-tasks-in-asp-net-core-6-with-c-578a31f4b7a3
+
+            // https://stackoverflow.com/questions/51254053/how-to-inject-a-reference-to-a-specific-ihostedservice-implementation
+            services.AddSingleton< IMeasureDevice10, MeasureDevice10>();
+            //services.AddSingleton<IMeasureDevice20, MeasureDevice20>();
+            //services.AddSingleton<IMeasureDevice30, MeasureDevice30>();
+            services.AddSingleton<IHostedService, MeasureDevice10>(provider =>(MeasureDevice10) provider.GetService<IMeasureDevice10>());
+            //services.AddHostedService<MeasureDevice20>();
+            //services.AddHostedService<MeasureDevice30>(provider => provider.GetService<MeasureDevice30>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

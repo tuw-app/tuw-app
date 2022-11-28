@@ -20,14 +20,22 @@ namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
         private string path;
         public string Path { get => path; set => path = value; }
 
+        private bool stop = false;
+
         public SendBackupFileSystem(ILogger<MeasureDevice> logger, string path)
         {
             this.logger = logger;
             this.path = path;
         }
 
-        public void Init()
+        public void Stop()
         { 
+            stop=true;
+         }
+
+        public void Start()
+        {
+            stop = false;
         }
 
         public async void Send()
@@ -36,6 +44,11 @@ namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
             logger.LogInformation("SendBackupFileSystem -> Send Started");
             while (true)
             {
+                if (stop)
+                {
+                    logger.LogInformation("SendBackupFileSystem -> Stop");
+                    return;
+                }
                 List<string> backupFiles = GetBackupFiles(path);
                 if (backupFiles.Count!=0)
                 {
@@ -46,6 +59,11 @@ namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
                         List<string> bug = new List<string>();
                         while (bug != null)
                         {
+                            if (stop)
+                            {
+                                logger.LogInformation("SendBackupFileSystem -> Stop");
+                                return;
+                            }
                             bug = new List<string>();
                             List<string> lines = File.ReadAllLines(backupFile).ToList();
                             logger.LogInformation("SendBackupFileSystem -> Number of line in file {Count}.", lines.Count);

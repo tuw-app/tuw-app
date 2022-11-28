@@ -59,8 +59,6 @@ namespace MeasureDeviceServiceAPIProject.Service
                 //https://stackoverflow.com/questions/53727850/how-to-run-backgroundservice-on-a-timer-in-asp-net-core-2-1
 
                 stopDevice = false;
-                //lockMesuring = false;
-                //lockSendingToApi = false;
             }
 
         }
@@ -116,6 +114,7 @@ namespace MeasureDeviceServiceAPIProject.Service
                     // kivasszük az első adatot
                     mesuredResult = measuredCPUUsageQeueue.Peek();
                     Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> Peek first data: {data}", IPAddress.ToString(), mesuredResult);
+
                 }
                 
                 // A következő adattal elkezdjük a periódikus adat tárolást
@@ -149,6 +148,12 @@ namespace MeasureDeviceServiceAPIProject.Service
                 Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> First Data Id is: {Id}", IPAddress.ToString(), cpuDataStorePeriodically.GetDataIdToLog());
                 while (true)
                 {
+                    if (stopDevice)
+                    {
+                        cpuDataStorePeriodically.CloseFile();
+                        Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Stop device, file is closed->{FILE}", cpuDataStorePeriodically.FullPathFileName);
+                    }
+                        
                     while (measuredCPUUsageQeueue.Count == 0)
                     {
                         //Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Sending system -> No mesured data in queue", IPAddress.ToString());
@@ -167,7 +172,7 @@ namespace MeasureDeviceServiceAPIProject.Service
 
                         // Store Data to log file                              
                         MeasuredCPUDataStore measuredData = new MeasuredCPUDataStore(cpuDataStorePeriodically.GetDataId(),mesuredResult);
-                        //Log.Information("MeasureDevice {@IpAddress} -> Data to store:", IPAddress.ToString(), measuredData.MeasuredCPUDataToStore);
+                        Log.Information("MeasureDevice {@IpAddress} -> Data to store:", IPAddress.ToString(), measuredData.MeasuredCPUDataToStore);
                         try
                         {
                             cpuDataStorePeriodically.WriteData(measuredData.MeasuredCPUDataToStore);
@@ -178,7 +183,7 @@ namespace MeasureDeviceServiceAPIProject.Service
                             Log.Error("MeasureDevice {@IpAddress} -> Measuring data store faild. {Message}", IPAddress.ToString(), ex.Message);
                         }
 
-                        //Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored to log file {File}", IPAddress.ToString(), cpuDataStorePeriodically.StoredFileId.GetMeasruringPeriodicFileName);
+                        Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored to log file {File}", IPAddress.ToString(), cpuDataStorePeriodically.FullPathFileName);
 
                         // Prepare to new DataId
                         cpuDataStorePeriodically.IncrementDataId();
