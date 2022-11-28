@@ -1,4 +1,5 @@
-﻿using MeasureDeviceProject.BackgraoundService;
+﻿using DataModel.MDDataModel;
+using MeasureDeviceProject.BackgraoundService;
 using MeasureDeviceProject.Model;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;

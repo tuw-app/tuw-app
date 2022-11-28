@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using MeasureDeviceProject.BackgraoundService;
 using Microsoft.Extensions.Logging;
-using MeasureDeviceServiceAPIProject.Model;
+using DataModel.MDDataModel;
 
 namespace MeasureDeviceServiceAPIProject.APIService
 {
-    public class MeasureDeviceAPIService
+    public class CPUAPIService
     {
 
         ILogger<MeasureDevice> logger = null;
 
-        public MeasureDeviceAPIService(ILogger<MeasureDevice> logger)
+        public CPUAPIService(ILogger<MeasureDevice> logger)
         {
             this.logger= logger;
         }

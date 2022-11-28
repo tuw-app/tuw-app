@@ -1,5 +1,5 @@
 ﻿using System.Text;
-
+using DataModel.MDDataModel;
 using MeasureDeviceProject.Model;
 
 namespace MeasureDeviceProject.Model.CPUUsageModel

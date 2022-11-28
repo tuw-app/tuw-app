@@ -10,6 +10,7 @@ using MeasureDeviceProject.Model;
 using MeasureDeviceProject.Service.CPUUsage;
 using MeasureDeviceServiceAPIProject.Service.PeriodicallyStore;
 using MeasureDeviceProject.Model.CPUUsageModel;
+using DataModel.MDDataModel;
 
 namespace MeasureDeviceServiceAPIProject.Service
 {

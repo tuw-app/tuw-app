@@ -14,7 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Serilog.Core;
 using System.IO;
 using MeasureDeviceServiceAPIProject.Service.SendDataToServer;
-using MeasureDeviceServiceAPIProject.Model;
+using DataModel.MDDataModel;
 
 namespace MeasureDeviceProject.BackgraoundService
 {

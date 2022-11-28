@@ -7,27 +7,28 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using MeasureDeviceProject.BackgraoundService;
 using Microsoft.Extensions.Logging;
-using MeasureDeviceServiceAPIProject.Model;
+using DataModel.MDDataModel;
+using DataModel.EFDataModel;
 
 namespace MeasureDeviceServiceAPIProject.APIService
 {
-    public class MDAPIService
+    public class MeasureDeviceAPIService
     {
 
         ILogger<MeasureDevice> logger = null;
 
-        public MDAPIService(ILogger<MeasureDevice> logger)
+        public MeasureDeviceAPIService(ILogger<MeasureDevice> logger)
         {
             this.logger= logger;
         }
 
-        public async Task<HttpStatusCode> SendMDDataToAsync(string EF)
+        public async Task<HttpStatusCode> SendMDDataToAsync(EFMeasureDevice measureDevice)
         {
-            //Uri u = new Uri("http://localhost:5001/api/md/{IPAddress}");
+            //Uri u = new Uri("http://localhost:5001/MeasureDeviceController/api/md/{IPAddress}");
             UriBuilder u = new UriBuilder();
             u.Scheme= "http";
             u.Host = "localhost";
-            u.Path = "CPUUsage/api/cpuusage";
+            u.Path = "MeasureDeviceController/api/md/"+measureDevice.Name;
             u.Port = 5001;
 
             logger.LogInformation("CPUAPIService -> Uri is {Uri}", u.ToString());

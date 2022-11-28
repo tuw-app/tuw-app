@@ -1,5 +1,4 @@
-﻿using MeasureDeviceProject.Model;
-using MeasureDeviceServiceAPIProject.Model;
+﻿using DataModel.MDDataModel;
 using System.Drawing;
 
 namespace MeasureDeviceServiceAPIProject.BackgraoundService

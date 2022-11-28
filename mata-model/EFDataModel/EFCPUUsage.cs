@@ -4,6 +4,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using DataModel.MDDataModel;
+using DataModel.Static;
 
 namespace DataModel.EFDataModel
 {

@@ -40,7 +40,7 @@ namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
 
         public async void Send()
         {
-            MeasureDeviceAPIService api=new CPUAPIService(logger);
+            MeasureDeviceAPIService api=new MeasureDeviceAPIService(logger);
             logger.LogInformation("SendBackupFileSystem -> Send Started");
             while (true)
             {
