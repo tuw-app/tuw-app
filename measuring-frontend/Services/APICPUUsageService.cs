@@ -7,6 +7,7 @@ using MeasuringServer.Model.Paging;
 using Microsoft.Extensions.Logging;
 using DataModel.EFDataModel;
 using DataModel.MDDataModel;
+using System;
 
 namespace MeasureFrontend.Services
 {
@@ -25,21 +26,28 @@ namespace MeasureFrontend.Services
         public async Task<PagedList<EFCPUUsage>> GetAllCPUUsages( MDIPAddress IPAddress, int page, int pageSize)
         {
 
-            var response = await httpClient.GetAsync("/api/cpuusage/" + IPAddress.ToString() + "/" + page.ToString() + "/" + pageSize.ToString());
-
-            var content = response.Content.ReadAsStringAsync();
-
-            PagedList<EFCPUUsage> result = JsonConvert.DeserializeObject<PagedList<EFCPUUsage>>(content.Result);
-
-            if (result != null)
+            try
             {
-                logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: {Count}", result.Count);
-                return result;
-            }
-            else
+                var response = await httpClient.GetAsync("/api/cpuusage/" + IPAddress.ToString() + "/" + page.ToString() + "/" + pageSize.ToString());
+
+                var content = response.Content.ReadAsStringAsync();
+
+                PagedList<EFCPUUsage> result = JsonConvert.DeserializeObject<PagedList<EFCPUUsage>>(content.Result);
+
+                if (result != null)
+                {
+                    logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: {Count}", result.Count);
+                    return result;
+                }
+                else
+                {
+                    logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> No CPU usages");
+                    return new PagedList<EFCPUUsage>();
+                }
+            } catch (Exception ex)
             {
-                logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> No CPU usages");
-                return new PagedList<EFCPUUsage>() ;
+                logger.LogError(ex.Message);
+                return new PagedList<EFCPUUsage>();
             }
 
         }

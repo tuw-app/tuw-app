@@ -42,9 +42,7 @@ namespace MeasureFrontend.Services
                 {
                     logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: No device");
                     return new List<EFMeasureDevice>();
-                }
-
-                
+                }              
             }
             catch (Exception e)
             {
