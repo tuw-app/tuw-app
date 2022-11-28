@@ -44,7 +44,27 @@
 						</tr>
 					</thead>
                     <tr>
-
+                        @foreach(EFMeasureDevice device in devices)
+                        {
+                            <td>@device.Name</td>
+                            @GetState(device.Name);
+                            @if (state==null || state.MeasuringInterval<0)
+                            {
+                                <td>Nincs információ..</td>
+                            }
+                            else
+                            {
+                                <td> @if (state.IsWorking)
+                                    {
+                                        <p> működik</p>
+                                    } 
+                                    else
+                                    {
+                                        <p> nem működik</p>
+                                    }
+                                </td>
+                            }
+                        }
                     </tr>
                     </table>
                    
