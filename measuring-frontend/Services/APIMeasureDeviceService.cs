@@ -28,13 +28,23 @@ namespace MeasureFrontend.Services
         {
             try
             {
-                var response = await httpClient.GetAsync("MeasureDevice/api/md");
+                var response = await httpClient.GetAsync("/api/md");
 
                 var content = response.Content.ReadAsStringAsync();
                 List<EFMeasureDevice>  devices = JsonConvert.DeserializeObject<List<EFMeasureDevice>>(content.Result);
 
-                logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: {Count}", devices.Count);
-                return devices;
+                if (devices != null)
+                {
+                    logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: {Count}", devices.Count);
+                    return devices;
+                }
+                else
+                {
+                    logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: No device");
+                    return new List<EFMeasureDevice>();
+                }
+
+                
             }
             catch (Exception e)
             {

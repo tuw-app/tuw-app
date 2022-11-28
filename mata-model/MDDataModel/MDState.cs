@@ -24,6 +24,14 @@ namespace DataModel.MDDataModel
         public void StartMeasuring() { measuring = 1; }
         public void StartWorking() { working = 1; }
 
+
+        public MDState()
+        {
+            working= -1;
+            measuring= -1;
+            measuringInterval= -1;
+        }
+
         public void Dispose()
         {
         }

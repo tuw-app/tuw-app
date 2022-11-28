@@ -1,13 +1,16 @@
 ﻿@page "/status"
 @using DataModel.EFDataModel;
+@using DataModel.MDDataModel;
 @using MeasureFrontend.Services;
 
 
 @inject IAPIMeasureDeviceService APIMeasureDeviceService;
+@inject IMDStateService MDStateService;
 @inject NavigationManager UriHelper
 
 <h3>Mérőelem stásuszok</h3>
-    @if (devices==null) {
+    @if (devices==null) 
+    {
          <p>Az adatok betöltés alatt...</p>
     }
     else
@@ -41,19 +44,40 @@
                                 <th>Hémérséklet mérési adatok</th>
 						    </tr>
 					    </thead>
+                        <tr>
+                            @foreach(EFMeasureDevice device in devices)
+                            {
+                                    <td>@device.Name</td>
 
-                        @foreach(EFMeasureDevice device in devices)
-                        {
-                            <tr>
-                                <td>@device.Name</td>
-                                <td>Működés</td>
-                                <td>Mérés</td>
-                                <td> <a href="@($"md/cpu/{device.Name}")"><span class="oi oi-data-transfer-download"></span></a></td>
-                                <td>...</td>
-                            </tr>
-                        }
-                </table>
-            </div>
+                                    @GetState(device.Name);
+
+                                    @if (state==null || state.MeasuringInterval<0)
+                                    {
+                                        <td>Nincs állapot...</td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            @if (state.IsWorking) 
+                                            { 
+                                                <p>működik<p> 
+                                            } 
+                                            else 
+                                            {
+                                                <p>működik<p>
+                                            } 
+                                        </td>
+
+
+
+
+                                    <td>Mérés</td>
+                                    <td> <a href="@($"md/cpu/{device.Name}")"><span class="oi oi-data-transfer-download"></span></a></td>
+                                    <td>...</td>
+                            }                             
+                         </tr>                                                    
+                    </table>
+                </div>
             </div>
         }
     }
@@ -61,12 +85,18 @@
     
 
 @code {
-    private List<EFMeasureDevice> devices;
+    private List<EFMeasureDevice> devices = new List<EFMeasureDevice>();
+    private MDState state = new MDState();
 
     protected override async Task OnInitializedAsync()
     {
         devices = await MDService.GetAllMeasureDevices();
         if (devices == null)
             devices = new List<EFMeasureDevice>();
+    }
+
+    protected async Task GetState(string IPAddress)
+    {
+        state = await MDStateService.GetMdSatates(IPAddress);        
     }
 }

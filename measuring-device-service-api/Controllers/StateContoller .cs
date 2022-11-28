@@ -35,6 +35,8 @@ namespace MeasureDeviceServiceAPIProject.Controllers
                     return BadRequest();
                 }
 
+                // 10. 10. 10. 10
+
                 if (IPAddress.ToString().CompareTo("10.10.10.10") == 0)
                 {
                     logger.LogInformation("MDStateContollers -> ControllingMeasuring -> IP Address: 10.10.10.10.");
@@ -49,6 +51,42 @@ namespace MeasureDeviceServiceAPIProject.Controllers
                         return BadRequest();
                     }
                 }
+
+
+                // 10. 10. 10. 10
+
+                if (IPAddress.ToString().CompareTo("20.20.20.20") == 0)
+                {
+                    logger.LogInformation("MDStateContollers -> ControllingMeasuring -> IP Address: 20.20.20.20.");
+                    if (device is MeasureDevice10)
+                    {
+                        logger.LogInformation("MDStateContollers -> ControllingMeasuring -> State: {@State} ", device.MDState);
+                        return Ok(device.MDState);
+                    }
+                    else
+                    {
+                        logger.LogInformation("MDStateContollers -> ControllingMeasuring -> No device 20.20.20.20.");
+                        return BadRequest();
+                    }
+                }
+
+                // 30. 30. 30. 30
+
+                if (IPAddress.ToString().CompareTo("30.30.30.30") == 0)
+                {
+                    logger.LogInformation("MDStateContollers -> ControllingMeasuring -> IP Address: 30.30.30.30.");
+                    if (device is MeasureDevice10)
+                    {
+                        logger.LogInformation("MDStateContollers -> ControllingMeasuring -> State: {@State} ", device.MDState);
+                        return Ok(device.MDState);
+                    }
+                    else
+                    {
+                        logger.LogInformation("MDStateContollers -> ControllingMeasuring -> No device 30.30.30.30.");
+                        return BadRequest();
+                    }
+                }
+
             }
             logger.LogInformation("MDStateContollers -> ControllingMeasuring -> No State.");
             return BadRequest();

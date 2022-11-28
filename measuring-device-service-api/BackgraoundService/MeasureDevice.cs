@@ -81,7 +81,7 @@ namespace MeasureDeviceProject.BackgraoundService
             MDState.StopWorking();
 
             msds.Stop();
-            sbfs.Stop();
+            //sbfs.Stop(); NE állítsd le
            
             thredPeridodically = new Thread(new ThreadStart(msds.StoringDataPeriodically));
             thredSendBackupFileSystem = new Thread(new ThreadStart(sbfs.Send));
@@ -142,6 +142,7 @@ namespace MeasureDeviceProject.BackgraoundService
                 await mdAPI.SendMDDataToAsync(device);
 
                 // Az eszközön a periódukos adat loggolást és az adatküldést engeélyezzük
+                
                 msds.Start();
                 sbfs.Start();
 
