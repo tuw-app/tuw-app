@@ -59,7 +59,7 @@ namespace MeasureDeviceProject.BackgraoundService
         }
 
 
-        public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, MDIPAddress MDIPAddress, int id, int  measuringInterval)
+        public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, int id, MDIPAddress MDIPAddress, int  measuringInterval)
         {
             this.configuration = configuration;
             this.logger = logger;
