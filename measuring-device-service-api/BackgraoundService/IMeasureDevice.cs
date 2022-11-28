@@ -1,4 +1,5 @@
 ﻿using MeasureDeviceProject.Model;
+using System.Drawing;
 
 namespace MeasureDeviceServiceAPIProject.BackgraoundService
 {
@@ -6,40 +7,25 @@ namespace MeasureDeviceServiceAPIProject.BackgraoundService
     {
         public MDIPAddress IPAddress { get; set; }
 
-        public void Stop();
-        public void Start();
+        public int MeasuringIntervall { get; set; }
+
         public void StopMeasuring();
-        public void StartMeasuring();
 
-    }
-
-    public interface IMeasureDevice10 
-    {
-        public MDIPAddress IPAddress { get; set; }
-
-        public void Stop();
-        public void Start();
-        public void StopMeasuring();
         public void StartMeasuring();
     }
 
-    public interface IMeasureDevice20 
+    public interface IMeasureDevice10 : IMeasureDevice
     {
-        public MDIPAddress IPAddress { get; set; }
 
-        public void Stop();
-        public void Start();
-        public void StopMeasuring();
-        public void StartMeasuring();
     }
 
-    public interface IMeasureDevice30 
+    public interface IMeasureDevice20 : IMeasureDevice
     {
-        public MDIPAddress IPAddress { get; set; }
 
-        public void Stop();
-        public void Start();
-        public void StopMeasuring();
-        public void StartMeasuring();
+    }
+
+    public interface IMeasureDevice30 : IMeasureDevice
+    {
+
     }
 }

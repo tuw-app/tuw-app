@@ -18,7 +18,7 @@ using MeasureDeviceServiceAPIProject.Model;
 
 namespace MeasureDeviceProject.BackgraoundService
 {
-    public abstract class MeasureDevice : BackgroundService, IDisposable
+    public abstract class MeasureDevice : BackgroundService, IDisposable, IMeasureDevice
     {
 
         private readonly ILogger<MeasureDevice> logger;
@@ -26,7 +26,7 @@ namespace MeasureDeviceProject.BackgraoundService
         private string path=string.Empty;
 
         public MDIPAddress IPAddress { get; set; } = null;
-        public MDStatus MDStatus { get; set; } = null;
+        public MDState MDState { get; set; } = null;
 
         private MeasureStoreSystem msds=null;
         private SendBackupFileSystem sbfs = null;
@@ -36,17 +36,17 @@ namespace MeasureDeviceProject.BackgraoundService
 
         CancellationToken myToken;
 
-        private double measuringInterval = 1000;
-        public double MeasureingInterval
+        private int measuringInterval = 1000;
+        public int MeasuringIntervall
         {
             get { return measuringInterval; }
             set
             {
                 measuringInterval = value;                
             }            
-        }        
+        }
 
-        public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, MDIPAddress MDIPAddress, double measuringInterval)
+        public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, MDIPAddress MDIPAddress, int  measuringInterval)
         {
             this.configuration = configuration;
             this.logger = logger;
@@ -62,8 +62,8 @@ namespace MeasureDeviceProject.BackgraoundService
             msds.Stop();
             sbfs.Stop();
 
-            MDStatus.StopMeasuring();
-            MDStatus.Stopping();
+            MDState.StopMeasuring();
+            MDState.StopWorking();
             
             thredPeridodically = new Thread(new ThreadStart(msds.StoringDataPeriodically));
             thredSendBackupFileSystem = new Thread(new ThreadStart(sbfs.Send));
@@ -73,14 +73,15 @@ namespace MeasureDeviceProject.BackgraoundService
             thredPeridodically.Start();
             thredSendBackupFileSystem.Start();
 
-            MDStatus = new MDStatus();
-            MDStatus.StartWorking();
-            MDStatus.StartMeasuring();
+            MDState = new MDState();
+            MDState.MeasuringIntervall = measuringInterval;
+            MDState.StartWorking();
+            MDState.StartMeasuring();
         }
         
         public override Task StartAsync(CancellationToken cancellationToken)
         {
-            if (!MDStatus.IsWorking)
+            if (!MDState.IsWorking)
             {
                 logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync", IPAddress);
                 logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
@@ -96,8 +97,8 @@ namespace MeasureDeviceProject.BackgraoundService
                     logger.LogInformation("Token cancel is not requested");
                 }
 
-                MDStatus.StartWorking();
-                MDStatus.StartMeasuring();
+                MDState.StartWorking();
+                MDState.StartMeasuring();
 
                 return base.StartAsync(cancellationToken);
             }
@@ -130,7 +131,7 @@ namespace MeasureDeviceProject.BackgraoundService
 
         public override Task StopAsync(CancellationToken cancellationToken)
         {
-            if (MDStatus.IsWorking)
+            if (MDState.IsWorking)
             {
                 logger.LogInformation("MeasureDevice {@IpAddress} -> StopAsync: {time}", DateTimeOffset.Now);
                 // thredPeridodically.Abort();
@@ -155,12 +156,14 @@ namespace MeasureDeviceProject.BackgraoundService
             {
                 sbfs.Dispose();
             }
-            if (MDStatus!=null)
+            if (MDState!=null)
             {
-                MDStatus.Dispose();
+                MDState.Dispose();
             }
             base.Dispose();
         }
+
+
     }
 }
 
