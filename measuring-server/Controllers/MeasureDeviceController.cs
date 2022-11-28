@@ -13,7 +13,7 @@ using DataModel.EFDataModel;
 
 namespace MeasuringServer.Controllers
 {
-    [Route("[controller]")]
+    //[Route("[controller]")]
     [ApiController]
     public class MeasureDeviceController : Controller
     {
@@ -105,14 +105,15 @@ namespace MeasuringServer.Controllers
                 {
                     if (wrapper.MeasureDevices.IsExsist(data.Name))
                     {
-                        // akkkor most nem csinálunk semmit még
-                        //logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> md exsist -> update");
+                        
+                        logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> md exsist -> update");
                         // ha van akkor meghatározzuk az id-jét és frissítjük az intervallumot
-                        //EFMeasureDevice device = wrapper.MeasureDevices.GetByIPAddress(data.Name);
-                        //data.Id = device.Id;
-                        //wrapper.MeasureDevices.Update(device.Id,data.Interval);
-                        //logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> {@data} is updated in database!", data);
+                        EFMeasureDevice device = wrapper.MeasureDevices.GetByIPAddress(data.Name);
+                        data.Id = device.Id;
+                        wrapper.MeasureDevices.Update(device.Id,data.Interval);
+                        logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> {@data} is updated in database!", data);
                     }
+                    else
                     {
                         // ha még nem létezik, akkor létrehozzul
                         logger.LogInformation("MeasureDeviceController -> InsertOrUpdateeasureDevice-> md not exsist -> insert");

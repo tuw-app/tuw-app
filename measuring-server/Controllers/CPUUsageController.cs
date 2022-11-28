@@ -12,7 +12,7 @@ using DataModel.MDDataModel;
 
 namespace MeasuringServer.Controllers
 {
-    [Route("[controller]")]
+    //Route("[controller]")]
     [ApiController]
     public class CPUUsageController : Controller
     {
