@@ -5,21 +5,23 @@ namespace DataModel.MDDataModel
 { 
     public class MDState : IDisposable
     {
-        public int IsWorking  { get; set; } = 1;
-        public int IsMeasuring { get; set; } = 1;
+        public bool IsWorking  { get; set; }=false;
+        public bool IsMeasuring { get; set; } = false;
         
-        public int MeasuringInterval { get; set; } = -11;
+        public int MeasuringInterval { get; set; } = -1;
 
-        public void StopWorking() { IsWorking = 0; }
-        public void StopMeasuring() { IsMeasuring = 0; }
-        public void StartMeasuring() { IsMeasuring = 1; }
-        public void StartWorking() { IsMeasuring = 1; }
+        public void StopWorking() { IsWorking = false; }
+        public void StartWorking() { IsWorking = true; }
+
+        public void StopMeasuring() { IsMeasuring = false; }
+        public void StartMeasuring() { IsMeasuring = true; }
+
 
 
         public MDState()
         {
-            IsWorking= -1;
-            IsMeasuring = -1;
+            IsWorking= false;
+            IsMeasuring = false;
             MeasuringInterval= -1;
         }
 

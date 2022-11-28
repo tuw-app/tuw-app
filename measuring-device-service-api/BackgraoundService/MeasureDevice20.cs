@@ -18,25 +18,5 @@ namespace MeasureDeviceServiceAPIProject.BackgraoundService
             this.logger = logger;
             this.configuration = configuration;
         }
-
-        public void Start()
-        {
-
-        }
-
-        public void StartMeasuring()
-        {
-
-        }
-
-        public void Stop()
-        {
-
-        }
-
-        public void StopMeasuring()
-        {
-
-        }
     }
 }

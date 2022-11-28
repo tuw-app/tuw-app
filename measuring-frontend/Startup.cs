@@ -41,7 +41,7 @@ namespace MeasureFrontend
 
             services.AddHttpClient<IMDStateService, MDStateService>(client =>
             {
-                client.BaseAddress = new Uri("http://localhost:5001/");
+                client.BaseAddress = new Uri("http://localhost:5000/");
             });
 
 

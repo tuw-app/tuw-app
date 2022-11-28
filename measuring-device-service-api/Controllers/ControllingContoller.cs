@@ -1,9 +1,8 @@
 ﻿using MeasureDeviceServiceAPIProject.BackgraoundService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json.Linq;
-using System.CodeDom;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace MeasureDeviceServiceAPIProject.Controllers
 {    
@@ -20,7 +19,7 @@ namespace MeasureDeviceServiceAPIProject.Controllers
         }
 
         [HttpGet("api/{controlling}/{IPAddress}", Name="Controll of measure device work")]
-        public IActionResult ControllingMeasuring(string controlling, string IPAddress)
+        public async Task<IActionResult> ControllingMeasuring(string controlling, string IPAddress)
         {
 
             if (device == null)
@@ -57,7 +56,7 @@ namespace MeasureDeviceServiceAPIProject.Controllers
                                 {
                                     logger.LogInformation("ControllingContollers->Token stop cancel is not requested");
                                 }
-                                device10.StopAsync(token);
+                                await device10.StopAsync(token);
                                 logger.LogInformation("ControllingContollers->Stop Async");
                                 return Ok();
 
@@ -74,7 +73,7 @@ namespace MeasureDeviceServiceAPIProject.Controllers
                                 {
                                     logger.LogInformation("ControllingContollers->Token stop cancel is not requested");
                                 }                                
-                                device10.StartAsync(token);
+                                await device10.StartAsync(token);
                                 logger.LogInformation("ControllingContollers->Start Async");
                                 return Ok();
                             }

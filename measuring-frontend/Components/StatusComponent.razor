@@ -63,7 +63,7 @@
                             else
                             {
                                 <td>
-                                    @if (@deviceStates[device.Name].IsWorking==1)
+                                    @if (@deviceStates[device.Name].IsWorking)
                                     {
                                         <p> működik</p>
                                     }
@@ -73,7 +73,7 @@
                                     }
                                 </td>
                                 <td>
-                                    @if (@deviceStates[device.Name].IsMeasuring==1)
+                                    @if (@deviceStates[device.Name].IsMeasuring)
                                     {
                                         <p> mér</p>
                                     }
@@ -94,16 +94,12 @@
                             <td> Hőmérésklet</td>
 
                             </tr>
-                        }
-                    
-                    </table>
-                   
+                        }                   
+                    </table>                 
                 </div>
             </div>
         }
-    }
-    
-    
+    }   
 
 @code {
     private List<EFMeasureDevice> devices = new List<EFMeasureDevice>();
@@ -114,12 +110,19 @@
     protected override async Task OnInitializedAsync()
     {
         devices = await MDService.GetAllMeasureDevices();
+
         if (devices == null)
-            devices = new List<EFMeasureDevice>();
-        foreach (EFMeasureDevice device in devices)
         {
-            MDState deviesStates = await MDStateService.GetMdSatates(device.Name);
-            deviceStates.Add(device.Name, deviesStates);
-        }        
+            devices = new List<EFMeasureDevice>();
+        }
+        else
+        {
+            deviceStates = new Dictionary<string, MDState>();
+            foreach (EFMeasureDevice device in devices)
+            {
+                MDState deviesStates = await MDStateService.GetMdSatates(device.Name);
+                deviceStates.Add(device.Name, deviesStates);
+            }
+        }
     }            
 }

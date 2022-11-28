@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,8 +9,6 @@ using MeasureDeviceServiceAPIProject.Service;
 using MeasureDeviceProject.Model;
 using Serilog;
 using Microsoft.Extensions.Configuration;
-using Serilog.Core;
-using System.IO;
 using MeasureDeviceServiceAPIProject.Service.SendDataToServer;
 using DataModel.MDDataModel;
 using MeasureDeviceServiceAPIProject.APIService;
@@ -77,8 +73,6 @@ namespace MeasureDeviceProject.BackgraoundService
 
             MDState = new MDState();
             MDState.MeasuringInterval = measuringInterval;
-            MDState.StopMeasuring();
-            MDState.StopWorking();
 
             msds.Stop();
             //sbfs.Stop(); NE állítsd le
@@ -91,12 +85,14 @@ namespace MeasureDeviceProject.BackgraoundService
             thredPeridodically.Start();
             thredSendBackupFileSystem.Start();
 
+            MDState.StartWorking();
+            MDState.StartMeasuring();
 
         }
 
         public void StopMeasuring()
         {
-            if (MDState.IsWorking==1 && MDState.IsMeasuring==1)
+            if (MDState.IsWorking && MDState.IsMeasuring)
             {
                 if (msds != null)
                 {
@@ -108,7 +104,7 @@ namespace MeasureDeviceProject.BackgraoundService
 
         public void StartMeasuring()
         {
-            if (MDState.IsWorking==1 && MDState.IsMeasuring != 1)
+            if (MDState.IsWorking && ! MDState.IsMeasuring)
             {
                 if (msds != null)
                 {
@@ -120,9 +116,9 @@ namespace MeasureDeviceProject.BackgraoundService
 
         public async override Task StartAsync(CancellationToken cancellationToken)
         {
-            if (MDState.IsWorking!=1)
-            {
-                logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync", IPAddress);
+            logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync", IPAddress);
+            if (MDState.IsWorking)
+            {               
                 logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
 
                 myToken = cancellationToken;
@@ -147,8 +143,9 @@ namespace MeasureDeviceProject.BackgraoundService
                 sbfs.Start();
 
                 // Az ezsközt müködés állapotba hozzuk
-                MDState.StartWorking();
-                MDState.StartMeasuring();
+
+                StartMeasuring();
+                
                 await base.StartAsync(cancellationToken);               
             }
             return;
@@ -181,7 +178,7 @@ namespace MeasureDeviceProject.BackgraoundService
 
         public override Task StopAsync(CancellationToken cancellationToken)
         {
-            if (MDState.IsWorking==1)
+            if (MDState.IsWorking)
             {
                 logger.LogInformation("MeasureDevice {@IpAddress} -> StopAsync: {time}", DateTimeOffset.Now);
                 // thredPeridodically.Abort();
