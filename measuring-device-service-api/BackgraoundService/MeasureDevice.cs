@@ -96,7 +96,7 @@ namespace MeasureDeviceProject.BackgraoundService
 
         public void StopMeasuring()
         {
-            if (MDState.IsWorking && MDState.IsMeasuring)
+            if (MDState.IsWorking==1 && MDState.IsMeasuring==1)
             {
                 if (msds != null)
                 {
@@ -108,7 +108,7 @@ namespace MeasureDeviceProject.BackgraoundService
 
         public void StartMeasuring()
         {
-            if (MDState.IsWorking && !MDState.IsMeasuring)
+            if (MDState.IsWorking==1 && MDState.IsMeasuring != 1)
             {
                 if (msds != null)
                 {
@@ -120,7 +120,7 @@ namespace MeasureDeviceProject.BackgraoundService
 
         public async override Task StartAsync(CancellationToken cancellationToken)
         {
-            if (!MDState.IsWorking)
+            if (MDState.IsWorking!=1)
             {
                 logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync", IPAddress);
                 logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
@@ -181,7 +181,7 @@ namespace MeasureDeviceProject.BackgraoundService
 
         public override Task StopAsync(CancellationToken cancellationToken)
         {
-            if (MDState.IsWorking)
+            if (MDState.IsWorking==1)
             {
                 logger.LogInformation("MeasureDevice {@IpAddress} -> StopAsync: {time}", DateTimeOffset.Now);
                 // thredPeridodically.Abort();

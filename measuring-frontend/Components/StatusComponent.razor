@@ -37,6 +37,7 @@
 					<thead>
 						<tr>
 							<th>IP cím</th>
+                            <th>Mérési intervallum (ms)</th>
 							<th>Működés</th>
 							<th>Mérés</th>
                             <th>Leállítás/elindítás</th>
@@ -45,28 +46,34 @@
                             <th>Hémérséklet mérési adatok</th>
 						</tr>
 					</thead>
-                    <tr>
+
                         @foreach(EFMeasureDevice device in devices)
                         {
+                            <tr>
+                            
                             <td>@device.Name</td>
-                            @GetState(device.Name);
-                            @if (state==null || state.MeasuringInterval<0)
+
+                            @if (@device == null || @deviceStates == null || ! (@deviceStates.Keys.Contains(@device.Name)) )
                             {
-                                <td>Nincs információ..</td>
+                                <td>Nincs infomráció</td>
+                                <td>Nincs információ.</td>
+                                <td>Nincs információ.</td>
+
                             }
                             else
                             {
-                                <td> @if (state.IsWorking)
+                                <td>
+                                    @if (@deviceStates[device.Name].IsWorking==1)
                                     {
                                         <p> működik</p>
-                                    } 
+                                    }
                                     else
                                     {
                                         <p> nem működik</p>
                                     }
                                 </td>
                                 <td>
-                                    @if (state.IsMeasuring)
+                                    @if (@deviceStates[device.Name].IsMeasuring==1)
                                     {
                                         <p> mér</p>
                                     }
@@ -74,19 +81,21 @@
                                     {
                                         <p> nem mér</p>
                                     }
-                                </td>
-                                <td>
-                                    <button>Működés leállítás</button>
-                                </td>
-                                <td>
-                                    <button>Mérés leállítás</button>
-                                </td>
-                                <td> <a href="@($"md/cpu/{device.Name}")"><span class="oi oi-data-transfer-download"></span></a></td>
-                                <td> Hőmérésklet</td>
 
+                                </td>
                             }
+                            <td>
+                                <button>Működés leállítás</button>
+                            </td>
+                            <td>
+                                <button>Mérés leállítás</button>
+                            </td>
+                            <td> <a href="@($"md/cpu/{device.Name}")"><span class="oi oi-data-transfer-download"></span></a></td>
+                            <td> Hőmérésklet</td>
+
+                            </tr>
                         }
-                    </tr>
+                    
                     </table>
                    
                 </div>
@@ -98,17 +107,19 @@
 
 @code {
     private List<EFMeasureDevice> devices = new List<EFMeasureDevice>();
-    private MDState state = new MDState();
+    private Dictionary<string, MDState> deviceStates = null;
+
+    private MDState currendState=null;
 
     protected override async Task OnInitializedAsync()
     {
         devices = await MDService.GetAllMeasureDevices();
         if (devices == null)
             devices = new List<EFMeasureDevice>();
-    }
-
-    protected async Task GetState(string IPAddress)
-    {
-        state = await MDStateService.GetMdSatates(IPAddress);        
-    }
+        foreach (EFMeasureDevice device in devices)
+        {
+            MDState deviesStates = await MDStateService.GetMdSatates(device.Name);
+            deviceStates.Add(device.Name, deviesStates);
+        }        
+    }            
 }
