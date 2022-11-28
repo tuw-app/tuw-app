@@ -7,12 +7,12 @@ namespace MeasureDeviceServiceAPIProject.Model
     {
         private int working  { get; set; } = 1;
         private int measuring { get; set; } = 1;
-        private int measuringIntervall;
-
-        public int MeasuringIntervall
+        
+        private int measuringInterval;
+        public int MeasuringInterval
         {
-            get { return measuringIntervall; }
-            set { measuringIntervall = value; }
+            get { return measuringInterval; }
+            set { measuringInterval = value; }
         }
 
 

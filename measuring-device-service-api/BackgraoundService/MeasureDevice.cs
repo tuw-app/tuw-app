@@ -38,11 +38,12 @@ namespace MeasureDeviceProject.BackgraoundService
         CancellationToken myToken;
 
         private int measuringInterval = 1000;
-        public int MeasuringIntervall
+        public int MeasuringInterval
         {
             get { return measuringInterval; }
             set
             {
+                Log.Information("MeasureDevice {@IpAddress} -> New intaerval set: {interval}", IPAddress.ToString(), MeasuringInterval);
                 measuringInterval = value;                
             }            
         }       
@@ -75,7 +76,7 @@ namespace MeasureDeviceProject.BackgraoundService
             thredSendBackupFileSystem.Start();
 
             MDState = new MDState();
-            MDState.MeasuringIntervall = measuringInterval;
+            MDState.MeasuringInterval = measuringInterval;
             MDState.StartWorking();
             MDState.StartMeasuring();
         }

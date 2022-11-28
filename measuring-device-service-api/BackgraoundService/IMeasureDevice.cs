@@ -8,7 +8,7 @@ namespace MeasureDeviceServiceAPIProject.BackgraoundService
     {
         public MDIPAddress IPAddress { get; set; }
 
-        public int MeasuringIntervall { get; set; }
+        public int MeasuringInterval { get; set; }
 
         public MDState MDState { get; set; }
 
