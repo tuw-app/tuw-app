@@ -1,14 +1,11 @@
-﻿using MeasureDeviceProject.Model.CPUUsageModel;
-using MeasureDeviceProject.Model;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System;
 
-using MeasuringServer.Static;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
-using MeasureDeviceServiceAPIProject.Model;
+using DataModel.MDDataModel;
 
-namespace MeasuringServer.Model
+namespace DataModel.EFDataModel
 {
     // https://stackoverflow.com/questions/3633262/convert-datetime-for-mysql-using-c-sharp
     [Table("cpuusage")]
@@ -24,16 +21,16 @@ namespace MeasuringServer.Model
         public string IPAddress { get { return ipAddress; } set { ipAddress = value; } }
 
         [Column("measuretime")]
-        [Required(ErrorMessage = "Measure time is required")]        
+        [Required(ErrorMessage = "Measure time is required")]
         public DateTime MeasureTime { get { return measureTime; } set { measureTime = value; } }
-        
+
         [Column("dataid")]
-        [Required(ErrorMessage = "Data id is required")]        
+        [Required(ErrorMessage = "Data id is required")]
         public ulong DataID { get => dataID; set => dataID = value; }
 
 
         [Column("cpuusage")]
-        [Required(ErrorMessage = "CPU usage is required")]        
+        [Required(ErrorMessage = "CPU usage is required")]
         public double CPUUsage { get => cpuUsage; set => cpuUsage = value; }
 
 
@@ -45,7 +42,7 @@ namespace MeasuringServer.Model
             dataID = ulong.MinValue;
         }
 
-        public EFCPUUsage() 
+        public EFCPUUsage()
         {
             NullData();
         }
@@ -72,9 +69,9 @@ namespace MeasuringServer.Model
         public bool Equals([AllowNull] EFCPUUsage other)
         {
             if (ReferenceEquals(null, other)) return false;
-            if (this.IPAddress!= other.IPAddress) return false;
-            if (this.dataID != other.dataID) return false;
-            if (this.measureTime!= other.measureTime) return false;
+            if (IPAddress != other.IPAddress) return false;
+            if (dataID != other.dataID) return false;
+            if (measureTime != other.measureTime) return false;
             return true;
         }
 
@@ -85,9 +82,9 @@ namespace MeasuringServer.Model
                 NullData();
             }
             else
-            {                
+            {
                 string[] data = dataFromMDSystem.ToString().Split(";");
-                if (data.Length== 4)
+                if (data.Length == 4)
                 {
                     try
                     {
@@ -99,7 +96,7 @@ namespace MeasuringServer.Model
                     catch (Exception e)
                     {
                         Console.WriteLine(e.Message);
-                        NullData(); 
+                        NullData();
 
                     }
                     if (string.IsNullOrEmpty(IPAddress))
@@ -115,8 +112,8 @@ namespace MeasuringServer.Model
 
         public override string ToString()
         {
-            
-            return $"{IPAddress} - {MeasureTime.ToString("yyyy.MM.dd HH:mm:ss,ffff")} : {dataID} : {CPUUsage}"; 
+
+            return $"{IPAddress} - {MeasureTime.ToString("yyyy.MM.dd HH:mm:ss,ffff")} : {dataID} : {CPUUsage}";
         }
     }
 }

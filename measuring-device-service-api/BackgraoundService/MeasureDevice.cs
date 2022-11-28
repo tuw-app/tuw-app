@@ -61,12 +61,15 @@ namespace MeasureDeviceProject.BackgraoundService
             msds = new MeasureStoreSystem(logger, IPAddress,path,StorePeriod.EveryMinit);
             sbfs = new SendBackupFileSystem(logger, path + IPAddress.ToString());
 
-            msds.Stop();
-            sbfs.Stop();
 
+            MDState = new MDState();
+            MDState.MeasuringInterval = measuringInterval;
             MDState.StopMeasuring();
             MDState.StopWorking();
-            
+
+            msds.Stop();
+            sbfs.Stop();
+           
             thredPeridodically = new Thread(new ThreadStart(msds.StoringDataPeriodically));
             thredSendBackupFileSystem = new Thread(new ThreadStart(sbfs.Send));
 
@@ -75,10 +78,7 @@ namespace MeasureDeviceProject.BackgraoundService
             thredPeridodically.Start();
             thredSendBackupFileSystem.Start();
 
-            MDState = new MDState();
-            MDState.MeasuringInterval = measuringInterval;
-            MDState.StartWorking();
-            MDState.StartMeasuring();
+
         }
 
         public void StopMeasuring()
@@ -122,6 +122,11 @@ namespace MeasureDeviceProject.BackgraoundService
                 {
                     logger.LogInformation("Token cancel is not requested");
                 }
+
+
+                
+                msds.Start();
+                sbfs.Start();
 
                 MDState.StartWorking();
                 MDState.StartMeasuring();

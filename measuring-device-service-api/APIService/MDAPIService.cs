@@ -11,19 +11,19 @@ using MeasureDeviceServiceAPIProject.Model;
 
 namespace MeasureDeviceServiceAPIProject.APIService
 {
-    public class MeasureDeviceAPIService
+    public class MDAPIService
     {
 
         ILogger<MeasureDevice> logger = null;
 
-        public MeasureDeviceAPIService(ILogger<MeasureDevice> logger)
+        public MDAPIService(ILogger<MeasureDevice> logger)
         {
             this.logger= logger;
         }
 
-        public async Task<HttpStatusCode> SendNewCPUDataAsync(string dataFromBackupFile)
+        public async Task<HttpStatusCode> SendMDDataToAsync(string EF)
         {
-            //Uri u = new Uri("http://localhost:5001/api/cpuusage");
+            //Uri u = new Uri("http://localhost:5001/api/md/{IPAddress}");
             UriBuilder u = new UriBuilder();
             u.Scheme= "http";
             u.Host = "localhost";

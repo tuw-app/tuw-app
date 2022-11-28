@@ -6,9 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Model\Frontend\**" />
     <Compile Remove="Repo\**" />
+    <Content Remove="Model\Frontend\**" />
     <Content Remove="Repo\**" />
+    <EmbeddedResource Remove="Model\Frontend\**" />
     <EmbeddedResource Remove="Repo\**" />
+    <None Remove="Model\Frontend\**" />
     <None Remove="Repo\**" />
   </ItemGroup>
 
@@ -29,12 +33,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\mata-model\DataModel.csproj" />
     <ProjectReference Include="..\measuring-device-service-api\MeasureDeviceServiceAPIProject.csproj" />
     <ProjectReference Include="..\measuring-device\MeasureDeviceProject.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Model\Frontend\" />
   </ItemGroup>
 
 

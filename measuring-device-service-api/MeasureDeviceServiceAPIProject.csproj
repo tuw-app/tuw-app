@@ -30,7 +30,11 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\mata-model\DataModel.csproj" />
     <ProjectReference Include="..\measuring-device\MeasureDeviceProject.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
 
 </Project>

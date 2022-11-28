@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MeasuringServer.Model
+namespace DataModel.EFDataModel
 {
     [Table("md")]
     public class EFMeasureDevice
@@ -11,7 +11,7 @@ namespace MeasuringServer.Model
         public int Id { get; set; }
 
         [Column("name")] // IP address
-        [Required(ErrorMessage ="IP address is required")]
+        [Required(ErrorMessage = "IP address is required")]
         public string Name { get; set; }
 
         [Column("intarval")]
@@ -23,7 +23,7 @@ namespace MeasuringServer.Model
         {
             Id = -1;
             Name = string.Empty;
-            Interval = -1; 
+            Interval = -1;
         }
 
         public EFMeasureDevice(int id, string name, int interval)

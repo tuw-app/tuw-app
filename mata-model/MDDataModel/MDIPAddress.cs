@@ -1,4 +1,4 @@
-﻿namespace MeasureDeviceProject.Model
+﻿namespace DataModel.MDDataModel
 {
     public class MDIPAddress
     {

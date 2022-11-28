@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 
-namespace MeasureDeviceServiceAPIProject.Model
+namespace DataModel.MDDataModel
 { 
     public class MDState : IDisposable
     {
