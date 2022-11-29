@@ -91,7 +91,7 @@ namespace MeasureDeviceServiceAPIProject.Controllers
         }
 
         [HttpPost("api/interval/{IPAddress}", Name = "Set measure device interval")]
-        public IActionResult SetMDInsterval(string IPAddress, [FromBody] IntervalData interval)
+        public IActionResult SetMDInsterval(string IPAddress, [FromBody] MDIntervalData interval)
         {
             if ((device10 == null) || (device20 == null) || (device30 == null))
             {
