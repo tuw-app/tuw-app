@@ -13,7 +13,7 @@
 
 <div class="container bg-light text-bg-dark">
 
-    <h3>Mérőelem stásuszok</h3>
+    <h3>Mérőelem státuszok</h3>
     <p>
         <button class="btn btn-info" @onclick="this.RefreshState">Adatok frissítése</button>
     </p>
@@ -29,7 +29,7 @@
         }
         else
         {
-            <p class="text-bg-primary">Az utolsó frissítés ideje: @refreshTime.ToString("hhhh.mm.dddd HH:mm:ss,ffff")</p>
+            <p class="text-bg-primary">Az utolsó frissítés ideje: @refreshTime.ToString("yyyy.mm.dd dddd HH:mm:ss,ffff")</p>
             <p>Az adatábzisban @devices.Count mérő elemet találtam.</p>
 
             if ((@controlStatus!=null) && (@controlStatus.Length > 0))
@@ -48,7 +48,6 @@
                     </div>
                     <table class="table table-striped table-hover">
                         <thead>
-                            <tr>
                                 <th>IP cím</th>
                                 <th>Mérési intervallum (ms)</th>
                                 <th>Működés</th>
@@ -57,10 +56,9 @@
                                 <th>Mérés vezérlés</th>
                                 <th>CPU mérési adatok</th>
                                 <th>Hémérséklet mérési adatok</th>
-                            </tr>
                         </thead>
 
-                        @foreach (EFMeasureDevice @device in @devices)
+                        @foreach (EFMeasureDevice device in devices)
                         {
                             <tr>
                                  <!-- IP cím-->
@@ -130,11 +128,7 @@
                                     </td>
                                     <td> <a href="@($"md/cpu/{device.Name}")"><span class="oi oi-data-transfer-download"></span></a></td>
                                     <td> Hőmérésklet</td>
-                                
                                 }
-
-
-
                             </tr>
                         }                   
                     </table>                 
@@ -171,46 +165,30 @@
         if (devices == null)
         {
             devices = new List<EFMeasureDevice>();
-        }
+        }        
         else
         {
-
             deviceStates = new Dictionary<string, MDState>();
             foreach (EFMeasureDevice device in devices)
             {
                 MDState deviesStates = await MDStateService.GetMdSatates(device.Name);
-                if (! deviceStates.Keys.Contains(@device.Name))
+                if (!deviceStates.Keys.Contains(device.Name))
                     deviceStates.Add(device.Name, deviesStates);
             }
-        }        
+        }
     }
 
-    private async Task StateControl(string controlCommand,string IPAddres)
+    private async Task StateControl(string controlCommand, string IPAddres)
     {
         controlStatus = string.Empty;
         if (await MDControllingService.ControlDevice(controlCommand, IPAddres))
         {
             controlStatus = $"Sikeres: {IPAddres} {controlCommand}";
-            RefreshState();
+            await RefreshState();
         }
         else
         {
             controlStatus = $"Sikertelen: {IPAddres} {controlCommand}";
         }
     }
-
-    /*
-    private bool IsDeviceExsist(EFMeasureDevice device, string IPAddress)
-    {
-        if ( device == null || deviceStates == null || deviceStates.Count == 0 || ! (deviceStates.Keys.Contains(device.Name)))
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-
-    */
 }

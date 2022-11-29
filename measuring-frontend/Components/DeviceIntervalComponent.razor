@@ -1,5 +1,128 @@
-﻿<h3>DeviceIntervalComponent</h3>
+﻿@page "/interval"
+
+@using DataModel.EFDataModel;
+@using DataModel.MDDataModel;
+@using MeasureFrontend.Services;
+
+
+@inject IAPIMeasureDeviceService APIMeasureDeviceService;
+@inject IMDIntervalService MDIntervalServcie;
+
+<h3>Mérőelemek időitervallum kezelése</h3>
+
+@if (devices==null) 
+{
+        <p>Az adatok betöltés alatt...</p>
+}
+else
+{
+    @if (devices.Count==0)
+    {
+    <p>Nincs elem az adatbázisban</p>
+    }
+    else
+    {
+        <p class="text-bg-primary">Az utolsó frissítés ideje: @refreshTime.ToString("yyyy.mm.dd dddd HH:mm:ss,ffff")</p>
+        <p>Az adatábzisban @devices.Count mérő elemet találtam.</p>
+
+        <div class="container">
+            <div class="table-wrapper">
+
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h2><b>Mérőeszközök</b> kezelése</h2>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped table-hover">                                
+                        <thead>
+                        <th>IP cím</th>
+                        <th>Mérési intervallum (ms)</th>
+                        <th>Módosítás</th>
+                    </thead>
+                    @foreach (EFMeasureDevice device in devices)
+                    {
+                        <tr>
+                            <td>@device.Name</td>                                    
+                                @if ((deviceInterval != null) && (deviceInterval.Keys.Contains(device.Name)))
+                                {
+                                    currentInterval = deviceInterval[device.Name];
+                                    if (currentInterval>0) 
+                                    {
+                                        <td><center>@deviceInterval[device.Name] ms</center></td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label>Új intervallum megadása és külése:</label>                                                            
+                                                <input type="text" value="@currentInterval" class="form-control" @onchange="RenderData" />
+                                                <button class="btn btn-info" @onclick='( () => this.Send(device.Name))'>Küldés</button>
+                                            </div>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>Nincs adat</td>
+                                    }
+                                }
+                            </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    }
+}
 
 @code {
 
+    private DateTime refreshTime = DateTime.Now;
+    private String controlStatus = null;
+
+    private List<EFMeasureDevice> devices = null;
+    private Dictionary<string, long> deviceInterval = null;
+
+    private long currentInterval = -1;
+
+    private long newInterval = -1;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await RefreshState();
+    }
+
+    private async Task RefreshState()
+    {
+        refreshTime = DateTime.Now;
+        devices = await MDService.GetAllMeasureDevices();
+
+        if (devices == null)
+        {
+            devices = new List<EFMeasureDevice>();
+        }        
+        else
+        {
+            deviceInterval = new Dictionary<string, long>();
+            foreach (EFMeasureDevice device in devices)
+            {
+                currentInterval = await MDIntervalServcie.GetMDInterval(device.Name);
+                if (!deviceInterval.Keys.Contains(device.Name))
+                {
+                    deviceInterval.Add(device.Name, currentInterval);
+                }                    
+            }
+
+        }
+    }
+
+    private async Task RenderData(ChangeEventArgs e)
+    {
+        //https://stackoverflow.com/questions/72452037/blazor-how-to-pass-input-from-a-textbox-to-a-function-as-argument
+        string data = e.Value as string;
+        Console.WriteLine(data);
+    }
+
+    private async Task Send(string IPAddress)
+    {
+        Console.WriteLine(IPAddress);
+    }
 }
