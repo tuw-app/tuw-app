@@ -8,7 +8,9 @@
 @inject IMDStateService MDStateService;
 @inject NavigationManager UriHelper
 
-<h3>Mérőelem stásuszok</h3>
+<div class="container bg-light text-bg-dark">
+
+    <h3>Mérőelem stásuszok</h3>
     @if (devices==null) 
     {
          <p>Az adatok betöltés alatt...</p>
@@ -52,6 +54,7 @@
                             <tr>
                             
                             <td>@device.Name</td>
+                            <td>@device.Interval</td>
 
                             @if (@device == null || @deviceStates == null || ! (@deviceStates.Keys.Contains(@device.Name)) )
                             {
@@ -100,6 +103,8 @@
             </div>
         }
     }   
+
+</div>
 
 @code {
     private List<EFMeasureDevice> devices = new List<EFMeasureDevice>();

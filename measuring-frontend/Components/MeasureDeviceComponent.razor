@@ -9,7 +9,10 @@
 @inject IAPIMeasureDeviceService APIMeasureDeviceService;
 @inject IAPICPUUsageService APICPUUsageService;
    
+<div class="container bg-light text-bg-dark">
+
     <h3><strong>@IPAddress</strong> mérőelem</h3>
+    <p><a href="status"><span class="oi oi-aperture"></span>Vissza a mérőelemekhez</a></p>
     @if (CPUUsages == null)
     {
          <p>Az adatok betöltés alatt...</p>
@@ -56,6 +59,8 @@
             </div>
         }
     }
+
+</div>
 
 
 
