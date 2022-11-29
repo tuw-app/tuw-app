@@ -204,6 +204,36 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "MD - 10 Interval",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"interval\" : 8000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/interval/10.10.10.10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"interval",
+						"10.10.10.10"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
