@@ -46,8 +46,8 @@ namespace MeasureDeviceServiceAPIProject.Controllers
                     logger.LogInformation("MDStateContollers -> ControllingMeasuring -> IP Address: 10.10.10.10.");
                     if (device10 is MeasureDevice10)
                     {
-                        logger.LogInformation("MDStateContollers -> ControllingMeasuring -> State: {@State} ", device10.MDState);
-                        return Ok(device10.MDState);
+                        logger.LogInformation("MDStateContollers -> ControllingMeasuring -> State: {@State} ", device10.GetState());
+                        return Ok(device10.GetState());
                     }
                     else
                     {
@@ -64,8 +64,8 @@ namespace MeasureDeviceServiceAPIProject.Controllers
                     logger.LogInformation("MDStateContollers -> ControllingMeasuring -> IP Address: 20.20.20.20.");
                     if (device20 is MeasureDevice20)
                     {
-                        logger.LogInformation("MDStateContollers -> ControllingMeasuring -> State: {@State} ", device20.MDState);
-                        return Ok(device20.MDState);
+                        logger.LogInformation("MDStateContollers -> ControllingMeasuring -> State: {@State} ", device20.GetState());
+                        return Ok(device20.GetState());
                     }
                     else
                     {
@@ -81,8 +81,8 @@ namespace MeasureDeviceServiceAPIProject.Controllers
                     logger.LogInformation("MDStateContollers -> ControllingMeasuring -> IP Address: 30.30.30.30.");
                     if (device30 is MeasureDevice30)
                     {
-                        logger.LogInformation("MDStateContollers -> ControllingMeasuring -> State: {@State} ", device30.MDState);
-                        return Ok(device30.MDState);
+                        logger.LogInformation("MDStateContollers -> ControllingMeasuring -> State: {@State} ", device30.GetState());
+                        return Ok(device30.GetState());
                     }
                     else
                     {

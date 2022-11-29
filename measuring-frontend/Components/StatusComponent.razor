@@ -6,11 +6,17 @@
 
 @inject IAPIMeasureDeviceService APIMeasureDeviceService;
 @inject IMDStateService MDStateService;
+@inject IMDControllingService MDControllingService;
+
 @inject NavigationManager UriHelper
+
 
 <div class="container bg-light text-bg-dark">
 
     <h3>Mérőelem stásuszok</h3>
+    <p>
+        <button class="btn btn-info" @onclick="this.RefreshState">Adatok frissítése</button>
+    </p>
     @if (devices==null) 
     {
          <p>Az adatok betöltés alatt...</p>
@@ -23,8 +29,13 @@
         }
         else
         {
-            <p>Az adatábzisban @devices.Count mérő elemet találtam.</p>    
-         
+            <p class="text-bg-primary">Az utolsó frissítés ideje: @refreshTime.ToString("hhhh.mm.dddd HH:mm:ss,ffff")</p>
+            <p>Az adatábzisban @devices.Count mérő elemet találtam.</p>
+
+            if ((@controlStatus!=null) && (@controlStatus.Length > 0))
+            {
+                <p class="text-bg-success">@controlStatus</p>
+            }
             <div class="container">
                 <div class="table-wrapper">
                     
@@ -84,14 +95,34 @@
                                     {
                                         <p> nem mér</p>
                                     }
-
                                 </td>
                             }
                             <td>
-                                <button>Működés leállítás</button>
+                                    @if (@deviceStates[device.Name].IsWorking)
+                                    {
+                                        <button class="btn btn-info" @onclick='( () => this.StateControl("stop",device.Name))'>Működés leállítás</button>
+                                    }
+                                    else
+                                    {
+                                        <button class="btn btn-info" @onclick='(() => this.StateControl("start",device.Name))'>Működés indítás</button>
+                                    }
                             </td>
                             <td>
-                                <button>Mérés leállítás</button>
+                                @if (@deviceStates[device.Name].IsWorking)
+                                {
+                                    @if (@deviceStates[device.Name].IsMeasuring)
+                                    {
+                                        <button class="btn btn-info" @onclick='( () => this.StateControl("nomeasuring",device.Name))'>Mérés leállítás</button>
+                                    }
+                                    else
+                                    {
+                                        <button class="btn btn-info" @onclick='(() => this.StateControl("measuring",device.Name))'>Mérés indítás</button>
+                                    }
+                                }
+                                else
+                                {
+                                    <p>Nem működő elem nem mér.</p>
+                                }
                             </td>
                             <td> <a href="@($"md/cpu/{device.Name}")"><span class="oi oi-data-transfer-download"></span></a></td>
                             <td> Hőmérésklet</td>
@@ -107,13 +138,24 @@
 </div>
 
 @code {
+    private DateTime refreshTime = DateTime.Now;
+    private String controlStatus = null;
+
     private List<EFMeasureDevice> devices = new List<EFMeasureDevice>();
     private Dictionary<string, MDState> deviceStates = null;
 
     private MDState currendState=null;
 
+
+
     protected override async Task OnInitializedAsync()
     {
+        RefreshState();
+    }        
+
+    private async Task RefreshState()
+    {
+        refreshTime = DateTime.Now;
         devices = await MDService.GetAllMeasureDevices();
 
         if (devices == null)
@@ -122,12 +164,27 @@
         }
         else
         {
+
             deviceStates = new Dictionary<string, MDState>();
             foreach (EFMeasureDevice device in devices)
             {
                 MDState deviesStates = await MDStateService.GetMdSatates(device.Name);
                 deviceStates.Add(device.Name, deviesStates);
             }
+        }        
+    }
+
+    private async Task StateControl(string controlCommand,string IPAddres)
+    {
+        controlStatus = string.Empty;
+        if (await MDControllingService.ControlDevice(controlCommand, IPAddres))
+        {
+            controlStatus = $"Sikeres: {IPAddres} {controlCommand}";
+            RefreshState();
         }
-    }            
+        else
+        {
+            controlStatus = $"Sikertelen: {IPAddres} {controlCommand}";
+        }
+    }
 }

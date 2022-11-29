@@ -1,13 +1,8 @@
-﻿using MeasureDeviceProject.Model;
-using MeasuringServer.Model.Paging;
-using MeasuringServer.Model;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Net;
 using System;
 using DataModel.EFDataModel;
 

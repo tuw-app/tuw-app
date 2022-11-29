@@ -47,9 +47,7 @@ namespace MeasureDeviceServiceAPIProject
             services.AddSingleton<IMeasureDevice30, MeasureDevice30>();
             services.AddSingleton<IHostedService, MeasureDevice10>(provider =>(MeasureDevice10) provider.GetService<IMeasureDevice10>());
             services.AddSingleton<IHostedService, MeasureDevice20>(provider =>(MeasureDevice20) provider.GetService<IMeasureDevice20>());
-            services.AddSingleton<IHostedService, MeasureDevice30>(provider =>(MeasureDevice30) provider.GetService<IMeasureDevice30>());
-            //services.AddHostedService<MeasureDevice20>();
-            //services.AddHostedService<MeasureDevice30>(provider => provider.GetService<MeasureDevice30>());
+            services.AddSingleton<IHostedService, MeasureDevice30>(provider =>(MeasureDevice30) provider.GetService<IMeasureDevice30>());            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

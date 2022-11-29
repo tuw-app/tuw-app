@@ -8,7 +8,7 @@ namespace DataModel.MDDataModel
         public bool IsWorking  { get; set; }=false;
         public bool IsMeasuring { get; set; } = false;
         
-        public int MeasuringInterval { get; set; } = -1;
+        public long MeasuringInterval { get; set; } = -1;
 
         public void StopWorking() { IsWorking = false; }
         public void StartWorking() { IsWorking = true; }

@@ -35,14 +35,15 @@ namespace MeasureDeviceProject.BackgraoundService
 
         CancellationToken myToken;
 
-        private int measuringInterval = 1000;
-        public int MeasuringInterval
+        private long measuringInterval = 1000;
+        public long MDMeasuringInterval
         {
             get { return measuringInterval; }
             set
             {
-                Log.Information("MeasureDevice {@IpAddress} -> New intaerval set: {interval}", IPAddress.ToString(), MeasuringInterval);
-                measuringInterval = value;                
+                Log.Information("MeasureDevice {@IpAddress} -> New intaerval set: {interval}", IPAddress.ToString(), MDMeasuringInterval);
+                measuringInterval = value;     
+                MDState.MeasuringInterval = measuringInterval;
             }            
         }
 
@@ -55,7 +56,7 @@ namespace MeasureDeviceProject.BackgraoundService
         }
 
 
-        public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, int id, MDIPAddress MDIPAddress, int  measuringInterval)
+        public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, int id, MDIPAddress MDIPAddress, long  measuringInterval)
         {
             this.configuration = configuration;
             this.logger = logger;
@@ -90,7 +91,7 @@ namespace MeasureDeviceProject.BackgraoundService
 
         }
 
-        public void StopMeasuring()
+        public void StopMDMeasuring()
         {
             if (MDState.IsWorking && MDState.IsMeasuring)
             {
@@ -102,7 +103,7 @@ namespace MeasureDeviceProject.BackgraoundService
             }
         }
 
-        public void StartMeasuring()
+        public void StartMDMeasuring()
         {
             if (MDState.IsWorking && ! MDState.IsMeasuring)
             {
@@ -117,38 +118,39 @@ namespace MeasureDeviceProject.BackgraoundService
         public async override Task StartAsync(CancellationToken cancellationToken)
         {
             logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync", IPAddress);
-            if (MDState.IsWorking)
-            {               
-                logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
+              
+            logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
 
-                myToken = cancellationToken;
+            myToken = cancellationToken;
 
-                if (myToken.IsCancellationRequested)
-                {
-                    logger.LogInformation("Token cancel is requested");
-                }
-                else
-                {
-                    logger.LogInformation("Token cancel is not requested");
-                }
-
-                // A device adatait elküljük a szerverbe, ott vagy új bejegyzésként, vagy frissítésként beíródik.
-                MeasureDeviceAPIService mdAPI = new MeasureDeviceAPIService(logger);
-                EFMeasureDevice device = new EFMeasureDevice(id,IPAddress.ToString(), measuringInterval);
-                await mdAPI.SendMDDataToAsync(device);
-
-                // Az eszközön a periódukos adat loggolást és az adatküldést engeélyezzük
-                
-                msds.Start();
-                sbfs.Start();
-
-                // Az ezsközt müködés állapotba hozzuk
-
-                StartMeasuring();
-                
-                await base.StartAsync(cancellationToken);               
+            if (myToken.IsCancellationRequested)
+            {
+                logger.LogInformation("Token cancel is requested");
             }
-            return;
+            else
+            {
+                logger.LogInformation("Token cancel is not requested");
+            }
+
+            // A device adatait elküljük a szerverbe, ott vagy új bejegyzésként, vagy frissítésként beíródik.
+            MeasureDeviceAPIService mdAPI = new MeasureDeviceAPIService(logger);
+            EFMeasureDevice device = new EFMeasureDevice(id,IPAddress.ToString(), measuringInterval);
+            await mdAPI.SendMDDataToAsync(device);
+
+            // Az eszközön a periódukos adat loggolást és az adatküldést engeélyezzük
+                
+            msds.Start();
+            sbfs.Start();
+
+            MDState.StartMeasuring();
+            MDState.StartWorking();
+
+            // Az ezsközt müködés állapotba hozzuk
+
+            StartMDMeasuring();
+                
+            await base.StartAsync(cancellationToken);               
+
         }
 
 
@@ -185,6 +187,9 @@ namespace MeasureDeviceProject.BackgraoundService
                 msds.Stop();
                 //thredSendBackupFileSystem.Abort();
                 sbfs.Stop();
+
+                MDState.StopMeasuring();
+                MDState.StopWorking();
 
                 myToken = cancellationToken;
                 return base.StopAsync(myToken);

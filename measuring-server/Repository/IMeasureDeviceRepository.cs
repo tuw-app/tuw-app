@@ -9,6 +9,6 @@ namespace MeasuringServer.Repository
         public bool IsExsist(EFMeasureDevice device);
         public bool IsExsist(string IPAddress);
         public EFMeasureDevice GetByIPAddress(string ipAddress);
-        public void Update(int id, int measuringInterval);
+        public void Update(int id, long measuringInterval);
     }
 }

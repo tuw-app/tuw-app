@@ -52,7 +52,7 @@ namespace MeasuringServer.Repository
         }
 
 
-        public void Update(int id, int measuringInterval)
+        public void Update(int id, long measuringInterval)
         {
             EFMeasureDevice selecteddevice = Get(id);
             if (selecteddevice != null && selecteddevice.Name.Length != 0)

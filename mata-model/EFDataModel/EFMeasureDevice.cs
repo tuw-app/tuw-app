@@ -16,7 +16,7 @@ namespace DataModel.EFDataModel
 
         [Column("mdinterval")]
         [Required(ErrorMessage = "Measure intarvall is requiered")]
-        public int Interval { get; set; }
+        public long Interval { get; set; }
 
 
         public EFMeasureDevice()
@@ -26,13 +26,13 @@ namespace DataModel.EFDataModel
             Interval = -1;
         }
 
-        public EFMeasureDevice(string name, int interval)
+        public EFMeasureDevice(string name, long interval)
         {
             Name = name;
             Interval = interval;
         }
 
-        public EFMeasureDevice(int id, string name, int interval)
+        public EFMeasureDevice(int id, string name, long interval)
         {
             Id = id;
             Name = name;
