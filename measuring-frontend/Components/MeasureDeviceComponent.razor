@@ -19,6 +19,34 @@
     }
     else
     {
+        <EditForm Model="startDateTime">
+            <div class="col-md-6">
+                <label for="startDateTime">
+                    Kezdő intervallum
+                </label>
+                <InputDate @bind-Value="startDateTime" @bind-Value:format="yyyy-MM-dd hh:mm:ss,fff" class="form-control"></InputDate>
+             </div>
+             <div class="col-md-6">
+             </div>
+
+        </EditForm>
+
+
+        <table>
+            <row>
+                <td>Kezdő intervallum</td>
+                <td>
+                    <div class="col-sm-10">
+          
+                    </div>
+                </td>
+                <td>Záró intervallum</td>
+                <td>
+
+                </td>
+            </row>
+        </table>
+
         @if (@CPUUsages.Count == 0)
         {
         <p>Az elemhez nem tartozik mérés.</p>
@@ -70,6 +98,9 @@
 
     [Parameter]
     public string? IPAddress { get; set; }
+
+    private DateTime startDateTime = new DateTime(2022, 10, 10, 2, 10, 20, 30);
+    private DateTime stopDateTime = new DateTime(2022, 11, 12, 3, 40, 30, 20);
 
     protected async override Task OnInitializedAsync()
     {
