@@ -11,6 +11,8 @@ using MeasureDeviceProject.Service.CPUUsage;
 using MeasureDeviceServiceAPIProject.Service.PeriodicallyStore;
 using MeasureDeviceProject.Model.CPUUsageModel;
 using DataModel.MDDataModel;
+using MeasureDeviceServiceAPIProject.APIService;
+using System.Net;
 
 namespace MeasureDeviceServiceAPIProject.Service
 {
@@ -98,7 +100,7 @@ namespace MeasureDeviceServiceAPIProject.Service
             }
         }
 
-        public void StoringDataPeriodically()
+        public async void StoringDataPeriodically()
         {
             PeriodicallyStoreSystem cpuDataStorePeriodically = null;
             using (LogContext.PushProperty(IPAddress.ToString(), 1))
@@ -150,6 +152,7 @@ namespace MeasureDeviceServiceAPIProject.Service
                     cpuDataStorePeriodically.SetDataId(mesuredResult.MeasureTime, 1);
                 }
                 Log.Information("MeasureDevice {@IpAddress} -> StoringDataPeriodically->Init -> First Data Id is: {Id}", IPAddress.ToString(), cpuDataStorePeriodically.GetDataIdToLog());
+                CPUAPIService api = new CPUAPIService(logger);
                 while (true)
                 {
                     if (stopMeasuring)
@@ -167,15 +170,17 @@ namespace MeasureDeviceServiceAPIProject.Service
                         // kivesszük a következő tárolandó elemet
                         mesuredResult = measuredCPUUsageQeueue.Dequeue();
                     }
+                    MeasuredCPUDataStore measuredData = null;
                     lock (mesuredResult)
                     {
+                        // TÁROLÁS
                         // Az új tárolandó adat mérés időpontja alapján meghatározzuk, hogy melyik fájlba kerül az adat
-                        cpuDataStorePeriodically.DetermineTheStoreFile(mesuredResult);
+                         cpuDataStorePeriodically.DetermineTheStoreFile(mesuredResult);
                         // Meghatározzuk a mérési időpont alapján az utolsó mérés ID-jének idő részét
                         cpuDataStorePeriodically.SetDataId(mesuredResult.MeasureTime);
 
                         // Store Data to log file                              
-                        MeasuredCPUDataStore measuredData = new MeasuredCPUDataStore(cpuDataStorePeriodically.GetDataId(),mesuredResult);
+                        measuredData = new MeasuredCPUDataStore(cpuDataStorePeriodically.GetDataId(),mesuredResult);
                         Log.Information("MeasureDevice {@IpAddress} -> Data to store:", IPAddress.ToString(), measuredData.MeasuredCPUDataToStore);
                         try
                         {
@@ -188,10 +193,22 @@ namespace MeasureDeviceServiceAPIProject.Service
                         }
 
                         Log.Information("MeasureDevice {@IpAddress} -> Measuring data stored to log file {File}", IPAddress.ToString(), cpuDataStorePeriodically.FullPathFileName);
-
                         // Prepare to new DataId
                         cpuDataStorePeriodically.IncrementDataId();
                     }
+
+                    // KÜLDÉS A SZERVERNEK
+                    /*HttpStatusCode code = await api.SendNewCPUDataAsync(measuredData.MeasuredCPUDataToStore);
+                    if (code != HttpStatusCode.OK)
+                    {
+                        Log.Error("MeasureDevice {@IpAddress} -> FAIL send immediately to database {Data}", IPAddress.ToString(), measuredData.MeasuredCPUDataToStore);
+                    }
+                    else
+                    {
+                        Log.Information("MeasureDevice {@IpAddress} -> SUCCESS send immediately to database {Data}", IPAddress.ToString(), measuredData.MeasuredCPUDataToStore);
+                    }*/
+
+
                 }
             }
         }

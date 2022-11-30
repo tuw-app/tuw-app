@@ -30,6 +30,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\data-model\DataModel.csproj" />
     <ProjectReference Include="..\measuring-device\MeasureDeviceProject.csproj" />
   </ItemGroup>
   <ItemGroup>

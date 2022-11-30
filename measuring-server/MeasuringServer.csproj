@@ -33,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\data-model\DataModel.csproj" />
     <ProjectReference Include="..\measuring-device-service-api\MeasureDeviceServiceAPIProject.csproj" />
     <ProjectReference Include="..\measuring-device\MeasureDeviceProject.csproj" />
   </ItemGroup>

@@ -15,4 +15,8 @@
     <PackageReference Include="Microsoft.Extensions.Logging.EventLog" Version="3.1.31" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\data-model\DataModel.csproj" />
+  </ItemGroup>
+
 </Project>
