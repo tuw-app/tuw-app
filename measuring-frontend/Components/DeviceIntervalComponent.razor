@@ -10,6 +10,10 @@
 
 <h3>Mérőelemek időitervallum kezelése</h3>
 
+<p>
+    <button class="btn btn-info" @onclick="RefreshState">Adatok frissítése</button>
+</p>
+
 @if (devices==null) 
 {
         <p>Az adatok betöltés alatt...</p>
@@ -61,14 +65,23 @@ else
                                             </td>
                                             -->
                                             <td>
-                                            <EditForm Model="@newDeviceInterval[device.Name]" OnValidSubmit="@HanleadValidIntervalSubmit" OnInvalidSubmit="@HanleadInvalidIntervalSubmit">
-                                                    <div>
-                                                        <label for="formInterval">Új intervallum megadása és küldése:</label>
-                                                    <input type="text" class="form-control" id="formInterval" @bind-value="@newDeviceInterval[device.Name].Interval" />
-                                                
-                                                    </div>
-                                                </EditForm>
-                                             </td>
+                                                <EditForm Model="@newDeviceInterval[device.Name]" OnValidSubmit="@HanleadValidIntervalSubmit" OnInvalidSubmit="@HanleadInvalidIntervalSubmit">
+                                                <DataAnnotationsValidator />
+                                                    @if (errorMassage)
+                                                    {
+                                                        <div>
+                                                            <p><label>Hibaüzenet:</label><ValidationSummary /></p>
+                                                        </div>
+                                                    }
+                                                        <div>
+                                                            <label for="formInterval">Új intervallum megadása és küldése:</label>
+                                                            <InputNumber id="formInterval" @bind-Value="@newDeviceInterval[device.Name].Interval"></InputNumber>
+                                                            <ValidationMessage For="@( () => newDeviceInterval[device.Name].Interval )" />
+                                                            <tr><td><p class="text-right"><button type="submit" class="btn btn-info" Style="margin-top:10px">Küldés</button></p></td></tr>
+
+                                                        </div>
+                                                 </EditForm>
+                                            </td>
 
                                     }
                                     else
@@ -78,7 +91,7 @@ else
                                 }
                             </tr>
                     }
-                    <tr><td><p class="text-right"><button type="submit" class="btn btn-info" Style="margin-top:10px">Küldés</button></p></td></tr>
+                    
                 </table>
             </div>
         </div>
@@ -122,61 +135,64 @@ else
             foreach (EFMeasureDevice device in devices)
             {
                 currentInterval = await MDIntervalServcie.GetMDInterval(device.Name);
+
                 if (!newDeviceInterval.Keys.Contains(device.Name))
                 {
                     newDeviceInterval.Add(device.Name, new MDFormInterval(currentInterval));
+                    Console.WriteLine($"New intervall: {device.Name},{currentInterval}");
+
                 }                    
             }
             currendDeviceIntervalInterval = new Dictionary<string, MDFormInterval>();
             foreach (KeyValuePair<string,MDFormInterval> data in newDeviceInterval)
             {
-                currendDeviceIntervalInterval.Add(data.Key, data.Value);
+                currendDeviceIntervalInterval.Add( data.Key, new MDFormInterval(data.Value.Interval));
+                Console.WriteLine($"Current dataintervall {data.Key},{data.Value.Interval}");
             }
-
         }
     }
 
-    private void HanleadValidIntervalSubmit(EditContext context)
+    private async void HanleadValidIntervalSubmit(EditContext context)
     {
-        errorMassage = false;
-        errorSending = false;
+        Console.WriteLine($"HanleadValidIntervalSubmit");
+        if (context != null)
+        {
+            errorMassage = false;
+            errorSending = false;
+
+            Console.WriteLine("Current data");
+            foreach (KeyValuePair<string, MDFormInterval> data in newDeviceInterval)
+            {
+                Console.WriteLine($"Current data: {data.Key},{data.Value.Interval}");
+            }
+
+
+            Console.WriteLine($"HanleadValidIntervalSubmit->Context submit ok.");
+            foreach (KeyValuePair<string, MDFormInterval> data in newDeviceInterval)
+            {
+                Console.WriteLine($"HanleadValidIntervalSubmit->New: IPAddress:{data.Key} {data.Value.Interval}");
+                if (currendDeviceIntervalInterval.Keys.Contains(data.Key) && currendDeviceIntervalInterval[data.Key].Interval != data.Value.Interval)
+                {
+                    Console.WriteLine($"Küldésre kerülő adatok {data.Key},{data.Value.Interval}");
+                    await Send(data.Key, data.Value);
+                }
+            }
+            await RefreshState();
+        }
     }
 
     private void HanleadInvalidIntervalSubmit(EditContext context)
     {
+        Console.WriteLine($"HanleadIntervalSubmit");
         errorMassage = true;
         errorSending = false;
-        foreach(KeyValuePair<string,MDFormInterval> data in newDeviceInterval)
-        {
-            if (currendDeviceIntervalInterval.Keys.Contains(data.Key) && currendDeviceIntervalInterval[data.Key] != data.Value)
-            {
-                Console.WriteLine($"Küldésre kerülő adatok {data.Key},{data.Value}");
-                Send(data.Key, data.Value);
-            }
-        }
+
     }
 
     private async Task Send(string IPAddress, MDFormInterval interval)
     {
-        
+        MDIntervalData data = new MDIntervalData(interval.Interval);
+        bool succer = await MDIntervalServcie.SendIntervalToDevice(IPAddress, data);
     }
-
-
-
-        /*
-        private async Task RenderData(ChangeEventArgs e)
-            {
-            //https://stackoverflow.com/questions/72452037/blazor-how-to-pass-input-from-a-textbox-to-a-function-as-argument
-            string data = e.Value as string;
-            Console.WriteLine(data);
-        }
-
-        private async Task Send(string IPAddress)
-            {
-            Console.WriteLine(IPAddress);
-            //MDIntervalServcie.SendMdInterval(IPAddress, data);
-    }
-    */
-
 }
 

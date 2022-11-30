@@ -125,7 +125,7 @@ namespace MeasureDeviceServiceAPIProject.Controllers
                 if (IPAddress.ToString().CompareTo("20.20.20.20") == 0)
                 {
                     logger.LogInformation("MDIntervalContoller -> ControllingMeasuring -> IP Address: 20.20.20.20.");
-                    if (device20 is MeasureDevice10)
+                    if (device20 is MeasureDevice20)
                     {
                         logger.LogInformation("MDIntervalContoller -> ControllingMeasuring -> Interval: {Interval} ", interval);
                         device20.SetInterval(interval.Interval);
@@ -141,7 +141,7 @@ namespace MeasureDeviceServiceAPIProject.Controllers
                 if (IPAddress.ToString().CompareTo("30.30.30.30") == 0)
                 {
                     logger.LogInformation("MDIntervalContoller -> ControllingMeasuring -> IP Address: 30.30.30.30");
-                    if (device30 is MeasureDevice10)
+                    if (device30 is MeasureDevice30)
                     {
                         logger.LogInformation("MDIntervalContoller -> ControllingMeasuring -> Interval: {Interval} ", interval);
                         device30.SetInterval(interval.Interval);

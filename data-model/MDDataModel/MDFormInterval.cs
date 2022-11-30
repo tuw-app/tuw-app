@@ -9,8 +9,8 @@ namespace DataModel.MDDataModel
     [Serializable]
     public class MDFormInterval
     {
-        [Required(ErrorMessage ="Az intervallum szükséges")]
-        [Range(1,long.MaxValue,ErrorMessage ="Az intervallum nullánál nagyobb szám")]
+        [Required(ErrorMessage = "Az intervallum szükséges")]
+        [Range(1, long.MaxValue, ErrorMessage = "Az intervallum nullánál nagyobb szám")]
         public long Interval { get; set; } = -1;
 
         public MDFormInterval()

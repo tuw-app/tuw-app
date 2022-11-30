@@ -9,5 +9,16 @@ namespace DataModel.MDDataModel
     public class MDIntervalData
     {
         public long Interval { get; set; }
+
+        public MDIntervalData(long interval)
+        {
+            Interval = interval;
+        }
+
+        public MDIntervalData()
+        {
+            Interval = -1;
+        }
+        
     }
 }
