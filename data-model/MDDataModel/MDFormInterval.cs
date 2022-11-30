@@ -10,14 +10,15 @@ namespace DataModel.MDDataModel
     public class MDFormInterval
     {
         [Required(ErrorMessage ="Az intervallum szükséges")]
-        public string Interval { get; set; } =string.Empty;
+        [Range(1,long.MaxValue,ErrorMessage ="Az intervallum nullánál nagyobb szám")]
+        public long Interval { get; set; } = -1;
 
         public MDFormInterval()
         {
-            Interval= string.Empty;
+            Interval = -1;
         }
 
-        public MDFormInterval(string interval)
+        public MDFormInterval(long interval)
         {
             Interval = interval;
         }

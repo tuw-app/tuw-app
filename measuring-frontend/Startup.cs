@@ -26,8 +26,9 @@ namespace MeasureFrontend
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages().AddRazorRuntimeCompilation(); ;
+            services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
             services.AddHttpClient<IAPICPUUsageService, APICPUUsageService>(client =>
             {
@@ -54,7 +55,7 @@ namespace MeasureFrontend
             });
             
 
-            services.AddSingleton<WeatherForecastService>();
+            //services.AddSingleton<WeatherForecastService>();
             //services.AddSingleton<APICPUUsageService>();
             //services.AddSingleton< APIMeasureDeviceService()>;
 

@@ -47,17 +47,30 @@ else
                             <td>@device.Name</td>                                    
                                 @if ((deviceInterval != null) && (deviceInterval.Keys.Contains(device.Name)))
                                 {
-                                    currentInterval = deviceInterval[device.Name];
+                                    currentInterval = deviceInterval[device.Name].Interval;
                                     if (currentInterval>0) 
                                     {
-                                        <td><center>@deviceInterval[device.Name] ms</center></td>
+                                        
+                                        <td><center>@deviceInterval[device.Name].Interval ms</center></td>
+                                        <!--
                                         <td>
                                             <div class="form-group">
-                                                <label>Új intervallum megadása és külése:</label>                                                            
+                                                <label>Új intervallum megadása és küldése:</label>                                                            
                                                 <input type="text" value="@currentInterval" class="form-control" @onchange="RenderData" />
                                                 <button class="btn btn-info" @onclick='( () => this.Send(device.Name))'>Küldés</button>
                                             </div>
                                         </td>
+                                        -->
+                                        <td>
+                                        <EditForm Model="@deviceInterval[device.Name]">
+                                                <div>
+                                                    <label for="formInterval">Új intervallum megadása és küldése:</label>
+                                                <input type="text" class="form-control" id="formInterval" @bind-value="@deviceInterval[device.Name].Interval" />
+                                                <button type="submit" class="btn btn-info" Style="margin-top:10px">Küldés</button>
+                                                </div>
+                                            </EditForm>
+                                         </td>
+
                                     }
                                     else
                                     {
@@ -78,10 +91,13 @@ else
     private String controlStatus = null;
 
     private List<EFMeasureDevice> devices = null;
-    private Dictionary<string, long> deviceInterval = null;
+    private Dictionary<string, MDFormInterval> deviceInterval = null;
+
+    private MDFormInterval FormInterval = new MDFormInterval(1);
+    private bool errorMassage = false;
+    private bool errorSending = false;
 
     private long currentInterval = -1;
-
     private long newInterval = -1;
 
 
@@ -101,28 +117,38 @@ else
         }        
         else
         {
-            deviceInterval = new Dictionary<string, long>();
+            deviceInterval = new Dictionary<string, MDFormInterval>();
             foreach (EFMeasureDevice device in devices)
             {
                 currentInterval = await MDIntervalServcie.GetMDInterval(device.Name);
                 if (!deviceInterval.Keys.Contains(device.Name))
                 {
-                    deviceInterval.Add(device.Name, currentInterval);
+                    deviceInterval.Add(device.Name, new MDFormInterval(currentInterval));
                 }                    
             }
 
         }
     }
 
-    private async Task RenderData(ChangeEventArgs e)
+    private async Task Send(string IPAddress, MDFormInterval interval)
     {
-        //https://stackoverflow.com/questions/72452037/blazor-how-to-pass-input-from-a-textbox-to-a-function-as-argument
-        string data = e.Value as string;
-        Console.WriteLine(data);
+        
     }
 
-    private async Task Send(string IPAddress)
-    {
-        Console.WriteLine(IPAddress);
+        /*
+        private async Task RenderData(ChangeEventArgs e)
+            {
+            //https://stackoverflow.com/questions/72452037/blazor-how-to-pass-input-from-a-textbox-to-a-function-as-argument
+            string data = e.Value as string;
+            Console.WriteLine(data);
+        }
+
+        private async Task Send(string IPAddress)
+            {
+            Console.WriteLine(IPAddress);
+            //MDIntervalServcie.SendMdInterval(IPAddress, data);
     }
+    */
+
 }
+
