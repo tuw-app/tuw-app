@@ -45,31 +45,30 @@ else
                     {
                         <tr>
                             <td>@device.Name</td>                                    
-                                @if ((deviceInterval != null) && (deviceInterval.Keys.Contains(device.Name)))
+                                @if ((newDeviceInterval != null) && (newDeviceInterval.Keys.Contains(device.Name)))
                                 {
-                                    currentInterval = deviceInterval[device.Name].Interval;
-                                    if (currentInterval>0) 
+                                    if (newDeviceInterval[device.Name].Interval > 0)
                                     {
                                         
-                                        <td><center>@deviceInterval[device.Name].Interval ms</center></td>
-                                        <!--
-                                        <td>
-                                            <div class="form-group">
-                                                <label>Új intervallum megadása és küldése:</label>                                                            
-                                                <input type="text" value="@currentInterval" class="form-control" @onchange="RenderData" />
-                                                <button class="btn btn-info" @onclick='( () => this.Send(device.Name))'>Küldés</button>
-                                            </div>
-                                        </td>
-                                        -->
-                                        <td>
-                                        <EditForm Model="@deviceInterval[device.Name]">
-                                                <div>
-                                                    <label for="formInterval">Új intervallum megadása és küldése:</label>
-                                                <input type="text" class="form-control" id="formInterval" @bind-value="@deviceInterval[device.Name].Interval" />
-                                                <button type="submit" class="btn btn-info" Style="margin-top:10px">Küldés</button>
+                                            <td><center>@newDeviceInterval[device.Name].Interval ms</center></td>
+                                            <!--
+                                            <td>
+                                                <div class="form-group">
+                                                    <label>Új intervallum megadása és küldése:</label>                                                            
+                                                    <input type="text" value="@currentInterval" class="form-control" @onchange="RenderData" />
+                                                    <button class="btn btn-info" @onclick='( () => this.Send(device.Name))'>Küldés</button>
                                                 </div>
-                                            </EditForm>
-                                         </td>
+                                            </td>
+                                            -->
+                                            <td>
+                                            <EditForm Model="@newDeviceInterval[device.Name]" OnValidSubmit="@HanleadValidIntervalSubmit" OnInvalidSubmit="@HanleadInvalidIntervalSubmit">
+                                                    <div>
+                                                        <label for="formInterval">Új intervallum megadása és küldése:</label>
+                                                    <input type="text" class="form-control" id="formInterval" @bind-value="@newDeviceInterval[device.Name].Interval" />
+                                                
+                                                    </div>
+                                                </EditForm>
+                                             </td>
 
                                     }
                                     else
@@ -79,6 +78,7 @@ else
                                 }
                             </tr>
                     }
+                    <tr><td><p class="text-right"><button type="submit" class="btn btn-info" Style="margin-top:10px">Küldés</button></p></td></tr>
                 </table>
             </div>
         </div>
@@ -91,7 +91,8 @@ else
     private String controlStatus = null;
 
     private List<EFMeasureDevice> devices = null;
-    private Dictionary<string, MDFormInterval> deviceInterval = null;
+    private Dictionary<string, MDFormInterval> newDeviceInterval = null;
+    private Dictionary<string, MDFormInterval> currendDeviceIntervalInterval = null;
 
     private MDFormInterval FormInterval = new MDFormInterval(1);
     private bool errorMassage = false;
@@ -117,16 +118,41 @@ else
         }        
         else
         {
-            deviceInterval = new Dictionary<string, MDFormInterval>();
+            newDeviceInterval = new Dictionary<string, MDFormInterval>();
             foreach (EFMeasureDevice device in devices)
             {
                 currentInterval = await MDIntervalServcie.GetMDInterval(device.Name);
-                if (!deviceInterval.Keys.Contains(device.Name))
+                if (!newDeviceInterval.Keys.Contains(device.Name))
                 {
-                    deviceInterval.Add(device.Name, new MDFormInterval(currentInterval));
+                    newDeviceInterval.Add(device.Name, new MDFormInterval(currentInterval));
                 }                    
             }
+            currendDeviceIntervalInterval = new Dictionary<string, MDFormInterval>();
+            foreach (KeyValuePair<string,MDFormInterval> data in newDeviceInterval)
+            {
+                currendDeviceIntervalInterval.Add(data.Key, data.Value);
+            }
 
+        }
+    }
+
+    private void HanleadValidIntervalSubmit(EditContext context)
+    {
+        errorMassage = false;
+        errorSending = false;
+    }
+
+    private void HanleadInvalidIntervalSubmit(EditContext context)
+    {
+        errorMassage = true;
+        errorSending = false;
+        foreach(KeyValuePair<string,MDFormInterval> data in newDeviceInterval)
+        {
+            if (currendDeviceIntervalInterval.Keys.Contains(data.Key) && currendDeviceIntervalInterval[data.Key] != data.Value)
+            {
+                Console.WriteLine($"Küldésre kerülő adatok {data.Key},{data.Value}");
+                Send(data.Key, data.Value);
+            }
         }
     }
 
@@ -134,6 +160,8 @@ else
     {
         
     }
+
+
 
         /*
         private async Task RenderData(ChangeEventArgs e)
