@@ -33,7 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\mata-model\DataModel.csproj" />
     <ProjectReference Include="..\measuring-device-service-api\MeasureDeviceServiceAPIProject.csproj" />
     <ProjectReference Include="..\measuring-device\MeasureDeviceProject.csproj" />
   </ItemGroup>
