@@ -1,20 +1,53 @@
 ﻿@page "/md/cpu/{ipaddress}"
 
-@using MeasureDeviceProject.Model;
+@using DataModel.EFDataModel;
+@using DataModel.MDDataModel;
 @using MeasureFrontend.Services;
-@using MeasuringServer.Model;
 @using MeasuringServer.Model.Paging;
+
 
 @inject IAPIMeasureDeviceService APIMeasureDeviceService;
 @inject IAPICPUUsageService APICPUUsageService;
    
+<div class="container bg-light text-bg-dark">
+
     <h3><strong>@IPAddress</strong> mérőelem</h3>
+    <p><a href="status"><span class="oi oi-aperture"></span>Vissza a mérőelemekhez</a></p>
     @if (CPUUsages == null)
     {
          <p>Az adatok betöltés alatt...</p>
     }
     else
     {
+        <EditForm Model="startDateTime">
+            <div class="col-md-6">
+                <label for="startDateTime">
+                    Kezdő intervallum
+                </label>
+                <InputDate @bind-Value="startDateTime" @bind-Value:format="yyyy-MM-dd hh:mm:ss,fff" class="form-control"></InputDate>
+             </div>
+             <div class="col-md-6">
+             </div>
+
+        </EditForm>
+
+
+        <table>
+
+            <row>
+                <td>Kezdő intervallum</td>
+                <td>
+                    <div class="col-sm-10">
+          
+                    </div>
+                </td>
+                <td>Záró intervallum</td>
+                <td>
+
+                </td>
+            </row>
+        </table>
+
         @if (@CPUUsages.Count == 0)
         {
         <p>Az elemhez nem tartozik mérés.</p>
@@ -47,7 +80,7 @@
                                 <td>@usage.IPAddress</td>
                                 <td>@usage.MeasureTime.ToString("yyyy-MM-dd hh:mm:ss,fff");</td>
                                 <td>@usage.DataID</td>
-                                <td>@Math.Round(@usage.CPUUsage,3))</td>
+                                <td>@Math.Round(@usage.CPUUsage,3)</td>
                             </tr>
                         }
                     </table>
@@ -55,6 +88,8 @@
             </div>
         }
     }
+
+</div>
 
 
 
@@ -64,6 +99,9 @@
 
     [Parameter]
     public string? IPAddress { get; set; }
+
+    private DateTime startDateTime = new DateTime(2022, 10, 10, 2, 10, 20, 30);
+    private DateTime stopDateTime = new DateTime(2022, 11, 12, 3, 40, 30, 20);
 
     protected async override Task OnInitializedAsync()
     {

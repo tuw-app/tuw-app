@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,14 +9,14 @@ using MeasureDeviceServiceAPIProject.Service;
 using MeasureDeviceProject.Model;
 using Serilog;
 using Microsoft.Extensions.Configuration;
-using Serilog.Core;
-using System.IO;
 using MeasureDeviceServiceAPIProject.Service.SendDataToServer;
-using MeasureDeviceServiceAPIProject.Model;
+using DataModel.MDDataModel;
+using MeasureDeviceServiceAPIProject.APIService;
+using DataModel.EFDataModel;
 
 namespace MeasureDeviceProject.BackgraoundService
 {
-    public abstract class MeasureDevice : BackgroundService, IDisposable
+    public abstract class MeasureDevice : BackgroundService, IDisposable, IMeasureDevice
     {
 
         private readonly ILogger<MeasureDevice> logger;
@@ -26,7 +24,8 @@ namespace MeasureDeviceProject.BackgraoundService
         private string path=string.Empty;
 
         public MDIPAddress IPAddress { get; set; } = null;
-        public MDStatus MDStatus { get; set; } = null;
+       
+        public MDState MDState { get; set; } = null;
 
         private MeasureStoreSystem msds=null;
         private SendBackupFileSystem sbfs = null;
@@ -36,20 +35,33 @@ namespace MeasureDeviceProject.BackgraoundService
 
         CancellationToken myToken;
 
-        private double measuringInterval = 1000;
-        public double MeasureingInterval
+        private long measuringInterval = 1000;
+        public long MDMeasuringInterval
         {
             get { return measuringInterval; }
             set
             {
-                measuringInterval = value;                
+                Log.Information("MeasureDevice {@IpAddress} -> New intaerval set: {interval}", IPAddress.ToString(), MDMeasuringInterval);
+                measuringInterval = value;     
+                MDState.MeasuringInterval = measuringInterval;
             }            
-        }        
+        }
 
-        public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, MDIPAddress MDIPAddress, double measuringInterval)
+        private int id;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+
+        public MeasureDevice(IConfiguration configuration, ILogger<MeasureDevice> logger, int id, MDIPAddress MDIPAddress, long  measuringInterval)
         {
             this.configuration = configuration;
             this.logger = logger;
+            this.id = id;
+
             IPAddress= MDIPAddress;
             this.measuringInterval = measuringInterval;
 
@@ -59,12 +71,13 @@ namespace MeasureDeviceProject.BackgraoundService
             msds = new MeasureStoreSystem(logger, IPAddress,path,StorePeriod.EveryMinit);
             sbfs = new SendBackupFileSystem(logger, path + IPAddress.ToString());
 
-            msds.Stop();
-            sbfs.Stop();
 
-            MDStatus.StopMeasuring();
-            MDStatus.Stopping();
-            
+            MDState = new MDState();
+            MDState.MeasuringInterval = measuringInterval;
+
+            msds.Stop();
+            //sbfs.Stop(); NE állítsd le
+           
             thredPeridodically = new Thread(new ThreadStart(msds.StoringDataPeriodically));
             thredSendBackupFileSystem = new Thread(new ThreadStart(sbfs.Send));
 
@@ -73,35 +86,71 @@ namespace MeasureDeviceProject.BackgraoundService
             thredPeridodically.Start();
             thredSendBackupFileSystem.Start();
 
-            MDStatus = new MDStatus();
-            MDStatus.StartWorking();
-            MDStatus.StartMeasuring();
+            MDState.StartWorking();
+            MDState.StartMeasuring();
+
         }
-        
-        public override Task StartAsync(CancellationToken cancellationToken)
+
+        public void StopMDMeasuring()
         {
-            if (!MDStatus.IsWorking)
+            if (MDState.IsWorking && MDState.IsMeasuring)
             {
-                logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync", IPAddress);
-                logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
-
-                myToken = cancellationToken;
-
-                if (myToken.IsCancellationRequested)
+                if (msds != null)
                 {
-                    logger.LogInformation("Token cancel is requested");
+                    msds.Stop();
+                    MDState.StopMeasuring();
                 }
-                else
-                {
-                    logger.LogInformation("Token cancel is not requested");
-                }
-
-                MDStatus.StartWorking();
-                MDStatus.StartMeasuring();
-
-                return base.StartAsync(cancellationToken);
             }
-            return Task.CompletedTask;
+        }
+
+        public void StartMDMeasuring()
+        {
+            if (MDState.IsWorking && ! MDState.IsMeasuring)
+            {
+                if (msds != null)
+                {
+                    msds.Start();
+                    MDState.StartMeasuring();
+                }
+            }
+        }
+
+        public async override Task StartAsync(CancellationToken cancellationToken)
+        {
+            logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync", IPAddress);
+              
+            logger.LogInformation("MeasureDevice {IpAddress} -> StartAsync, mesuring interval is {Interval}", IPAddress, measuringInterval);
+
+            myToken = cancellationToken;
+
+            if (myToken.IsCancellationRequested)
+            {
+                logger.LogInformation("Token cancel is requested");
+            }
+            else
+            {
+                logger.LogInformation("Token cancel is not requested");
+            }
+
+            // A device adatait elküljük a szerverbe, ott vagy új bejegyzésként, vagy frissítésként beíródik.
+            MeasureDeviceAPIService mdAPI = new MeasureDeviceAPIService(logger);
+            EFMeasureDevice device = new EFMeasureDevice(id,IPAddress.ToString(), measuringInterval);
+            await mdAPI.SendMDDataToAsync(device);
+
+            // Az eszközön a periódukos adat loggolást és az adatküldést engeélyezzük
+                
+            msds.Start();
+            sbfs.Start();
+
+            MDState.StartMeasuring();
+            MDState.StartWorking();
+
+            // Az ezsközt müködés állapotba hozzuk
+
+            StartMDMeasuring();
+                
+            await base.StartAsync(cancellationToken);               
+
         }
 
 
@@ -119,24 +168,28 @@ namespace MeasureDeviceProject.BackgraoundService
 
             while (!myToken.IsCancellationRequested)
             {
+                
                 logger.LogInformation("MeasureDevice {IpAddress}:  ExecuteAsync {time}", IPAddress, DateTimeOffset.Now.ToString("yyyy.MM.dd HH: mm:ss"));
+
                 // CPU hőmérséklet mérés
                 msds.MeasuringCPUUsage();
-                msds.Start(); // lehetséges a mérés, de azt a Background service csinálja
-                sbfs.Start();
+
                 await Task.Delay(TimeSpan.FromMilliseconds(measuringInterval), myToken);
             }
         }
 
         public override Task StopAsync(CancellationToken cancellationToken)
         {
-            if (MDStatus.IsWorking)
+            if (MDState.IsWorking)
             {
                 logger.LogInformation("MeasureDevice {@IpAddress} -> StopAsync: {time}", DateTimeOffset.Now);
                 // thredPeridodically.Abort();
                 msds.Stop();
                 //thredSendBackupFileSystem.Abort();
                 sbfs.Stop();
+
+                MDState.StopMeasuring();
+                MDState.StopWorking();
 
                 myToken = cancellationToken;
                 return base.StopAsync(myToken);
@@ -155,9 +208,9 @@ namespace MeasureDeviceProject.BackgraoundService
             {
                 sbfs.Dispose();
             }
-            if (MDStatus!=null)
+            if (MDState!=null)
             {
-                MDStatus.Dispose();
+                MDState.Dispose();
             }
             base.Dispose();
         }

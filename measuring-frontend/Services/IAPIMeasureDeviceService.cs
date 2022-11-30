@@ -1,6 +1,4 @@
-﻿using MeasureDeviceProject.Model;
-using MeasuringServer.Model;
-using System.Collections;
+﻿using DataModel.EFDataModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

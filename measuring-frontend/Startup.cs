@@ -39,7 +39,20 @@ namespace MeasureFrontend
                 client.BaseAddress = new Uri("http://localhost:5001/");
             });
 
+            services.AddHttpClient<IMDStateService, MDStateService>(client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5000/");
+            });
 
+            services.AddHttpClient<IMDControllingService, MDControllingService>(client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5000/");
+            });
+            services.AddHttpClient<IMDIntervalService, MDIntervalService>(client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5000/");
+            });
+            
 
             services.AddSingleton<WeatherForecastService>();
             //services.AddSingleton<APICPUUsageService>();

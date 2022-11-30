@@ -1,13 +1,13 @@
-﻿using MeasureDeviceProject.Model;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using DataModel.EFDataModel;
+using DataModel.MDDataModel;
 using MeasuringServer.Model;
 using MeasuringServer.Model.Paging;
 using MeasuringServer.Repository.Base;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Newtonsoft.Json.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace MeasuringServer.Repository
 {
@@ -34,12 +34,10 @@ namespace MeasuringServer.Repository
 
         public void UpdateCPUUsage(EFCPUUsage cpuUsage)
         {
-            Update(cpuUsage);
         }
 
         public void DeleteCPUUsage(EFCPUUsage cpuUsage)
         {
-            Update(cpuUsage);
         }
 
         public List<EFCPUUsage> GetAllCPUUsage()

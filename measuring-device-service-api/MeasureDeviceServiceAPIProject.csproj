@@ -5,9 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Model\FileSystem\**" />
     <Compile Remove="Services\**" />
+    <Content Remove="Model\FileSystem\**" />
     <Content Remove="Services\**" />
+    <EmbeddedResource Remove="Model\FileSystem\**" />
     <EmbeddedResource Remove="Services\**" />
+    <None Remove="Model\FileSystem\**" />
     <None Remove="Services\**" />
   </ItemGroup>
   <ItemGroup>
@@ -26,10 +30,11 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\mata-model\DataModel.csproj" />
     <ProjectReference Include="..\measuring-device\MeasureDeviceProject.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\FileSystem\" />
+    <Folder Include="Model\" />
   </ItemGroup>
 
 </Project>

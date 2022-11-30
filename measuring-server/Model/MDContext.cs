@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DataModel.EFDataModel;
+using Microsoft.EntityFrameworkCore;
 
 namespace MeasuringServer.Model
 {
@@ -7,7 +8,7 @@ namespace MeasuringServer.Model
         // https://procodeguide.com/programming/entity-framework-core-in-asp-net-core/
        
         public DbSet<EFCPUUsage> CPUUsage { get; set; }
-        public DbSet<EFMeasureDevice> measureDevices { get; set; }  
+        public DbSet<EFMeasureDevice> MeasureDevices { get; set; }  
 
         public MDContext(DbContextOptions<MDContext> options)
                 : base(options)

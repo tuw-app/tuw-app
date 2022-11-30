@@ -1,4 +1,5 @@
-﻿using MeasureDeviceProject.BackgraoundService;
+﻿using DataModel.MDDataModel;
+using MeasureDeviceProject.BackgraoundService;
 using MeasureDeviceProject.Model;
 using MeasureDeviceProject.Model.CPUUsageModel;
 using MeasureDeviceProject.Service.FileWriter;

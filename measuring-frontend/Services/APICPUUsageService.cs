@@ -1,17 +1,13 @@
-﻿using MeasureDeviceProject.Model;
-using MeasureDeviceServiceAPIProject.Model;
-using MeasuringServer.Model;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+
 using System.Net.Http;
-using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using MeasuringServer.Model.Paging;
 
-using System.Net.Http.Json;
 using Microsoft.Extensions.Logging;
+using DataModel.EFDataModel;
+using DataModel.MDDataModel;
+using System;
 
 namespace MeasureFrontend.Services
 {
@@ -30,15 +26,29 @@ namespace MeasureFrontend.Services
         public async Task<PagedList<EFCPUUsage>> GetAllCPUUsages( MDIPAddress IPAddress, int page, int pageSize)
         {
 
-            var response = await httpClient.GetAsync("CPUUsage/api/cpuusage/" + IPAddress.ToString() + "/" + page.ToString() + "/" + pageSize.ToString());
+            try
+            {
+                var response = await httpClient.GetAsync("/api/cpuusage/" + IPAddress.ToString() + "/" + page.ToString() + "/" + pageSize.ToString());
 
-            var content = response.Content.ReadAsStringAsync();
+                var content = response.Content.ReadAsStringAsync();
 
-            PagedList<EFCPUUsage> result = JsonConvert.DeserializeObject<PagedList<EFCPUUsage>>(content.Result);
+                PagedList<EFCPUUsage> result = JsonConvert.DeserializeObject<PagedList<EFCPUUsage>>(content.Result);
 
-            logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: {Count}", result.Count);
-            
-            return result;
+                if (result != null)
+                {
+                    logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: {Count}", result.Count);
+                    return result;
+                }
+                else
+                {
+                    logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> No CPU usages");
+                    return new PagedList<EFCPUUsage>();
+                }
+            } catch (Exception ex)
+            {
+                logger.LogError(ex.Message);
+                return new PagedList<EFCPUUsage>();
+            }
 
         }
     }

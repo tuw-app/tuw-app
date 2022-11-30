@@ -12,15 +12,5 @@ namespace MeasureFrontend.Components
     {
         [Inject]
         public IAPICPUUsageService CPUUsageService { get; set; }
-
-     /*   public PagedList<EFCPUUsage> CPUUsages { get; set; }
-
-        [Parameter]
-        public string? IPAddress { get; set; }
-
-        protected async override Task OnInitializedAsync()
-        {
-            CPUUsages = await CPUUsageService.GetAllCPUUsages(new MDIPAddress(IPAddress), 1, 30);
-        }*/
     }
 }

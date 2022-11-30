@@ -1,5 +1,7 @@
-﻿using MeasuringServer.Model;
+﻿using DataModel.EFDataModel;
+using MeasuringServer.Model;
 using MeasuringServer.Repository.Base;
+using System;
 using System.Linq;
 
 namespace MeasuringServer.Repository
@@ -25,6 +27,16 @@ namespace MeasuringServer.Repository
         {
             return FindByCondition(md=>md.Id== id).FirstOrDefault();
         }
+        
+        public EFMeasureDevice Get(string IPAddress)
+        {
+            return FindByCondition(md => md.Name.CompareTo(IPAddress)==0).FirstOrDefault();
+        }
+
+        public EFMeasureDevice GetByIPAddress(string IPAdress)
+        {
+            return FindByCondition(md => md.Name.CompareTo(IPAdress)==0).FirstOrDefault();
+        }
 
         public IQueryable<EFMeasureDevice> GetAll()
         {
@@ -33,18 +45,57 @@ namespace MeasuringServer.Repository
 
         public void Insert(EFMeasureDevice md)
         {
+            //int id = FindAll().ToList().Select(md => md.Id).Max() + 1;
+            //Console.WriteLine(id);
+            //md.Id = id;
             Create(md);
+        }
+
+
+        public void Update(int id, long measuringInterval)
+        {
+            EFMeasureDevice selecteddevice = Get(id);
+            if (selecteddevice != null && selecteddevice.Name.Length != 0)
+            {
+                selecteddevice.Interval = measuringInterval;
+                Update(id, selecteddevice);
+            }                
+        }
+
+        public void Update(EFMeasureDevice entity)
+        {
+            Update(entity.Id, entity);
         }
 
         public bool IsExsist(EFMeasureDevice device)
         {
             EFMeasureDevice selecteddevice = Get(device.Id);
-            if (selecteddevice != null)
+            if (selecteddevice != null && selecteddevice.Name.Length != 0)
             {
                 return (selecteddevice.Name == string.Empty);
             }
             else
                 return false;
         }
+
+        public int CountOfDevices()
+        {
+            return FindAll().Count();
+        }
+
+        public bool IsExsist(string IPAddress)
+        {
+            if (CountOfDevices() == 0)
+                return false;
+            EFMeasureDevice selecteddevice = Get(IPAddress);            
+            if (selecteddevice != null && selecteddevice.Name.Length != 0)
+            {
+                return (selecteddevice.Name.Length>0);
+            }
+            else
+                return false;
+        }
+
+
     }
 }

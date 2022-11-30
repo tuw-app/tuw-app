@@ -10,6 +10,7 @@
     <PackageReference Include="System.Net.Http.Json" Version="3.2.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\mata-model\DataModel.csproj" />
     <ProjectReference Include="..\measuring-device-service-api\MeasureDeviceServiceAPIProject.csproj" />
     <ProjectReference Include="..\measuring-device\MeasureDeviceProject.csproj" />
     <ProjectReference Include="..\measuring-server\MeasuringServer.csproj" />

@@ -4,6 +4,7 @@ using System.Data;
 using System.IO;
 using System.Security.Permissions;
 using System.Text;
+using DataModel.MDDataModel;
 using MeasureDeviceProject.BackgraoundService;
 using MeasureDeviceProject.Model;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;

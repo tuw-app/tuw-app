@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using MeasureDeviceProject.BackgraoundService;
 using Microsoft.Extensions.Logging;
-using MeasureDeviceServiceAPIProject.Model;
+using DataModel.MDDataModel;
 
 namespace MeasureDeviceServiceAPIProject.APIService
 {
@@ -27,7 +27,7 @@ namespace MeasureDeviceServiceAPIProject.APIService
             UriBuilder u = new UriBuilder();
             u.Scheme= "http";
             u.Host = "localhost";
-            u.Path = "CPUUsage/api/cpuusage";
+            u.Path = "/api/cpuusage";
             u.Port = 5001;
 
             logger.LogInformation("CPUAPIService -> Uri is {Uri}", u.ToString());

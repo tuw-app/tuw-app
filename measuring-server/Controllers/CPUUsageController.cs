@@ -3,16 +3,16 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-using MeasureDeviceServiceAPIProject.Model;
-using MeasuringServer.Model;
 using MeasuringServer.Repository;
 using System.Collections.Generic;
 using MeasuringServer.Model.Paging;
 using System.Linq;
+using DataModel.EFDataModel;
+using DataModel.MDDataModel;
 
 namespace MeasuringServer.Controllers
 {
-    [Route("[controller]")]
+    //Route("[controller]")]
     [ApiController]
     public class CPUUsageController : Controller
     {
@@ -47,7 +47,7 @@ namespace MeasuringServer.Controllers
                     }
                     else
                     {
-                        if (IPAddress == string.Empty)
+                        if (IPAddress.Length==0)
                         {
                             // Get all
                             logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->Gets all {count} cpu usages", CPUUsages.Count);
@@ -80,7 +80,7 @@ namespace MeasuringServer.Controllers
 
 
         [HttpPost("api/cpuusage", Name = "Insert new cpu usage")]
-        public async Task<IActionResult> InsertNewCpuUsage([FromBody] MDSendedDataFromDeviceToServer data)
+        public async Task<IActionResult> InsertNewCPUUsage([FromBody] MDSendedDataFromDeviceToServer data)
         {
 
             if (string.IsNullOrEmpty(data.ToString()))

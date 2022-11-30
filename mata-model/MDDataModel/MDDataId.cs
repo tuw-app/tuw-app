@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
-namespace MeasureDeviceProject.Model
+namespace DataModel.MDDataModel
 {
 
     /// <summary>

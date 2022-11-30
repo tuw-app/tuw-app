@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MeasureDeviceServiceAPIProject.Model
+namespace DataModel.MDDataModel
 {
     public class MDSendedDataFromDeviceToServer
     {

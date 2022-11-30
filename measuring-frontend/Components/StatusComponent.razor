@@ -1,72 +1,194 @@
 ﻿@page "/status"
-
+@using DataModel.EFDataModel;
+@using DataModel.MDDataModel;
 @using MeasureFrontend.Services;
-@using MeasuringServer.Model;
+
 
 @inject IAPIMeasureDeviceService APIMeasureDeviceService;
+@inject IMDStateService MDStateService;
+@inject IMDControllingService MDControllingService;
+
 @inject NavigationManager UriHelper
 
-<h3>Mérőelem stásuszok</h3>
-    @if (devices==null) {
+
+<div class="container bg-light text-bg-dark">
+
+    <h3>Mérőelem státuszok</h3>
+    <p>
+        <button class="btn btn-info" @onclick="this.RefreshState">Adatok frissítése</button>
+    </p>
+    @if (devices==null) 
+    {
          <p>Az adatok betöltés alatt...</p>
     }
     else
     {
-        @if (@devices.Count==0)
+        @if (devices.Count==0)
         {
         <p>Nincs elem az adatbázisban</p>
         }
         else
         {
-            <p>Az adatábzisban @devices.Count mérő elemet találtam.</p>    
-         
+            <p class="text-bg-primary">Az utolsó frissítés ideje: @refreshTime.ToString("yyyy.mm.dd dddd HH:mm:ss,ffff")</p>
+            <p>Az adatábzisban @devices.Count mérő elemet találtam.</p>
+
+            if ((@controlStatus!=null) && (@controlStatus.Length > 0))
+            {
+                <p class="text-bg-success">@controlStatus</p>
+            }
             <div class="container">
                 <div class="table-wrapper">
-                    
+
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-6">
-                            <h2><b>Mérőeszközök</b> kezelése</h2>
+                                <h2><b>Mérőeszközök</b> kezelése</h2>
                             </div>
                         </div>
                     </div>
-
                     <table class="table table-striped table-hover">
-					    <thead>
-						    <tr>
-							    <th>IP cím</th>
-							    <th>Működés</th>
-							    <th>Mérés</th>
-							    <th>CPU mérési adatok</th>
+                        <thead>
+                                <th>IP cím</th>
+                                <th>Mérési intervallum (ms)</th>
+                                <th>Működés</th>
+                                <th>Mérés</th>
+                                <th>Működés vezérlés</th>
+                                <th>Mérés vezérlés</th>
+                                <th>CPU mérési adatok</th>
                                 <th>Hémérséklet mérési adatok</th>
-						    </tr>
-					    </thead>
+                        </thead>
 
-                        @foreach(EFMeasureDevice device in devices)
+                        @foreach (EFMeasureDevice device in devices)
                         {
                             <tr>
+                                 <!-- IP cím-->
                                 <td>@device.Name</td>
-                                <td>Működés</td>
-                                <td>Mérés</td>
-                                <td> <a href="@($"md/cpu/{device.Name}")"><span class="oi oi-data-transfer-download"></span></a></td>
-                                <td>...</td>
+                                <!-- intervallum-->
+                                <td>@device.Interval</td>
+
+                                @if (device == null || deviceStates == null || !(deviceStates.Keys.Contains(device.Name)))
+                                {
+                                    <td>Nincs infomráció</td>
+                                    <td>Nincs információ.</td>
+                                    <td>Nincs információ.</td>
+
+                                }
+                                else
+                                {
+                                    <!--Működés -->
+                                    <td>
+                                        @if (@deviceStates[device.Name].IsWorking)
+                                        {
+                                            <p> működik</p>
+                                        }
+                                        else
+                                        {
+                                            <p> nem működik</p>
+                                        }
+                                    </td>
+                                    <!--Mérés -->
+                                    <td>
+                                        @if (@deviceStates[device.Name].IsMeasuring)
+                                        {
+                                            <p> mér</p>
+                                        }
+                                        else
+                                        {
+                                            <p> nem mér</p>
+                                        }
+                                    </td>
+                                    <!--Működés control-->
+                                    <td>
+                                        @if (deviceStates[@device.Name].IsWorking)
+                                        {
+                                            <button class="btn btn-info" @onclick='( () => this.StateControl("stop",device.Name))'>Működés leállítás</button>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-info" @onclick='( () => this.StateControl("start",device.Name))'>Működés indítás</button>
+                                        }
+                                    </td>
+                                    <!--Mérés control-->
+                                    <td>
+                                        @if (deviceStates[@device.Name].IsWorking)
+                                        {
+                                            @if (deviceStates[@device.Name].IsMeasuring)
+                                            {
+                                                <button class="btn btn-info" @onclick='( () => this.StateControl("nomeasuring",device.Name))'>Mérés leállítás</button>
+                                            }
+                                            else
+                                            {
+                                                <button class="btn btn-info" @onclick='(() => this.StateControl("measuring",device.Name))'>Mérés indítás</button>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <p>Nem működő elem nem mér.</p>
+                                        }
+                                    </td>
+                                    <td> <a href="@($"md/cpu/{device.Name}")"><span class="oi oi-data-transfer-download"></span></a></td>
+                                    <td> Hőmérésklet</td>
+                                }
                             </tr>
-                        }
-                </table>
-            </div>
+                        }                   
+                    </table>                 
+                </div>
             </div>
         }
-    }
-    
-    
+    }   
+
+</div>
 
 @code {
-    private List<EFMeasureDevice> devices;
+    private DateTime refreshTime = DateTime.Now;
+    private String controlStatus = null;
+
+    private List<EFMeasureDevice> devices = new List<EFMeasureDevice>();
+    private Dictionary<string, MDState> deviceStates = null;
+
+    private MDState currendState=null;
+
+    private MDFormInterval MDCurrendInterval { get; set; }
+
+
 
     protected override async Task OnInitializedAsync()
     {
+        await RefreshState();
+    }        
+
+    private async Task RefreshState()
+    {
+        refreshTime = DateTime.Now;
         devices = await MDService.GetAllMeasureDevices();
+
         if (devices == null)
+        {
             devices = new List<EFMeasureDevice>();
+        }        
+        else
+        {
+            deviceStates = new Dictionary<string, MDState>();
+            foreach (EFMeasureDevice device in devices)
+            {
+                MDState deviesStates = await MDStateService.GetMdSatates(device.Name);
+                if (!deviceStates.Keys.Contains(device.Name))
+                    deviceStates.Add(device.Name, deviesStates);
+            }
+        }
+    }
+
+    private async Task StateControl(string controlCommand, string IPAddres)
+    {
+        controlStatus = string.Empty;
+        if (await MDControllingService.ControlDevice(controlCommand, IPAddres))
+        {
+            controlStatus = $"Sikeres: {IPAddres} {controlCommand}";
+            await RefreshState();
+        }
+        else
+        {
+            controlStatus = $"Sikertelen: {IPAddres} {controlCommand}";
+        }
     }
 }

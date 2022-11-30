@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "1803af82-b222-446f-bb6e-cb89abf09482",
+		"name": "Measure device",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MD - getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/MeasureDevice/api/md",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"MeasureDevice",
+						"api",
+						"md"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MD - post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\" : 1,\r\n    \"name\" : \"10.10.10.10\",\r\n    \"mdinterval\" : 1000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5001/api/md",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"md"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MD - State-10",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/state/10.10.10.10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"state",
+						"10.10.10.10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MD - State-20",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/state/10.10.10.10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"state",
+						"10.10.10.10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MD - State-30",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/state/10.10.10.10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"state",
+						"10.10.10.10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stop 10",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Start 10",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Stop 20",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Stop 30",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/stop/30.30.30.30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"stop",
+						"30.30.30.30"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stop Measure 10",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/nomeasuring/10.10.10.10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"nomeasuring",
+						"10.10.10.10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start Measure 10",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/nomeasuring/10.10.10.10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"nomeasuring",
+						"10.10.10.10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MD - 10 Interval",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"interval\" : 8000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/interval/10.10.10.10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"interval",
+						"10.10.10.10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
