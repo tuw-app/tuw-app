@@ -51,23 +51,24 @@ namespace MeasureDeviceProject.Model
         // Az utolsó mérés időbélyege még az aktuális forgóban van-e?
         public bool IsTheMesureTimeStampGood(DateTime actutalMeasure)
         { 
+            // BUG 23:59
             if (storePeriod==StorePeriod.EveryMinit)
             {
-                if (actutalMeasure.Minute > actulMeasureFileTimeStamp.Minute)
+                if (actulMeasureFileTimeStamp.Minute != actutalMeasure.Minute)
                     return false;
                 else
                     return true;
             }
             else if (storePeriod == StorePeriod.EveryHour)
             {
-                if (actutalMeasure.Hour > actulMeasureFileTimeStamp.Hour)
+                if (actutalMeasure.Hour != actulMeasureFileTimeStamp.Hour)
                     return false;
                 else
                     return true;
             }
             else  //if (storePeriod == StorePeriod.EveryDay)
             {
-                if (actutalMeasure.Day > actulMeasureFileTimeStamp.Day)
+                if (actutalMeasure.Day != actulMeasureFileTimeStamp.Day)
                     return false;
                 else
                     return true;
