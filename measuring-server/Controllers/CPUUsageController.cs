@@ -27,10 +27,11 @@ namespace MeasuringServer.Controllers
             this.wrapper = wrapper;
         }
 
-        [HttpGet("api/cpuusage/{IPAddress}/{Page}/{PageSize}", Name="Get cpu usage of specific device paged")]
-        public IActionResult GetAllCPUUsageOfSpecificDevicePaged(string IPAddress,int page, int pageSize)
+        [HttpGet("api/cpuusage/{IPAddress}/{Page}/{PageSize}/{StartDate}/{EndDate}", Name="Get cpu usage of specific device paged")]
+        public IActionResult GetAllCPUUsageOfSpecificDevicePaged(string IPAddress, int page, int pageSize, DateTime startDate, DateTime endDate)
         {
             logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->Get cpu usage of specific device paged, IPAddress: {Address}, page: {page}", IPAddress, page);
+            logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->Get cpu usage of specific device paged, StartDate: {StartDate}, End: {page}", startDate, endDate);
 
             List<EFCPUUsage> CPUUsages = null;
             PagedList<EFCPUUsage> CPUUsagesPaged = null;
@@ -39,7 +40,7 @@ namespace MeasuringServer.Controllers
                 if (pageSize == 0 || page==0)
                 {
                     // No paged
-                    CPUUsages = wrapper.CPUDatas.GetAllCPUUsage();
+                    CPUUsages = wrapper.CPUDatas.GetAllCPUUsage(IPAddress, startDate,endDate);
                     if (CPUUsages == null)
                     {
                         logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->No CPU Usages");
@@ -49,7 +50,7 @@ namespace MeasuringServer.Controllers
                     {
                         if (IPAddress.Length==0)
                         {
-                            // Get all
+                            // No IPAddress
                             logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->Gets all {count} cpu usages", CPUUsages.Count);
                             return Ok(CPUUsages);
                         }
@@ -64,7 +65,7 @@ namespace MeasuringServer.Controllers
                 else
                 {
                     // Get all paged
-                    CPUUsagesPaged = wrapper.CPUDatas.GetAllCPUUsageOfSpecificDevicePaged(IPAddress, page, pageSize);
+                    CPUUsagesPaged = wrapper.CPUDatas.GetAllCPUUsageOfSpecificDevicePaged(IPAddress,  startDate,  endDate, page, pageSize);
                     logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->Gets paged {PageInfo} cpu usages",CPUUsagesPaged.ToString());
                 }
 

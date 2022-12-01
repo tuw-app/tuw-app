@@ -107,6 +107,7 @@ namespace MeasureDeviceServiceAPIProject.Service.SendDataToServer
             }
         }
 
+
         private void SnipetTextFileToBak()
         {
             try

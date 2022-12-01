@@ -15,45 +15,42 @@
     <p><a href="status"><span class="oi oi-aperture"></span>Vissza a mérőelemekhez</a></p>
     @if (CPUUsages == null)
     {
-         <p>Az adatok betöltés alatt...</p>
+        <p>Az adatok betöltés alatt...</p>
     }
     else
     {
-        <EditForm Model="startDateTime">
-            <div class="col-md-6">
-                <label for="startDateTime">
-                    Kezdő intervallum
-                </label>
-                <InputDate @bind-Value="startDateTime" @bind-Value:format="yyyy-MM-dd hh:mm:ss,fff" class="form-control"></InputDate>
-             </div>
-             <div class="col-md-6">
-             </div>
-
-        </EditForm>
+ 
 
 
-        <table>
+        <div class="container" style="margin-top:20px">
+            <div class="row">
+                <div class="col-sm">
+                    <p>Az intervallum kezdete: @StartDateTimeStr</p>
+                    <label for="startDateTime">
+                        Intervallum kezdete:
+                    </label>
+                    <input type="datetime-local" @bind="@startDateTime" step="1" />                    
+                </div>          
 
-            <row>
-                <td>Kezdő intervallum</td>
-                <td>
-                    <div class="col-sm-10">
-          
-                    </div>
-                </td>
-                <td>Záró intervallum</td>
-                <td>
-
-                </td>
-            </row>
-        </table>
+                <div class="col-sm">
+                    <p>Az intervallum vége: @EndDateTimeStr</p>
+                
+                        <label for="startDateTime">
+                            Intervallum vége:
+                        </label>
+                    <input type="datetime-local" @bind="@endDateTime" step="1" />
+                </div>
+            </div>
+        </div>
+        
 
         @if (@CPUUsages.Count == 0)
         {
         <p>Az elemhez nem tartozik mérés.</p>
         }
         else
-        {    
+        {
+
             <div class="container">
                 <div class="table-wrapper">
 
@@ -61,6 +58,27 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <h2><b>Mérőeszközök</b> kezelése</h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                @if (CPUUsages.HavePrevius)
+                                {
+                                    <button class="btn btn-info" @onclick=' () =>PreviousPage()'>Előző</button>
+                                }
+                            </div>
+                            <div class="col-sm">
+                                @if (CPUUsages.HaveNext)
+                                {
+                                    <button class="btn btn-info" @onclick=' () =>NextPage()'>Következő</button>
+                                }
+                            </div>
+
+                            <div class="col-sm">
+                                <button class="btn btn-info" @onclick=' () => this.RefreshData()'>Adatok lekérése</button>
                             </div>
                         </div>
                     </div>
@@ -78,7 +96,7 @@
                         {
                             <tr>
                                 <td>@usage.IPAddress</td>
-                                <td>@usage.MeasureTime.ToString("yyyy-MM-dd hh:mm:ss,fff");</td>
+                                <td>@usage.MeasureTime.ToString("yyyy.MM.dd. HH:mm:ss");</td>
                                 <td>@usage.DataID</td>
                                 <td>@Math.Round(@usage.CPUUsage,3)</td>
                             </tr>
@@ -95,17 +113,53 @@
 
 
 @code {
-    public PagedList<EFCPUUsage> CPUUsages { get; set; }
+    public PagedList<EFCPUUsage> CPUUsages { get; set; } = null;
 
     [Parameter]
     public string? IPAddress { get; set; }
+    private int currentPage = 1;
 
-    private DateTime startDateTime = new DateTime(2022, 10, 10, 2, 10, 20, 30);
-    private DateTime stopDateTime = new DateTime(2022, 11, 12, 3, 40, 30, 20);
+    private DateTime startDateTime = DateTime.Now;
+    private string StartDateTimeStr { get { return startDateTime.ToString("yyyy.MM.dd. HH:mm:ss"); } }
+    private DateTime endDateTime = DateTime.Now;
+    private string EndDateTimeStr { get { return endDateTime.ToString("yyyy.MM.dd. HH:mm:ss"); } }
+
 
     protected async override Task OnInitializedAsync()
     {
-        CPUUsages = await CPUUsageService.GetAllCPUUsages(new MDIPAddress(IPAddress), 1, 30);
+        //https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_datetime-local
+        //https://stackoverflow.com/questions/58023438/cant-set-seconds-value-of-input-type-datetime-local-to-be-0
+
+        startDateTime = DateTime.Now.AddDays(-1);
+
+
+        await RefreshData();
+    }
+
+    protected async Task RefreshData()
+    {
+        Console.WriteLine($"Start: {StartDateTimeStr}");
+        Console.WriteLine($"End: {EndDateTimeStr}");
+        Console.WriteLine($"Current page: {EndDateTimeStr}");
+        CPUUsages = new PagedList<EFCPUUsage>();
+        CPUUsages = await CPUUsageService.GetAllCPUUsages(new MDIPAddress(IPAddress), startDateTime, endDateTime, currentPage, 30);
+
+        Console.WriteLine($"Number of page: {CPUUsages.NumberOfPage}");
+        Console.WriteLine($"Number page: {CPUUsages.Page}");
+        Console.WriteLine($"Total page: {CPUUsages.NumberOfPage }");
+        Console.WriteLine($"Total item: {CPUUsages.NumberOfItem}");
+    }
+
+    private async void NextPage()
+    {
+        currentPage += 1;
+        await RefreshData();
+    }
+
+    private async void PreviousPage()
+    {
+        currentPage -= 1;
+        await RefreshData();
     }
 
 }

@@ -23,12 +23,13 @@ namespace MeasureFrontend.Services
         }
 
 
-        public async Task<PagedList<EFCPUUsage>> GetAllCPUUsages( MDIPAddress IPAddress, int page, int pageSize)
+        public async Task<PagedList<EFCPUUsage>> GetAllCPUUsages( MDIPAddress IPAddress, DateTime startDate, DateTime endDate, int page, int pageSize)
         {
 
             try
             {
-                var response = await httpClient.GetAsync("/api/cpuusage/" + IPAddress.ToString() + "/" + page.ToString() + "/" + pageSize.ToString());
+                Console.WriteLine("Get: "+ "/api/cpuusage/" + IPAddress.ToString() + "/" + page.ToString() + "/" + pageSize.ToString() + "/" + startDate + "/" + endDate);
+                var response = await httpClient.GetAsync("/api/cpuusage/" + IPAddress.ToString() + "/" + page.ToString() + "/" + pageSize.ToString()+"/"+startDate+"/"+endDate);
 
                 var content = response.Content.ReadAsStringAsync();
 
@@ -44,7 +45,8 @@ namespace MeasureFrontend.Services
                     logger.LogInformation("CPUUsageService -> GetAllCPUUsages -> No CPU usages");
                     return new PagedList<EFCPUUsage>();
                 }
-            } catch (Exception ex)
+            } 
+            catch (Exception ex)
             {
                 logger.LogError(ex.Message);
                 return new PagedList<EFCPUUsage>();

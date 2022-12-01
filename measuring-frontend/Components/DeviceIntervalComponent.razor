@@ -54,34 +54,25 @@ else
                                     if (newDeviceInterval[device.Name].Interval > 0)
                                     {
                                         
-                                            <td><center>@newDeviceInterval[device.Name].Interval ms</center></td>
-                                            <!--
-                                            <td>
-                                                <div class="form-group">
-                                                    <label>Új intervallum megadása és küldése:</label>                                                            
-                                                    <input type="text" value="@currentInterval" class="form-control" @onchange="RenderData" />
-                                                    <button class="btn btn-info" @onclick='( () => this.Send(device.Name))'>Küldés</button>
-                                                </div>
-                                            </td>
-                                            -->
-                                            <td>
-                                                <EditForm Model="@newDeviceInterval[device.Name]" OnValidSubmit="@HanleadValidIntervalSubmit" OnInvalidSubmit="@HanleadInvalidIntervalSubmit">
-                                                <DataAnnotationsValidator />
-                                                    @if (errorMassage)
-                                                    {
-                                                        <div>
-                                                            <p><label>Hibaüzenet:</label><ValidationSummary /></p>
-                                                        </div>
-                                                    }
-                                                        <div>
-                                                            <label for="formInterval">Új intervallum megadása és küldése:</label>
-                                                            <InputNumber id="formInterval" @bind-Value="@newDeviceInterval[device.Name].Interval"></InputNumber>
-                                                            <ValidationMessage For="@( () => newDeviceInterval[device.Name].Interval )" />
-                                                            <tr><td><p class="text-right"><button type="submit" class="btn btn-info" Style="margin-top:10px">Küldés</button></p></td></tr>
+                                        <td><center>@newDeviceInterval[device.Name].Interval ms</center></td>
+                                        <td>
+                                            <EditForm Model="@newDeviceInterval[device.Name]" OnValidSubmit="@HanleadValidIntervalSubmit" OnInvalidSubmit="@HanleadInvalidIntervalSubmit">
+                                            <DataAnnotationsValidator />
+                                                @if (errorMassage)
+                                                {
+                                                    <div>
+                                                        <p><label>Hibaüzenet:</label><ValidationSummary /></p>
+                                                    </div>
+                                                }
+                                                    <div>
+                                                        <label for="formInterval">Új intervallum megadása és küldése:</label>
+                                                        <InputNumber id="formInterval" @bind-Value="@newDeviceInterval[device.Name].Interval"></InputNumber>
+                                                        <ValidationMessage For="@( () => newDeviceInterval[device.Name].Interval )" />
+                                                        <tr><td><p class="text-right"><button type="submit" class="btn btn-info" Style="margin-top:10px">Küldés</button></p></td></tr>
 
-                                                        </div>
-                                                 </EditForm>
-                                            </td>
+                                                    </div>
+                                                </EditForm>
+                                        </td>
 
                                     }
                                     else

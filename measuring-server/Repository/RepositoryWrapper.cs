@@ -1,6 +1,7 @@
 ﻿using MeasuringServer.Controllers;
 using MeasuringServer.Model;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Threading.Tasks;
 
 namespace MeasuringServer.Repository 
@@ -46,8 +47,15 @@ namespace MeasuringServer.Repository
 
 
         public async Task SaveAsync()
-        {            
-            await context.SaveChangesAsync();
+        {
+            try
+            {
+                await context.SaveChangesAsync();
+            }
+            catch(Exception e)
+            {
+                logger.LogError("RepositoryWrapper->SaveAsync:", e.Message);
+            }
         }
     }
 }
