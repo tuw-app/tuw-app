@@ -3,6 +3,7 @@ using MeasuringServer.Model;
 using MeasuringServer.Repository.Base;
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace MeasuringServer.Repository
 {
@@ -17,7 +18,7 @@ namespace MeasuringServer.Repository
         public void Delete(int id)
         {
             EFMeasureDevice md = Get(id);
-            if (md != null || md.Name!=string.Empty)
+            if (md != null || md.Name != string.Empty)
             {
                 Delete(md);
             }
@@ -25,17 +26,17 @@ namespace MeasuringServer.Repository
 
         public EFMeasureDevice Get(long id)
         {
-            return FindByCondition(md=>md.Id== id).FirstOrDefault();
+            return FindByCondition(md => md.Id == id).FirstOrDefault();
         }
-        
+
         public EFMeasureDevice Get(string IPAddress)
         {
-            return FindByCondition(md => md.Name.CompareTo(IPAddress)==0).FirstOrDefault();
+            return FindByCondition(md => md.Name.CompareTo(IPAddress) == 0).FirstOrDefault();
         }
 
         public EFMeasureDevice GetByIPAddress(string IPAdress)
         {
-            return FindByCondition(md => md.Name.CompareTo(IPAdress)==0).FirstOrDefault();
+            return FindByCondition(md => md.Name.CompareTo(IPAdress) == 0).FirstOrDefault();
         }
 
         public IQueryable<EFMeasureDevice> GetAll()
@@ -54,12 +55,19 @@ namespace MeasuringServer.Repository
 
         public void Update(int id, long measuringInterval)
         {
-            EFMeasureDevice selecteddevice = Get(id);
-            if (selecteddevice != null && selecteddevice.Name.Length != 0)
+            try
             {
-                selecteddevice.Interval = measuringInterval;
-                Update(id, selecteddevice);
-            }                
+                EFMeasureDevice selecteddevice = Get(id);
+                if (selecteddevice != null && selecteddevice.Name.Length != 0)
+                {
+                    selecteddevice.Interval = measuringInterval;
+                    Update(id, selecteddevice);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public void Update(EFMeasureDevice entity)
@@ -69,13 +77,22 @@ namespace MeasuringServer.Repository
 
         public bool IsExsist(EFMeasureDevice device)
         {
-            EFMeasureDevice selecteddevice = Get(device.Id);
-            if (selecteddevice != null && selecteddevice.Name.Length != 0)
+            try
             {
-                return (selecteddevice.Name == string.Empty);
+                EFMeasureDevice selecteddevice = Get(device.Id);
+                if (selecteddevice != null && selecteddevice.Name.Length != 0)
+                {
+                    return (selecteddevice.Name == string.Empty);
+                }
+                else
+                    return false;
             }
-            else
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
                 return false;
+            }
         }
 
         public int CountOfDevices()
@@ -85,15 +102,23 @@ namespace MeasuringServer.Repository
 
         public bool IsExsist(string IPAddress)
         {
-            if (CountOfDevices() == 0)
-                return false;
-            EFMeasureDevice selecteddevice = Get(IPAddress);            
-            if (selecteddevice != null && selecteddevice.Name.Length != 0)
+            try
             {
-                return (selecteddevice.Name.Length>0);
+                if (CountOfDevices() == 0)
+                    return false;
+                EFMeasureDevice selecteddevice = Get(IPAddress);
+                if (selecteddevice != null && selecteddevice.Name.Length != 0)
+                {
+                    return (selecteddevice.Name.Length > 0);
+                }
+                else
+                    return false;
             }
-            else
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
                 return false;
+            }
         }
 
 

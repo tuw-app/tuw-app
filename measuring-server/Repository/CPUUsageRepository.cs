@@ -22,11 +22,11 @@ namespace MeasuringServer.Repository
 
         public void CreateCPUUsage(EFCPUUsage cpuUsage)
         {
-            try { 
-                
+            try {
+
                 Create(cpuUsage);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -49,15 +49,24 @@ namespace MeasuringServer.Repository
 
         public EFCPUUsage GetCPUUsageById(MDDataId id)
         {
-            Console.WriteLine($"Serched id:{id}");
-            var all = FindAll();
-            foreach(EFCPUUsage usage in all)
+            try
             {
-                MDDataId otherID = usage.GetId();
-                if (otherID.Equals(id))
-                    return usage;
+                Console.WriteLine($"Serched id:{id}");
+                var all = FindAll();
+                foreach (EFCPUUsage usage in all)
+                {
+                    MDDataId otherID = usage.GetId();
+                    if (otherID.Equals(id))
+                        return usage;
+                }
+                return new EFCPUUsage();
             }
-            return new EFCPUUsage();
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return new EFCPUUsage();
+            }
 
             //return FindByCondition(cpuUsage => cpuUsage.GetId().Equals(id))
             //            .FirstOrDefault();
@@ -65,26 +74,44 @@ namespace MeasuringServer.Repository
 
         public bool IsExsist(MDDataId CPUUsageID)
         {
-            EFCPUUsage data=GetCPUUsageById(CPUUsageID);
-            if (data.IdIsOk())
+            try
+            {
+                EFCPUUsage data = GetCPUUsageById(CPUUsageID);
+                if (data.IdIsOk())
+                    return false;
+                else return true;
+            }
+            
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
                 return false;
-            else return true;
+            }
         }
 
         public PagedList<EFCPUUsage> GetAllCPUUsageOfSpecificDevicePaged(string IPAddress, int page, int pagesize)
         {
-            PagedList<EFCPUUsage> result = new PagedList<EFCPUUsage>();
-            result.List= FindAll()
-                .Where(cpuUsage => cpuUsage.IPAddress== IPAddress)
-                .Skip((page - 1) * pagesize)
-                .Take(pagesize)
-                .OrderBy(cpuusage => cpuusage.IPAddress)
-                .ThenBy(cpuusage => cpuusage.MeasureTime)
-                .ThenBy(cpuusage => cpuusage.DataID)
-                .ToList();
-            result.SetPageData(page, pagesize,FindAll().Where(cpuUsage => cpuUsage.IPAddress == IPAddress).ToList().Count);
-            return result;
-            
+            try
+            {
+                PagedList<EFCPUUsage> result = new PagedList<EFCPUUsage>();
+                result.List = FindAll()
+                    .Where(cpuUsage => cpuUsage.IPAddress == IPAddress)
+                    .Skip((page - 1) * pagesize)
+                    .Take(pagesize)
+                    .OrderBy(cpuusage => cpuusage.IPAddress)
+                    .ThenBy(cpuusage => cpuusage.MeasureTime)
+                    .ThenBy(cpuusage => cpuusage.DataID)
+                    .ToList();
+                result.SetPageData(page, pagesize, FindAll().Where(cpuUsage => cpuUsage.IPAddress == IPAddress).ToList().Count);
+                return result;
+            }                        
+            catch(Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+                return new PagedList<EFCPUUsage>();
+            }
+
         }
     }
 }
