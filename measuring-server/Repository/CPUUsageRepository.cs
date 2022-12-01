@@ -40,9 +40,10 @@ namespace MeasuringServer.Repository
         {
         }
 
-        public List<EFCPUUsage> GetAllCPUUsage()
+        public List<EFCPUUsage> GetAllCPUUsage(string IPAddress, DateTime startDate, DateTime endDate)
         {
             return FindAll()
+                        .Where(u => u.IPAddress==IPAddress &&  u.MeasureTime>startDate && u.MeasureTime<endDate)
                         .OrderBy(u => u.IPAddress).ThenBy(u => u.MeasureTime).ThenBy(u => u.DataID)
                         .ToList();
         }
@@ -89,13 +90,13 @@ namespace MeasuringServer.Repository
             }
         }
 
-        public PagedList<EFCPUUsage> GetAllCPUUsageOfSpecificDevicePaged(string IPAddress, int page, int pagesize)
+        public PagedList<EFCPUUsage> GetAllCPUUsageOfSpecificDevicePaged(string IPAddress, DateTime startDate, DateTime endDate, int page, int pagesize)
         {
             try
             {
                 PagedList<EFCPUUsage> result = new PagedList<EFCPUUsage>();
                 result.List = FindAll()
-                    .Where(cpuUsage => cpuUsage.IPAddress == IPAddress)
+                    .Where(cpuUsage => cpuUsage.IPAddress == IPAddress && cpuUsage.MeasureTime > startDate && cpuUsage.MeasureTime < endDate)
                     .Skip((page - 1) * pagesize)
                     .Take(pagesize)
                     .OrderBy(cpuusage => cpuusage.IPAddress)

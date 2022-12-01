@@ -15,11 +15,14 @@
     <p><a href="status"><span class="oi oi-aperture"></span>Vissza a mérőelemekhez</a></p>
     @if (CPUUsages == null)
     {
-         <p>Az adatok betöltés alatt...</p>
+        <p>Az adatok betöltés alatt...</p>
     }
     else
     {
-        <div class="container">
+ 
+
+
+        <div class="container" style="margin-top:20px">
             <div class="row">
                 <div class="col-sm">
                     <p>Az intervallum kezdete: @StartDateTimeStr</p>
@@ -40,32 +43,14 @@
             </div>
         </div>
         
-        <div>
-            <button class="btn btn-info" @onclick=' () => this.RefressData()'></button>
-        </div>
-
-        <table>
-
-            <row>
-                <td>Kezdő intervallum</td>
-                <td>
-                    <div class="col-sm-10">
-          
-                    </div>
-                </td>
-                <td>Záró intervallum</td>
-                <td>
-
-                </td>
-            </row>
-        </table>
 
         @if (@CPUUsages.Count == 0)
         {
         <p>Az elemhez nem tartozik mérés.</p>
         }
         else
-        {    
+        {
+
             <div class="container">
                 <div class="table-wrapper">
 
@@ -73,6 +58,27 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <h2><b>Mérőeszközök</b> kezelése</h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                @if (CPUUsages.HavePrevius)
+                                {
+                                    <button class="btn btn-info" @onclick=' () =>PreviousPage()'>Előző</button>
+                                }
+                            </div>
+                            <div class="col-sm">
+                                @if (CPUUsages.HaveNext)
+                                {
+                                    <button class="btn btn-info" @onclick=' () =>NextPage()'>Következő</button>
+                                }
+                            </div>
+
+                            <div class="col-sm">
+                                <button class="btn btn-info" @onclick=' () => this.RefreshData()'>Adatok lekérése</button>
                             </div>
                         </div>
                     </div>
@@ -107,10 +113,11 @@
 
 
 @code {
-    public PagedList<EFCPUUsage> CPUUsages { get; set; }
+    public PagedList<EFCPUUsage> CPUUsages { get; set; } = null;
 
     [Parameter]
     public string? IPAddress { get; set; }
+    private int currentPage = 1;
 
     private DateTime startDateTime = DateTime.Now;
     private string StartDateTimeStr { get { return startDateTime.ToString("yyyy.MM.dd. HH:mm:ss"); } }
@@ -123,14 +130,36 @@
         //https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_datetime-local
         //https://stackoverflow.com/questions/58023438/cant-set-seconds-value-of-input-type-datetime-local-to-be-0
 
-        Console.WriteLine($"Start: {StartDateTimeStr}");
-        Console.WriteLine($"End: {EndDateTimeStr}");
-        CPUUsages = await CPUUsageService.GetAllCPUUsages(new MDIPAddress(IPAddress), 1, 30);
+        startDateTime = DateTime.Now.AddDays(-1);
+
+
+        await RefreshData();
     }
 
-    protected async void RefressData()
+    protected async Task RefreshData()
     {
-        
+        Console.WriteLine($"Start: {StartDateTimeStr}");
+        Console.WriteLine($"End: {EndDateTimeStr}");
+        Console.WriteLine($"Current page: {EndDateTimeStr}");
+        CPUUsages = new PagedList<EFCPUUsage>();
+        CPUUsages = await CPUUsageService.GetAllCPUUsages(new MDIPAddress(IPAddress), startDateTime, endDateTime, currentPage, 30);
+
+        Console.WriteLine($"Number of page: {CPUUsages.NumberOfPage}");
+        Console.WriteLine($"Number page: {CPUUsages.Page}");
+        Console.WriteLine($"Total page: {CPUUsages.NumberOfPage }");
+        Console.WriteLine($"Total item: {CPUUsages.NumberOfItem}");
+    }
+
+    private async void NextPage()
+    {
+        currentPage += 1;
+        await RefreshData();
+    }
+
+    private async void PreviousPage()
+    {
+        currentPage -= 1;
+        await RefreshData();
     }
 
 }

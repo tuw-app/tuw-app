@@ -39,6 +39,16 @@ namespace MeasuringServer.Model.Paging
             }
         }
 
+        public bool HavePrevius
+        {
+            get { return page > 0; }
+        }
+
+        public bool HaveNext
+        {
+            get { return page < NumberOfPage; }
+        }
+
         List<T> list;
         public List<T> List
         {
