@@ -19,18 +19,30 @@
     }
     else
     {
-        <EditForm Model="startDateTime">
-            <div class="col-md-6">
-                <label for="startDateTime">
-                    Kezdő intervallum
-                </label>
-                <InputDate @bind-Value="startDateTime" @bind-Value:format="yyyy-MM-dd hh:mm:ss,fff" class="form-control"></InputDate>
-             </div>
-             <div class="col-md-6">
-             </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <p>Az intervallum kezdete: @StartDateTimeStr</p>
+                    <label for="startDateTime">
+                        Intervallum kezdete:
+                    </label>
+                    <input type="datetime-local" @bind="@startDateTime" step="1" />                    
+                </div>          
 
-        </EditForm>
-
+                <div class="col-sm">
+                    <p>Az intervallum vége: @EndDateTimeStr</p>
+                
+                        <label for="startDateTime">
+                            Intervallum vége:
+                        </label>
+                    <input type="datetime-local" @bind="@endDateTime" step="1" />
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <button class="btn btn-info" @onclick=' () => this.RefressData()'></button>
+        </div>
 
         <table>
 
@@ -78,7 +90,7 @@
                         {
                             <tr>
                                 <td>@usage.IPAddress</td>
-                                <td>@usage.MeasureTime.ToString("yyyy-MM-dd hh:mm:ss,fff");</td>
+                                <td>@usage.MeasureTime.ToString("yyyy.MM.dd. HH:mm:ss");</td>
                                 <td>@usage.DataID</td>
                                 <td>@Math.Round(@usage.CPUUsage,3)</td>
                             </tr>
@@ -100,12 +112,25 @@
     [Parameter]
     public string? IPAddress { get; set; }
 
-    private DateTime startDateTime = new DateTime(2022, 10, 10, 2, 10, 20, 30);
-    private DateTime stopDateTime = new DateTime(2022, 11, 12, 3, 40, 30, 20);
+    private DateTime startDateTime = DateTime.Now;
+    private string StartDateTimeStr { get { return startDateTime.ToString("yyyy.MM.dd. HH:mm:ss"); } }
+    private DateTime endDateTime = DateTime.Now;
+    private string EndDateTimeStr { get { return endDateTime.ToString("yyyy.MM.dd. HH:mm:ss"); } }
+
 
     protected async override Task OnInitializedAsync()
     {
+        //https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_datetime-local
+        //https://stackoverflow.com/questions/58023438/cant-set-seconds-value-of-input-type-datetime-local-to-be-0
+
+        Console.WriteLine($"Start: {StartDateTimeStr}");
+        Console.WriteLine($"End: {EndDateTimeStr}");
         CPUUsages = await CPUUsageService.GetAllCPUUsages(new MDIPAddress(IPAddress), 1, 30);
+    }
+
+    protected async void RefressData()
+    {
+        
     }
 
 }

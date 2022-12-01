@@ -198,6 +198,7 @@ namespace MeasureDeviceServiceAPIProject.Service
                     }
 
                     // KÜLDÉS A SZERVERNEK
+                    /*
                     HttpStatusCode code = await api.SendNewCPUDataAsync(measuredData.MeasuredCPUDataToStore);
                     if (code != HttpStatusCode.OK)
                     {
@@ -207,6 +208,7 @@ namespace MeasureDeviceServiceAPIProject.Service
                     {
                         Log.Information("MeasureDevice {@IpAddress} -> SUCCESS send immediately to database {Data}", IPAddress.ToString(), measuredData.MeasuredCPUDataToStore);
                     }
+                    */
 
 
                 }
