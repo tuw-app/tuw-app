@@ -1,0 +1,1084 @@
+2022-12-05 10:07:59 [INFO] [] MeasureDevice 30.30.30.30 -> Initialize device...
+2022-12-05 10:07:59 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init
+2022-12-05 10:07:59 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init->Path is d:\tuw\log\
+2022-12-05 10:08:06 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:06 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:07)
+2022-12-05 10:08:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 100%. is added to queue
+2022-12-05 10:08:07 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> Peek first data: CPU usage-> 100%.
+2022-12-05 10:08:07 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> First mesured data: CPU usage-> 100%.
+2022-12-05 10:08:07 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> No sotre file id
+2022-12-05 10:08:07 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> New sotre file id 2022-12-5-10-8.txt
+2022-12-05 10:08:07 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> No CPU data store periodically
+2022-12-05 10:08:07 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> New CPU data store d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:07 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> First Data Id is: 
+2022-12-05 10:08:07 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:07.4510939+01:00" stamp is good.
+2022-12-05 10:08:07 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:07 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:07 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> File not exsist. File created.
+2022-12-05 10:08:07 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:07,451;1;100 stored.
+2022-12-05 10:08:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:09 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:09 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:09 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:09)
+2022-12-05 10:08:09 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:08:09 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:09.6232296+01:00" stamp is good.
+2022-12-05 10:08:09 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:09 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:09 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:09,623;2;75,00399780273438
+2022-12-05 10:08:09 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:09,623;2;75,00399780273438 stored.
+2022-12-05 10:08:09 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:12 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:12 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:12 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:12)
+2022-12-05 10:08:12 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:08:12 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:12.6264845+01:00" stamp is good.
+2022-12-05 10:08:12 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:12 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:12 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:12,626;3;75,00128173828125
+2022-12-05 10:08:12 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:12,626;3;75,00128173828125 stored.
+2022-12-05 10:08:12 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:15 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:15 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:15 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:15)
+2022-12-05 10:08:15 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:08:15 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:15.6331375+01:00" stamp is good.
+2022-12-05 10:08:15 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:15 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:15 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:15,633;4;75,00016021728516
+2022-12-05 10:08:15 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:15,633;4;75,00016021728516 stored.
+2022-12-05 10:08:15 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:18 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:18 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:18 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:18)
+2022-12-05 10:08:18 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 93,02%. is added to queue
+2022-12-05 10:08:18 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:18.6688283+01:00" stamp is good.
+2022-12-05 10:08:18 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:18 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:18 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:18,668;5;93,02423858642578
+2022-12-05 10:08:18 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:18,668;5;93,02423858642578 stored.
+2022-12-05 10:08:18 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:21 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:21 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:21 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:21)
+2022-12-05 10:08:21 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 100%. is added to queue
+2022-12-05 10:08:21 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:21.6637945+01:00" stamp is good.
+2022-12-05 10:08:21 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:21 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:21 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:21,663;6;100
+2022-12-05 10:08:21 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:21,663;6;100 stored.
+2022-12-05 10:08:21 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:24 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:24 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:24 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:24)
+2022-12-05 10:08:24 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 67,45%. is added to queue
+2022-12-05 10:08:24 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:24.6816743+01:00" stamp is good.
+2022-12-05 10:08:24 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:24 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:24 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:24,681;7;67,44722747802734
+2022-12-05 10:08:24 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:24,681;7;67,44722747802734 stored.
+2022-12-05 10:08:24 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:27 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:27 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:27 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:27)
+2022-12-05 10:08:27 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 87,5%. is added to queue
+2022-12-05 10:08:27 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:27.6894248+01:00" stamp is good.
+2022-12-05 10:08:27 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:27 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:27 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:27,689;8;87,50335693359375
+2022-12-05 10:08:27 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:27,689;8;87,50335693359375 stored.
+2022-12-05 10:08:27 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:30 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:30 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:30 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:30)
+2022-12-05 10:08:30 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:08:30 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:30.6953091+01:00" stamp is good.
+2022-12-05 10:08:30 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:30 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:30 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:30,695;9;74,9968032836914
+2022-12-05 10:08:30 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:30,695;9;74,9968032836914 stored.
+2022-12-05 10:08:30 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:33 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:33 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:33 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:33)
+2022-12-05 10:08:33 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:08:33 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:33.7027573+01:00" stamp is good.
+2022-12-05 10:08:33 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:33 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:33 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:33,702;10;74,99935913085938
+2022-12-05 10:08:33 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:33,702;10;74,99935913085938 stored.
+2022-12-05 10:08:33 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:36 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:36 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:36 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:36)
+2022-12-05 10:08:36 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:08:36 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:36.7085697+01:00" stamp is good.
+2022-12-05 10:08:36 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:36 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:36 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:36,708;11;74,99935913085938
+2022-12-05 10:08:36 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:36,708;11;74,99935913085938 stored.
+2022-12-05 10:08:36 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:39 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:39 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:39 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:39)
+2022-12-05 10:08:39 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:08:39 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:39.7136669+01:00" stamp is good.
+2022-12-05 10:08:39 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:39 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:39 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:39,713;12;74,99919891357422
+2022-12-05 10:08:39 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:39,713;12;74,99919891357422 stored.
+2022-12-05 10:08:39 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:42 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:42 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:42 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:42)
+2022-12-05 10:08:42 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75,01%. is added to queue
+2022-12-05 10:08:42 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:42.7236864+01:00" stamp is good.
+2022-12-05 10:08:42 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:42 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:42 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:42,723;13;75,0078353881836
+2022-12-05 10:08:42 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:42,723;13;75,0078353881836 stored.
+2022-12-05 10:08:42 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:45 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:45 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:45 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:45)
+2022-12-05 10:08:45 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 84,98%. is added to queue
+2022-12-05 10:08:45 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:45.7361783+01:00" stamp is good.
+2022-12-05 10:08:45 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:45 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:45 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:45,736;14;84,97731018066406
+2022-12-05 10:08:45 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:45,736;14;84,97731018066406 stored.
+2022-12-05 10:08:45 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:48 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:48 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:48 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:48)
+2022-12-05 10:08:48 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:08:48 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:48.7404360+01:00" stamp is good.
+2022-12-05 10:08:48 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:48 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:48 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:48,740;15;75,00048065185547
+2022-12-05 10:08:48 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:48,740;15;75,00048065185547 stored.
+2022-12-05 10:08:48 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:51 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:51 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:51 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:51)
+2022-12-05 10:08:51 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:08:51 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:51.7581528+01:00" stamp is good.
+2022-12-05 10:08:51 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:51 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:51 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:51,758;16;74,99983978271484
+2022-12-05 10:08:51 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:51,758;16;74,99983978271484 stored.
+2022-12-05 10:08:51 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:54 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:54 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:54 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:54)
+2022-12-05 10:08:54 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 56,61%. is added to queue
+2022-12-05 10:08:54 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:54.7714977+01:00" stamp is good.
+2022-12-05 10:08:54 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:54 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:54 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:54,771;17;56,609683990478516
+2022-12-05 10:08:54 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:54,771;17;56,609683990478516 stored.
+2022-12-05 10:08:54 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:57 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:08:57 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:08:57 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:08:57)
+2022-12-05 10:08:57 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 87,5%. is added to queue
+2022-12-05 10:08:57 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:08:57.7814027+01:00" stamp is good.
+2022-12-05 10:08:57 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:08:57 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:08:57 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> Data is stored: 30.30.30.30;2022-12-05 10:08:57,781;18;87,49983978271484
+2022-12-05 10:08:57 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:08:57,781;18;87,49983978271484 stored.
+2022-12-05 10:08:57 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-8.txt
+2022-12-05 10:09:00 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:00 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:00 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:00)
+2022-12-05 10:09:00 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 100%. is added to queue
+2022-12-05 10:09:00 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:00.7945036+01:00" stamp is expired.
+2022-12-05 10:09:00 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-8.txt -> File is closed
+2022-12-05 10:09:00 [INFO] [] PeriodicallyStoreSystem  -> d:\tuw\log\2022-12-5-10-8.txt is closed.
+2022-12-05 10:09:00 [INFO] [] PeriodicallyStoreSystem  -> 2022-12-5-10-8.txt is closed and new extenstion is bak.
+2022-12-05 10:09:00 [INFO] [] PeriodicallyStoreSystem -> New File id: 2022-12-5-10-9.txt
+2022-12-05 10:09:00 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:00 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:00 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> File not exsist. File created.
+2022-12-05 10:09:00 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:00,794;1;100 stored.
+2022-12-05 10:09:00 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:03 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:03 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:03 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:03)
+2022-12-05 10:09:03 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:09:03 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:03.8051524+01:00" stamp is good.
+2022-12-05 10:09:03 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:03 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:03 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:03,805;2;74,99791717529297
+2022-12-05 10:09:03 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:03,805;2;74,99791717529297 stored.
+2022-12-05 10:09:03 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:06 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:06 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:06 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:06)
+2022-12-05 10:09:06 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:09:06 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:06.8187866+01:00" stamp is good.
+2022-12-05 10:09:06 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:06 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:06 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:06,818;3;75,00160217285156
+2022-12-05 10:09:06 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:06,818;3;75,00160217285156 stored.
+2022-12-05 10:09:06 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:09 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:09 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:09 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:09)
+2022-12-05 10:09:09 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 64,49%. is added to queue
+2022-12-05 10:09:09 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:09.8221635+01:00" stamp is good.
+2022-12-05 10:09:09 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:09 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:09 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:09,822;4;64,48812103271484
+2022-12-05 10:09:09 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:09,822;4;64,48812103271484 stored.
+2022-12-05 10:09:09 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:12 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:12 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:12 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:12)
+2022-12-05 10:09:12 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 100%. is added to queue
+2022-12-05 10:09:12 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:12.8356202+01:00" stamp is good.
+2022-12-05 10:09:12 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:12 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:12 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:12,835;5;100
+2022-12-05 10:09:12 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:12,835;5;100 stored.
+2022-12-05 10:09:12 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:15 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:15 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:15 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:15)
+2022-12-05 10:09:15 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:09:15 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:15.8440379+01:00" stamp is good.
+2022-12-05 10:09:15 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:15 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:15 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:15,844;6;74,9985580444336
+2022-12-05 10:09:15 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:15,844;6;74,9985580444336 stored.
+2022-12-05 10:09:15 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:18 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:18 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:18 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:18)
+2022-12-05 10:09:18 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 100%. is added to queue
+2022-12-05 10:09:18 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:18.8496543+01:00" stamp is good.
+2022-12-05 10:09:18 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:18 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:18 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:18,849;7;100
+2022-12-05 10:09:18 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:18,849;7;100 stored.
+2022-12-05 10:09:18 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:21 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:21 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:21 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:21)
+2022-12-05 10:09:21 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:09:21 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:21.8625200+01:00" stamp is good.
+2022-12-05 10:09:21 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:21 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:21 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:21,862;8;75,0014419555664
+2022-12-05 10:09:21 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:21,862;8;75,0014419555664 stored.
+2022-12-05 10:09:21 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:24 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:24 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:24 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:24)
+2022-12-05 10:09:24 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:09:24 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:24.8636370+01:00" stamp is good.
+2022-12-05 10:09:24 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:24 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:24 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:24,863;9;75,0011215209961
+2022-12-05 10:09:24 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:24,863;9;75,0011215209961 stored.
+2022-12-05 10:09:24 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:27 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:27 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:27 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:27)
+2022-12-05 10:09:27 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 87,5%. is added to queue
+2022-12-05 10:09:27 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:27.8654418+01:00" stamp is good.
+2022-12-05 10:09:27 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:27 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:27 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:27,865;10;87,49983978271484
+2022-12-05 10:09:27 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:27,865;10;87,49983978271484 stored.
+2022-12-05 10:09:27 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:30 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:30 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:30 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:30)
+2022-12-05 10:09:30 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 86,05%. is added to queue
+2022-12-05 10:09:30 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:30.8900010+01:00" stamp is good.
+2022-12-05 10:09:30 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:30 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:30 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:30,890;11;86,0497817993164
+2022-12-05 10:09:30 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:30,890;11;86,0497817993164 stored.
+2022-12-05 10:09:30 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:33 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:33 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:33 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:33)
+2022-12-05 10:09:33 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:09:33 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:33.8928002+01:00" stamp is good.
+2022-12-05 10:09:33 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:33 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:33 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:33,892;12;74,99759674072266
+2022-12-05 10:09:33 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:33,892;12;74,99759674072266 stored.
+2022-12-05 10:09:33 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:36 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:36 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:36 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:36)
+2022-12-05 10:09:36 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 100%. is added to queue
+2022-12-05 10:09:36 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:36.8980646+01:00" stamp is good.
+2022-12-05 10:09:36 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:36 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:36 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:36,898;13;100
+2022-12-05 10:09:36 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:36,898;13;100 stored.
+2022-12-05 10:09:36 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:39 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:39 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:39 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:39)
+2022-12-05 10:09:39 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 93,27%. is added to queue
+2022-12-05 10:09:39 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:39.9339381+01:00" stamp is good.
+2022-12-05 10:09:39 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:39 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:39 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:39,933;14;93,26522064208984
+2022-12-05 10:09:39 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:39,933;14;93,26522064208984 stored.
+2022-12-05 10:09:39 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:42 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:42 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:42 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:42)
+2022-12-05 10:09:42 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:09:42 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:42.9264087+01:00" stamp is good.
+2022-12-05 10:09:42 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:42 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:42 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:42,926;15;75,0025634765625
+2022-12-05 10:09:42 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:42,926;15;75,0025634765625 stored.
+2022-12-05 10:09:42 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:45 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:45 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:45 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:45)
+2022-12-05 10:09:45 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 100%. is added to queue
+2022-12-05 10:09:45 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:45.9377562+01:00" stamp is good.
+2022-12-05 10:09:45 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:45 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:45 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:45,937;16;100
+2022-12-05 10:09:45 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:45,937;16;100 stored.
+2022-12-05 10:09:45 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:48 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:48 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:48 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:48)
+2022-12-05 10:09:48 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 67,44%. is added to queue
+2022-12-05 10:09:48 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:48.9479918+01:00" stamp is good.
+2022-12-05 10:09:48 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:48 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:48 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:48,947;17;67,44316101074219
+2022-12-05 10:09:48 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:48,947;17;67,44316101074219 stored.
+2022-12-05 10:09:48 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:51 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:51 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:51 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:51)
+2022-12-05 10:09:51 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 85,53%. is added to queue
+2022-12-05 10:09:51 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:51.9813258+01:00" stamp is good.
+2022-12-05 10:09:51 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:51 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:51 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:51,981;18;85,53205871582031
+2022-12-05 10:09:51 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:51,981;18;85,53205871582031 stored.
+2022-12-05 10:09:51 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:54 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:54 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:54 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:54)
+2022-12-05 10:09:54 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:09:54 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:54.9919686+01:00" stamp is good.
+2022-12-05 10:09:54 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:54 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:54 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:54,991;19;75,00032043457031
+2022-12-05 10:09:54 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:54,991;19;75,00032043457031 stored.
+2022-12-05 10:09:55 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:57 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:09:57 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:09:57 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:09:57)
+2022-12-05 10:09:57 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 83,72%. is added to queue
+2022-12-05 10:09:57 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:09:57.9929375+01:00" stamp is good.
+2022-12-05 10:09:57 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:09:57 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:09:58 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> Data is stored: 30.30.30.30;2022-12-05 10:09:57,992;20;83,72267150878906
+2022-12-05 10:09:58 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:09:57,992;20;83,72267150878906 stored.
+2022-12-05 10:09:58 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-9.txt
+2022-12-05 10:10:00 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:00 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:01 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:01)
+2022-12-05 10:10:01 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:10:01 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:01.0098051+01:00" stamp is expired.
+2022-12-05 10:10:01 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-9.txt -> File is closed
+2022-12-05 10:10:01 [INFO] [] PeriodicallyStoreSystem  -> d:\tuw\log\2022-12-5-10-9.txt is closed.
+2022-12-05 10:10:01 [INFO] [] PeriodicallyStoreSystem  -> 2022-12-5-10-9.txt is closed and new extenstion is bak.
+2022-12-05 10:10:01 [INFO] [] PeriodicallyStoreSystem -> New File id: 2022-12-5-10-10.txt
+2022-12-05 10:10:01 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:01 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:01 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> File not exsist. File created.
+2022-12-05 10:10:01 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:01,009;1;75,00080108642578 stored.
+2022-12-05 10:10:01 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:04 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:04)
+2022-12-05 10:10:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 84,98%. is added to queue
+2022-12-05 10:10:04 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:04.0433571+01:00" stamp is good.
+2022-12-05 10:10:04 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:04 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:04 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:04,043;2;84,9764633178711
+2022-12-05 10:10:04 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:04,043;2;84,9764633178711 stored.
+2022-12-05 10:10:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:07 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:07)
+2022-12-05 10:10:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 87,5%. is added to queue
+2022-12-05 10:10:07 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:07.0452931+01:00" stamp is good.
+2022-12-05 10:10:07 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:07 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:07 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:07,045;3;87,50176239013672
+2022-12-05 10:10:07 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:07,045;3;87,50176239013672 stored.
+2022-12-05 10:10:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:10 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:10 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:10 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:10)
+2022-12-05 10:10:10 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 100%. is added to queue
+2022-12-05 10:10:10 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:10.0709713+01:00" stamp is good.
+2022-12-05 10:10:10 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:10 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:10 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:10,070;4;100
+2022-12-05 10:10:10 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:10,070;4;100 stored.
+2022-12-05 10:10:10 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:13 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:13 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:13 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:13)
+2022-12-05 10:10:13 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:10:13 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:13.0754499+01:00" stamp is good.
+2022-12-05 10:10:13 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:13 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:13 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:13,075;5;75,00016021728516
+2022-12-05 10:10:13 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:13,075;5;75,00016021728516 stored.
+2022-12-05 10:10:13 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:16 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:16 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:16 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:16)
+2022-12-05 10:10:16 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 67,44%. is added to queue
+2022-12-05 10:10:16 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:16.0860796+01:00" stamp is good.
+2022-12-05 10:10:16 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:16 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:16 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:16,086;6;67,43611907958984
+2022-12-05 10:10:16 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:16,086;6;67,43611907958984 stored.
+2022-12-05 10:10:16 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:19 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:19 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:19 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:19)
+2022-12-05 10:10:19 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:10:19 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:19.0969837+01:00" stamp is good.
+2022-12-05 10:10:19 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:19 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:19 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:19,096;7;75,00224304199219
+2022-12-05 10:10:19 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:19,096;7;75,00224304199219 stored.
+2022-12-05 10:10:19 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:22 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:22 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:22 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:22)
+2022-12-05 10:10:22 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:10:22 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:22.1020191+01:00" stamp is good.
+2022-12-05 10:10:22 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:22 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:22 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:22,102;8;75,00399780273438
+2022-12-05 10:10:22 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:22,102;8;75,00399780273438 stored.
+2022-12-05 10:10:22 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:25 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:25 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:25 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:25)
+2022-12-05 10:10:25 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 100%. is added to queue
+2022-12-05 10:10:25 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:25.1380644+01:00" stamp is good.
+2022-12-05 10:10:25 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:25 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:25 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:25,138;9;100
+2022-12-05 10:10:25 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:25,138;9;100 stored.
+2022-12-05 10:10:25 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:28 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:28 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:28 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:28)
+2022-12-05 10:10:28 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:10:28 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:28.1337336+01:00" stamp is good.
+2022-12-05 10:10:28 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:28 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:28 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:28,133;10;75,00096130371094
+2022-12-05 10:10:28 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:28,133;10;75,00096130371094 stored.
+2022-12-05 10:10:28 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:31 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:31 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:31 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:31)
+2022-12-05 10:10:31 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 100%. is added to queue
+2022-12-05 10:10:31 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:31.1422230+01:00" stamp is good.
+2022-12-05 10:10:31 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:31 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:31 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:31,142;11;100
+2022-12-05 10:10:31 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:31,142;11;100 stored.
+2022-12-05 10:10:31 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:34 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:34 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:34 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:34)
+2022-12-05 10:10:34 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 67,44%. is added to queue
+2022-12-05 10:10:34 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:34.1561722+01:00" stamp is good.
+2022-12-05 10:10:34 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:34 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:34 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:34,156;12;67,44046783447266
+2022-12-05 10:10:34 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:34,156;12;67,44046783447266 stored.
+2022-12-05 10:10:34 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:37 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:37 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:37 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:37)
+2022-12-05 10:10:37 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 87,5%. is added to queue
+2022-12-05 10:10:37 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:37.1718606+01:00" stamp is good.
+2022-12-05 10:10:37 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:37 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:37 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:37,171;13;87,50055694580078
+2022-12-05 10:10:37 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:37,171;13;87,50055694580078 stored.
+2022-12-05 10:10:37 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:40 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:40 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:40 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:40)
+2022-12-05 10:10:40 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:10:40 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:40.1838392+01:00" stamp is good.
+2022-12-05 10:10:40 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:40 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:40 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:40,183;14;75,00399780273438
+2022-12-05 10:10:40 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:40,183;14;75,00399780273438 stored.
+2022-12-05 10:10:40 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:43 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:43 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:43 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:43)
+2022-12-05 10:10:43 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 87,5%. is added to queue
+2022-12-05 10:10:43 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:43.1865759+01:00" stamp is good.
+2022-12-05 10:10:43 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:43 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:43 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:43,186;15;87,49967956542969
+2022-12-05 10:10:43 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:43,186;15;87,49967956542969 stored.
+2022-12-05 10:10:43 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:46 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:46)
+2022-12-05 10:10:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 67,45%. is added to queue
+2022-12-05 10:10:46 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:46.1893577+01:00" stamp is good.
+2022-12-05 10:10:46 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:46 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:46 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:46,189;16;67,44725036621094
+2022-12-05 10:10:46 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:46,189;16;67,44725036621094 stored.
+2022-12-05 10:10:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:10:49 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:10:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:10:49)
+2022-12-05 10:10:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:10:49 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:10:49.2040374+01:00" stamp is good.
+2022-12-05 10:10:49 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:10:49 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:10:49 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> Data is stored: 30.30.30.30;2022-12-05 10:10:49,204;17;75,0031967163086
+2022-12-05 10:10:49 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:10:49,204;17;75,0031967163086 stored.
+2022-12-05 10:10:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-10.txt
+2022-12-05 10:11:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:11:04 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:11:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:11:04)
+2022-12-05 10:11:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 64,49%. is added to queue
+2022-12-05 10:11:04 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:11:04.2269336+01:00" stamp is expired.
+2022-12-05 10:11:04 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-10.txt -> File is closed
+2022-12-05 10:11:04 [INFO] [] PeriodicallyStoreSystem  -> d:\tuw\log\2022-12-5-10-10.txt is closed.
+2022-12-05 10:11:04 [INFO] [] PeriodicallyStoreSystem  -> 2022-12-5-10-10.txt is closed and new extenstion is bak.
+2022-12-05 10:11:04 [INFO] [] PeriodicallyStoreSystem -> New File id: 2022-12-5-10-11.txt
+2022-12-05 10:11:04 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:11:04 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-11.txt
+2022-12-05 10:11:04 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-11.txt -> File not exsist. File created.
+2022-12-05 10:11:04 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:11:04,226;1;64,48786163330078 stored.
+2022-12-05 10:11:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-11.txt
+2022-12-05 10:11:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:11:46 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:11:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:11:46)
+2022-12-05 10:11:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 62,5%. is added to queue
+2022-12-05 10:11:46 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:11:46.0708535+01:00" stamp is good.
+2022-12-05 10:11:46 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:11:46 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-11.txt
+2022-12-05 10:11:46 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-11.txt -> Data is stored: 30.30.30.30;2022-12-05 10:11:46,070;2;62,50128173828125
+2022-12-05 10:11:46 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:11:46,070;2;62,50128173828125 stored.
+2022-12-05 10:11:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-11.txt
+2022-12-05 10:11:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:11:49 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:11:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:11:49)
+2022-12-05 10:11:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 37,5%. is added to queue
+2022-12-05 10:11:49 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:11:49.0784812+01:00" stamp is good.
+2022-12-05 10:11:49 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:11:49 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-11.txt
+2022-12-05 10:11:49 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-11.txt -> Data is stored: 30.30.30.30;2022-12-05 10:11:49,078;3;37,500160217285156
+2022-12-05 10:11:49 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:11:49,078;3;37,500160217285156 stored.
+2022-12-05 10:11:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-11.txt
+2022-12-05 10:11:52 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:11:52 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:11:52 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:11:52)
+2022-12-05 10:11:52 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 18,6%. is added to queue
+2022-12-05 10:11:52 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:11:52.0832909+01:00" stamp is good.
+2022-12-05 10:11:52 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:11:52 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-11.txt
+2022-12-05 10:11:52 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-11.txt -> Data is stored: 30.30.30.30;2022-12-05 10:11:52,083;4;18,603721618652344
+2022-12-05 10:11:52 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:11:52,083;4;18,603721618652344 stored.
+2022-12-05 10:11:52 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-11.txt
+2022-12-05 10:11:55 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:11:55 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:11:55 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:11:55)
+2022-12-05 10:11:55 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 65,5%. is added to queue
+2022-12-05 10:11:55 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:11:55.1041454+01:00" stamp is good.
+2022-12-05 10:11:55 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:11:55 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-11.txt
+2022-12-05 10:11:55 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-11.txt -> Data is stored: 30.30.30.30;2022-12-05 10:11:55,104;5;65,50010681152344
+2022-12-05 10:11:55 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:11:55,104;5;65,50010681152344 stored.
+2022-12-05 10:11:55 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-11.txt
+2022-12-05 10:11:58 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:11:58 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:11:58 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:11:58)
+2022-12-05 10:11:58 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 31,06%. is added to queue
+2022-12-05 10:11:58 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:11:58.1244143+01:00" stamp is good.
+2022-12-05 10:11:58 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:11:58 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-11.txt
+2022-12-05 10:11:58 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-11.txt -> Data is stored: 30.30.30.30;2022-12-05 10:11:58,124;6;31,062009811401367
+2022-12-05 10:11:58 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:11:58,124;6;31,062009811401367 stored.
+2022-12-05 10:11:58 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-11.txt
+2022-12-05 10:12:01 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:01 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:01 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:01)
+2022-12-05 10:12:01 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 37,5%. is added to queue
+2022-12-05 10:12:01 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:01.1365095+01:00" stamp is expired.
+2022-12-05 10:12:01 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-11.txt -> File is closed
+2022-12-05 10:12:01 [INFO] [] PeriodicallyStoreSystem  -> d:\tuw\log\2022-12-5-10-11.txt is closed.
+2022-12-05 10:12:01 [INFO] [] PeriodicallyStoreSystem  -> 2022-12-5-10-11.txt is closed and new extenstion is bak.
+2022-12-05 10:12:01 [INFO] [] PeriodicallyStoreSystem -> New File id: 2022-12-5-10-12.txt
+2022-12-05 10:12:01 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:01 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:01 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> File not exsist. File created.
+2022-12-05 10:12:01 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:01,136;1;37,495121002197266 stored.
+2022-12-05 10:12:01 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:04 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:04)
+2022-12-05 10:12:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 37,5%. is added to queue
+2022-12-05 10:12:04 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:04.1477042+01:00" stamp is good.
+2022-12-05 10:12:04 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:04 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:04 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:04,147;2;37,49951934814453
+2022-12-05 10:12:04 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:04,147;2;37,49951934814453 stored.
+2022-12-05 10:12:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:07 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:07)
+2022-12-05 10:12:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 37,5%. is added to queue
+2022-12-05 10:12:07 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:07.1625666+01:00" stamp is good.
+2022-12-05 10:12:07 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:07 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:07 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:07,162;3;37,50136184692383
+2022-12-05 10:12:07 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:07,162;3;37,50136184692383 stored.
+2022-12-05 10:12:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:10 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:10 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:10 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:10)
+2022-12-05 10:12:10 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 72,1%. is added to queue
+2022-12-05 10:12:10 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:10.1988869+01:00" stamp is good.
+2022-12-05 10:12:10 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:10 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:10 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:10,198;4;72,09602355957031
+2022-12-05 10:12:10 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:10,198;4;72,09602355957031 stored.
+2022-12-05 10:12:10 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:13 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:13 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:13 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:13)
+2022-12-05 10:12:13 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 77,48%. is added to queue
+2022-12-05 10:12:13 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:13.2155404+01:00" stamp is good.
+2022-12-05 10:12:13 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:13 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:13 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:13,215;5;77,47615051269531
+2022-12-05 10:12:13 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:13,215;5;77,47615051269531 stored.
+2022-12-05 10:12:13 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:16 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:16 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:16 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:16)
+2022-12-05 10:12:16 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 37,5%. is added to queue
+2022-12-05 10:12:16 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:16.2129231+01:00" stamp is good.
+2022-12-05 10:12:16 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:16 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:16 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:16,212;6;37,50136184692383
+2022-12-05 10:12:16 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:16,212;6;37,50136184692383 stored.
+2022-12-05 10:12:16 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:19 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:19 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:19 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:19)
+2022-12-05 10:12:19 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 18,62%. is added to queue
+2022-12-05 10:12:19 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:19.2244612+01:00" stamp is good.
+2022-12-05 10:12:19 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:19 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:19 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:19,224;7;18,619321823120117
+2022-12-05 10:12:19 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:19,224;7;18,619321823120117 stored.
+2022-12-05 10:12:19 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:22 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:22 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:22 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:22)
+2022-12-05 10:12:22 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 58,19%. is added to queue
+2022-12-05 10:12:22 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:22.2463633+01:00" stamp is good.
+2022-12-05 10:12:22 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:22 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:22 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:22,246;8;58,191490173339844
+2022-12-05 10:12:22 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:22,246;8;58,191490173339844 stored.
+2022-12-05 10:12:22 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:25 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:25 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:25 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:25)
+2022-12-05 10:12:25 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 18,86%. is added to queue
+2022-12-05 10:12:25 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:25.2403789+01:00" stamp is good.
+2022-12-05 10:12:25 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:25 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:25 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:25,240;9;18,85531997680664
+2022-12-05 10:12:25 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:25,240;9;18,85531997680664 stored.
+2022-12-05 10:12:25 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:28 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:28 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:28 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:28)
+2022-12-05 10:12:28 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 50%. is added to queue
+2022-12-05 10:12:28 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:28.2438234+01:00" stamp is good.
+2022-12-05 10:12:28 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:28 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:28 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:28,243;10;49,99711990356445
+2022-12-05 10:12:28 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:28,243;10;49,99711990356445 stored.
+2022-12-05 10:12:28 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:31 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:31 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:31 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:31)
+2022-12-05 10:12:31 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 49,99%. is added to queue
+2022-12-05 10:12:31 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:31.2499331+01:00" stamp is good.
+2022-12-05 10:12:31 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:31 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:31 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:31,249;11;49,993919372558594
+2022-12-05 10:12:31 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:31,249;11;49,993919372558594 stored.
+2022-12-05 10:12:31 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:34 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:34 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:34 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:34)
+2022-12-05 10:12:34 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 84,98%. is added to queue
+2022-12-05 10:12:34 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:34.2795038+01:00" stamp is good.
+2022-12-05 10:12:34 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:34 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:34 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:34,279;12;84,97517395019531
+2022-12-05 10:12:34 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:34,279;12;84,97517395019531 stored.
+2022-12-05 10:12:34 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:37 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:37 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:37 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:37)
+2022-12-05 10:12:37 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 50,04%. is added to queue
+2022-12-05 10:12:37 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:37.2712685+01:00" stamp is good.
+2022-12-05 10:12:37 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:37 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:37 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:37,271;13;50,04252243041992
+2022-12-05 10:12:37 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:37,271;13;50,04252243041992 stored.
+2022-12-05 10:12:37 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:40 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:40 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:40 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:40)
+2022-12-05 10:12:40 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 37,5%. is added to queue
+2022-12-05 10:12:40 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:40.2803494+01:00" stamp is good.
+2022-12-05 10:12:40 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:40 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:40 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:40,280;14;37,498958587646484
+2022-12-05 10:12:40 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:40,280;14;37,498958587646484 stored.
+2022-12-05 10:12:40 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:43 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:43 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:43 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:43)
+2022-12-05 10:12:43 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 37,51%. is added to queue
+2022-12-05 10:12:43 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:43.2924634+01:00" stamp is good.
+2022-12-05 10:12:43 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:43 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:43 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:43,292;15;37,51191711425781
+2022-12-05 10:12:43 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:43,292;15;37,51191711425781 stored.
+2022-12-05 10:12:43 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:46 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:46)
+2022-12-05 10:12:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 24,84%. is added to queue
+2022-12-05 10:12:46 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:46.3005442+01:00" stamp is good.
+2022-12-05 10:12:46 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:46 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:46 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:46,300;16;24,842872619628906
+2022-12-05 10:12:46 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:46,300;16;24,842872619628906 stored.
+2022-12-05 10:12:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:49 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:49)
+2022-12-05 10:12:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 51,17%. is added to queue
+2022-12-05 10:12:49 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:49.3237085+01:00" stamp is good.
+2022-12-05 10:12:49 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:49 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:49 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:49,323;17;51,172489166259766
+2022-12-05 10:12:49 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:49,323;17;51,172489166259766 stored.
+2022-12-05 10:12:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:52 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:52 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:52 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:52)
+2022-12-05 10:12:52 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 62,43%. is added to queue
+2022-12-05 10:12:52 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:52.3523311+01:00" stamp is good.
+2022-12-05 10:12:52 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:52 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:52 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:52,352;18;62,432918548583984
+2022-12-05 10:12:52 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:52,352;18;62,432918548583984 stored.
+2022-12-05 10:12:52 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:55 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:55 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:55 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:55)
+2022-12-05 10:12:55 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 51,17%. is added to queue
+2022-12-05 10:12:55 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:55.3665670+01:00" stamp is good.
+2022-12-05 10:12:55 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:55 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:55 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:55,366;19;51,16735076904297
+2022-12-05 10:12:55 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:55,366;19;51,16735076904297 stored.
+2022-12-05 10:12:55 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:58 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:12:58 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:12:58 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:12:58)
+2022-12-05 10:12:58 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 49,85%. is added to queue
+2022-12-05 10:12:58 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:12:58.3615210+01:00" stamp is good.
+2022-12-05 10:12:58 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:12:58 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:12:58 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> Data is stored: 30.30.30.30;2022-12-05 10:12:58,361;20;49,84914779663086
+2022-12-05 10:12:58 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:12:58,361;20;49,84914779663086 stored.
+2022-12-05 10:12:58 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-12.txt
+2022-12-05 10:13:01 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:13:01 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:13:01 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:13:01)
+2022-12-05 10:13:01 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 37,49%. is added to queue
+2022-12-05 10:13:01 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:13:01.3755656+01:00" stamp is expired.
+2022-12-05 10:13:01 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-12.txt -> File is closed
+2022-12-05 10:13:01 [INFO] [] PeriodicallyStoreSystem  -> d:\tuw\log\2022-12-5-10-12.txt is closed.
+2022-12-05 10:13:01 [INFO] [] PeriodicallyStoreSystem  -> 2022-12-5-10-12.txt is closed and new extenstion is bak.
+2022-12-05 10:13:01 [INFO] [] PeriodicallyStoreSystem -> New File id: 2022-12-5-10-13.txt
+2022-12-05 10:13:01 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:13:01 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-13.txt
+2022-12-05 10:13:01 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-13.txt -> File not exsist. File created.
+2022-12-05 10:13:01 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:13:01,375;1;37,4935188293457 stored.
+2022-12-05 10:13:01 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-13.txt
+2022-12-05 10:13:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:13:04 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:13:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:13:04)
+2022-12-05 10:13:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 50%. is added to queue
+2022-12-05 10:13:04 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:13:04.3834906+01:00" stamp is good.
+2022-12-05 10:13:04 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:13:04 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-13.txt
+2022-12-05 10:13:04 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-13.txt -> Data is stored: 30.30.30.30;2022-12-05 10:13:04,383;2;50,00191879272461
+2022-12-05 10:13:04 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:13:04,383;2;50,00191879272461 stored.
+2022-12-05 10:13:04 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-13.txt
+2022-12-05 10:13:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:13:07 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:13:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:13:07)
+2022-12-05 10:13:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 37,5%. is added to queue
+2022-12-05 10:13:07 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:13:07.3944390+01:00" stamp is good.
+2022-12-05 10:13:07 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:13:07 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-13.txt
+2022-12-05 10:13:07 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-13.txt -> Data is stored: 30.30.30.30;2022-12-05 10:13:07,394;3;37,50136184692383
+2022-12-05 10:13:07 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:13:07,394;3;37,50136184692383 stored.
+2022-12-05 10:13:07 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-13.txt
+2022-12-05 10:13:10 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:13:10 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:13:10 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:13:10)
+2022-12-05 10:13:10 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 37,48%. is added to queue
+2022-12-05 10:13:10 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:13:10.4162963+01:00" stamp is good.
+2022-12-05 10:13:10 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:13:10 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-13.txt
+2022-12-05 10:13:10 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-13.txt -> Data is stored: 30.30.30.30;2022-12-05 10:13:10,416;4;37,477352142333984
+2022-12-05 10:13:10 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:13:10,416;4;37,477352142333984 stored.
+2022-12-05 10:13:10 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-13.txt
+2022-12-05 10:13:36 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:13:36 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:13:36 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:13:36)
+2022-12-05 10:13:36 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 62,5%. is added to queue
+2022-12-05 10:13:36 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:13:36.2519097+01:00" stamp is good.
+2022-12-05 10:13:36 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:13:36 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-13.txt
+2022-12-05 10:13:36 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-13.txt -> Data is stored: 30.30.30.30;2022-12-05 10:13:36,251;5;62,502159118652344
+2022-12-05 10:13:36 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:13:36,251;5;62,502159118652344 stored.
+2022-12-05 10:13:36 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-13.txt
+2022-12-05 10:13:39 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:13:39 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:13:39 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:13:39)
+2022-12-05 10:13:39 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 18,83%. is added to queue
+2022-12-05 10:13:39 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:13:39.2569892+01:00" stamp is good.
+2022-12-05 10:13:39 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:13:39 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-13.txt
+2022-12-05 10:13:39 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-13.txt -> Data is stored: 30.30.30.30;2022-12-05 10:13:39,256;6;18,827665328979492
+2022-12-05 10:13:39 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:13:39,256;6;18,827665328979492 stored.
+2022-12-05 10:13:39 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-13.txt
+2022-12-05 10:14:18 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:14:18 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:14:18 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:14:18)
+2022-12-05 10:14:18 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 67,46%. is added to queue
+2022-12-05 10:14:18 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:14:18.4301839+01:00" stamp is expired.
+2022-12-05 10:14:18 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-13.txt -> File is closed
+2022-12-05 10:14:18 [INFO] [] PeriodicallyStoreSystem  -> d:\tuw\log\2022-12-5-10-13.txt is closed.
+2022-12-05 10:14:18 [INFO] [] PeriodicallyStoreSystem  -> 2022-12-5-10-13.txt is closed and new extenstion is bak.
+2022-12-05 10:14:18 [INFO] [] PeriodicallyStoreSystem -> New File id: 2022-12-5-10-14.txt
+2022-12-05 10:14:18 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:14:18 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-14.txt
+2022-12-05 10:14:18 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-14.txt -> File not exsist. File created.
+2022-12-05 10:14:18 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:14:18,430;1;67,45740509033203 stored.
+2022-12-05 10:14:18 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-14.txt
+2022-12-05 10:14:21 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:14:21 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:14:21 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:14:21)
+2022-12-05 10:14:21 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 18,6%. is added to queue
+2022-12-05 10:14:21 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:14:21.4270736+01:00" stamp is good.
+2022-12-05 10:14:21 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:14:21 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-14.txt
+2022-12-05 10:14:21 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-14.txt -> Data is stored: 30.30.30.30;2022-12-05 10:14:21,427;2;18,60100746154785
+2022-12-05 10:14:21 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:14:21,427;2;18,60100746154785 stored.
+2022-12-05 10:14:21 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-14.txt
+2022-12-05 10:14:24 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:14:24 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:14:24 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:14:24)
+2022-12-05 10:14:24 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 0%. is added to queue
+2022-12-05 10:14:24 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:14:24.4357568+01:00" stamp is good.
+2022-12-05 10:14:24 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:14:24 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-14.txt
+2022-12-05 10:14:24 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-14.txt -> Data is stored: 30.30.30.30;2022-12-05 10:14:24,435;3;0
+2022-12-05 10:14:24 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:14:24,435;3;0 stored.
+2022-12-05 10:14:24 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-14.txt
+2022-12-05 10:14:27 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:14:27 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:14:27 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:14:27)
+2022-12-05 10:14:27 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 42,72%. is added to queue
+2022-12-05 10:14:27 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:14:27.4715083+01:00" stamp is good.
+2022-12-05 10:14:27 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:14:27 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-14.txt
+2022-12-05 10:14:27 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-14.txt -> Data is stored: 30.30.30.30;2022-12-05 10:14:27,471;4;42,7214469909668
+2022-12-05 10:14:27 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:14:27,471;4;42,7214469909668 stored.
+2022-12-05 10:14:27 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-14.txt
+2022-12-05 10:14:30 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:14:30 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:14:30 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:14:30)
+2022-12-05 10:14:30 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 37,5%. is added to queue
+2022-12-05 10:14:30 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:14:30.4636803+01:00" stamp is good.
+2022-12-05 10:14:30 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:14:30 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-14.txt
+2022-12-05 10:14:30 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-14.txt -> Data is stored: 30.30.30.30;2022-12-05 10:14:30,463;5;37,50175857543945
+2022-12-05 10:14:30 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:14:30,463;5;37,50175857543945 stored.
+2022-12-05 10:14:30 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-14.txt
+2022-12-05 10:15:10 [INFO] [] MeasureDevice 30.30.30.30 -> Initialize device...
+2022-12-05 10:15:10 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init
+2022-12-05 10:15:10 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init->Path is d:\tuw\log\
+2022-12-05 10:15:16 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:15:16 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:15:17 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:15:17)
+2022-12-05 10:15:17 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:15:17 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> Peek first data: CPU usage-> 75%.
+2022-12-05 10:15:17 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> First mesured data: CPU usage-> 75%.
+2022-12-05 10:15:17 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> No sotre file id
+2022-12-05 10:15:17 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> New sotre file id 2022-12-5-10-15.txt
+2022-12-05 10:15:17 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> No CPU data store periodically
+2022-12-05 10:15:17 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> New CPU data store d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:17 [INFO] [] MeasureDevice 30.30.30.30 -> StoringDataPeriodically->Init -> First Data Id is: 
+2022-12-05 10:15:17 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:15:17.0845294+01:00" stamp is good.
+2022-12-05 10:15:17 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:15:17 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:17 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-15.txt -> File not exsist. File created.
+2022-12-05 10:15:17 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:15:17,084;1;74,99504089355469 stored.
+2022-12-05 10:15:17 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:19 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:15:19 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:15:19 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:15:19)
+2022-12-05 10:15:19 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:15:19 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:15:19.2566033+01:00" stamp is good.
+2022-12-05 10:15:19 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:15:19 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:19 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-15.txt -> Data is stored: 30.30.30.30;2022-12-05 10:15:19,256;2;75,00303649902344
+2022-12-05 10:15:19 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:15:19,256;2;75,00303649902344 stored.
+2022-12-05 10:15:19 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:22 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:15:22 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:15:22 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:15:22)
+2022-12-05 10:15:22 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:15:22 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:15:22.2580699+01:00" stamp is good.
+2022-12-05 10:15:22 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:15:22 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:22 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-15.txt -> Data is stored: 30.30.30.30;2022-12-05 10:15:22,258;3;75,00016021728516
+2022-12-05 10:15:22 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:15:22,258;3;75,00016021728516 stored.
+2022-12-05 10:15:22 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:25 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:15:25 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:15:25 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:15:25)
+2022-12-05 10:15:25 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:15:25 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:15:25.2719775+01:00" stamp is good.
+2022-12-05 10:15:25 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:15:25 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:25 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-15.txt -> Data is stored: 30.30.30.30;2022-12-05 10:15:25,271;4;74,99664306640625
+2022-12-05 10:15:25 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:15:25,271;4;74,99664306640625 stored.
+2022-12-05 10:15:25 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:28 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:15:28 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:15:28 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:15:28)
+2022-12-05 10:15:28 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:15:28 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:15:28.2767771+01:00" stamp is good.
+2022-12-05 10:15:28 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:15:28 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:28 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-15.txt -> Data is stored: 30.30.30.30;2022-12-05 10:15:28,276;5;74,99983978271484
+2022-12-05 10:15:28 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:15:28,276;5;74,99983978271484 stored.
+2022-12-05 10:15:28 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:31 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:15:31 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:15:31 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:15:31)
+2022-12-05 10:15:31 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:15:31 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:15:31.2831903+01:00" stamp is good.
+2022-12-05 10:15:31 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:15:31 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:31 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-15.txt -> Data is stored: 30.30.30.30;2022-12-05 10:15:31,283;6;75,00048065185547
+2022-12-05 10:15:31 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:15:31,283;6;75,00048065185547 stored.
+2022-12-05 10:15:31 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:34 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:15:34 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:15:34 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:15:34)
+2022-12-05 10:15:34 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 87,5%. is added to queue
+2022-12-05 10:15:34 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:15:34.2955862+01:00" stamp is good.
+2022-12-05 10:15:34 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:15:34 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:34 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-15.txt -> Data is stored: 30.30.30.30;2022-12-05 10:15:34,295;7;87,49687957763672
+2022-12-05 10:15:34 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:15:34,295;7;87,49687957763672 stored.
+2022-12-05 10:15:34 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:37 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:15:37 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:15:37 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:15:37)
+2022-12-05 10:15:37 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:15:37 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:15:37.3005330+01:00" stamp is good.
+2022-12-05 10:15:37 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:15:37 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:37 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-15.txt -> Data is stored: 30.30.30.30;2022-12-05 10:15:37,300;8;75,00367736816406
+2022-12-05 10:15:37 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:15:37,300;8;75,00367736816406 stored.
+2022-12-05 10:15:37 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:40 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:15:40 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:15:40 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:15:40)
+2022-12-05 10:15:40 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 75%. is added to queue
+2022-12-05 10:15:40 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:15:40.3193578+01:00" stamp is good.
+2022-12-05 10:15:40 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:15:40 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:40 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-15.txt -> Data is stored: 30.30.30.30;2022-12-05 10:15:40,319;9;74,9968032836914
+2022-12-05 10:15:40 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:15:40,319;9;74,9968032836914 stored.
+2022-12-05 10:15:40 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:43 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:15:43 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:15:43 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:15:43)
+2022-12-05 10:15:43 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 87,5%. is added to queue
+2022-12-05 10:15:43 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:15:43.3352330+01:00" stamp is good.
+2022-12-05 10:15:43 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:15:43 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:43 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-15.txt -> Data is stored: 30.30.30.30;2022-12-05 10:15:43,335;10;87,49935913085938
+2022-12-05 10:15:43 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:15:43,335;10;87,49935913085938 stored.
+2022-12-05 10:15:43 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:15:46 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:15:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:15:46)
+2022-12-05 10:15:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 84,94%. is added to queue
+2022-12-05 10:15:46 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:15:46.3359370+01:00" stamp is good.
+2022-12-05 10:15:46 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:15:46 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:46 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-15.txt -> Data is stored: 30.30.30.30;2022-12-05 10:15:46,335;11;84,9402847290039
+2022-12-05 10:15:46 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:15:46,335;11;84,9402847290039 stored.
+2022-12-05 10:15:46 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data: begin working.
+2022-12-05 10:15:49 [INFO] [] MeasureDevice 30.30.30.30 -> prepare to measuring.
+2022-12-05 10:15:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring time: 2022.12.05 10:15:49)
+2022-12-05 10:15:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring result CPU usage-> 74,99%. is added to queue
+2022-12-05 10:15:49 [INFO] [] PeriodicallyStoreSystem  -> The "2022-12-05T10:15:49.3544148+01:00" stamp is good.
+2022-12-05 10:15:49 [INFO] [] MeasureDevice 30.30.30.30 -> Data to store:
+2022-12-05 10:15:49 [INFO] [] PeriodicallyStoreSystem  -> Write to data: d:\tuw\log\2022-12-5-10-15.txt
+2022-12-05 10:15:49 [INFO] [MeasureDeviceProject.BackgraoundService.MeasureDevice] MeasuringDataStore 2022-12-5-10-15.txt -> Data is stored: 30.30.30.30;2022-12-05 10:15:49,354;12;74,99327850341797
+2022-12-05 10:15:49 [INFO] [] MeasureDevice 30.30.30.30 -> 30.30.30.30;2022-12-05 10:15:49,354;12;74,99327850341797 stored.
+2022-12-05 10:15:49 [INFO] [] MeasureDevice 30.30.30.30 -> Measuring data stored to log file d:\tuw\log\2022-12-5-10-15.txt

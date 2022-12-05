@@ -13,6 +13,35 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeasureFrontend", "measurin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E5785476-09DC-4908-A73E-1B360731371A}"
 	ProjectSection(SolutionItems) = preProject
+		log-files\10.10.10.10\2022-12-5-10-10.tmp = log-files\10.10.10.10\2022-12-5-10-10.tmp
+		log-files\20.20.20.20\2022-12-5-10-10.tmp = log-files\20.20.20.20\2022-12-5-10-10.tmp
+		log-files\30.30.30.30\2022-12-5-10-10.tmp = log-files\30.30.30.30\2022-12-5-10-10.tmp
+		log-files\10.10.10.10\2022-12-5-10-11.tmp = log-files\10.10.10.10\2022-12-5-10-11.tmp
+		log-files\20.20.20.20\2022-12-5-10-11.tmp = log-files\20.20.20.20\2022-12-5-10-11.tmp
+		log-files\30.30.30.30\2022-12-5-10-11.tmp = log-files\30.30.30.30\2022-12-5-10-11.tmp
+		log-files\10.10.10.10\2022-12-5-10-12.tmp = log-files\10.10.10.10\2022-12-5-10-12.tmp
+		log-files\20.20.20.20\2022-12-5-10-12.tmp = log-files\20.20.20.20\2022-12-5-10-12.tmp
+		log-files\30.30.30.30\2022-12-5-10-12.tmp = log-files\30.30.30.30\2022-12-5-10-12.tmp
+		log-files\10.10.10.10\2022-12-5-10-13.tmp = log-files\10.10.10.10\2022-12-5-10-13.tmp
+		log-files\20.20.20.20\2022-12-5-10-13.tmp = log-files\20.20.20.20\2022-12-5-10-13.tmp
+		log-files\30.30.30.30\2022-12-5-10-13.tmp = log-files\30.30.30.30\2022-12-5-10-13.tmp
+		log-files\10.10.10.10\2022-12-5-10-14.tmp = log-files\10.10.10.10\2022-12-5-10-14.tmp
+		log-files\20.20.20.20\2022-12-5-10-14.tmp = log-files\20.20.20.20\2022-12-5-10-14.tmp
+		log-files\30.30.30.30\2022-12-5-10-14.tmp = log-files\30.30.30.30\2022-12-5-10-14.tmp
+		log-files\10.10.10.10\2022-12-5-10-15.txt = log-files\10.10.10.10\2022-12-5-10-15.txt
+		log-files\20.20.20.20\2022-12-5-10-15.txt = log-files\20.20.20.20\2022-12-5-10-15.txt
+		log-files\30.30.30.30\2022-12-5-10-15.txt = log-files\30.30.30.30\2022-12-5-10-15.txt
+		log-files\10.10.10.10\2022-12-5-10-8.tmp = log-files\10.10.10.10\2022-12-5-10-8.tmp
+		log-files\20.20.20.20\2022-12-5-10-8.tmp = log-files\20.20.20.20\2022-12-5-10-8.tmp
+		log-files\30.30.30.30\2022-12-5-10-8.tmp = log-files\30.30.30.30\2022-12-5-10-8.tmp
+		log-files\10.10.10.10\2022-12-5-10-9.tmp = log-files\10.10.10.10\2022-12-5-10-9.tmp
+		log-files\20.20.20.20\2022-12-5-10-9.tmp = log-files\20.20.20.20\2022-12-5-10-9.tmp
+		log-files\30.30.30.30\2022-12-5-10-9.tmp = log-files\30.30.30.30\2022-12-5-10-9.tmp
+		log-files\log-10.10.10.10-20221205.txt = log-files\log-10.10.10.10-20221205.txt
+		log-files\log-20.20.20.20-20221205.txt = log-files\log-20.20.20.20-20221205.txt
+		log-files\log-30.30.30.30-20221205.txt = log-files\log-30.30.30.30-20221205.txt
+		log-files\log20221205.txt = log-files\log20221205.txt
+		log-files\server\log20221205.txt = log-files\server\log20221205.txt
 		postman\Measure device.postman_collection.json = postman\Measure device.postman_collection.json
 	EndProjectSection
 EndProject

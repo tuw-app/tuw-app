@@ -1,0 +1,1076 @@
+2022-12-05 10:08:04.870 +01:00 [INF] User profile is available. Using 'C:\Users\gycsaba\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-12-05 10:08:05.277 +01:00 [INF] Now listening on: http://localhost:5002
+2022-12-05 10:08:05.285 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-12-05 10:08:05.286 +01:00 [INF] Hosting environment: Development
+2022-12-05 10:08:05.288 +01:00 [INF] Content root path: C:\csarp\tuw-app-end\measuring-frontend
+2022-12-05 10:09:12.234 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/  
+2022-12-05 10:09:12.296 +01:00 [INF] Executing endpoint '/_Host'
+2022-12-05 10:09:12.322 +01:00 [INF] Route matched with {page = "/_Host", action = "", controller = ""}. Executing page /_Host
+2022-12-05 10:09:12.334 +01:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2022-12-05 10:09:12.338 +01:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2022-12-05 10:09:12.430 +01:00 [INF] Executed page /_Host in 102.2575ms
+2022-12-05 10:09:12.433 +01:00 [INF] Executed endpoint '/_Host'
+2022-12-05 10:09:12.438 +01:00 [INF] Request finished in 208.5392ms 200 text/html; charset=utf-8
+2022-12-05 10:09:12.453 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/_blazor/disconnect multipart/form-data; boundary=----WebKitFormBoundaryZxcl5GT7qPhyQQNs 359
+2022-12-05 10:09:12.461 +01:00 [INF] Executing endpoint 'Blazor disconnect'
+2022-12-05 10:09:12.479 +01:00 [INF] Executed endpoint 'Blazor disconnect'
+2022-12-05 10:09:12.487 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/css/site.css  
+2022-12-05 10:09:12.487 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/css/bootstrap/bootstrap.min.css  
+2022-12-05 10:09:12.488 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/blazor.server.js  
+2022-12-05 10:09:12.488 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/lib/jquery/jquery.min.js  
+2022-12-05 10:09:12.488 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/lib/bootstrap/dist/js/bootstrap.min.js  
+2022-12-05 10:09:12.512 +01:00 [INF] Request finished in 58.0713ms 200 
+2022-12-05 10:09:12.523 +01:00 [INF] The file /_framework/blazor.server.js was not modified
+2022-12-05 10:09:12.523 +01:00 [INF] The file /css/site.css was not modified
+2022-12-05 10:09:12.524 +01:00 [INF] The file /css/bootstrap/bootstrap.min.css was not modified
+2022-12-05 10:09:12.528 +01:00 [INF] The file /lib/jquery/jquery.min.js was not modified
+2022-12-05 10:09:12.530 +01:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.min.js was not modified
+2022-12-05 10:09:12.551 +01:00 [INF] Request finished in 63.4108ms 304 application/javascript
+2022-12-05 10:09:12.536 +01:00 [INF] Request finished in 48.5335ms 304 text/css
+2022-12-05 10:09:12.543 +01:00 [INF] Request finished in 55.7965ms 304 text/css
+2022-12-05 10:09:12.547 +01:00 [INF] Request finished in 59.0688ms 304 application/javascript
+2022-12-05 10:09:12.536 +01:00 [INF] Request finished in 48.0553ms 304 application/javascript
+2022-12-05 10:09:12.559 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/css/open-iconic/font/css/open-iconic-bootstrap.min.css  
+2022-12-05 10:09:12.564 +01:00 [INF] The file /css/open-iconic/font/css/open-iconic-bootstrap.min.css was not modified
+2022-12-05 10:09:12.567 +01:00 [INF] Request finished in 8.5791ms 304 text/css
+2022-12-05 10:09:12.692 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5002/_blazor/negotiate?negotiateVersion=1 text/plain;charset=UTF-8 0
+2022-12-05 10:09:12.695 +01:00 [INF] Executing endpoint '/_blazor/negotiate'
+2022-12-05 10:09:12.711 +01:00 [INF] Executed endpoint '/_blazor/negotiate'
+2022-12-05 10:09:12.715 +01:00 [INF] Request finished in 23.1971ms 200 application/json
+2022-12-05 10:09:12.717 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/css/open-iconic/font/fonts/open-iconic.woff  
+2022-12-05 10:09:12.724 +01:00 [INF] The file /css/open-iconic/font/fonts/open-iconic.woff was not modified
+2022-12-05 10:09:12.728 +01:00 [INF] Request finished in 11.1395ms 304 application/font-woff
+2022-12-05 10:09:12.745 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_blazor?id=qx0_Zr7_Q0e1OWvj-bdBDg  
+2022-12-05 10:09:12.746 +01:00 [INF] Executing endpoint '/_blazor'
+2022-12-05 10:09:12.797 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/favicon.ico  
+2022-12-05 10:09:12.800 +01:00 [INF] The file /favicon.ico was not modified
+2022-12-05 10:09:12.802 +01:00 [INF] Request finished in 4.9311ms 304 image/x-icon
+2022-12-05 10:10:39.496 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:10:39.503 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:10:39.624 +01:00 [INF] Received HTTP response after 115.4653ms - "OK"
+2022-12-05 10:10:39.628 +01:00 [INF] End processing HTTP request after 134.6847ms - "OK"
+2022-12-05 10:10:39.766 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:10:39.769 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:10:39.770 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:10:39.930 +01:00 [INF] Received HTTP response after 160.1127ms - "OK"
+2022-12-05 10:10:39.942 +01:00 [INF] End processing HTTP request after 172.8774ms - "OK"
+2022-12-05 10:10:39.957 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:10:39.959 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:10:39.961 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:10:39.992 +01:00 [INF] Received HTTP response after 30.5681ms - "OK"
+2022-12-05 10:10:39.993 +01:00 [INF] End processing HTTP request after 33.7549ms - "OK"
+2022-12-05 10:10:39.995 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:10:39.997 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:10:39.998 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:10:40.014 +01:00 [INF] Received HTTP response after 15.3431ms - "OK"
+2022-12-05 10:10:40.015 +01:00 [INF] End processing HTTP request after 18.3976ms - "OK"
+2022-12-05 10:10:40.017 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:10:47.320 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/nomeasuring/10.10.10.10"
+2022-12-05 10:10:47.323 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/nomeasuring/10.10.10.10"
+2022-12-05 10:10:47.362 +01:00 [INF] Received HTTP response after 39.7885ms - "OK"
+2022-12-05 10:10:47.364 +01:00 [INF] End processing HTTP request after 44.1294ms - "OK"
+2022-12-05 10:10:47.367 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:10:47.368 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:10:47.392 +01:00 [INF] Received HTTP response after 23.2435ms - "OK"
+2022-12-05 10:10:47.399 +01:00 [INF] End processing HTTP request after 31.9076ms - "OK"
+2022-12-05 10:10:47.401 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:10:47.402 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:10:47.404 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:10:47.418 +01:00 [INF] Received HTTP response after 14.2785ms - "OK"
+2022-12-05 10:10:47.422 +01:00 [INF] End processing HTTP request after 19.5134ms - "OK"
+2022-12-05 10:10:47.429 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:10:47.431 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:10:47.433 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:10:47.448 +01:00 [INF] Received HTTP response after 15.2703ms - "OK"
+2022-12-05 10:10:47.449 +01:00 [INF] End processing HTTP request after 18.3568ms - "OK"
+2022-12-05 10:10:47.456 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:10:47.457 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:10:47.462 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:10:47.477 +01:00 [INF] Received HTTP response after 14.9757ms - "OK"
+2022-12-05 10:10:47.478 +01:00 [INF] End processing HTTP request after 20.7937ms - "OK"
+2022-12-05 10:10:47.480 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:10:49.532 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/nomeasuring/30.30.30.30"
+2022-12-05 10:10:49.535 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/nomeasuring/30.30.30.30"
+2022-12-05 10:10:49.558 +01:00 [INF] Received HTTP response after 23.3274ms - "OK"
+2022-12-05 10:10:49.560 +01:00 [INF] End processing HTTP request after 27.6404ms - "OK"
+2022-12-05 10:10:49.564 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:10:49.566 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:10:49.589 +01:00 [INF] Received HTTP response after 23.7455ms - "OK"
+2022-12-05 10:10:49.591 +01:00 [INF] End processing HTTP request after 27.544ms - "OK"
+2022-12-05 10:10:49.597 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:10:49.599 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:10:49.600 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:10:49.617 +01:00 [INF] Received HTTP response after 16.8492ms - "OK"
+2022-12-05 10:10:49.619 +01:00 [INF] End processing HTTP request after 19.9854ms - "OK"
+2022-12-05 10:10:49.624 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:10:49.634 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:10:49.642 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:10:49.663 +01:00 [INF] Received HTTP response after 20.4844ms - "OK"
+2022-12-05 10:10:49.664 +01:00 [INF] End processing HTTP request after 30.378ms - "OK"
+2022-12-05 10:10:49.668 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:10:49.670 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:10:49.672 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:10:49.695 +01:00 [INF] Received HTTP response after 22.6331ms - "OK"
+2022-12-05 10:10:49.696 +01:00 [INF] End processing HTTP request after 25.8047ms - "OK"
+2022-12-05 10:10:49.698 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:10:51.591 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/stop/20.20.20.20"
+2022-12-05 10:10:51.593 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/stop/20.20.20.20"
+2022-12-05 10:10:51.638 +01:00 [INF] Received HTTP response after 45.6154ms - "OK"
+2022-12-05 10:10:51.640 +01:00 [INF] End processing HTTP request after 49.7778ms - "OK"
+2022-12-05 10:10:51.644 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:10:51.645 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:10:51.666 +01:00 [INF] Received HTTP response after 20.5757ms - "OK"
+2022-12-05 10:10:51.667 +01:00 [INF] End processing HTTP request after 23.6808ms - "OK"
+2022-12-05 10:10:51.670 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:10:51.671 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:10:51.674 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:10:51.692 +01:00 [INF] Received HTTP response after 17.5875ms - "OK"
+2022-12-05 10:10:51.693 +01:00 [INF] End processing HTTP request after 22.3782ms - "OK"
+2022-12-05 10:10:51.695 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:10:51.697 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:10:51.698 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:10:51.715 +01:00 [INF] Received HTTP response after 16.9343ms - "OK"
+2022-12-05 10:10:51.717 +01:00 [INF] End processing HTTP request after 19.8424ms - "OK"
+2022-12-05 10:10:51.719 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:10:51.723 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:10:51.728 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:10:51.744 +01:00 [INF] Received HTTP response after 16.1321ms - "OK"
+2022-12-05 10:10:51.746 +01:00 [INF] End processing HTTP request after 22.6713ms - "OK"
+2022-12-05 10:10:51.748 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:00.396 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/measuring/10.10.10.10"
+2022-12-05 10:11:00.397 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/measuring/10.10.10.10"
+2022-12-05 10:11:00.412 +01:00 [INF] Received HTTP response after 14.2579ms - "OK"
+2022-12-05 10:11:00.414 +01:00 [INF] End processing HTTP request after 17.9422ms - "OK"
+2022-12-05 10:11:00.416 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:00.417 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:00.445 +01:00 [INF] Received HTTP response after 27.3949ms - "OK"
+2022-12-05 10:11:00.446 +01:00 [INF] End processing HTTP request after 30.4444ms - "OK"
+2022-12-05 10:11:00.449 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:00.451 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:00.453 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:00.477 +01:00 [INF] Received HTTP response after 23.5377ms - "OK"
+2022-12-05 10:11:00.478 +01:00 [INF] End processing HTTP request after 26.3392ms - "OK"
+2022-12-05 10:11:00.480 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:00.484 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:00.485 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:00.502 +01:00 [INF] Received HTTP response after 16.8365ms - "OK"
+2022-12-05 10:11:00.504 +01:00 [INF] End processing HTTP request after 20.5771ms - "OK"
+2022-12-05 10:11:00.514 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:00.516 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:00.519 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:00.534 +01:00 [INF] Received HTTP response after 14.4634ms - "OK"
+2022-12-05 10:11:00.536 +01:00 [INF] End processing HTTP request after 20.2834ms - "OK"
+2022-12-05 10:11:00.540 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:01.699 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/measuring/30.30.30.30"
+2022-12-05 10:11:01.701 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/measuring/30.30.30.30"
+2022-12-05 10:11:01.717 +01:00 [INF] Received HTTP response after 16.0783ms - "OK"
+2022-12-05 10:11:01.720 +01:00 [INF] End processing HTTP request after 21.1523ms - "OK"
+2022-12-05 10:11:01.723 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:01.731 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:01.753 +01:00 [INF] Received HTTP response after 22.2361ms - "OK"
+2022-12-05 10:11:01.754 +01:00 [INF] End processing HTTP request after 31.9069ms - "OK"
+2022-12-05 10:11:01.760 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:01.761 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:01.763 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:01.776 +01:00 [INF] Received HTTP response after 13.1359ms - "OK"
+2022-12-05 10:11:01.777 +01:00 [INF] End processing HTTP request after 15.8504ms - "OK"
+2022-12-05 10:11:01.779 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:01.786 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:01.791 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:01.813 +01:00 [INF] Received HTTP response after 22.9648ms - "OK"
+2022-12-05 10:11:01.815 +01:00 [INF] End processing HTTP request after 28.9888ms - "OK"
+2022-12-05 10:11:01.818 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:01.821 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:01.829 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:01.854 +01:00 [INF] Received HTTP response after 24.7759ms - "OK"
+2022-12-05 10:11:01.855 +01:00 [INF] End processing HTTP request after 34.1878ms - "OK"
+2022-12-05 10:11:01.860 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:03.972 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/start/20.20.20.20"
+2022-12-05 10:11:03.974 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/start/20.20.20.20"
+2022-12-05 10:11:04.006 +01:00 [INF] Received HTTP response after 31.5744ms - "OK"
+2022-12-05 10:11:04.009 +01:00 [INF] End processing HTTP request after 37.4829ms - "OK"
+2022-12-05 10:11:04.011 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:04.013 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:04.041 +01:00 [INF] Received HTTP response after 28.4775ms - "OK"
+2022-12-05 10:11:04.043 +01:00 [INF] End processing HTTP request after 31.6152ms - "OK"
+2022-12-05 10:11:04.046 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:04.047 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:04.049 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:04.063 +01:00 [INF] Received HTTP response after 14.4326ms - "OK"
+2022-12-05 10:11:04.064 +01:00 [INF] End processing HTTP request after 17.5194ms - "OK"
+2022-12-05 10:11:04.067 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:04.068 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:04.070 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:04.094 +01:00 [INF] Received HTTP response after 24.4194ms - "OK"
+2022-12-05 10:11:04.096 +01:00 [INF] End processing HTTP request after 27.6123ms - "OK"
+2022-12-05 10:11:04.100 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:04.101 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:04.106 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:04.127 +01:00 [INF] Received HTTP response after 21.1776ms - "OK"
+2022-12-05 10:11:04.128 +01:00 [INF] End processing HTTP request after 27.031ms - "OK"
+2022-12-05 10:11:04.130 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:06.484 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/stop/30.30.30.30"
+2022-12-05 10:11:06.486 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/stop/30.30.30.30"
+2022-12-05 10:11:06.511 +01:00 [INF] Received HTTP response after 24.443ms - "OK"
+2022-12-05 10:11:06.512 +01:00 [INF] End processing HTTP request after 28.5845ms - "OK"
+2022-12-05 10:11:06.514 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:06.517 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:06.539 +01:00 [INF] Received HTTP response after 21.9869ms - "OK"
+2022-12-05 10:11:06.541 +01:00 [INF] End processing HTTP request after 26.4152ms - "OK"
+2022-12-05 10:11:06.544 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:06.545 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:06.546 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:06.560 +01:00 [INF] Received HTTP response after 13.6625ms - "OK"
+2022-12-05 10:11:06.562 +01:00 [INF] End processing HTTP request after 16.7603ms - "OK"
+2022-12-05 10:11:06.564 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:06.567 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:06.568 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:06.582 +01:00 [INF] Received HTTP response after 14.1593ms - "OK"
+2022-12-05 10:11:06.583 +01:00 [INF] End processing HTTP request after 16.9501ms - "OK"
+2022-12-05 10:11:06.587 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:06.596 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:06.597 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:06.611 +01:00 [INF] Received HTTP response after 13.6017ms - "OK"
+2022-12-05 10:11:06.612 +01:00 [INF] End processing HTTP request after 16.7422ms - "OK"
+2022-12-05 10:11:06.614 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:07.596 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/stop/20.20.20.20"
+2022-12-05 10:11:07.599 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/stop/20.20.20.20"
+2022-12-05 10:11:07.618 +01:00 [INF] Received HTTP response after 19.9659ms - "OK"
+2022-12-05 10:11:07.622 +01:00 [INF] End processing HTTP request after 25.9401ms - "OK"
+2022-12-05 10:11:07.629 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:07.632 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:07.658 +01:00 [INF] Received HTTP response after 26.1492ms - "OK"
+2022-12-05 10:11:07.660 +01:00 [INF] End processing HTTP request after 30.5414ms - "OK"
+2022-12-05 10:11:07.663 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:07.665 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:07.667 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:07.681 +01:00 [INF] Received HTTP response after 14.7068ms - "OK"
+2022-12-05 10:11:07.683 +01:00 [INF] End processing HTTP request after 17.8978ms - "OK"
+2022-12-05 10:11:07.685 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:07.690 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:07.696 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:07.711 +01:00 [INF] Received HTTP response after 14.7337ms - "OK"
+2022-12-05 10:11:07.712 +01:00 [INF] End processing HTTP request after 22.028ms - "OK"
+2022-12-05 10:11:07.714 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:07.716 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:07.717 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:07.736 +01:00 [INF] Received HTTP response after 18.9065ms - "OK"
+2022-12-05 10:11:07.738 +01:00 [INF] End processing HTTP request after 21.7711ms - "OK"
+2022-12-05 10:11:07.747 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:09.562 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:09.564 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:09.585 +01:00 [INF] Received HTTP response after 21.751ms - "OK"
+2022-12-05 10:11:09.588 +01:00 [INF] End processing HTTP request after 25.4992ms - "OK"
+2022-12-05 10:11:09.598 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:09.605 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:11:09.611 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:11:09.639 +01:00 [INF] Received HTTP response after 28.6599ms - "OK"
+2022-12-05 10:11:09.641 +01:00 [INF] End processing HTTP request after 35.178ms - "OK"
+2022-12-05 10:11:09.649 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 10.10.10.10 -> 5000
+2022-12-05 10:11:09.657 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:11:09.659 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:11:09.671 +01:00 [INF] Received HTTP response after 11.8686ms - "OK"
+2022-12-05 10:11:09.672 +01:00 [INF] End processing HTTP request after 14.9557ms - "OK"
+2022-12-05 10:11:09.674 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 20.20.20.20 -> 2000
+2022-12-05 10:11:09.678 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:11:09.686 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:11:09.698 +01:00 [INF] Received HTTP response after 11.8518ms - "OK"
+2022-12-05 10:11:09.699 +01:00 [INF] End processing HTTP request after 21.0004ms - "OK"
+2022-12-05 10:11:09.701 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 30.30.30.30 -> 3000
+2022-12-05 10:11:14.330 +01:00 [INF] MDIntervalService -> SendIntervalToDevice -> Uri is http://localhost:5000/api/interval/10.10.10.10/
+2022-12-05 10:11:14.332 +01:00 [INF] MDIntervalService -> SendIntervalToDevice data -> DataModel.MDDataModel.MDIntervalData
+2022-12-05 10:11:14.384 +01:00 [INF] MDIntervalService -> SendIntervalToDevice-> Status code: "OK"
+2022-12-05 10:11:14.390 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:14.392 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:14.410 +01:00 [INF] Received HTTP response after 17.3997ms - "OK"
+2022-12-05 10:11:14.411 +01:00 [INF] End processing HTTP request after 20.7038ms - "OK"
+2022-12-05 10:11:14.413 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:14.414 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:11:14.416 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:11:14.427 +01:00 [INF] Received HTTP response after 11.1392ms - "OK"
+2022-12-05 10:11:14.429 +01:00 [INF] End processing HTTP request after 14.1703ms - "OK"
+2022-12-05 10:11:14.431 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 10.10.10.10 -> 7000
+2022-12-05 10:11:14.433 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:11:14.437 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:11:14.447 +01:00 [INF] Received HTTP response after 9.9323ms - "OK"
+2022-12-05 10:11:14.448 +01:00 [INF] End processing HTTP request after 15.5847ms - "OK"
+2022-12-05 10:11:14.452 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 20.20.20.20 -> 2000
+2022-12-05 10:11:14.459 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:11:14.460 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:11:14.472 +01:00 [INF] Received HTTP response after 11.7018ms - "OK"
+2022-12-05 10:11:14.473 +01:00 [INF] End processing HTTP request after 14.9129ms - "OK"
+2022-12-05 10:11:14.479 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 30.30.30.30 -> 3000
+2022-12-05 10:11:27.581 +01:00 [INF] MDIntervalService -> SendIntervalToDevice -> Uri is http://localhost:5000/api/interval/20.20.20.20/
+2022-12-05 10:11:27.582 +01:00 [INF] MDIntervalService -> SendIntervalToDevice data -> DataModel.MDDataModel.MDIntervalData
+2022-12-05 10:11:27.602 +01:00 [INF] MDIntervalService -> SendIntervalToDevice-> Status code: "OK"
+2022-12-05 10:11:27.604 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:27.609 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:27.629 +01:00 [INF] Received HTTP response after 20.2899ms - "OK"
+2022-12-05 10:11:27.631 +01:00 [INF] End processing HTTP request after 26.6318ms - "OK"
+2022-12-05 10:11:27.633 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:27.634 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:11:27.636 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:11:27.648 +01:00 [INF] Received HTTP response after 12.6389ms - "OK"
+2022-12-05 10:11:27.650 +01:00 [INF] End processing HTTP request after 15.8789ms - "OK"
+2022-12-05 10:11:27.652 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 10.10.10.10 -> 7000
+2022-12-05 10:11:27.661 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:11:27.663 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:11:27.675 +01:00 [INF] Received HTTP response after 11.6709ms - "OK"
+2022-12-05 10:11:27.677 +01:00 [INF] End processing HTTP request after 15.7095ms - "OK"
+2022-12-05 10:11:27.679 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 20.20.20.20 -> 4000
+2022-12-05 10:11:27.681 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:11:27.683 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:11:27.695 +01:00 [INF] Received HTTP response after 12.3749ms - "OK"
+2022-12-05 10:11:27.697 +01:00 [INF] End processing HTTP request after 15.8948ms - "OK"
+2022-12-05 10:11:27.699 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 30.30.30.30 -> 3000
+2022-12-05 10:11:34.549 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:34.551 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:34.573 +01:00 [INF] Received HTTP response after 22.0441ms - "OK"
+2022-12-05 10:11:34.574 +01:00 [INF] End processing HTTP request after 25.3961ms - "OK"
+2022-12-05 10:11:34.580 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:34.585 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:34.586 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:34.609 +01:00 [INF] Received HTTP response after 22.9499ms - "OK"
+2022-12-05 10:11:34.611 +01:00 [INF] End processing HTTP request after 26.3506ms - "OK"
+2022-12-05 10:11:34.618 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:34.620 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:34.622 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:34.645 +01:00 [INF] Received HTTP response after 23.5218ms - "OK"
+2022-12-05 10:11:34.648 +01:00 [INF] End processing HTTP request after 28.2869ms - "OK"
+2022-12-05 10:11:34.651 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:34.659 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:34.660 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:34.675 +01:00 [INF] Received HTTP response after 15.1072ms - "OK"
+2022-12-05 10:11:34.677 +01:00 [INF] End processing HTTP request after 18.3835ms - "OK"
+2022-12-05 10:11:34.681 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:36.635 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/nomeasuring/10.10.10.10"
+2022-12-05 10:11:36.639 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/nomeasuring/10.10.10.10"
+2022-12-05 10:11:36.652 +01:00 [INF] Received HTTP response after 13.2322ms - "OK"
+2022-12-05 10:11:36.654 +01:00 [INF] End processing HTTP request after 18.6719ms - "OK"
+2022-12-05 10:11:36.660 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:36.661 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:36.679 +01:00 [INF] Received HTTP response after 17.9051ms - "OK"
+2022-12-05 10:11:36.681 +01:00 [INF] End processing HTTP request after 21.1275ms - "OK"
+2022-12-05 10:11:36.683 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:36.684 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:36.685 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:36.699 +01:00 [INF] Received HTTP response after 13.484ms - "OK"
+2022-12-05 10:11:36.700 +01:00 [INF] End processing HTTP request after 16.3212ms - "OK"
+2022-12-05 10:11:36.702 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:36.713 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:36.714 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:36.730 +01:00 [INF] Received HTTP response after 16.1326ms - "OK"
+2022-12-05 10:11:36.732 +01:00 [INF] End processing HTTP request after 19.342ms - "OK"
+2022-12-05 10:11:36.734 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:36.737 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:36.739 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:36.759 +01:00 [INF] Received HTTP response after 19.6961ms - "OK"
+2022-12-05 10:11:36.760 +01:00 [INF] End processing HTTP request after 22.9814ms - "OK"
+2022-12-05 10:11:36.762 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:38.627 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/stop/10.10.10.10"
+2022-12-05 10:11:38.629 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/stop/10.10.10.10"
+2022-12-05 10:11:38.652 +01:00 [INF] Received HTTP response after 23.4423ms - "OK"
+2022-12-05 10:11:38.654 +01:00 [INF] End processing HTTP request after 26.8771ms - "OK"
+2022-12-05 10:11:38.656 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:38.666 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:38.689 +01:00 [INF] Received HTTP response after 22.177ms - "OK"
+2022-12-05 10:11:38.690 +01:00 [INF] End processing HTTP request after 33.8226ms - "OK"
+2022-12-05 10:11:38.693 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:38.694 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:38.696 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:38.709 +01:00 [INF] Received HTTP response after 13.3768ms - "OK"
+2022-12-05 10:11:38.711 +01:00 [INF] End processing HTTP request after 16.5784ms - "OK"
+2022-12-05 10:11:38.713 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:38.716 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:38.718 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:38.739 +01:00 [INF] Received HTTP response after 20.8113ms - "OK"
+2022-12-05 10:11:38.740 +01:00 [INF] End processing HTTP request after 24.0381ms - "OK"
+2022-12-05 10:11:38.743 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:38.744 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:38.746 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:38.761 +01:00 [INF] Received HTTP response after 15.499ms - "OK"
+2022-12-05 10:11:38.763 +01:00 [INF] End processing HTTP request after 18.4678ms - "OK"
+2022-12-05 10:11:38.765 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:43.019 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/start/20.20.20.20"
+2022-12-05 10:11:43.020 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/start/20.20.20.20"
+2022-12-05 10:11:43.047 +01:00 [INF] Received HTTP response after 26.391ms - "OK"
+2022-12-05 10:11:43.048 +01:00 [INF] End processing HTTP request after 29.6962ms - "OK"
+2022-12-05 10:11:43.052 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:43.054 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:43.095 +01:00 [INF] Received HTTP response after 41.2796ms - "OK"
+2022-12-05 10:11:43.097 +01:00 [INF] End processing HTTP request after 44.6553ms - "OK"
+2022-12-05 10:11:43.100 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:43.101 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:43.103 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:43.132 +01:00 [INF] Received HTTP response after 29.075ms - "OK"
+2022-12-05 10:11:43.134 +01:00 [INF] End processing HTTP request after 32.3566ms - "OK"
+2022-12-05 10:11:43.136 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:43.138 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:43.142 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:43.159 +01:00 [INF] Received HTTP response after 16.8661ms - "OK"
+2022-12-05 10:11:43.161 +01:00 [INF] End processing HTTP request after 22.6786ms - "OK"
+2022-12-05 10:11:43.164 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:43.165 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:43.169 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:43.186 +01:00 [INF] Received HTTP response after 16.7499ms - "OK"
+2022-12-05 10:11:43.187 +01:00 [INF] End processing HTTP request after 22.0389ms - "OK"
+2022-12-05 10:11:43.196 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:44.563 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/start/10.10.10.10"
+2022-12-05 10:11:44.565 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/start/10.10.10.10"
+2022-12-05 10:11:44.595 +01:00 [INF] Received HTTP response after 29.9672ms - "OK"
+2022-12-05 10:11:44.597 +01:00 [INF] End processing HTTP request after 33.9094ms - "OK"
+2022-12-05 10:11:44.599 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:44.603 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:44.643 +01:00 [INF] Received HTTP response after 40.4268ms - "OK"
+2022-12-05 10:11:44.645 +01:00 [INF] End processing HTTP request after 45.911ms - "OK"
+2022-12-05 10:11:44.648 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:44.649 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:44.651 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:44.668 +01:00 [INF] Received HTTP response after 17.4386ms - "OK"
+2022-12-05 10:11:44.671 +01:00 [INF] End processing HTTP request after 21.6445ms - "OK"
+2022-12-05 10:11:44.685 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:44.687 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:44.688 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:44.708 +01:00 [INF] Received HTTP response after 19.195ms - "OK"
+2022-12-05 10:11:44.709 +01:00 [INF] End processing HTTP request after 22.6586ms - "OK"
+2022-12-05 10:11:44.711 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:44.713 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:44.715 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:44.729 +01:00 [INF] Received HTTP response after 14.4522ms - "OK"
+2022-12-05 10:11:44.731 +01:00 [INF] End processing HTTP request after 17.7179ms - "OK"
+2022-12-05 10:11:44.734 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:45.971 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/start/30.30.30.30"
+2022-12-05 10:11:45.973 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/start/30.30.30.30"
+2022-12-05 10:11:45.998 +01:00 [INF] Received HTTP response after 25.7121ms - "OK"
+2022-12-05 10:11:46.000 +01:00 [INF] End processing HTTP request after 29.0263ms - "OK"
+2022-12-05 10:11:46.003 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:46.012 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:46.049 +01:00 [INF] Received HTTP response after 37.4284ms - "OK"
+2022-12-05 10:11:46.051 +01:00 [INF] End processing HTTP request after 48.0608ms - "OK"
+2022-12-05 10:11:46.055 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:46.056 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:46.058 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:46.069 +01:00 [INF] Received HTTP response after 10.9961ms - "OK"
+2022-12-05 10:11:46.073 +01:00 [INF] End processing HTTP request after 16.5839ms - "OK"
+2022-12-05 10:11:46.077 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:46.078 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:46.079 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:46.108 +01:00 [INF] Received HTTP response after 28.853ms - "OK"
+2022-12-05 10:11:46.109 +01:00 [INF] End processing HTTP request after 31.4972ms - "OK"
+2022-12-05 10:11:46.111 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:46.112 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:46.114 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:46.127 +01:00 [INF] Received HTTP response after 13.6383ms - "OK"
+2022-12-05 10:11:46.129 +01:00 [INF] End processing HTTP request after 16.3493ms - "OK"
+2022-12-05 10:11:46.130 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:50.538 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/cpuusage/10.10.10.10/1/10000000/2022. 12. 04. 10:11:50/2022. 12. 05. 10:11:50"
+2022-12-05 10:11:50.540 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/cpuusage/10.10.10.10/1/10000000/2022. 12. 04. 10:11:50/2022. 12. 05. 10:11:50"
+2022-12-05 10:11:50.712 +01:00 [INF] Received HTTP response after 171.8055ms - "OK"
+2022-12-05 10:11:50.714 +01:00 [INF] End processing HTTP request after 175.4109ms - "OK"
+2022-12-05 10:11:50.725 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 247
+2022-12-05 10:11:58.029 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:58.030 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:11:58.051 +01:00 [INF] Received HTTP response after 20.8743ms - "OK"
+2022-12-05 10:11:58.053 +01:00 [INF] End processing HTTP request after 24.1359ms - "OK"
+2022-12-05 10:11:58.056 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:11:58.057 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:58.059 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:11:58.078 +01:00 [INF] Received HTTP response after 19.37ms - "OK"
+2022-12-05 10:11:58.081 +01:00 [INF] End processing HTTP request after 23.1918ms - "OK"
+2022-12-05 10:11:58.082 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:58.085 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:58.086 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:11:58.111 +01:00 [INF] Received HTTP response after 24.5159ms - "OK"
+2022-12-05 10:11:58.112 +01:00 [INF] End processing HTTP request after 27.6069ms - "OK"
+2022-12-05 10:11:58.114 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:58.115 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:58.116 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:11:58.131 +01:00 [INF] Received HTTP response after 14.5691ms - "OK"
+2022-12-05 10:11:58.132 +01:00 [INF] End processing HTTP request after 17.1603ms - "OK"
+2022-12-05 10:11:58.136 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:11:59.701 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/cpuusage/20.20.20.20/1/10000000/2022. 12. 04. 10:11:59/2022. 12. 05. 10:11:59"
+2022-12-05 10:11:59.703 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/cpuusage/20.20.20.20/1/10000000/2022. 12. 04. 10:11:59/2022. 12. 05. 10:11:59"
+2022-12-05 10:11:59.876 +01:00 [INF] Received HTTP response after 172.9837ms - "OK"
+2022-12-05 10:11:59.877 +01:00 [INF] End processing HTTP request after 176.0477ms - "OK"
+2022-12-05 10:11:59.882 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 529
+2022-12-05 10:12:03.965 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/cpuusage/20.20.20.20/1/10000000/2022. 12. 05. 10:11:59/2022. 12. 05. 10:11:59"
+2022-12-05 10:12:03.967 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/cpuusage/20.20.20.20/1/10000000/2022. 12. 05. 10:11:59/2022. 12. 05. 10:11:59"
+2022-12-05 10:12:04.137 +01:00 [INF] Received HTTP response after 170.4457ms - "OK"
+2022-12-05 10:12:04.139 +01:00 [INF] End processing HTTP request after 173.5247ms - "OK"
+2022-12-05 10:12:04.140 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 0
+2022-12-05 10:12:11.708 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/cpuusage/20.20.20.20/1/10000000/2022. 12. 05. 10:40:59/2022. 12. 05. 10:11:59"
+2022-12-05 10:12:11.709 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/cpuusage/20.20.20.20/1/10000000/2022. 12. 05. 10:40:59/2022. 12. 05. 10:11:59"
+2022-12-05 10:12:11.873 +01:00 [INF] Received HTTP response after 163.6932ms - "OK"
+2022-12-05 10:12:11.875 +01:00 [INF] End processing HTTP request after 166.9131ms - "OK"
+2022-12-05 10:12:11.876 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 0
+2022-12-05 10:12:26.579 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/cpuusage/20.20.20.20/1/10000000/2022. 12. 05. 9:40:59/2022. 12. 05. 10:11:59"
+2022-12-05 10:12:26.581 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/cpuusage/20.20.20.20/1/10000000/2022. 12. 05. 9:40:59/2022. 12. 05. 10:11:59"
+2022-12-05 10:12:26.715 +01:00 [INF] Received HTTP response after 133.2903ms - "OK"
+2022-12-05 10:12:26.716 +01:00 [INF] End processing HTTP request after 136.7135ms - "OK"
+2022-12-05 10:12:26.718 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 86
+2022-12-05 10:12:31.963 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:31.965 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:31.984 +01:00 [INF] Received HTTP response after 18.535ms - "OK"
+2022-12-05 10:12:31.985 +01:00 [INF] End processing HTTP request after 21.8276ms - "OK"
+2022-12-05 10:12:31.991 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:12:31.992 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:12:31.994 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:12:32.007 +01:00 [INF] Received HTTP response after 12.8778ms - "OK"
+2022-12-05 10:12:32.008 +01:00 [INF] End processing HTTP request after 16.1124ms - "OK"
+2022-12-05 10:12:32.011 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 10.10.10.10 -> 7000
+2022-12-05 10:12:32.013 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:12:32.014 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:12:32.031 +01:00 [INF] Received HTTP response after 17.4098ms - "OK"
+2022-12-05 10:12:32.033 +01:00 [INF] End processing HTTP request after 20.3342ms - "OK"
+2022-12-05 10:12:32.037 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 20.20.20.20 -> 4000
+2022-12-05 10:12:32.039 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:12:32.040 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:12:32.049 +01:00 [INF] Received HTTP response after 8.725ms - "OK"
+2022-12-05 10:12:32.053 +01:00 [INF] End processing HTTP request after 14.0993ms - "OK"
+2022-12-05 10:12:32.055 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 30.30.30.30 -> 3000
+2022-12-05 10:12:39.436 +01:00 [INF] MDIntervalService -> SendIntervalToDevice -> Uri is http://localhost:5000/api/interval/10.10.10.10/
+2022-12-05 10:12:39.438 +01:00 [INF] MDIntervalService -> SendIntervalToDevice data -> DataModel.MDDataModel.MDIntervalData
+2022-12-05 10:12:39.456 +01:00 [INF] MDIntervalService -> SendIntervalToDevice-> Status code: "OK"
+2022-12-05 10:12:39.457 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:39.459 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:39.478 +01:00 [INF] Received HTTP response after 19.0685ms - "OK"
+2022-12-05 10:12:39.479 +01:00 [INF] End processing HTTP request after 22.0605ms - "OK"
+2022-12-05 10:12:39.481 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:12:39.482 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:12:39.484 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:12:39.496 +01:00 [INF] Received HTTP response after 11.9339ms - "OK"
+2022-12-05 10:12:39.497 +01:00 [INF] End processing HTTP request after 15.0843ms - "OK"
+2022-12-05 10:12:39.499 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 10.10.10.10 -> 100
+2022-12-05 10:12:39.501 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:12:39.502 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:12:39.528 +01:00 [INF] Received HTTP response after 25.1926ms - "OK"
+2022-12-05 10:12:39.529 +01:00 [INF] End processing HTTP request after 28.499ms - "OK"
+2022-12-05 10:12:39.531 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 20.20.20.20 -> 4000
+2022-12-05 10:12:39.532 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:12:39.534 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:12:39.548 +01:00 [INF] Received HTTP response after 14.4043ms - "OK"
+2022-12-05 10:12:39.550 +01:00 [INF] End processing HTTP request after 17.2404ms - "OK"
+2022-12-05 10:12:39.554 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 30.30.30.30 -> 3000
+2022-12-05 10:12:42.244 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:42.246 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:42.266 +01:00 [INF] Received HTTP response after 20.3112ms - "OK"
+2022-12-05 10:12:42.270 +01:00 [INF] End processing HTTP request after 25.7165ms - "OK"
+2022-12-05 10:12:42.276 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:12:42.277 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:12:42.279 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:12:42.308 +01:00 [INF] Received HTTP response after 29.1578ms - "OK"
+2022-12-05 10:12:42.309 +01:00 [INF] End processing HTTP request after 32.2941ms - "OK"
+2022-12-05 10:12:42.316 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:12:42.318 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:12:42.319 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:12:42.335 +01:00 [INF] Received HTTP response after 15.9428ms - "OK"
+2022-12-05 10:12:42.337 +01:00 [INF] End processing HTTP request after 18.7489ms - "OK"
+2022-12-05 10:12:42.340 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:12:42.342 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:12:42.343 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:12:42.364 +01:00 [INF] Received HTTP response after 21.4832ms - "OK"
+2022-12-05 10:12:42.366 +01:00 [INF] End processing HTTP request after 24.1137ms - "OK"
+2022-12-05 10:12:42.369 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:12:45.434 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:45.437 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:45.458 +01:00 [INF] Received HTTP response after 21.0765ms - "OK"
+2022-12-05 10:12:45.459 +01:00 [INF] End processing HTTP request after 24.9314ms - "OK"
+2022-12-05 10:12:45.461 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:12:45.462 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:12:45.463 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:12:45.478 +01:00 [INF] Received HTTP response after 15.5071ms - "OK"
+2022-12-05 10:12:45.480 +01:00 [INF] End processing HTTP request after 18.1822ms - "OK"
+2022-12-05 10:12:45.481 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:12:45.484 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:12:45.486 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:12:45.496 +01:00 [INF] Received HTTP response after 10.7715ms - "OK"
+2022-12-05 10:12:45.498 +01:00 [INF] End processing HTTP request after 13.4184ms - "OK"
+2022-12-05 10:12:45.499 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:12:45.501 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:12:45.502 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:12:45.519 +01:00 [INF] Received HTTP response after 17.1095ms - "OK"
+2022-12-05 10:12:45.521 +01:00 [INF] End processing HTTP request after 20.001ms - "OK"
+2022-12-05 10:12:45.524 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:12:50.732 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:50.733 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:50.766 +01:00 [INF] Received HTTP response after 33.2413ms - "OK"
+2022-12-05 10:12:50.768 +01:00 [INF] End processing HTTP request after 36.423ms - "OK"
+2022-12-05 10:12:50.770 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:12:50.772 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:12:50.774 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:12:50.785 +01:00 [INF] Received HTTP response after 11.4268ms - "OK"
+2022-12-05 10:12:50.786 +01:00 [INF] End processing HTTP request after 14.6051ms - "OK"
+2022-12-05 10:12:50.790 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 10.10.10.10 -> 100
+2022-12-05 10:12:50.792 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:12:50.793 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:12:50.810 +01:00 [INF] Received HTTP response after 17.1564ms - "OK"
+2022-12-05 10:12:50.812 +01:00 [INF] End processing HTTP request after 20.3524ms - "OK"
+2022-12-05 10:12:50.816 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 20.20.20.20 -> 4000
+2022-12-05 10:12:50.817 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:12:50.819 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:12:50.836 +01:00 [INF] Received HTTP response after 17.3142ms - "OK"
+2022-12-05 10:12:50.838 +01:00 [INF] End processing HTTP request after 20.1801ms - "OK"
+2022-12-05 10:12:50.841 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 30.30.30.30 -> 3000
+2022-12-05 10:12:55.213 +01:00 [INF] MDIntervalService -> SendIntervalToDevice -> Uri is http://localhost:5000/api/interval/10.10.10.10/
+2022-12-05 10:12:55.215 +01:00 [INF] MDIntervalService -> SendIntervalToDevice data -> DataModel.MDDataModel.MDIntervalData
+2022-12-05 10:12:55.235 +01:00 [INF] MDIntervalService -> SendIntervalToDevice-> Status code: "OK"
+2022-12-05 10:12:55.238 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:55.239 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:55.258 +01:00 [INF] Received HTTP response after 18.1309ms - "OK"
+2022-12-05 10:12:55.259 +01:00 [INF] End processing HTTP request after 21.1021ms - "OK"
+2022-12-05 10:12:55.261 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:12:55.262 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:12:55.264 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:12:55.276 +01:00 [INF] Received HTTP response after 12.1481ms - "OK"
+2022-12-05 10:12:55.277 +01:00 [INF] End processing HTTP request after 15.2249ms - "OK"
+2022-12-05 10:12:55.281 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 10.10.10.10 -> 1000
+2022-12-05 10:12:55.283 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:12:55.284 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:12:55.298 +01:00 [INF] Received HTTP response after 13.4799ms - "OK"
+2022-12-05 10:12:55.299 +01:00 [INF] End processing HTTP request after 16.4076ms - "OK"
+2022-12-05 10:12:55.301 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 20.20.20.20 -> 4000
+2022-12-05 10:12:55.302 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:12:55.306 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:12:55.329 +01:00 [INF] Received HTTP response after 23.0967ms - "OK"
+2022-12-05 10:12:55.330 +01:00 [INF] End processing HTTP request after 28.3147ms - "OK"
+2022-12-05 10:12:55.340 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 30.30.30.30 -> 3000
+2022-12-05 10:12:57.883 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:57.885 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:12:57.906 +01:00 [INF] Received HTTP response after 21.3879ms - "OK"
+2022-12-05 10:12:57.908 +01:00 [INF] End processing HTTP request after 25.0849ms - "OK"
+2022-12-05 10:12:57.910 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:12:57.911 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:12:57.913 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:12:57.929 +01:00 [INF] Received HTTP response after 16.1031ms - "OK"
+2022-12-05 10:12:57.930 +01:00 [INF] End processing HTTP request after 19.1316ms - "OK"
+2022-12-05 10:12:57.932 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:12:57.935 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:12:57.936 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:12:57.955 +01:00 [INF] Received HTTP response after 18.4517ms - "OK"
+2022-12-05 10:12:57.956 +01:00 [INF] End processing HTTP request after 21.5798ms - "OK"
+2022-12-05 10:12:57.959 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:12:57.960 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:12:57.961 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:12:57.976 +01:00 [INF] Received HTTP response after 14.8711ms - "OK"
+2022-12-05 10:12:57.978 +01:00 [INF] End processing HTTP request after 17.8201ms - "OK"
+2022-12-05 10:12:57.981 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:05.834 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/stop/10.10.10.10"
+2022-12-05 10:13:05.836 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/stop/10.10.10.10"
+2022-12-05 10:13:05.851 +01:00 [INF] Received HTTP response after 15.3279ms - "OK"
+2022-12-05 10:13:05.854 +01:00 [INF] End processing HTTP request after 19.9541ms - "OK"
+2022-12-05 10:13:05.856 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:05.858 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:05.875 +01:00 [INF] Received HTTP response after 17.2738ms - "OK"
+2022-12-05 10:13:05.877 +01:00 [INF] End processing HTTP request after 20.363ms - "OK"
+2022-12-05 10:13:05.878 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:13:05.880 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:05.881 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:05.895 +01:00 [INF] Received HTTP response after 13.5832ms - "OK"
+2022-12-05 10:13:05.897 +01:00 [INF] End processing HTTP request after 16.5725ms - "OK"
+2022-12-05 10:13:05.898 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:05.900 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:05.901 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:05.916 +01:00 [INF] Received HTTP response after 14.824ms - "OK"
+2022-12-05 10:13:05.919 +01:00 [INF] End processing HTTP request after 19.1907ms - "OK"
+2022-12-05 10:13:05.921 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:05.923 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:05.924 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:05.940 +01:00 [INF] Received HTTP response after 15.0906ms - "OK"
+2022-12-05 10:13:05.941 +01:00 [INF] End processing HTTP request after 18.7781ms - "OK"
+2022-12-05 10:13:05.943 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:09.258 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/stop/20.20.20.20"
+2022-12-05 10:13:09.260 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/stop/20.20.20.20"
+2022-12-05 10:13:09.274 +01:00 [INF] Received HTTP response after 14.0905ms - "OK"
+2022-12-05 10:13:09.275 +01:00 [INF] End processing HTTP request after 17.1868ms - "OK"
+2022-12-05 10:13:09.277 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:09.278 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:09.295 +01:00 [INF] Received HTTP response after 17.0374ms - "OK"
+2022-12-05 10:13:09.296 +01:00 [INF] End processing HTTP request after 19.7553ms - "OK"
+2022-12-05 10:13:09.300 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:13:09.302 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:09.303 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:09.316 +01:00 [INF] Received HTTP response after 13.0155ms - "OK"
+2022-12-05 10:13:09.317 +01:00 [INF] End processing HTTP request after 15.7735ms - "OK"
+2022-12-05 10:13:09.319 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:09.320 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:09.321 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:09.334 +01:00 [INF] Received HTTP response after 12.2813ms - "OK"
+2022-12-05 10:13:09.335 +01:00 [INF] End processing HTTP request after 14.9639ms - "OK"
+2022-12-05 10:13:09.336 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:09.340 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:09.342 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:09.356 +01:00 [INF] Received HTTP response after 14.5243ms - "OK"
+2022-12-05 10:13:09.358 +01:00 [INF] End processing HTTP request after 17.9031ms - "OK"
+2022-12-05 10:13:09.359 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:10.722 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/stop/30.30.30.30"
+2022-12-05 10:13:10.724 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/stop/30.30.30.30"
+2022-12-05 10:13:10.743 +01:00 [INF] Received HTTP response after 19.3889ms - "OK"
+2022-12-05 10:13:10.745 +01:00 [INF] End processing HTTP request after 22.8481ms - "OK"
+2022-12-05 10:13:10.747 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:10.748 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:10.771 +01:00 [INF] Received HTTP response after 23.3126ms - "OK"
+2022-12-05 10:13:10.773 +01:00 [INF] End processing HTTP request after 26.1579ms - "OK"
+2022-12-05 10:13:10.774 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:13:10.775 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:10.777 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:10.788 +01:00 [INF] Received HTTP response after 11.4001ms - "OK"
+2022-12-05 10:13:10.790 +01:00 [INF] End processing HTTP request after 14.1299ms - "OK"
+2022-12-05 10:13:10.791 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:10.793 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:10.794 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:10.804 +01:00 [INF] Received HTTP response after 9.8771ms - "OK"
+2022-12-05 10:13:10.806 +01:00 [INF] End processing HTTP request after 13.7742ms - "OK"
+2022-12-05 10:13:10.810 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:10.811 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:10.812 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:10.825 +01:00 [INF] Received HTTP response after 12.6076ms - "OK"
+2022-12-05 10:13:10.826 +01:00 [INF] End processing HTTP request after 15.2205ms - "OK"
+2022-12-05 10:13:10.828 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:33.266 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/start/10.10.10.10"
+2022-12-05 10:13:33.268 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/start/10.10.10.10"
+2022-12-05 10:13:33.295 +01:00 [INF] Received HTTP response after 27.3127ms - "OK"
+2022-12-05 10:13:33.296 +01:00 [INF] End processing HTTP request after 30.5779ms - "OK"
+2022-12-05 10:13:33.298 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:33.299 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:33.335 +01:00 [INF] Received HTTP response after 35.3262ms - "OK"
+2022-12-05 10:13:33.336 +01:00 [INF] End processing HTTP request after 38.069ms - "OK"
+2022-12-05 10:13:33.344 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:13:33.346 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:33.347 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:33.365 +01:00 [INF] Received HTTP response after 17.7086ms - "OK"
+2022-12-05 10:13:33.366 +01:00 [INF] End processing HTTP request after 20.6197ms - "OK"
+2022-12-05 10:13:33.387 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:33.389 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:33.390 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:33.405 +01:00 [INF] Received HTTP response after 15.2666ms - "OK"
+2022-12-05 10:13:33.407 +01:00 [INF] End processing HTTP request after 18.1451ms - "OK"
+2022-12-05 10:13:33.410 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:33.412 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:33.413 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:33.429 +01:00 [INF] Received HTTP response after 16.385ms - "OK"
+2022-12-05 10:13:33.431 +01:00 [INF] End processing HTTP request after 19.0927ms - "OK"
+2022-12-05 10:13:33.435 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:34.522 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/start/20.20.20.20"
+2022-12-05 10:13:34.524 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/start/20.20.20.20"
+2022-12-05 10:13:34.550 +01:00 [INF] Received HTTP response after 25.763ms - "OK"
+2022-12-05 10:13:34.551 +01:00 [INF] End processing HTTP request after 29.0995ms - "OK"
+2022-12-05 10:13:34.552 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:34.556 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:34.592 +01:00 [INF] Received HTTP response after 36.8668ms - "OK"
+2022-12-05 10:13:34.594 +01:00 [INF] End processing HTTP request after 41.5231ms - "OK"
+2022-12-05 10:13:34.598 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:13:34.599 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:34.601 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:34.618 +01:00 [INF] Received HTTP response after 17.7408ms - "OK"
+2022-12-05 10:13:34.621 +01:00 [INF] End processing HTTP request after 21.5918ms - "OK"
+2022-12-05 10:13:34.625 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:34.627 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:34.628 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:34.643 +01:00 [INF] Received HTTP response after 14.8128ms - "OK"
+2022-12-05 10:13:34.644 +01:00 [INF] End processing HTTP request after 17.4293ms - "OK"
+2022-12-05 10:13:34.647 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:34.649 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:34.650 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:34.666 +01:00 [INF] Received HTTP response after 16.0005ms - "OK"
+2022-12-05 10:13:34.669 +01:00 [INF] End processing HTTP request after 20.3986ms - "OK"
+2022-12-05 10:13:34.672 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:36.146 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/start/30.30.30.30"
+2022-12-05 10:13:36.148 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/start/30.30.30.30"
+2022-12-05 10:13:36.173 +01:00 [INF] Received HTTP response after 24.8127ms - "OK"
+2022-12-05 10:13:36.175 +01:00 [INF] End processing HTTP request after 29.123ms - "OK"
+2022-12-05 10:13:36.177 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:36.178 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:36.215 +01:00 [INF] Received HTTP response after 36.6255ms - "OK"
+2022-12-05 10:13:36.216 +01:00 [INF] End processing HTTP request after 39.5755ms - "OK"
+2022-12-05 10:13:36.219 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:13:36.221 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:36.222 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:36.236 +01:00 [INF] Received HTTP response after 13.5253ms - "OK"
+2022-12-05 10:13:36.240 +01:00 [INF] End processing HTTP request after 19.1735ms - "OK"
+2022-12-05 10:13:36.245 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:36.246 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:36.247 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:36.270 +01:00 [INF] Received HTTP response after 22.5432ms - "OK"
+2022-12-05 10:13:36.271 +01:00 [INF] End processing HTTP request after 25.261ms - "OK"
+2022-12-05 10:13:36.274 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:36.275 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:36.277 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:36.292 +01:00 [INF] Received HTTP response after 15.3172ms - "OK"
+2022-12-05 10:13:36.293 +01:00 [INF] End processing HTTP request after 17.8544ms - "OK"
+2022-12-05 10:13:36.295 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:37.378 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/nomeasuring/10.10.10.10"
+2022-12-05 10:13:37.379 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/nomeasuring/10.10.10.10"
+2022-12-05 10:13:37.393 +01:00 [INF] Received HTTP response after 13.4197ms - "OK"
+2022-12-05 10:13:37.394 +01:00 [INF] End processing HTTP request after 16.4414ms - "OK"
+2022-12-05 10:13:37.395 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:37.397 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:37.413 +01:00 [INF] Received HTTP response after 16.3611ms - "OK"
+2022-12-05 10:13:37.415 +01:00 [INF] End processing HTTP request after 19.0907ms - "OK"
+2022-12-05 10:13:37.416 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:13:37.417 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:37.420 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:37.433 +01:00 [INF] Received HTTP response after 13.0264ms - "OK"
+2022-12-05 10:13:37.436 +01:00 [INF] End processing HTTP request after 18.8158ms - "OK"
+2022-12-05 10:13:37.439 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:37.441 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:37.442 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:37.458 +01:00 [INF] Received HTTP response after 15.6419ms - "OK"
+2022-12-05 10:13:37.459 +01:00 [INF] End processing HTTP request after 18.4592ms - "OK"
+2022-12-05 10:13:37.461 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:37.462 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:37.463 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:37.477 +01:00 [INF] Received HTTP response after 13.8195ms - "OK"
+2022-12-05 10:13:37.479 +01:00 [INF] End processing HTTP request after 16.6814ms - "OK"
+2022-12-05 10:13:37.481 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:38.450 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/nomeasuring/20.20.20.20"
+2022-12-05 10:13:38.452 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/nomeasuring/20.20.20.20"
+2022-12-05 10:13:38.466 +01:00 [INF] Received HTTP response after 14.2539ms - "OK"
+2022-12-05 10:13:38.470 +01:00 [INF] End processing HTTP request after 20.1036ms - "OK"
+2022-12-05 10:13:38.472 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:38.473 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:38.492 +01:00 [INF] Received HTTP response after 18.3589ms - "OK"
+2022-12-05 10:13:38.493 +01:00 [INF] End processing HTTP request after 21.2439ms - "OK"
+2022-12-05 10:13:38.495 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:13:38.496 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:38.497 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:38.512 +01:00 [INF] Received HTTP response after 14.4415ms - "OK"
+2022-12-05 10:13:38.513 +01:00 [INF] End processing HTTP request after 17.3998ms - "OK"
+2022-12-05 10:13:38.515 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:38.516 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:38.517 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:38.530 +01:00 [INF] Received HTTP response after 13.3138ms - "OK"
+2022-12-05 10:13:38.532 +01:00 [INF] End processing HTTP request after 15.8558ms - "OK"
+2022-12-05 10:13:38.533 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:38.535 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:38.536 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:38.549 +01:00 [INF] Received HTTP response after 13.1314ms - "OK"
+2022-12-05 10:13:38.550 +01:00 [INF] End processing HTTP request after 15.6153ms - "OK"
+2022-12-05 10:13:38.552 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:39.530 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/nomeasuring/30.30.30.30"
+2022-12-05 10:13:39.531 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/nomeasuring/30.30.30.30"
+2022-12-05 10:13:39.544 +01:00 [INF] Received HTTP response after 12.3359ms - "OK"
+2022-12-05 10:13:39.545 +01:00 [INF] End processing HTTP request after 15.3256ms - "OK"
+2022-12-05 10:13:39.546 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:39.547 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:13:39.563 +01:00 [INF] Received HTTP response after 15.9888ms - "OK"
+2022-12-05 10:13:39.565 +01:00 [INF] End processing HTTP request after 18.5816ms - "OK"
+2022-12-05 10:13:39.568 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:13:39.569 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:39.570 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:13:39.582 +01:00 [INF] Received HTTP response after 12.1515ms - "OK"
+2022-12-05 10:13:39.586 +01:00 [INF] End processing HTTP request after 16.614ms - "OK"
+2022-12-05 10:13:39.588 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:39.589 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:39.590 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:13:39.601 +01:00 [INF] Received HTTP response after 10.5245ms - "OK"
+2022-12-05 10:13:39.602 +01:00 [INF] End processing HTTP request after 13.1089ms - "OK"
+2022-12-05 10:13:39.607 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:13:39.609 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:39.610 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:13:39.623 +01:00 [INF] Received HTTP response after 12.8384ms - "OK"
+2022-12-05 10:13:39.624 +01:00 [INF] End processing HTTP request after 15.5837ms - "OK"
+2022-12-05 10:13:39.626 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:14:16.498 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/measuring/10.10.10.10"
+2022-12-05 10:14:16.500 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/measuring/10.10.10.10"
+2022-12-05 10:14:16.514 +01:00 [INF] Received HTTP response after 14.4196ms - "OK"
+2022-12-05 10:14:16.516 +01:00 [INF] End processing HTTP request after 17.9033ms - "OK"
+2022-12-05 10:14:16.520 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:16.521 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:16.542 +01:00 [INF] Received HTTP response after 20.3206ms - "OK"
+2022-12-05 10:14:16.543 +01:00 [INF] End processing HTTP request after 23.3928ms - "OK"
+2022-12-05 10:14:16.545 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:14:16.546 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:14:16.547 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:14:16.561 +01:00 [INF] Received HTTP response after 13.9844ms - "OK"
+2022-12-05 10:14:16.563 +01:00 [INF] End processing HTTP request after 16.8495ms - "OK"
+2022-12-05 10:14:16.565 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:14:16.566 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:14:16.567 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:14:16.588 +01:00 [INF] Received HTTP response after 20.6224ms - "OK"
+2022-12-05 10:14:16.589 +01:00 [INF] End processing HTTP request after 23.5282ms - "OK"
+2022-12-05 10:14:16.591 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:14:16.592 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:14:16.594 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:14:16.608 +01:00 [INF] Received HTTP response after 14.3368ms - "OK"
+2022-12-05 10:14:16.609 +01:00 [INF] End processing HTTP request after 17.0876ms - "OK"
+2022-12-05 10:14:16.611 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:14:17.562 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/measuring/20.20.20.20"
+2022-12-05 10:14:17.564 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/measuring/20.20.20.20"
+2022-12-05 10:14:17.578 +01:00 [INF] Received HTTP response after 13.8954ms - "OK"
+2022-12-05 10:14:17.580 +01:00 [INF] End processing HTTP request after 17.8374ms - "OK"
+2022-12-05 10:14:17.581 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:17.584 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:17.609 +01:00 [INF] Received HTTP response after 25.1187ms - "OK"
+2022-12-05 10:14:17.610 +01:00 [INF] End processing HTTP request after 29.3403ms - "OK"
+2022-12-05 10:14:17.612 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:14:17.613 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:14:17.615 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:14:17.629 +01:00 [INF] Received HTTP response after 13.2455ms - "OK"
+2022-12-05 10:14:17.630 +01:00 [INF] End processing HTTP request after 16.8712ms - "OK"
+2022-12-05 10:14:17.631 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:14:17.633 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:14:17.635 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:14:17.650 +01:00 [INF] Received HTTP response after 15.1168ms - "OK"
+2022-12-05 10:14:17.651 +01:00 [INF] End processing HTTP request after 17.9666ms - "OK"
+2022-12-05 10:14:17.656 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:14:17.658 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:14:17.659 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:14:17.675 +01:00 [INF] Received HTTP response after 15.4596ms - "OK"
+2022-12-05 10:14:17.676 +01:00 [INF] End processing HTTP request after 18.6163ms - "OK"
+2022-12-05 10:14:17.678 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:14:18.330 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/measuring/30.30.30.30"
+2022-12-05 10:14:18.332 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/measuring/30.30.30.30"
+2022-12-05 10:14:18.347 +01:00 [INF] Received HTTP response after 15.0464ms - "OK"
+2022-12-05 10:14:18.348 +01:00 [INF] End processing HTTP request after 18.4764ms - "OK"
+2022-12-05 10:14:18.350 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:18.354 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:18.375 +01:00 [INF] Received HTTP response after 20.3626ms - "OK"
+2022-12-05 10:14:18.376 +01:00 [INF] End processing HTTP request after 26.4501ms - "OK"
+2022-12-05 10:14:18.378 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:14:18.379 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:14:18.381 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:14:18.396 +01:00 [INF] Received HTTP response after 15.4021ms - "OK"
+2022-12-05 10:14:18.399 +01:00 [INF] End processing HTTP request after 19.9226ms - "OK"
+2022-12-05 10:14:18.403 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:14:18.404 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:14:18.406 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:14:18.425 +01:00 [INF] Received HTTP response after 19.5451ms - "OK"
+2022-12-05 10:14:18.427 +01:00 [INF] End processing HTTP request after 22.6276ms - "OK"
+2022-12-05 10:14:18.428 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:14:18.432 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:14:18.433 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:14:18.454 +01:00 [INF] Received HTTP response after 20.0375ms - "OK"
+2022-12-05 10:14:18.455 +01:00 [INF] End processing HTTP request after 23.1605ms - "OK"
+2022-12-05 10:14:18.459 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:14:20.595 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:20.597 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:20.614 +01:00 [INF] Received HTTP response after 17.2914ms - "OK"
+2022-12-05 10:14:20.617 +01:00 [INF] End processing HTTP request after 22.2767ms - "OK"
+2022-12-05 10:14:20.621 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:14:20.623 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:14:20.625 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:14:20.639 +01:00 [INF] Received HTTP response after 14.6832ms - "OK"
+2022-12-05 10:14:20.641 +01:00 [INF] End processing HTTP request after 17.923ms - "OK"
+2022-12-05 10:14:20.643 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 10.10.10.10 -> 1000
+2022-12-05 10:14:20.645 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:14:20.647 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:14:20.661 +01:00 [INF] Received HTTP response after 13.7437ms - "OK"
+2022-12-05 10:14:20.662 +01:00 [INF] End processing HTTP request after 16.7281ms - "OK"
+2022-12-05 10:14:20.666 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 20.20.20.20 -> 4000
+2022-12-05 10:14:20.667 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:14:20.669 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:14:20.678 +01:00 [INF] Received HTTP response after 9.1097ms - "OK"
+2022-12-05 10:14:20.681 +01:00 [INF] End processing HTTP request after 13.3104ms - "OK"
+2022-12-05 10:14:20.682 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 30.30.30.30 -> 3000
+2022-12-05 10:14:27.420 +01:00 [INF] MDIntervalService -> SendIntervalToDevice -> Uri is http://localhost:5000/api/interval/10.10.10.10/
+2022-12-05 10:14:27.422 +01:00 [INF] MDIntervalService -> SendIntervalToDevice data -> DataModel.MDDataModel.MDIntervalData
+2022-12-05 10:14:27.442 +01:00 [INF] MDIntervalService -> SendIntervalToDevice-> Status code: "OK"
+2022-12-05 10:14:27.444 +01:00 [INF] MDIntervalService -> SendIntervalToDevice -> Uri is http://localhost:5000/api/interval/20.20.20.20/
+2022-12-05 10:14:27.445 +01:00 [INF] MDIntervalService -> SendIntervalToDevice data -> DataModel.MDDataModel.MDIntervalData
+2022-12-05 10:14:27.465 +01:00 [INF] MDIntervalService -> SendIntervalToDevice-> Status code: "OK"
+2022-12-05 10:14:27.467 +01:00 [INF] MDIntervalService -> SendIntervalToDevice -> Uri is http://localhost:5000/api/interval/30.30.30.30/
+2022-12-05 10:14:27.469 +01:00 [INF] MDIntervalService -> SendIntervalToDevice data -> DataModel.MDDataModel.MDIntervalData
+2022-12-05 10:14:27.500 +01:00 [INF] MDIntervalService -> SendIntervalToDevice-> Status code: "OK"
+2022-12-05 10:14:27.501 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:27.503 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:27.521 +01:00 [INF] Received HTTP response after 18.4172ms - "OK"
+2022-12-05 10:14:27.523 +01:00 [INF] End processing HTTP request after 21.5174ms - "OK"
+2022-12-05 10:14:27.525 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:14:27.526 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:14:27.528 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:14:27.540 +01:00 [INF] Received HTTP response after 11.8019ms - "OK"
+2022-12-05 10:14:27.542 +01:00 [INF] End processing HTTP request after 15.2598ms - "OK"
+2022-12-05 10:14:27.543 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 10.10.10.10 -> 100000
+2022-12-05 10:14:27.545 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:14:27.547 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:14:27.560 +01:00 [INF] Received HTTP response after 12.8349ms - "OK"
+2022-12-05 10:14:27.562 +01:00 [INF] End processing HTTP request after 16.5481ms - "OK"
+2022-12-05 10:14:27.563 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 20.20.20.20 -> 400000
+2022-12-05 10:14:27.567 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:14:27.569 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:14:27.580 +01:00 [INF] Received HTTP response after 11.2036ms - "OK"
+2022-12-05 10:14:27.584 +01:00 [INF] End processing HTTP request after 16.8963ms - "OK"
+2022-12-05 10:14:27.585 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 30.30.30.30 -> 300000
+2022-12-05 10:14:28.964 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:28.966 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:28.985 +01:00 [INF] Received HTTP response after 19.1752ms - "OK"
+2022-12-05 10:14:28.989 +01:00 [INF] End processing HTTP request after 25.1194ms - "OK"
+2022-12-05 10:14:28.992 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:14:28.994 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:14:28.995 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:14:29.004 +01:00 [INF] Received HTTP response after 9.398ms - "OK"
+2022-12-05 10:14:29.006 +01:00 [INF] End processing HTTP request after 12.2962ms - "OK"
+2022-12-05 10:14:29.007 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 10.10.10.10 -> 100000
+2022-12-05 10:14:29.009 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:14:29.010 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:14:29.022 +01:00 [INF] Received HTTP response after 11.852ms - "OK"
+2022-12-05 10:14:29.023 +01:00 [INF] End processing HTTP request after 14.4273ms - "OK"
+2022-12-05 10:14:29.025 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 20.20.20.20 -> 400000
+2022-12-05 10:14:29.026 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:14:29.027 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:14:29.036 +01:00 [INF] Received HTTP response after 8.9012ms - "OK"
+2022-12-05 10:14:29.040 +01:00 [INF] End processing HTTP request after 13.436ms - "OK"
+2022-12-05 10:14:29.042 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 30.30.30.30 -> 300000
+2022-12-05 10:14:30.284 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:30.286 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:30.308 +01:00 [INF] Received HTTP response after 21.3637ms - "OK"
+2022-12-05 10:14:30.310 +01:00 [INF] End processing HTTP request after 25.2537ms - "OK"
+2022-12-05 10:14:30.311 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:14:30.313 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:14:30.315 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:14:30.325 +01:00 [INF] Received HTTP response after 10.4347ms - "OK"
+2022-12-05 10:14:30.327 +01:00 [INF] End processing HTTP request after 13.7931ms - "OK"
+2022-12-05 10:14:30.328 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 10.10.10.10 -> 100000
+2022-12-05 10:14:30.330 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:14:30.331 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:14:30.344 +01:00 [INF] Received HTTP response after 13.0097ms - "OK"
+2022-12-05 10:14:30.346 +01:00 [INF] End processing HTTP request after 15.8871ms - "OK"
+2022-12-05 10:14:30.347 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 20.20.20.20 -> 400000
+2022-12-05 10:14:30.349 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:14:30.350 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:14:30.362 +01:00 [INF] Received HTTP response after 12.3251ms - "OK"
+2022-12-05 10:14:30.364 +01:00 [INF] End processing HTTP request after 15.0669ms - "OK"
+2022-12-05 10:14:30.365 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 30.30.30.30 -> 300000
+2022-12-05 10:14:35.890 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:35.892 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:35.912 +01:00 [INF] Received HTTP response after 19.7706ms - "OK"
+2022-12-05 10:14:35.913 +01:00 [INF] End processing HTTP request after 23.1123ms - "OK"
+2022-12-05 10:14:35.917 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:14:35.919 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:14:35.921 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/10.10.10.10"
+2022-12-05 10:14:35.934 +01:00 [INF] Received HTTP response after 12.5028ms - "OK"
+2022-12-05 10:14:35.935 +01:00 [INF] End processing HTTP request after 16.6228ms - "OK"
+2022-12-05 10:14:35.937 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 10.10.10.10 -> 100000
+2022-12-05 10:14:35.940 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:14:35.942 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/20.20.20.20"
+2022-12-05 10:14:35.956 +01:00 [INF] Received HTTP response after 13.6807ms - "OK"
+2022-12-05 10:14:35.957 +01:00 [INF] End processing HTTP request after 17.6765ms - "OK"
+2022-12-05 10:14:35.959 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 20.20.20.20 -> 400000
+2022-12-05 10:14:35.962 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:14:35.964 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/interval/30.30.30.30"
+2022-12-05 10:14:35.977 +01:00 [INF] Received HTTP response after 13.1165ms - "OK"
+2022-12-05 10:14:35.978 +01:00 [INF] End processing HTTP request after 16.2369ms - "OK"
+2022-12-05 10:14:35.980 +01:00 [INF] MDIntervalService -> GetMDInterval -> Gets interval: 30.30.30.30 -> 300000
+2022-12-05 10:14:38.586 +01:00 [INF] Start processing HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:38.588 +01:00 [INF] Sending HTTP request GET "http://localhost:5001/api/md"
+2022-12-05 10:14:38.608 +01:00 [INF] Received HTTP response after 19.3877ms - "OK"
+2022-12-05 10:14:38.609 +01:00 [INF] End processing HTTP request after 22.7371ms - "OK"
+2022-12-05 10:14:38.611 +01:00 [INF] CPUUsageService -> GetAllCPUUsages -> Gets CPU usages count: 3
+2022-12-05 10:14:38.612 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:14:38.613 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/10.10.10.10/state"
+2022-12-05 10:14:38.629 +01:00 [INF] Received HTTP response after 15.7938ms - "OK"
+2022-12-05 10:14:38.631 +01:00 [INF] End processing HTTP request after 18.7361ms - "OK"
+2022-12-05 10:14:38.635 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 10.10.10.10 -> DataModel.MDDataModel.MDState
+2022-12-05 10:14:38.636 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:14:38.638 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/20.20.20.20/state"
+2022-12-05 10:14:38.658 +01:00 [INF] Received HTTP response after 20.2805ms - "OK"
+2022-12-05 10:14:38.660 +01:00 [INF] End processing HTTP request after 23.508ms - "OK"
+2022-12-05 10:14:38.662 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 20.20.20.20 -> DataModel.MDDataModel.MDState
+2022-12-05 10:14:38.663 +01:00 [INF] Start processing HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:14:38.667 +01:00 [INF] Sending HTTP request GET "http://localhost:5000/api/30.30.30.30/state"
+2022-12-05 10:14:38.679 +01:00 [INF] Received HTTP response after 11.6251ms - "OK"
+2022-12-05 10:14:38.681 +01:00 [INF] End processing HTTP request after 17.7845ms - "OK"
+2022-12-05 10:14:38.683 +01:00 [INF] MDStateService -> GetMdSatates -> Gets statates: 30.30.30.30 -> DataModel.MDDataModel.MDState
+2022-12-05 10:15:47.298 +01:00 [INF] Application is shutting down...
+2022-12-05 10:15:47.299 +01:00 [INF] Executed endpoint '/_blazor'
+2022-12-05 10:15:47.301 +01:00 [INF] Request finished in 394557.6809ms 101 
