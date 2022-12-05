@@ -31,7 +31,7 @@ namespace MeasuringServer.Controllers
         public IActionResult GetAllCPUUsageOfSpecificDevicePaged(string IPAddress, int page, int pageSize, DateTime startDate, DateTime endDate)
         {
             logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->Get cpu usage of specific device paged, IPAddress: {Address}, page: {page}", IPAddress, page);
-            logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->Get cpu usage of specific device paged, StartDate: {StartDate}, End: {page}", startDate, endDate);
+            logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->Get cpu usage of specific device paged, StartDate: {StartDate}, End: {EndDate}", startDate, endDate);
 
             List<EFCPUUsage> CPUUsages = null;
             PagedList<EFCPUUsage> CPUUsagesPaged = null;
@@ -67,6 +67,7 @@ namespace MeasuringServer.Controllers
                     // Get all paged
                     CPUUsagesPaged = wrapper.CPUDatas.GetAllCPUUsageOfSpecificDevicePaged(IPAddress,  startDate,  endDate, page, pageSize);
                     logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->Gets paged {PageInfo} cpu usages",CPUUsagesPaged.ToString());
+                    logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->Number of item:", CPUUsagesPaged.ToString());
                 }
 
                 logger.LogInformation("CPUUsageController -> GetAllCPUUsageOfSpecificDevicePaged->Gets {count} cpu usages");

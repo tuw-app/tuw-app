@@ -41,6 +41,11 @@
                     <input type="datetime-local" @bind="@endDateTime" step="1" />
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm">
+                    <button class="btn btn-info" @onclick=' () => this.RefreshData()'>Adatok lekérése</button>
+                </div>
+             </div>
         </div>
         
 
@@ -57,12 +62,13 @@
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h2><b>Mérőeszközök</b> kezelése</h2>
+                                <h2><b>Mérőeszközök</b> mérései</h2>
                             </div>
                         </div>
                     </div>
                     
                     <div class="container">
+                        <!--
                         <div class="row">
                             <div class="col-sm">
                                 @if (CPUUsages.HavePrevius)
@@ -76,11 +82,8 @@
                                     <button class="btn btn-info" @onclick=' () =>NextPage()'>Következő</button>
                                 }
                             </div>
-
-                            <div class="col-sm">
-                                <button class="btn btn-info" @onclick=' () => this.RefreshData()'>Adatok lekérése</button>
-                            </div>
                         </div>
+                        -->
                     </div>
 
                     <table class="table table-striped table-hover">
@@ -132,7 +135,6 @@
 
         startDateTime = DateTime.Now.AddDays(-1);
 
-
         await RefreshData();
     }
 
@@ -142,7 +144,7 @@
         Console.WriteLine($"End: {EndDateTimeStr}");
         Console.WriteLine($"Current page: {EndDateTimeStr}");
         CPUUsages = new PagedList<EFCPUUsage>();
-        CPUUsages = await CPUUsageService.GetAllCPUUsages(new MDIPAddress(IPAddress), startDateTime, endDateTime, currentPage, 30);
+        CPUUsages = await CPUUsageService.GetAllCPUUsages(new MDIPAddress(IPAddress), startDateTime, endDateTime, currentPage, 10000000);
 
         Console.WriteLine($"Number of page: {CPUUsages.NumberOfPage}");
         Console.WriteLine($"Number page: {CPUUsages.Page}");

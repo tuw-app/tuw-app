@@ -34,8 +34,8 @@ namespace MeasuringServer.Model.Paging
         public int NumberOfPage
         {
             get
-            {
-                return numberOfItem / pageSize+ (numberOfItem % pageSize > 0 ? 1 : 0);
+            {                
+                return numberOfItem / pageSize + (numberOfItem % pageSize > 0 ? 1 : 0);
             }
         }
 
@@ -64,11 +64,11 @@ namespace MeasuringServer.Model.Paging
             list = new List<T>();
         }        
 
-        public void SetPageData(int page, int pageSize, int numberOfItem)
+        public void SetPageData(int page, int pageSize, int numberOfAllItem)
         {
             this.Page = page;
             this.PageSize = pageSize;
-            this.NumberOfItem = numberOfItem;
+            this.NumberOfItem = numberOfAllItem;
         }
 
         public override string ToString()
